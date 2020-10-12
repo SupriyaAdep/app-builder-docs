@@ -2,7 +2,7 @@
 
 Build your own RTE experience instantly! Visit https://appbuilder.agora.io/.
 
-### Visit the documentation https://github.com/AgoraIO-Community/app-builder-docs/wiki
+### Visit the documentation [wiki](https://github.com/AgoraIO-Community/app-builder-docs/wiki)
 
 [![](./images/Home.png)](https://appbuilder.agora.io/)
 
