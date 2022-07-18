@@ -22,18 +22,29 @@ export default function SubTitle({ children }) {
       const isLast = content.length - 1 === index;
 
       if (typeof element === "string") {
-        link = `#${element.trim().toLowerCase()}`;
+        console.log("type of element :" + element.indexOf("=>"));
+        if (element.indexOf("=>") !== -1) {
+          link = "";
+        } else {
+          link = `#${element.trim().toLowerCase()}`;
+        }
         text = element;
       } else {
         link = element?.props?.href || "";
         text = element?.props?.children || "";
         target = "_blank";
       }
+
+      console.log(link);
       return (
         <React.Fragment key={index}>
-          <a className={styles.link} href={link} target={target}>
-            {text}
-          </a>
+          {link ? (
+            <a className={styles.link} href={link} target={target}>
+              {text}
+            </a>
+          ) : (
+            <span className={clsx(styles.link, styles.linkText)}> {text}</span>
+          )}
           {!isLast && <span className={styles.separator}>|</span>}
         </React.Fragment>
       );
