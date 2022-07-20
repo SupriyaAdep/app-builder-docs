@@ -79,3 +79,19 @@ console.log("hello world")
 | ts      | number  | Timestamp of the message                                                     |
 
 </Collapsible>
+
+<api>
+
+## test api
+
+<subtitle>
+
+### videoCall : () => {}
+
+</subtitle>
+<subtitle>
+
+### videoCall : (Type[]) => {}
+
+</subtitle>
+</api>

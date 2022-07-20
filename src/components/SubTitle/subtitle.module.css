@@ -17,6 +17,10 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.linkText{
+  color:var(--ifm-link-color);
+  cursor: default;
+}
 .link:hover {
     text-decoration: none;
    
