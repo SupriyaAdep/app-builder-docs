@@ -1,5 +1,5 @@
 ---
-sidebar_label: Components API
+sidebar_label: VideoCall
 sidebar_position: 1
 description: Components API is a very powreful way to override
 title: Components API
@@ -7,11 +7,10 @@ keywords: [videCallProps, ChatBubbleProps]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
-
 The Components API allows for granular overriding of various aspects of the App Builder user interface ranging from entire screens such as the “VideoCall” screen to specific components within these screens such as the “BottomBar” component.
 
 The overrides are applied by supplying values as an object under the top-level `components` key to the [Customization API config]('a') object.
+<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
 ---
 
@@ -24,10 +23,6 @@ The overrides are applied by supplying values as an object under the top-level `
 
 </subtitle>
 
-<br/>
-
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
-
 The VideoCall screen displays the active video call / livestream UI. This UI is shown when a user has joined a meeting.
 
 Hence it is displayed after:
@@ -39,7 +34,7 @@ However if [$config.precall]('a') is set to disabled, the videoCall screen is di
 - The user clicks on the “Start Meeting” button inside the `Share` screen
 - The user clicks on a meeting invite link.
 
-<br/>
+<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
 </intro>
 
@@ -48,12 +43,6 @@ However if [$config.precall]('a') is set to disabled, the videoCall screen is di
 <collapsible>
 
 ### VideoCallComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
-
-You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
-
-To reuse parts of default video call ui you can import them from the [SubComponents Library](a) accessible under the `fpe-api` module.
-
-#### Usage
 
 Use the code example given below showcasing reconstruction of the default video call ui as a guide.
 
@@ -109,6 +98,11 @@ const data = installFPE({
 export default data;
 ```
 
+
+You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
+
+To reuse parts of default video call ui you can import them from the [SubComponents Library](a) accessible under the `fpe-api` module.
+
 </collapsible>
 
 <br/>
@@ -130,30 +124,6 @@ You can override the specific parts VideoCall screen by pasing in this object wi
 | [settingsPanel](#videocallsettingspanel) ?:         | [string](a)                                                                                                                                                                                 | Customize the settings panel by passing in your own component.                  |
 | [topBar](#videocalltopbar) ?:                       | [string](a)                                                                                                                                                                                 | Customize the Top Bar by passing in your own component                          |
 
-<br/>
-
-#### Usage
-
-```tsx
-import React from "react";
-import { installFPE } from "fpe-api/install";
-
-// todo(adicyta)
-const BottomBar = () => {
-  return <></>;
-};
-
-const userCustomization = installFPE({
-  components: {
-    videoCall: {
-      bottomBar: BottomBar,
-    },
-  },
-});
-
-export default userCustomization;
-```
-
 </collapsible>
 </method>
 
@@ -166,8 +136,6 @@ export default userCustomization;
 
 </subtitle>
 
-<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
-
 The BottomBarComponent occupies the bottom part of the VideoCall screen and displays all the meeting controls.
 
 The controls displayed change depending on the operating sytem/platform and the user config
@@ -176,7 +144,7 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <collapsible>
 
-### `BottomBarComponent` : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+### BottomBarComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 You can override the BottomBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `bottomBar` key to the `VideoCallInterface Object`
 
@@ -216,8 +184,6 @@ export default userCustomization;
 ## videoCall.chat : [ChatComponent]('a') ChatInterface
 
 </subtitle>
-
-<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
 The Chat component displays the ui to send and view group as well as private chat messages to every user in the meeting
 
@@ -269,13 +235,6 @@ Use `useChatUIControl()` utility from the [Hooks and Utility Library]('a') to co
 
 You can override the specific parts chat ui by pasing in this object with key and values corresponding to the part you want to overrid under the `chat` key to the `VideoCallInterface`
 
-```json
-{
-  chatBubble: ChatBubbleComponent // Customize the Bottom Bar by passing in your own component
-  chatInput: ChatInputComponent // Customize the Bottom Bar by passing in your own component
-}
-```
-
 | Method                                      | Description                                                |
 | ------------------------------------------- | ---------------------------------------------------------- |
 | [chat.chatBubble](#videocallchatchatbubble) | Customize the chat Bubble component.                       |
@@ -294,8 +253,6 @@ You can override the specific parts chat ui by pasing in this object with key an
 
 </subtitle>
 
-<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
-
 The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
 
 ### _Overrides_:
@@ -309,15 +266,14 @@ You can override the ChatBubble component by passing in a [React Component](http
 
 #### ChatBubbleProps
 
-| Prop          | Type                                                                                                                        | Description                                                                  |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| msg           | string                                                                                                                      | Content of the chat message                                                  |
-| isLocal       | boolean                                                                                                                     | Specifies if the message is from a local user or if it is from a remote user |
-| uid           | string                                                                                                                      | Name of the user who sent the message                                        |
-| ts            | number                                                                                                                      | Timestamp of the message                                                     |
-| someObject    | [myInterface]('')                                                                                                           | Some interface only used by ChatBubbleProps and nowhere else                 |
-| someObject    | {<br/>&emsp;msg: string,<br/>&emsp;isLocal: boolean,<br/>&emsp;uid: string<br/> } | Some interface only used by ChatBubbleProps and nowhere else                 |
-| anotherObject | [myInterfaceCommon]('')                                                                                                     | A common interface used in multiple places besides here eg.UserObject        |
+| Prop          | Type                    | Description                                                                  |
+| ------------- | ----------------------- | ---------------------------------------------------------------------------- |
+| msg           | string                  | Content of the chat message                                                  |
+| isLocal       | boolean                 | Specifies if the message is from a local user or if it is from a remote user |
+| uid           | string                  | Name of the user who sent the message                                        |
+| ts            | number                  | Timestamp of the message                                                     |
+| someObject    | [myInterface]('')       | Some interface only used by ChatBubbleProps and nowhere else                 |
+| anotherObject | [myInterfaceCommon]('') | A common interface used in multiple places besides here eg.UserObject        |
 
 <br/>
 
@@ -368,9 +324,6 @@ export default userCustomization;
 
 </subtitle>
 
-<br/>
-<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
-
 ### _Overrides_:
 
 <collapsible>
@@ -397,9 +350,6 @@ Customize the chat input by passing in your own component.
 ## videoCall.customContent : [RenderingComponentInterface]('')
 
 </subtitle>
-
-<br/>
-<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
 Specifies the react component to be used to render custom content injected into the renderingContext or to override default RTC render.
 
@@ -453,9 +403,6 @@ export default userCustomization;
 ## videoCall.customLayouts : [customLayoutsOverrideFunction](a)
 
 </subtitle>
-
-<br/>
-<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
 Customize the layout through LayoutInterface
 
@@ -552,28 +499,5 @@ Customize the Top Bar by passing in your own component.
 </method>
 
 <!-- ***************************************************************************************************************** -->
-
-</api>
-
-<api>
-
-## TYPES:
-
-<br/>
-
-<method>
-<subtitle>
-
-## myInterface
-
-</subtitle>
-
-| Key       | Type                              | Description                                                                           |
-| --------- | --------------------------------- | ------------------------------------------------------------------------------------- |
-| name      | string                            | Specifies if the message is from a local user or if it is from a remote user          |
-| icon      | string                            | Can be a <br/> 1. Base 64 Image string <br/>2. CDN URL <br/>3. Bunder imported string |
-| Component | React.ComponentType<LayoutProps\> | Timestamp of the message                                                              |
-
-</method>
 
 </api>

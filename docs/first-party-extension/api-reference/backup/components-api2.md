@@ -1,6 +1,6 @@
 ---
 sidebar_label: Components API 2
-sidebar_position: 1
+sidebar_position: 10
 description: Components API is a very powreful way to override
 title: Components API
 keywords: [videCallProps, ChatBubbleProps]
