@@ -11,7 +11,7 @@ const config = {
   tagline: 'Agora App Builder for Live Video Chat & Streaming Apps',
   url: 'https://app-builder-docs.vercel.app/',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
