@@ -51,7 +51,7 @@ import { MaxVideoView } from "fpe-api";
 
 <subtitle>
 
-ControlsComponentArray: [React.ComponentType](a)\[\]
+ControlsComponentArray: [React.ComponentType](a)[]
 
 </subtitle>
 

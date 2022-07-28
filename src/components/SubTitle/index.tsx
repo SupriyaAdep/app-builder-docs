@@ -22,7 +22,7 @@ export default function SubTitle({ children }) {
       const isLast = content.length - 1 === index;
 
       if (typeof element === "string") {
-        console.log("type of element :" + element.indexOf("=>"));
+        //console.log("type of element :" + element.indexOf("=>"));
         if (element.indexOf("=>") !== -1) {
           link = "";
         } else {
@@ -35,7 +35,6 @@ export default function SubTitle({ children }) {
         target = "_blank";
       }
 
-      console.log(link);
       return (
         <React.Fragment key={index}>
           {link ? (

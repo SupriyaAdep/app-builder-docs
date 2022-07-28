@@ -24,8 +24,6 @@ The overrides are applied by supplying values as an object under the top-level `
 
 </subtitle>
 
-<br/>
-
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
 The VideoCall screen displays the active video call / livestream UI. This UI is shown when a user has joined a meeting.
@@ -84,7 +82,8 @@ const VideoCall: React.FC = () => {
         }}
       >
         <VideoComponent />
-        {/* Responsible for showing the user video feeds, something about layouts{ todo(adicyta) } */}
+        {/* Responsible for showing the user video feeds, 
+        something about layouts{ todo(adicyta) } */}
         {sidePanel === SidePanelType.Chat ? (
           <Chat />
         ) : sidePanel === SidePanelType.Settings ? (
@@ -269,10 +268,12 @@ Use `useChatUIControl()` utility from the [Hooks and Utility Library]('a') to co
 
 You can override the specific parts chat ui by pasing in this object with key and values corresponding to the part you want to overrid under the `chat` key to the `VideoCallInterface`
 
-```json
+```js
 {
-  chatBubble: ChatBubbleComponent // Customize the Bottom Bar by passing in your own component
-  chatInput: ChatInputComponent // Customize the Bottom Bar by passing in your own component
+  chatBubble: ChatBubbleComponent;
+  // Customize the Bottom Bar by passing in your own component
+  chatInput: ChatInputComponent;
+  // Customize the Bottom Bar by passing in your own component
 }
 ```
 
@@ -309,15 +310,15 @@ You can override the ChatBubble component by passing in a [React Component](http
 
 #### ChatBubbleProps
 
-| Prop          | Type                                                                                                                        | Description                                                                  |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| msg           | string                                                                                                                      | Content of the chat message                                                  |
-| isLocal       | boolean                                                                                                                     | Specifies if the message is from a local user or if it is from a remote user |
-| uid           | string                                                                                                                      | Name of the user who sent the message                                        |
-| ts            | number                                                                                                                      | Timestamp of the message                                                     |
-| someObject    | [myInterface]('')                                                                                                           | Some interface only used by ChatBubbleProps and nowhere else                 |
+| Prop          | Type                                                                              | Description                                                                  |
+| ------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| msg           | string                                                                            | Content of the chat message                                                  |
+| isLocal       | boolean                                                                           | Specifies if the message is from a local user or if it is from a remote user |
+| uid           | string                                                                            | Name of the user who sent the message                                        |
+| ts            | number                                                                            | Timestamp of the message                                                     |
+| someObject    | [myInterface]('')                                                                 | Some interface only used by ChatBubbleProps and nowhere else                 |
 | someObject    | {<br/>&emsp;msg: string,<br/>&emsp;isLocal: boolean,<br/>&emsp;uid: string<br/> } | Some interface only used by ChatBubbleProps and nowhere else                 |
-| anotherObject | [myInterfaceCommon]('')                                                                                                     | A common interface used in multiple places besides here eg.UserObject        |
+| anotherObject | [myInterfaceCommon]('')                                                           | A common interface used in multiple places besides here eg.UserObject        |
 
 <br/>
 
@@ -368,7 +369,6 @@ export default userCustomization;
 
 </subtitle>
 
-<br/>
 <image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
 ### _Overrides_:
@@ -398,7 +398,6 @@ Customize the chat input by passing in your own component.
 
 </subtitle>
 
-<br/>
 <image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
 Specifies the react component to be used to render custom content injected into the renderingContext or to override default RTC render.
@@ -454,7 +453,6 @@ export default userCustomization;
 
 </subtitle>
 
-<br/>
 <image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
 Customize the layout through LayoutInterface
