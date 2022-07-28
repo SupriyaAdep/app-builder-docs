@@ -40,6 +40,9 @@ h3 {
   padding-left: 0;
   padding-right: 0;
 }
+.theme-doc-sidebar-container {
+  border-right: 0 !important;
+}
 .theme-doc-footer-edit-meta-row {
   margin-bottom: 32px;
 }
@@ -161,6 +164,10 @@ table tr:nth-child(2n) {
 .footer__logo {
   margin-top: 0;
 }
+.footer__link {
+  flex: .40
+   
+  } 
 
 .prism-code code {
   max-height: 300px;
@@ -173,7 +180,7 @@ table tr:nth-child(2n) {
 
 /* Device related  */
 @media (max-width: 480px) {
-  .footer__contact , .footer__col {
+  .footer__contact , .footer__col ,.footer__link{
     flex-basis: 99%!important;
     max-width: 99%!important;
     margin-bottom: 14px;
@@ -185,18 +192,17 @@ table tr:nth-child(2n) {
 
 @media (min-width: 481px) and (max-width: 996px) {
   .footer__col {
-     flex-basis: 33%!important;
-     max-width: 33%!important;
+     /* flex-basis: 33%!important;
+     max-width: 33%!important; */
     
  }
  .footer__contact {
-   flex-basis: 35%!important;  
-   max-width: 35%!important;
+   /* flex-basis: 35%!important;  
+   max-width: 35%!important; */
   
  }
  .footer__link {
-   flex-basis: 65%!important;
-   max-width: 65%!important;
+ flex:.70
   
  } 
  .footer__col {
@@ -224,8 +230,10 @@ table tr:nth-child(2n) {
 
  @media (min-width: 481px) {
    .footer {
-     padding-top: 100px;
-     padding-bottom: 100px;
+    padding: 100px 16px;
+   }
+   .footer__row {
+     justify-content: space-between;
    }
    .footer__item + .footer__item {
      margin-top: 12px;
@@ -279,6 +287,7 @@ table tr:nth-child(2n) {
   --ifm-hr-margin-vertical:50px;
   --ifm-table-cell-padding:20px;
   --ifm-paragraph-margin-bottom:12px;
+  --ifm-leading:12px
   
  
 
