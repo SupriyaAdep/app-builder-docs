@@ -6,67 +6,61 @@ import styles from './styles.module.css';
 
 function FullScreenButton({ code, className, forwardRef }) {
 
-  const [isCopied, setIsCopied] = useState(false);
-  const copyTimeout = useRef(undefined);
+
   const handleFullScreen = useCallback((e) => {
     const element = forwardRef.current;
     element.classList.toggle('fullscreen')
 
-    if (
-      document.fullscreenElement ||
-      document.webkitFullscreenElement ||
-      document.mozFullScreenElement ||
-      document.msFullscreenElement
-    ) {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-      }
-    } else {
+    // if (
+    //   document.fullscreenElement ||
+    //   document.webkitFullscreenElement ||
+    //   document.mozFullScreenElement ||
+    //   document.msFullscreenElement
+    // ) {
+    //   if (document.exitFullscreen) {
+    //     document.exitFullscreen();
+    //   } else if (document.mozCancelFullScreen) {
+    //     document.mozCancelFullScreen();
+    //   } else if (document.webkitExitFullscreen) {
+    //     document.webkitExitFullscreen();
+    //   } else if (document.msExitFullscreen) {
+    //     document.msExitFullscreen();
+    //   }
+    // } else {
 
-      if (element.requestFullscreen) {
-        element.requestFullscreen();
-      } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-      } else if (element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-      }
-    }
+    //   if (element.requestFullscreen) {
+    //     element.requestFullscreen();
+    //   } else if (element.mozRequestFullScreen) {
+    //     element.mozRequestFullScreen();
+    //   } else if (element.webkitRequestFullscreen) {
+    //     element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    //   } else if (element.msRequestFullscreen) {
+    //     element.msRequestFullscreen();
+    //   }
+    // }
   }, [code]);
-  useEffect(() => () => window.clearTimeout(copyTimeout.current), []);
+
   return (
     <button
       type="button"
       aria-label={
-        isCopied
-          ? translate({
-            id: 'theme.CodeBlock.copied',
-            message: 'Copied',
-            description: 'The copied button label on code blocks',
-          })
-          : translate({
-            id: 'theme.CodeBlock.copyButtonAriaLabel',
-            message: 'Copy code to clipboard',
-            description: 'The ARIA label for copy code blocks button',
-          })
+
+        translate({
+          id: 'theme.CodeBlock.expandButtonAriaLabel',
+          message: 'Expand Code Block',
+          description: 'The ARIA label for copy code blocks button',
+        })
       }
       title={translate({
-        id: 'theme.CodeBlock.copy',
-        message: 'FullScreen',
-        description: 'The copy button label on code blocks',
+        id: 'theme.CodeBlock.expand',
+        message: 'Expand',
+        description: 'The expand button label on code blocks',
       })}
       className={clsx(
         'clean-btn',
         className,
         styles.copyButton,
-        isCopied && styles.copyButtonCopied,
+
       )}
       onClick={handleFullScreen}>
       <span className={styles.copyButtonIcons} aria-hidden="true">

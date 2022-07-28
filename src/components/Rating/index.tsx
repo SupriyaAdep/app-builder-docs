@@ -14,7 +14,7 @@ function RateThisPage({ pageID }) {
         eventValue: value,
       });
     }
-    console.log(`voted: for ${pageID} - ${value}`);
+    //console.log(`voted: for ${pageID} - ${value}`);
     setHaveVoted(true);
     //TODO: Add Analytics to send page feedback
   };

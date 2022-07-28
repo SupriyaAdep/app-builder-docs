@@ -9,7 +9,7 @@ import {
   usePrismTheme,
   useCodeWordWrap,
 } from '@docusaurus/theme-common';
-import Highlight, {defaultProps} from 'prism-react-renderer';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 import Line from '@theme/CodeBlock/Line';
 import CopyButton from '@theme/CodeBlock/CopyButton';
 import WordWrapButton from '@theme/CodeBlock/WordWrapButton';
@@ -26,7 +26,7 @@ export default function CodeBlockString({
   language: languageProp,
 }) {
   const {
-    prism: {defaultLanguage, magicComments},
+    prism: { defaultLanguage, magicComments },
   } = useThemeConfig();
   const language =
     languageProp ?? parseLanguage(blockClassName) ?? defaultLanguage;
@@ -40,7 +40,7 @@ export default function CodeBlockString({
   const setRef = (ref) => {
     containerRef.current = ref.current;
   }
-  const {lineClassNames, code} = parseLines(children, {
+  const { lineClassNames, code } = parseLines(children, {
     metastring,
     language,
     magicComments,
@@ -50,12 +50,12 @@ export default function CodeBlockString({
   return (
     <Container
       as="div"
-      setRef = {setRef}
+      setRef={setRef}
       className={clsx(
         blockClassName,
         language &&
-          !blockClassName.includes(`language-${language}`) &&
-          `language-${language}`,
+        !blockClassName.includes(`language-${language}`) &&
+        `language-${language}`,
       )}>
       {title && <div className={styles.codeBlockTitle}>{title}</div>}
       <div className={styles.codeBlockContent}>
@@ -64,7 +64,7 @@ export default function CodeBlockString({
           theme={prismTheme}
           code={code}
           language={language ?? 'text'}>
-          {({className, tokens, getLineProps, getTokenProps}) => (
+          {({ className, tokens, getLineProps, getTokenProps }) => (
             <pre
               /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
               tabIndex={0}
@@ -97,8 +97,9 @@ export default function CodeBlockString({
               isEnabled={wordWrap.isEnabled}
             />
           )}
-        
+
           <CopyButton className={styles.codeButton} code={code} />
+
           <FullScreenButton forwardRef={containerRef} />
         </div>
       </div>

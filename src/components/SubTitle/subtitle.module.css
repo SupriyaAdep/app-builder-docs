@@ -2,9 +2,11 @@
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 .heading {
  margin-right: 10px;
+ margin-bottom: 0;
  scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem);
 
 }

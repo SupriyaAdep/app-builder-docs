@@ -23,7 +23,6 @@ export default function Collapsible({ children }: ICollapsibeProps) {
   const id = React.isValidElement(title) ? title.props.id : "";
   return (
     <>
-      {console.log(isCollapsed)}
       <div className={styles.collapsible}>
         <div className={clsx(styles.header, "collapsible-title")}>{title}</div>
         <div
