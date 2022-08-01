@@ -14,7 +14,7 @@ This page is an index of types, interfaces, enums used across various Customizat
 
 <subtitle>
 
-## UidInterface
+## RenderInterface
 
 </subtitle>
 
@@ -37,32 +37,58 @@ This page is an index of types, interfaces, enums used across various Customizat
 
 <subtitle>
 
-## 📦 myInterface3
+## ToggleState
 
 </subtitle>
 
 <collapsible>
 
-Text becuase without this, it won't shorten
-
-| Key     | Type    | Description                                                                  |
-| ------- | ------- | ---------------------------------------------------------------------------- |
-| msg     | string  | Content of the chat message                                                  |
-| isLocal | boolean | Specifies if the message is from a local user or if it is from a remote user |
-| uid     | string  | Name of the user who sent the message                                        |
-| msg     | string  | Content of the chat message                                                  |
-| msg     | string  | Content of the chat message                                                  |
-| msg     | string  | Content of the chat message                                                  |
-| isLocal | boolean | Specifies if the message is from a local user or if it is from a remote user |
-| uid     | string  | Name of the user who sent the message                                        |
-| isLocal | boolean | Specifies if the message is from a local user or if it is from a remote user |
-| uid     | string  | Name of the user who sent the message                                        |
-| isLocal | boolean | Specifies if the message is from a local user or if it is from a remote user |
-| uid     | string  | Name of the user who sent the message                                        |
+| Name      | Value |
+| --------- | ----- |
+| disabled  | 0     |
+| enabled   | 1     |
+| disabling | 2     |
+| enabling  | 3     |
+    
+| Key            | Type                       | Description                                                           |
+| -------------- | -------------------------- | --------------------------------------------------------------------- |
+| renderList     | [RenderObjectInterface](a) | Object containing all the render objects stored in the render context |
+| renderPosition | Array<[UidType](a)\>       | Array indicating order of all uids in the render context              |
 
 </collapsible>
 </method>
 
-</api>
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## RenderObjectInterface
+
+</subtitle>
+
+<collapsible>
+
+| Key            | Type                 | Description                                                                      |
+| -------------- | -------------------- | -------------------------------------------------------------------------------- |
+| [key: UidType] | [RenderInterface](a) | Object containing information necessary to render view for the corresponding uid |
+
+</collapsible>
+</method>
 
 <!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## UidType: string
+
+</subtitle>
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+</api>
