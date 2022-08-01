@@ -296,7 +296,7 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <subtitle>
 
-ControlsComponentArray: [React.ComponentType](a)\[\]
+ControlsComponentArray: [React.ComponentType](a)[]
 
 </subtitle>
 
