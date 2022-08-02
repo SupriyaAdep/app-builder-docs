@@ -64,6 +64,12 @@ h3 {
   margin-bottom: var(--ifm-leading) !important;
 }
 
+.guide-img {
+  display: block;
+  max-width: 40%;
+ 
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -381,4 +387,8 @@ font-weight: 400;
 
 .menu__caret:before  {
   background: var(--ifm-menu-link-sublist-icon) ;
+}
+
+.menu__link--sublist-caret:after {
+  background: var(--ifm-menu-link-sublist-icon);
 }

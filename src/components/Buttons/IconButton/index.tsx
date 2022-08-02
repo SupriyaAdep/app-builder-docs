@@ -3,27 +3,27 @@ import Button from "./IconButton";
 
 const buttonList: IIconButton[] = [
   {
-    text: "Blog",
-    icon: "sdk",
-    href: "/blog",
-    external: false,
-  },
-  {
     text: "Github",
     icon: "github",
     href: "https://github.com/AgoraIO-Community/app-builder-docs",
     external: true,
   },
   {
-    text: "Community",
+    text: "Support",
     icon: "discord",
     href: "https://discord.com/",
     external: true,
   },
   {
-    text: "Dashboard",
+    text: "Console",
     icon: "sdk",
     href: "/",
+    external: false,
+  },
+  {
+    text: "Get Started",
+    icon: "sdk",
+    href: "/blog",
     external: false,
   },
 ];

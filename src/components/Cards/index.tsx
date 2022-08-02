@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 const cardList: ICardItem[] = [
   {
-    title: "Configuration Reference",
+    title: "Product manual",
     icon: "config",
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [{ text: "Guide", href: "/sdk/guides" }],
@@ -14,19 +14,19 @@ const cardList: ICardItem[] = [
     title: "Turn Key",
     icon: "config",
     description: <>Designed for efficiency and ease of use by our developers</>,
-    ctas: [{ text: "Guide", href: "/sdk/guides" }],
+    ctas: [{ text: "Guide", href: "/turn-key/guides" }],
   },
   {
-    title: "SDKs",
+    title: "Embed SDKs",
     icon: "config",
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [
-      { text: "Guide", href: "/sdk/guides" },
+      { text: "Guide", href: "/sdks/guides/getting-started" },
       { text: "API Reference", href: "/api-ref" },
     ],
   },
   {
-    title: "First Party Extension",
+    title: "Customization API",
     icon: "code",
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [
