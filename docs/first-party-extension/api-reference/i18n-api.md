@@ -19,9 +19,7 @@ Customize the text content of your application using this API. The App Builder b
 
 ### _API_:
 
-<collapsible>
-
-### i18nInterface
+#### i18nInterface
 
 | Key    | Type                   | Description                                                              |
 | ------ | ---------------------- | ------------------------------------------------------------------------ |
@@ -29,13 +27,21 @@ Customize the text content of your application using this API. The App Builder b
 | label? | string                 | Language name to display in the UI dropdown                              |
 | data   | [i18nDataInterface](a) | This object should contain the necessary translations for a given locale |
 
-</collapsible>
+#### i18nDataInterface
+
+| Key                         | Type                                                 | Description                                      | Defaults                            |
+| --------------------------- | ---------------------------------------------------- | ------------------------------------------------ | ----------------------------------- |
+| meetingNameInputPlaceholder | [BaseI18nType](a)                                    | Placeholder text for the name input field        | Name your meeting                   |
+| pstnToggle                  | [ConditionalStringI18nType](a)                       | Label for the PSTN controls toggle               | Use PSTN (Join by dialing a number) |
+| joinRoomButton              | [BaseI18nType](a)<[JoinRoomButtonTextInterface](a)/> | Label for the join room button on precall screen | Join room                           |
 
 <br/>
 
 > App Builder ships with `en-us` out of the Box. Providing an object with en-us as it's locale will replace the default strings
 
 > When there are two or more translations in the App(including the default `en-us`), A dropdown language selector will be display in both the precall screen as well as the settings panel.
+
+<br/>
 
 ### _Usage_:
 
@@ -63,43 +69,11 @@ export default userCustomization;
 
 ---
 
-
 <br/>
 
 # TYPES
 
 <api>
-<method>
-
-<subtitle>
-
-## i18nDataInterface
-
-</subtitle>
-
-Data format for enterring translations
-
-<collapsible>
-
-some text
-
-| Key                         | Type                      | Description                                     | Defaults                                                                                               |
-| --------------------------- | ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| meetingNameInputPlaceholder | BaseI18nType              | Placeholder text for the name input field       | Name your meeting                                                                                      |
-| hostControlsToggle          | ConditionalStringI18nType | Label for the host controls toggle              |                                                                                                        |
-| \-                          | \-                        |                                                 | Restrict Host Controls Everyone is a Host                                                              |
-| \-                          | \-                        |                                                 | Restrict Host Controls Separate host link                                                              |
-| pstnToggle                  | ConditionalStringI18nType | Label for the PSTN controls toggle              | Use PSTN (Join by dialing a number)                                                                    |
-|                             |                           |                                                 | Need to check with vineeth - we are showing above string based on config json value not with any state |
-| createMeetingButton         | BaseI18nType              | Button text for the Create Meeting Button       | Create Meeting                                                                                         |
-| ?                           |                           |                                                 | Have a Meeting ID?                                                                                     |
-| meetingIdInputPlaceholder   | BaseI18nType              | Placeholder text for the Meeting Id input field | Enter Meeting ID                                                                                       |
-| enterMeetingButton          | BaseI18nType              | Button text for the Enter Meeting Button        | Enter Meeting                                                                                          |
-| attendeeUrlLabel            | BaseI18nType              | Label for the attendee URL in share screen      | Attendee URL                                                                                           |
-| hostUrlLabel                | BaseI18nType              | Label for the host URL in share screen          | Host URL                                                                                               |
-
-</collapsible>
-</method>
 
 <method>
 
@@ -118,6 +92,21 @@ some text
 ## DynamicI18nType: (label: string) => string
 
 </subtitle>
+
+</method>
+
+<method>
+
+<subtitle>
+
+## JoinRoomButtonTextInterface
+
+</subtitle>
+
+| Key   | Type            | Description                                                 |
+| ----- | --------------- | ----------------------------------------------------------- |
+| ready | boolean         | Boolean that indicates whether a room is ready to be joined |
+| role  | [ClientRole](a) | Role of the user trying to join                             |
 
 </method>
 </api>

@@ -51,9 +51,7 @@ You can override the entire VideoCall screen by pasing in a [React.ComponentType
 
 To reuse parts of default video call ui you can import them from the [SubComponents Library](a) accessible under the `fpe-api` module.
 
-#### Usage
-
-Use the code example given below showcasing reconstruction of the default video call ui as a guide.
+Use the example code given below showcasing reconstruction of the default video call ui as a guide.
 
 ```js
 import React from "react";
@@ -117,21 +115,17 @@ export default data;
 
 ### VideoCallInterface
 
-You can override the specific parts VideoCall screen by pasing in this object with key and values corresponding to the part you want to overrid under the `videoCall` key to the `Components Api Object`
+You can override the specific parts VideoCall screen by pasing in this object with key and values corresponding to the part you want to override under the `videoCall` key to the `Components Api Object`
 
-| Key                                                 | Type                                                                                                                                                                                        | Description                                                                     |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [bottomBar](#videocalltopbar) ?:                    | [string](a)                                                                                                                                                                                 | Customize the Bottom Bar by passing in your own component                       |
-| [chat](#videocallchat) ?:                           | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) \| [ChatInterface]("#ChatInterface") | Customize the entire chat panel or pass in an object to override a subcomponent |
-| [customContent](#customContent) ?:                  | [string](a)                                                                                                                                                                                 | Customize the settings panel by passing in your own component.                  |
-| [customLayouts](#customContent) ?:                  | [string](a)                                                                                                                                                                                 | Customize the settings panel by passing in your own component.                  |
-| [participantsPanel](#videocallparticipantspanel) ?: | [string](a)                                                                                                                                                                                 | Customize the Participants Panel by passing in your own component.              |
-| [settingsPanel](#videocallsettingspanel) ?:         | [string](a)                                                                                                                                                                                 | Customize the settings panel by passing in your own component.                  |
-| [topBar](#videocalltopbar) ?:                       | [string](a)                                                                                                                                                                                 | Customize the Top Bar by passing in your own component                          |
+| Key                                                 | Type                                                                                              | Description                                                        |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [bottomBar](#videocallbottombar) ?:                 | [BottomBarComponent](#bottombarcomponent--reactcomponenttype)                                     | Customize the Bottom Bar by passing in your own component          |
+| [customContent](#videocallcustomcontent) ?:         | [RenderingComponentInterface](#renderingcomponentinterface)                                       | Customize the settings panel by passing in your own component.     |
+| [customLayouts](#videocallcustomlayouts) ?:         | [CustomLayoutsOverrideFunction](#customlayoutsoverridefunction--defaultlayouts---layoutinterface) | Customize the settings panel by passing in your own component.     |
+| [participantsPanel](#videocallparticipantspanel) ?: | [ParticipantPanelComponent](#participantspanelcomponent-reactcomponenttype)                       | Customize the Participants Panel by passing in your own component. |
 
 <br/>
-
-#### Usage
+Use the example code given below showcasing overridding of specific video call components as a guide.
 
 ```tsx
 import React from "react";
@@ -169,7 +163,9 @@ export default userCustomization;
 
 The BottomBarComponent occupies the bottom part of the VideoCall screen and displays all the meeting controls.
 
+:::note
 The controls displayed change depending on the operating sytem/platform and the user config
+:::
 
 ### _Overrides_:
 
@@ -181,7 +177,7 @@ You can override the BottomBar component by passing in a [React Component](https
 
 To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](a) accessible under the `fpe-api` module.
 
-Use the code example given below showcasing reconstruction of the default chat ui as a guide.
+Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
 
 ```tsx
 import React from "react";
@@ -418,7 +414,7 @@ You can override the specific renderer of each render object type by passing in 
 
 <br/>
 
-Use the code example given below showcasing overriding of the default rtc renderer as a guide.
+Use the example code given below showcasing overriding of the default rtc renderer as a guide.
 
 ```tsx
 import React from "react";
@@ -487,7 +483,7 @@ This function recieves an array of default layouts and expects you to return an 
 
 <br/>
 
-Use the code example given below showcasing overriding of the default layout as a guide.
+Use the example code given below showcasing overriding of the default layout as a guide.
 
 ```tsx
 import React from "react";
@@ -518,60 +514,86 @@ export default userCustomization;
 <method>
 <subtitle>
 
-## videoCall.participantsPanel : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+## videoCall.participantsPanel : [ParticipanPanelComponent](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
-Customize the Participants Panel by passing in your own component.
-</method>
+<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
-<!-- ***************************************************************************************************************** -->
-
-<method>
-<subtitle>
-
-## videoCall.settingsPanel : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
-
-</subtitle>
-
-Customize the settings panel by passing in your own component.
-</method>
-
-<!-- ***************************************************************************************************************** -->
-
-<method>
-<subtitle>
-
-## videoCall.topBar : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
-
-</subtitle>
-
-Customize the Top Bar by passing in your own component.
-</method>
-
-<!-- ***************************************************************************************************************** -->
-
-</api>
-
-<api>
-
-## TYPES:
+The participantsPanel component lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
 
 <br/>
 
-<method>
-<subtitle>
+### _Overrides_:
 
-## myInterface
+<collapsible>
 
-</subtitle>
+### ParticipantsPanelComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
-| Key       | Type                              | Description                                                                           |
-| --------- | --------------------------------- | ------------------------------------------------------------------------------------- |
-| name      | string                            | Specifies if the message is from a local user or if it is from a remote user          |
-| icon      | string                            | Can be a <br/> 1. Base 64 Image string <br/>2. CDN URL <br/>3. Bunder imported string |
-| Component | React.ComponentType<LayoutProps\> | Timestamp of the message                                                              |
+You can override the entire participantsPanel component by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `participanPanel` key to the `VideocallInterface Object`
+
+You can import parts of default participantsPanel ui from the [SubComponents Library](a) accessible under the `fpe-api` module to reuse them in your component.
+
+Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
+
+```js
+import React from "react";
+import { View } from "react-native";
+import { installFPE } from "fpe-api/install";
+import {
+  ParticipantsView,
+  Chat,
+  Navbar,
+  SettingsView,
+  Controls,
+  VideoComponent,
+  useSidePanel,
+} from "fpe-api";
+import { SidePanelType } from "../src/subComponents/SidePanelEnum";
+
+const VideoCall: React.FC = () => {
+  const { sidePanel } = useSidePanel();
+  return (
+    <View style={{ flex: 1, flexDirection: "column", overflow: "hidden" }}>
+      <Navbar></Navbar>
+      <View
+        style={{
+          flex: 12,
+          flexDirection: "row",
+        }}
+      >
+        <VideoComponent />
+        {/* Responsible for showing the user video feeds, something about layouts{ todo(adicyta) } */}
+        {sidePanel === SidePanelType.Chat ? (
+          <Chat />
+        ) : sidePanel === SidePanelType.Settings ? (
+          <SettingsView />
+        ) : sidePanel === SidePanelType.Participants ? (
+          <ParticipantsView />
+        ) : (
+          <></>
+        )}
+      </View>
+      <Controls />
+    </View>
+  );
+};
+
+const data = installFPE({
+  components: {
+    videoCall: VideoCall,
+  },
+});
+
+export default data;
+```
+
+</collapsible>
+
+<br/>
 
 </method>
+
+<!-- ***************************************************************************************************************** -->
 
 </api>
