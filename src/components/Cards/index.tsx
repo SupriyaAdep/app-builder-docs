@@ -14,7 +14,7 @@ const cardList: ICardItem[] = [
     title: "Turn Key",
     icon: "config",
     description: <>Designed for efficiency and ease of use by our developers</>,
-    ctas: [{ text: "Guide", href: "/turn-key/guides" }],
+    ctas: [{ text: "Guide", href: "/turn-key/quickstart" }],
   },
   {
     title: "Embed SDKs",
@@ -30,8 +30,11 @@ const cardList: ICardItem[] = [
     icon: "code",
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [
-      { text: "Guide", href: "/first-party-extension/guides" },
-      { text: "API Reference", href: "/first-party-extension/api-reference" },
+      { text: "Guide", href: "/first-party-extension/guides/getting-started" },
+      {
+        text: "API Reference",
+        href: "/first-party-extension/api-reference/components-api",
+      },
     ],
   },
 ];

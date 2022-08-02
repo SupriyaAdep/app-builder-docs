@@ -1,7 +1,4 @@
 {
   "label": "Frontend",
-  "position": 1,
-  "link": {
-    "slug": "/turn-key/fe"
-  }
+  "position": 1
 }
