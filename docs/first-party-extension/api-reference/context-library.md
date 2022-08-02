@@ -15,7 +15,7 @@ The context library exposes various contexts used in app builder. All contexts a
 
 <subtitle>
 
-## RecordingContext: RecordingContextInterface
+## useRecordingContext: [createHook](a)<[RecordingContextInterface](#recordingcontextinterface)\>
 
 </subtitle>
 
@@ -73,7 +73,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## RenderContext: RenderStateInterface
+## useRenderContext: [createHook](a)<[RenderStateInterface](a)\>
 
 </subtitle>
 
@@ -123,7 +123,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## LocalContext: [RenderInterface](a)
+## useLocalContext: [createHook](a)<[RenderInterface](a)\>
 
 </subtitle>
 
@@ -150,7 +150,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## LayoutContext: LayoutContextInterface
+## useLayoutContext: [createHook](a)<[LayoutContextInterface](a)\>
 
 </subtitle>
 
@@ -200,7 +200,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## MeetingInfoContext: MeetingInfoContextInterface
+## useMeetingInfoContext: [createHook](a)<[MeetingInfoContextInterface](a)\>
 
 </subtitle>
 
@@ -290,7 +290,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## RtcContext: RtcContextInterface
+## useRtcContext: [createHook](a)<[RtcContextInterface](a)/>
 
 </subtitle>
 
@@ -344,7 +344,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## PropsContext: PropsInterface
+## usePropsContext: [createHook](a)<[PropsInterface](a)\>
 
 </subtitle>
 

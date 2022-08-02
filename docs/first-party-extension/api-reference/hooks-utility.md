@@ -1,13 +1,13 @@
 ---
-sidebar_label: Hooks and Utility Library
+sidebar_label: Utility Library
 sidebar_position: 5
 description: Components API is a very powreful way to override
-title: Hooks and Utility Library
+title: Utility Library
 keywords: [videCallProps, ChatBubbleProps]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-The Hooks and Utlity Library provides the user with utility hooks and functions to perform app builder specific tasks easily
+The Utlity Library provides the user with utility hooks and functions to perform app builder specific tasks easily
 
 You can access these hooks and utility functions under the `fpe-api` module as a named export.
 
