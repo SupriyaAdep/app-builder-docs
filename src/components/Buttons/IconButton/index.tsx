@@ -5,26 +5,26 @@ const buttonList: IIconButton[] = [
   {
     text: "Github",
     icon: "github",
-    href: "https://github.com/AgoraIO-Community/app-builder-docs",
+    href: "https://github.com/AgoraIO-Community",
     external: true,
   },
   {
     text: "Support",
     icon: "discord",
-    href: "https://discord.com/",
+    href: "https://agoraiodev.slack.com/signup#/domain-signup",
     external: true,
   },
   {
     text: "Console",
     icon: "sdk",
-    href: "/",
-    external: false,
+    href: "https://console.agora.io/",
+    external: true,
   },
   {
     text: "Get Started",
     icon: "sdk",
-    href: "/blog",
-    external: false,
+    href: "https://appbuilder.agora.io/",
+    external: true,
   },
 ];
 
