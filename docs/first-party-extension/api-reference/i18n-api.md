@@ -9,11 +9,7 @@ sidebar_custom_props: { icon: "i18" }
 
 Customize the text content of your application using this API. The App Builder by default provides default values for customize the text content of your application using this API. The App Builder by default provides default values for
 
-<subtitle>
-
-## i18n : i18nInterface[]
-
-</subtitle>
+## i18n : [i18nInterface](#i18ninterface)
 
 Customize the text content of your application using this API. The App Builder by default provides default values for
 
@@ -21,19 +17,19 @@ Customize the text content of your application using this API. The App Builder b
 
 #### i18nInterface
 
-| Key    | Type                   | Description                                                              |
-| ------ | ---------------------- | ------------------------------------------------------------------------ |
-| locale | string                 | Unique string identifier to specify a language.                          |
-| label? | string                 | Language name to display in the UI dropdown                              |
-| data   | [i18nDataInterface](a) | This object should contain the necessary translations for a given locale |
+| Key    | Type                                | Description                                                              |
+| ------ | ----------------------------------- | ------------------------------------------------------------------------ |
+| locale | string                              | Unique string identifier to specify a language.                          |
+| label? | string                              | Language name to display in the UI dropdown                              |
+| data   | [i18nDataInterface](#i18ninterface) | This object should contain the necessary translations for a given locale |
 
 #### i18nDataInterface
 
-| Key                         | Type                                                 | Description                                      | Defaults                            |
-| --------------------------- | ---------------------------------------------------- | ------------------------------------------------ | ----------------------------------- |
-| meetingNameInputPlaceholder | [BaseI18nType](a)                                    | Placeholder text for the name input field        | Name your meeting                   |
-| pstnToggle                  | [ConditionalStringI18nType](a)                       | Label for the PSTN controls toggle               | Use PSTN (Join by dialing a number) |
-| joinRoomButton              | [BaseI18nType](a)<[JoinRoomButtonTextInterface](a)/> | Label for the join room button on precall screen | Join room                           |
+| Key                         | Type                                                                                        | Description                                      | Defaults                            |
+| --------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------- |
+| meetingNameInputPlaceholder | [BaseI18nType](#basei18ntype)                                                               | Placeholder text for the name input field        | Name your meeting                   |
+| pstnToggle                  | [ConditionalStringI18nType](a)                                                              | Label for the PSTN controls toggle               | Use PSTN (Join by dialing a number) |
+| joinRoomButton              | [BaseI18nType](#basei18ntype)<[JoinRoomButtonTextInterface](#joinroombuttontextinterface)/> | Label for the join room button on precall screen | Join room                           |
 
 <br/>
 
@@ -77,31 +73,19 @@ export default userCustomization;
 
 <method>
 
-<subtitle>
-
-## BaseI18nType: string
-
-</subtitle>
+## BaseI18nType : string
 
 </method>
 
 <method>
 
-<subtitle>
-
-## DynamicI18nType: (label: string) => string
-
-</subtitle>
+## DynamicI18nType : (label: string) => string
 
 </method>
 
 <method>
-
-<subtitle>
 
 ## JoinRoomButtonTextInterface
-
-</subtitle>
 
 | Key   | Type            | Description                                                 |
 | ----- | --------------- | ----------------------------------------------------------- |

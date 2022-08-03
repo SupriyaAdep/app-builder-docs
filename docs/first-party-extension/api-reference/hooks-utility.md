@@ -14,11 +14,8 @@ You can access these hooks and utility functions under the `fpe-api` module as a
 ---
 
 <method>
-<subtitle>
 
-useIsVideoEnabled: (uid: [UserID](a) ) => boolean
-
-</subtitle>
+## useIsVideoEnabled : (uid: [UserID](a) ) => boolean
 
 Checks the video state for a given uid and returns true/false
 
@@ -31,11 +28,8 @@ import { useIsVideoEnabled } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useIsAudioEnabled: (uid: [UserID](a) ) => boolean
-
-</subtitle>
+## useIsAudioEnabled : (uid: [UserID](a) ) => boolean
 
 Checks the audio state for a given uid is host and returns true/false
 
@@ -50,11 +44,8 @@ import { useIsAudioEnabled } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useIsHost : () => boolean | [isHostCheckFunction](a)
-
-</subtitle>
+## useIsHost : () => boolean | [isHostCheckFunction](#ishostcheckfunction)
 
 Returns a function that checks whether given uid and returns true/false
 
@@ -81,11 +72,8 @@ import { useIsHost } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useIsAttendee : () => boolean | [isAttendeeCheckFunction](a)
-
-</subtitle>
+## useIsAttendee : () => boolean | [isAttendeeCheckFunction](#isattendeecheckfunction)
 
 Returns a function that checks whether given uid is attendee and returns true/false
 
@@ -112,11 +100,8 @@ import { useIsAttendee } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useIsPSTN: (uid: [UserID](a) ) => boolean
-
-</subtitle>
+## useIsPSTN : (uid: [UserID](a) ) => boolean
 
 Checks the audio state for a given uid is a PSTN user and returns true/false
 
@@ -131,11 +116,8 @@ import { useIsPSTN } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useSetName: () => [setDisplayNameFunction](a)
-
-</subtitle>
+## useSetName: () => [setDisplayNameFunction](#setdisplaynamefunction)
 
 Returns a function to set local users display name for everyone in the meeting.
 
@@ -162,11 +144,8 @@ import { useSetName } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useGetName: () => [getDisplayNameFunction](a)
-
-</subtitle>
+## useGetName: () => [getDisplayNameFunction](#getdisplaynamefunction)
 
 Returns a function to get local users display name.
 
@@ -193,11 +172,8 @@ import { useSetName } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useUserList: () => [RenderStateInterface](a)
-
-</subtitle>
+## useUserList: () => [RenderStateInterface](a)
 
 Returns the userList interface containing [renderPosition](a) and [renderList](a)
 
@@ -212,11 +188,8 @@ import { useUserList } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useNavigateTo: () => [navigateToFunction](a)
-
-</subtitle>
+## useNavigateTo: () => [navigateToFunction](#navigatetofunction)
 
 Returns a function to navigate to a given path.
 
@@ -243,11 +216,8 @@ import { useNavigateTo } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useNavParams: () => [getNavParamsFunction](a)
-
-</subtitle>
+## useNavParams: () => [getNavParamsFunction](#getnavparamsfunction)
 
 Returns a function to navigate get the navigataion parameters.
 
@@ -276,7 +246,7 @@ import { useNavParams } from "fpe-api";
 <method>
 <subtitle>
 
-useCreateMeeting: () => [createMeetingFunction](a)
+useCreateMeeting: () => [createMeetingFunction](#createmeetingfunction)
 
 </subtitle>
 
@@ -305,11 +275,8 @@ import { useCreateMeeting } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useJoinMeeting: () => [joinMeetingFunction](a)
-
-</subtitle>
+## useJoinMeeting: () => [joinMeetingFunction](#joinmeetingfunction)
 
 Returns an asynchronous function to join a meeting with the given phrase.
 
@@ -336,11 +303,8 @@ import { useJoinMeeting } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useMuteToggleLocal: () => [muteToggleLocalFunction](a)
-
-</subtitle>
+## useMuteToggleLocal: () => [muteToggleLocalFunction](#mutetogglelocalfunction)
 
 Returns an asynchronous function to toggle muted state for the given track type for local user.
 
@@ -367,11 +331,8 @@ import { useMuteToggleLocal } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useRemoteMute: () => [muteToggleRemoteFunction](a)
-
-</subtitle>
+## useRemoteMute: () => [muteToggleRemoteFunction](#mutetogglelocalfunction)
 
 Returns an asynchronous function to toggle muted state for the given track type for a remote user with the given uid.
 
@@ -398,11 +359,8 @@ import { useRemoteMute } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-useRemoteEndCall: () => [remoteEndCallFunction](a)
-
-</subtitle>
+## useRemoteEndCall: () => [remoteEndCallFunction](#remoteendcallfunction)
 
 Returns a function to end call for a remote user with the given uid
 
@@ -429,11 +387,8 @@ import { useRemoteEndCall } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-hasBrandLogo: () => boolean
-
-</subtitle>
+## hasBrandLogo: () => boolean
 
 Checks whether the user config has a brand logo and returns true/false
 
@@ -446,11 +401,8 @@ import { hasBrandLogo } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-shouldAuthenticate: () => boolean
-
-</subtitle>
+## shouldAuthenticate: () => boolean
 
 Checks whether the user config has OAuth enabled with necessary information and returns true/false.
 
@@ -463,11 +415,8 @@ import { shouldAuthenticate } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-isWeb: () => boolean
-
-</subtitle>
+## isWeb: () => boolean
 
 Checks whether the application is running on web platform and returns true/false.
 
@@ -480,11 +429,8 @@ import { isWeb } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-isIOS: () => boolean
-
-</subtitle>
+## isIOS: () => boolean
 
 Checks whether the application is running on iOS operating system and returns true/false.
 
@@ -497,11 +443,8 @@ import { isIOS } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-isAndroid: () => boolean
-
-</subtitle>
+## isAndroid : () => boolean
 
 Checks whether the application is running on android operating system and returns true/false.
 
@@ -514,11 +457,8 @@ import { isAndroid } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-isArray: () => boolean
-
-</subtitle>
+## isArray: () => boolean
 
 Checks whether the given parameter is an array and returns true/false.
 
@@ -531,11 +471,8 @@ import { isArray } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-isValidReactComponent: () => boolean
-
-</subtitle>
+## isValidReactComponent: () => boolean
 
 Checks whether the given parameter is a valid react component and returns true/false.
 

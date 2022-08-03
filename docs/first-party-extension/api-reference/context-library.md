@@ -15,7 +15,7 @@ The context library exposes various contexts used in app builder. All contexts a
 
 <subtitle>
 
-## RecordingContext: RecordingContextInterface
+## RecordingContext : RecordingContextInterface
 
 </subtitle>
 
@@ -73,7 +73,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## RenderContext: RenderStateInterface
+## RenderContext : RenderStateInterface
 
 </subtitle>
 
@@ -123,7 +123,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## LocalContext: [RenderInterface](a)
+## LocalContext : [RenderInterface](a)
 
 </subtitle>
 
@@ -150,7 +150,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## LayoutContext: LayoutContextInterface
+## LayoutContext : LayoutContextInterface
 
 </subtitle>
 
@@ -200,7 +200,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## MeetingInfoContext: MeetingInfoContextInterface
+## MeetingInfoContext : MeetingInfoContextInterface
 
 </subtitle>
 
@@ -290,7 +290,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## RtcContext: RtcContextInterface
+## RtcContext : RtcContextInterface
 
 </subtitle>
 
@@ -344,7 +344,7 @@ const MyReactComponent = () => {
 
 <subtitle>
 
-## PropsContext: PropsInterface
+## PropsContext : PropsInterface
 
 </subtitle>
 

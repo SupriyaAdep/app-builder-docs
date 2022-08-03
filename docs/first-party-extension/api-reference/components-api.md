@@ -20,7 +20,7 @@ The overrides are applied by supplying values as an object under the top-level `
 <intro>
 <subtitle>
 
-## videoCall: [VideoCallComponent](#videocallcomponent-reactcomponenttype) VideoCallInterface
+## videoCall : VideoCallComponent : VideoCallInterface
 
 </subtitle>
 
@@ -44,9 +44,11 @@ However if [$config.precall]('a') is set to disabled, the videoCall screen is di
 ### _Overrides_:
 
 <collapsible>
+<subtitle>
 
-### VideoCallComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+### VideoCallComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
+</subtitle>
 You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
 
 To reuse parts of default video call ui you can import them from the [SubComponents Library](a) accessible under the `fpe-api` module.
@@ -155,7 +157,7 @@ export default userCustomization;
 <method>
 <subtitle>
 
-## videoCall.bottomBar : [BottomBarComponent](#BottomBarComponent)
+## videoCall.bottomBar : BottomBarComponent
 
 </subtitle>
 
@@ -171,7 +173,11 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <collapsible>
 
-### `BottomBarComponent` : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+<subtitle>
+
+### BottomBarComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+</subtitle>
 
 You can override the BottomBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `bottomBar` key to the `VideoCallInterface Object`
 
@@ -208,7 +214,7 @@ export default userCustomization;
 <method>
 <subtitle>
 
-## videoCall.chat : [ChatComponent]('a') ChatInterface
+## videoCall.chat : ChatComponent : ChatInterface
 
 </subtitle>
 
@@ -219,8 +225,11 @@ The Chat component displays the ui to send and view group as well as private cha
 ### _Overrides_:
 
 <collapsible>
+<subtitle>
 
 ### ChatComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+</subtitle>
 
 You can override the Chat component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chat` key to the `VideoCallInterface Object`
 
@@ -287,7 +296,7 @@ You can override the specific parts chat ui by pasing in this object with key an
 <method>
 <subtitle>
 
-## videoCall.chat.chatBubble : [ChatBubbleComponent](a)
+## videoCall.chat.chatBubble : ChatBubbleComponent
 
 </subtitle>
 
@@ -295,13 +304,15 @@ You can override the specific parts chat ui by pasing in this object with key an
 
 The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
 
-### _Overrides_:
+### _Overrides_ :
 
 <method>
 <collapsible>
+<subtitle>
 
-### ChatBubbleComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) [<ChatBubbleProps\>]('a')
+### ChatBubbleComponent: [React.ComponentType<ChatBubbleProps\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
+</subtitle>
 You can override the ChatBubble component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chatBubble` key to the `ChatInterface Object`
 
 #### ChatBubbleProps
@@ -390,7 +401,7 @@ Customize the chat input by passing in your own component.
 
 <subtitle>
 
-## videoCall.customContent : [RenderingComponentInterface]('')
+## videoCall.customContent : RenderingComponentInterface
 
 </subtitle>
 
@@ -445,7 +456,7 @@ export default userCustomization;
 <method>
 <subtitle>
 
-## videoCall.customLayouts : [customLayoutsOverrideFunction](a)
+## videoCall.customLayouts : customLayoutsOverrideFunction
 
 </subtitle>
 
@@ -458,13 +469,13 @@ Customize the layout through LayoutInterface
 <method>
 <collapsible>
 
-### customLayoutsOverrideFunction: ( [DefaultLayouts]('') ) => [LayoutInterface]('a')[]
+### customLayoutsOverrideFunction: ( [DefaultLayouts](#defaultlayouts) ) => [LayoutInterface](#layoutinterface)[]
 
 You can override the layouts by providing a function with LayoutInterface[] return type to the `customLayouts` under `VideoCallInterface` object.
 
 This function recieves an array of default layouts and expects you to return an array of LayoutInterfaceObjects that represent your layouts.
 
-#### DefaultLayouts: [Array](a) <[LayoutInterface](a)\>
+#### DefaultLayouts: Array <[LayoutInterface](#layoutinterface)\>
 
 | Index | Type            | Value                                                                                                                     |
 | ----- | --------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -514,7 +525,7 @@ export default userCustomization;
 <method>
 <subtitle>
 
-## videoCall.participantsPanel : [ParticipanPanelComponent](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+## videoCall.participantsPanel : ParticipantsPanelComponent
 
 </subtitle>
 
@@ -527,12 +538,15 @@ The participantsPanel component lists all the users in the video call / livestre
 ### _Overrides_:
 
 <collapsible>
+<subtitle>
 
 ### ParticipantsPanelComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
+</subtitle>
+
 You can override the entire participantsPanel component by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `participanPanel` key to the `VideocallInterface Object`
 
-You can import parts of default participantsPanel ui from the [SubComponents Library](a) accessible under the `fpe-api` module to reuse them in your component.
+You can import parts of default participantsPanel ui from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `fpe-api` module to reuse them in your component.
 
 Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
 
