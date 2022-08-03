@@ -19,11 +19,13 @@ Level 2:
 
 Level 3:
 
+---
+
 <method>
 
 <subtitle>
 
-FpeEvents
+## FpeEvents
 
 </subtitle>
 
@@ -45,6 +47,144 @@ import { useIsVideoEnabled } from "fpe-api";
 </method>
 </collapsible>
 
+<br/>
+
+<collapsible>
+<method>
+
+### on: (evt: string, listener: [TEventCallback](a) ) => void
+
+</method>
+</collapsible>
+
+<br/>
+
+<collapsible>
+<method>
+
+### off: (evt: string, listener: [TEventCallback](a) ) => void
+
+</method>
+</collapsible>
+
 </method>
 
 </api>
+
+## **TYPES**:
+
+<method>
+<subtitle>
+
+## EventPayload: [IEventPayloadWithoutAttributes](a)[IEventPayloadWithoutAttributes](a)
+
+</subtitle>
+
+</method>
+
+---
+
+<method>
+<subtitle>
+
+## IEventPayloadWithoutAttributes
+
+</subtitle>
+
+| Key     | Type   | Description          |
+| ------- | ------ | -------------------- |
+| action? | any    |                      |
+| level?  | never  | level of persistance |
+| value   | string |                      |
+
+</method>
+
+---
+
+<method>
+<subtitle>
+
+## IEventPayloadWithAttributes
+
+</subtitle>
+
+| Key     | Type   | Description          |
+| ------- | ------ | -------------------- |
+| action? | any    |                      |
+| level?  | 2 \| 3 | level of persistance |
+| value   | string |                      |
+
+</method>
+
+---
+
+<method>
+<subtitle>
+
+## ToOptions: [UidType](a)[UidType\[\]](a)
+
+</subtitle>
+
+</method>
+
+---
+
+<method>
+<subtitle>
+
+## TEventCallback: \(args: [EvtCbPayload](a)): void
+
+</subtitle>
+
+</method>
+
+---
+
+<method>
+<subtitle>
+
+## EvtCbPayload
+
+</subtitle>
+
+| Name    | Value                |
+| ------- | -------------------- |
+| payload | [dataPayload](a)     |
+| sender  | string               |
+| ts      | number               |
+| source  | [EventSourceEnum](a) |
+
+</method>
+
+---
+
+<method>
+<subtitle>
+
+## dataPayload
+
+</subtitle>
+
+| Key    | Type        | Description          |
+| ------ | ----------- | -------------------- |
+| action | string      |                      |
+| level  | 1 \| 2 \| 3 | level of persistance |
+| value  | string      |                      |
+
+</method>
+
+---
+
+<method>
+<subtitle>
+
+## EventSourceEnum
+
+</subtitle>
+
+| Name | Value |
+| ---- | ----- |
+| core | core  |
+| fpe  | fpe   |
+
+</method>

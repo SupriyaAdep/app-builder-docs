@@ -33,7 +33,7 @@ import { useIsVideoEnabled } from "fpe-api";
 <method>
 <subtitle>
 
-useIsAudioEnabled: (uid: [UserID](a) ) => boolean
+## useIsAudioEnabled: (uid: [UserID](a) ) => boolean
 
 </subtitle>
 
