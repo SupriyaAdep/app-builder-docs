@@ -12,11 +12,7 @@ This page is an index of types, interfaces, enums used across various Customizat
 <api>
 <method>
 
-<subtitle>
-
 ## RenderInterface
-
-</subtitle>
 
 <collapsible>
 
@@ -35,11 +31,7 @@ This page is an index of types, interfaces, enums used across various Customizat
 
 <method>
 
-<subtitle>
-
 ## ToggleState
-
-</subtitle>
 
 <collapsible>
 
@@ -49,7 +41,7 @@ This page is an index of types, interfaces, enums used across various Customizat
 | enabled   | 1     |
 | disabling | 2     |
 | enabling  | 3     |
-    
+
 | Key            | Type                       | Description                                                           |
 | -------------- | -------------------------- | --------------------------------------------------------------------- |
 | renderList     | [RenderObjectInterface](a) | Object containing all the render objects stored in the render context |
@@ -62,11 +54,7 @@ This page is an index of types, interfaces, enums used across various Customizat
 
 <method>
 
-<subtitle>
-
 ## RenderObjectInterface
-
-</subtitle>
 
 <collapsible>
 
@@ -81,11 +69,7 @@ This page is an index of types, interfaces, enums used across various Customizat
 
 <method>
 
-<subtitle>
-
 ## UidType: string
-
-</subtitle>
 
 </method>
 

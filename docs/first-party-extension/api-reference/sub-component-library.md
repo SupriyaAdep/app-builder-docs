@@ -19,7 +19,7 @@ The Sub Components library is a set of components to be composed as needed by th
 
 <subtitle>
 
-Icons: [IconsInterface](#iconsinterface)
+## Icons : IconsInterface
 
 </subtitle>
 
@@ -74,7 +74,7 @@ import { icons } from "fpe-api";
 
 <subtitle>
 
-MaxVideoView: [React.ComponentType](a)<[MaxVideoRendererInterface](a)\>
+## MaxVideoView : [React.ComponentType<MaxVideoRendererInterface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -104,7 +104,7 @@ import { MaxVideoView } from "fpe-api";
 
 <subtitle>
 
-GridLayout : [React.ComponentType](a)<[RenderStateInterface](a)\>
+## GridLayout : [React.ComponentType<RenderStateInterface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -126,7 +126,7 @@ import { GridLayout } from "fpe-api";
 
 <subtitle>
 
-PinnedLayout : [React.ComponentType](a)<[RenderStateInterface](a)\>
+## PinnedLayout : [React.ComponentType<RenderStateInterface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -148,7 +148,7 @@ import { PinnedLayout } from "fpe-api";
 
 <subtitle>
 
-VideoComponent : [React.ComponentType](a)
+## VideoComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -170,7 +170,7 @@ import { VideoComponent } from "fpe-api";
 
 <subtitle>
 
-NameWithMicStatus : [React.ComponentType](a)<[NameWithMicStatusInteface](a)\>
+## NameWithMicStatus : [React.ComponentType<NameWithMicStatusInteface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -200,7 +200,7 @@ import { NameWithMicStatus } from "fpe-api";
 
 <subtitle>
 
-NetworkQualityPill : [React.ComponentType<NetworkQualityPillInteface\>](a)
+NetworkQualityPill : [React.ComponentType<NetworkQualityPillInteface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -228,7 +228,7 @@ import { NetworkQualityPill } from "fpe-api";
 
 <subtitle>
 
-VideoCallScreen : [React.ComponentType](a)
+## VideoCallScreen : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -250,7 +250,7 @@ import { VideoCallScreen } from "fpe-api";
 
 <subtitle>
 
-ParticipantsView : [React.ComponentType](a)
+## ParticipantsView : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -270,7 +270,7 @@ import { ParticipantsView } from "fpe-api";
 
 <subtitle>
 
-Controls : [React.ComponentType](a)
+## Controls : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -296,7 +296,7 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <subtitle>
 
-ControlsComponentArray: [React.ComponentType](a)[]
+## ControlsComponentArray : [React.ComponentType<ControlsComponentArray\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -428,7 +428,7 @@ LocalEndCallProps
 
 <collapsible>
 
-### LiveStreamControlsComponent: [React.ComponentType](a)<[LiveStreamControlsProps](a)>
+### LiveStreamControlsComponent : [React.ComponentType](a)<[LiveStreamControlsProps](a)>
 
 LiveStreamControlsProps
 
@@ -446,7 +446,7 @@ LiveStreamControlsProps
 
 <subtitle>
 
-SidePanelButtonsArray: [React.ComponentType](a)\[\]
+## SidePanelButtonsArray : [React.ComponentType[]](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -482,7 +482,7 @@ import { ControlsComponentArray } from "fpe-api";
 
 <collapsible>
 
-### RemoteAudioMuteComponent: [React.ComponentType](a)<[RemoteAudioMuteProps](a)>
+### RemoteAudioMuteComponent : [React.ComponentType](a)<[RemoteAudioMuteProps](a)>
 
 RemoteAudioMuteProps
 
@@ -498,7 +498,7 @@ RemoteAudioMuteProps
 
 <collapsible>
 
-### RemoteVideoMuteComponent: [React.ComponentType](a)<[RemoteVideoMuteProps](a)>
+### RemoteVideoMuteComponent : [React.ComponentType](a)<[RemoteVideoMuteProps](a)>
 
 RemoteVideoMuteProps
 
@@ -514,7 +514,7 @@ RemoteVideoMuteProps
 
 <collapsible>
 
-### RemoteEndCallComponent: [React.ComponentType](a)<[RemoteEndCallProps](a)>
+### RemoteEndCallComponent : [React.ComponentType](a)<[RemoteEndCallProps](a)>
 
 RemoteEndCallProps
 
@@ -529,7 +529,7 @@ RemoteEndCallProps
 
 <collapsible>
 
-### RemoteLiveStreamApprovedRequestRecallComponent: [React.ComponentType](a)<[RemoteLiveStreamApprovedRequestRecallProps](a)>
+### RemoteLiveStreamApprovedRequestRecallComponent : [React.ComponentType](a)<[RemoteLiveStreamApprovedRequestRecallProps](a)>
 
 RemoteLiveStreamApprovedRequestRecallProps
 
@@ -543,7 +543,7 @@ RemoteLiveStreamApprovedRequestRecallProps
 
 <collapsible>
 
-### RemoteLiveStreamControlApproveComponent: [React.ComponentType](a)<[RemoteLiveStreamControlApproveProps](a)>
+### RemoteLiveStreamControlApproveComponent : [React.ComponentType](a)<[RemoteLiveStreamControlApproveProps](a)>
 
 RemoteLiveStreamControlApproveProps
 
@@ -557,7 +557,7 @@ RemoteLiveStreamControlApproveProps
 
 <collapsible>
 
-### RemoteLiveStreamControlRejectComponent: [React.ComponentType](a)<[RemoteLiveStreamControlRejectProps](a)>
+### RemoteLiveStreamControlRejectComponent : [React.ComponentType](a)<[RemoteLiveStreamControlRejectProps](a)>
 
 RemoteLiveStreamControlRejectProps
 
@@ -571,7 +571,7 @@ RemoteLiveStreamControlRejectProps
 
 <collapsible>
 
-### ChatSendButtonComponent: [React.ComponentType](a)<[ChatSendButtonProps](a)>
+### ChatSendButtonComponent : [React.ComponentType](a)<[ChatSendButtonProps](a)>
 
 ChatSendButtonProps
 
@@ -585,7 +585,7 @@ ChatSendButtonProps
 
 <collapsible>
 
-### MuteAllAudioButtonComponent: [React.ComponentType](a)<[MuteAllAudioButtonProps](a)>
+### MuteAllAudioButtonComponent : [React.ComponentType](a)<[MuteAllAudioButtonProps](a)>
 
 MuteAllAudioButtonProps
 
