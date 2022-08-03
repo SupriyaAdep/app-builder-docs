@@ -208,7 +208,7 @@ The MeetingInfoContext contains the all the information about the active meeting
 
 <br/>
 
-#### MeetingInfoContext
+#### MeetingInfoContextInterface
 
 | Key                | Type                                                                                                                                                      | Description                                                                                       |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |

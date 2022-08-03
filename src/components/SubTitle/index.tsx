@@ -56,7 +56,7 @@ export default function SubTitle({ children }) {
         id={heading.toLowerCase().split(".").join("").trim()}
         className={clsx(styles.heading, "anchor")}
       >
-        {heading} :
+        {heading} {data.length > 0 && ":"}
       </h2>
       {data}
     </div>
