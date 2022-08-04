@@ -13,11 +13,7 @@ The context library exposes various contexts used in app builder. All contexts a
 
 <method>
 
-<subtitle>
-
-## useRecordingContext: [createHook](a)<[RecordingContextInterface](#recordingcontextinterface)\>
-
-</subtitle>
+## useRecordingContext : [createHook](a)<[RecordingContextInterface](#recordingcontextinterface)\>
 
 The RecordingContext contains methods to start and stop cloud recording as well as state that tracks recording status.
 
@@ -71,11 +67,7 @@ const MyReactComponent = () => {
 
 <method>
 
-<subtitle>
-
-## useRenderContext: [createHook](a)<[RenderStateInterface](a)\>
-
-</subtitle>
+## useRenderContext : [createHook](a)<[RenderStateInterface](a)\>
 
 The RenderContext contains the information necessary to render user content views.
 
@@ -121,11 +113,7 @@ const MyReactComponent = () => {
 
 <method>
 
-<subtitle>
-
-## useLocalContext: [createHook](a)<[RenderInterface](a)\>
-
-</subtitle>
+## useLocalContext : [createHook](a)<[RenderInterface](a)\>
 
 The LocalContext contains the local user information.
 
@@ -148,11 +136,7 @@ const MyReactComponent = () => {
 
 <method>
 
-<subtitle>
-
-## useLayoutContext: [createHook](a)<[LayoutContextInterface](a)\>
-
-</subtitle>
+## useLayoutContext : [createHook](a)<[LayoutContextInterface](a)\>
 
 The RenderContext contains the active layout and method to modify the active layout
 
@@ -198,11 +182,7 @@ const MyReactComponent = () => {
 
 <method>
 
-<subtitle>
-
-## useMeetingInfoContext: [createHook](a)<[MeetingInfoContextInterface](a)\>
-
-</subtitle>
+## useMeetingInfoContext : [createHook](a)<[MeetingInfoContextInterface](a)\>
 
 The MeetingInfoContext contains the all the information about the active meeting.
 
@@ -288,11 +268,7 @@ const MyReactComponent = () => {
 
 <method>
 
-<subtitle>
-
-## useRtcContext: [createHook](a)<[RtcContextInterface](a)/>
-
-</subtitle>
+## useRtcContext : [createHook](a)<[RtcContextInterface](a)>
 
 The RenderContext contains the information necessary to render user content views.
 
@@ -342,11 +318,7 @@ const MyReactComponent = () => {
 
 <method>
 
-<subtitle>
-
-## usePropsContext: [createHook](a)<[PropsInterface](a)\>
-
-</subtitle>
+## usePropsContext : [createHook](a)<[PropsInterface](a)\>
 
 The PropsContext contains the various configuration options and callbacks that are passed to setup [Agora React Native UI Kit](a) internally.
 
