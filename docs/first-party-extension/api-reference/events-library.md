@@ -42,7 +42,7 @@ import { useIsVideoEnabled } from "fpe-api";
 <collapsible>
 <method>
 
-### send: (evt: string, payload: [EventPayload](a), to?: [ToOptions](a) ) => void
+### send : (evt: string, payload: [EventPayload](#eventpayload), to?: [ToOptions](#tooptions) ) => void
 
 </method>
 </collapsible>
@@ -52,7 +52,7 @@ import { useIsVideoEnabled } from "fpe-api";
 <collapsible>
 <method>
 
-### on: (evt: string, listener: [TEventCallback](a) ) => void
+### on: (evt: string, listener: [TEventCallback](#teventcallback) ) => void
 
 </method>
 </collapsible>
@@ -62,7 +62,7 @@ import { useIsVideoEnabled } from "fpe-api";
 <collapsible>
 <method>
 
-### off: (evt: string, listener: [TEventCallback](a) ) => void
+### off: (evt: string, listener: [TEventCallback](#teventcallback) ) => void
 
 </method>
 </collapsible>
@@ -76,7 +76,7 @@ import { useIsVideoEnabled } from "fpe-api";
 <method>
 <subtitle>
 
-## EventPayload: [IEventPayloadWithoutAttributes](a)[IEventPayloadWithoutAttributes](a)
+## EventPayload : IEventPayloadWithoutAttributes : IEventPayloadWithAttributes
 
 </subtitle>
 
@@ -121,7 +121,7 @@ import { useIsVideoEnabled } from "fpe-api";
 <method>
 <subtitle>
 
-## ToOptions: [UidType](a)[UidType\[\]](a)
+## ToOptions : [UidType](a)[UidType\[\]](a)
 
 </subtitle>
 
@@ -130,11 +130,8 @@ import { useIsVideoEnabled } from "fpe-api";
 ---
 
 <method>
-<subtitle>
 
-## TEventCallback: \(args: [EvtCbPayload](a)): void
-
-</subtitle>
+## TEventCallback : \(args: [EvtCbPayload](#evtcbpayload)): void
 
 </method>
 
@@ -147,12 +144,12 @@ import { useIsVideoEnabled } from "fpe-api";
 
 </subtitle>
 
-| Name    | Value                |
-| ------- | -------------------- |
-| payload | [dataPayload](a)     |
-| sender  | string               |
-| ts      | number               |
-| source  | [EventSourceEnum](a) |
+| Name    | Value                               |
+| ------- | ----------------------------------- |
+| payload | [dataPayload](#datapayload)         |
+| sender  | string                              |
+| ts      | number                              |
+| source  | [EventSourceEnum](#eventsourceenum) |
 
 </method>
 
