@@ -19,7 +19,7 @@ This guide helps you get started with your web app as well as build your app for
     <image alt="Deplpoy" lightImageSrc="guides/DeploySuccess.png" darkImageSrc="guides/DeploySuccess.png" />
 3.  Congrats! You have a Live Video Meeting Web app! 🎉
 
-## Step 2 Test and launch native apps! (optional)
+## Step 2 Test and launch native apps
 
 1.  Click the **Download Source Code** button on the App Builder.
 2.  Unzip the downloaded folder
@@ -38,7 +38,7 @@ This guide helps you get started with your web app as well as build your app for
 11. Choose Development build if you are looking to test the app out. Once you are ready to pass it to others, choose Production build.
     <image alt="CLI Build" className="guide-img" lightImageSrc="guides/CLIBuild.png" darkImageSrc="guides/CLIBuild.png" />
 
-## Step 3 Distribute your app! (Optional)
+## Step 3 Distribute your app
 
 - To distribute the app to a CDN like Vercel or Netlify, You can refer to our detailed build guide [here](/docs/Frontend/Build-guide#step-2-deploying-web)
 

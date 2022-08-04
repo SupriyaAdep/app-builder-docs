@@ -25,7 +25,7 @@ You can enter your credentials in your Console:
 
 <image alt="PSTN2" className="guide-img" lightImageSrc="guides-be/PSTN2.png" darkImageSrc="guides-be/PSTN2.png" />
 
-## Step 4 Change PSTN Number (Optional)
+## Step 4 Change PSTN Number
 
 By default, your application will default to using `(800) 309-2350` as the PSTN Number. You can change it to any number supported by Turbobridge.
 

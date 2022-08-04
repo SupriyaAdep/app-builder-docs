@@ -9,13 +9,13 @@ sidebar_custom_props: { icon: "settings" }
 
 # Deploy using docker
 
-## Step 1 Make sure you have docker and docker compose installed.
+## Step 1 Make sure you have docker and docker compose installed
 
 https://docs.docker.com/get-docker/
 
 https://docs.docker.com/compose/install/
 
-## Step 2 Use the following docker-compose.yml
+## Step 2 Use the following docker-compose
 
 ```yaml
 version: "3.7"

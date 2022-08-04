@@ -44,11 +44,8 @@ However if [$config.precall]('a') is set to disabled, the videoCall screen is di
 ### _Overrides_:
 
 <collapsible>
-<subtitle>
 
 ### VideoCallComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
-
-</subtitle>
 
 You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
 
@@ -177,11 +174,7 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <collapsible>
 
-<subtitle>
-
 ### BottomBarComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
-
-</subtitle>
 
 You can override the BottomBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `bottomBar` key to the `VideoCallInterface Object`
 
@@ -208,6 +201,187 @@ const userCustomization = installFPE({
 
 export default userCustomization;
 ```
+
+</collapsible>
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+<subtitle>
+
+## videoCall.chat : ChatComponent : ChatInterface
+
+</subtitle>
+
+<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
+
+The Chat component displays the ui to send and view group as well as private chat messages to every user in the meeting
+
+### _Overrides_:
+
+<collapsible>
+
+### ChatComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+You can override the Chat component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chat` key to the `VideoCallInterface Object`
+
+To reuse parts of chat ui you can import them from the [SubComponents Library](a) accessible under the `fpe-api` module.
+
+Use the code example given below showcasing reconstruction of the default chat ui as a guide.
+
+```js
+import React from "react";
+import { installFPE } from "fpe-api/install";
+
+// todo(adicyta)
+const BottomBar = () => {
+  return <></>;
+};
+
+const userCustomization = installFPE({
+  components: {
+    videoCall: {
+      bottomBar: BottomBar,
+    },
+  },
+});
+
+export default userCustomization;
+```
+
+:::info
+
+Use `useChatUIControl()` utility from the [Hooks and Utility Library]('a') to control ui state within your chat component to ensure compatibility with other default App Builder flows.
+
+:::
+
+</collapsible>
+
+<br/>
+
+<collapsible >
+
+### ChatInterface
+
+You can override the specific parts chat ui by pasing in this object with key and values corresponding to the part you want to overrid under the `chat` key to the `VideoCallInterface`
+
+```js
+{
+  chatBubble: ChatBubbleComponent;
+  // Customize the Bottom Bar by passing in your own component
+  chatInput: ChatInputComponent;
+  // Customize the Bottom Bar by passing in your own component
+}
+```
+
+| Method                                      | Description                                                |
+| ------------------------------------------- | ---------------------------------------------------------- |
+| [chat.chatBubble](#videocallchatchatbubble) | Customize the chat Bubble component.                       |
+| [chat.chatInput](#videocallchatchatinput)   | Customize the chat input by passing in your own component. |
+
+</collapsible>
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+<subtitle>
+
+## videoCall.chat.chatBubble : ChatBubbleComponent
+
+</subtitle>
+
+<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
+
+The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
+
+### _Overrides_ :
+
+<method>
+<collapsible>
+
+### ChatBubbleComponent: [React.ComponentType<ChatBubbleProps\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+You can override the ChatBubble component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chatBubble` key to the `ChatInterface Object`
+
+#### ChatBubbleProps
+
+| Prop          | Type                                                                              | Description                                                                  |
+| ------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| msg           | string                                                                            | Content of the chat message                                                  |
+| isLocal       | boolean                                                                           | Specifies if the message is from a local user or if it is from a remote user |
+| uid           | string                                                                            | Name of the user who sent the message                                        |
+| ts            | number                                                                            | Timestamp of the message                                                     |
+| someObject    | [myInterface]('')                                                                 | Some interface only used by ChatBubbleProps and nowhere else                 |
+| someObject    | {<br/>&emsp;msg: string,<br/>&emsp;isLocal: boolean,<br/>&emsp;uid: string<br/> } | Some interface only used by ChatBubbleProps and nowhere else                 |
+| anotherObject | [myInterfaceCommon]('')                                                           | A common interface used in multiple places besides here eg.UserObject        |
+
+<br/>
+
+#### myInterface
+
+| Key     | Type    | Description                                                                  |
+| ------- | ------- | ---------------------------------------------------------------------------- |
+| msg     | string  | Content of the chat message                                                  |
+| isLocal | boolean | Specifies if the message is from a local user or if it is from a remote user |
+| uid     | string  | Name of the user who sent the message                                        |
+
+<br/>
+
+Use the code example given below showcasing reconstruction of the default chat bubble ui as a guide.
+
+```tsx
+import React from "react";
+import { installFPE } from "fpe-api/install";
+
+// todo(adicyta)
+const BottomBar = () => {
+  return <></>;
+};
+
+const userCustomization = installFPE({
+  components: {
+    videoCall: {
+      bottomBar: BottomBar,
+    },
+  },
+});
+
+export default userCustomization;
+```
+
+</collapsible>
+</method>
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## videoCall.chat.chatInput : [React.ComponentType<ChatInputProps\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+</subtitle>
+
+<image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
+
+### _Overrides_:
+
+<collapsible>
+
+### ChatInputProps
+
+Customize the chat input by passing in your own component.
+
+| Prop           | Type    | Description                                                                  |
+| -------------- | ------- | ---------------------------------------------------------------------------- |
+| privateActive  | boolean | Content of the chat message                                                  |
+| selectedUserID | boolean | Specifies if the message is from a local user or if it is from a remote user |
 
 </collapsible>
 
@@ -356,11 +530,8 @@ The participantsPanel component lists all the users in the video call / livestre
 ### _Overrides_:
 
 <collapsible>
-<subtitle>
 
 ### ParticipantsPanelComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
-
-</subtitle>
 
 You can override the entire participantsPanel component by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `participanPanel` key to the `VideocallInterface Object`
 

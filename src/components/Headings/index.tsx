@@ -5,15 +5,16 @@ import clsx from "clsx";
 export function H2({ children }) {
   if (!children) return null;
   if (typeof children === "string") {
-    const id = children.split(":")[0].toLowerCase().trim();
+    const id = children.split(":")[0].toLowerCase().trim().split(" ").join("-");
     return (
       <h2 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
       </h2>
     );
   }
-  console.log(children);
+
   if (children.length >= 2) {
+    if (React.isValidElement(children[0])) return <h2>{children}</h2>;
     const id = children[0].split(":")[0].toLowerCase().trim();
     return (
       <h2 className={clsx(styles.heading, "anchor")} id={id}>
@@ -21,7 +22,7 @@ export function H2({ children }) {
       </h2>
     );
   }
-  return <h3>{children}</h3>;
+  return <h2>{children}</h2>;
 }
 
 export function H3({ children }) {
@@ -34,17 +35,19 @@ export function H3({ children }) {
       </h3>
     );
   }
-  console.log(children);
-  if (children.length > 2) {
+  if (children.length == 2) {
     console.log(children);
-    const id = children[0].split(":")[0].toLowerCase().trim();
+  }
+  if (children.length >= 2) {
+    if (React.isValidElement(children[0])) return <h3>{children}</h3>;
+    const id = children[0].split(":")[0].toLowerCase().trim() || "";
     return (
       <h3 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
       </h3>
     );
   }
-  return <h3>{children}</h3>;
+  return <h3 id="cat">{children}</h3>;
 }
 
 export function H4({ children }) {

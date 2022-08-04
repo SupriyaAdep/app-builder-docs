@@ -22,7 +22,7 @@ const cardList: ICardItem[] = [
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [
       { text: "Guide", href: "/sdks/guides/getting-started" },
-      { text: "API Reference", href: "/api-ref" },
+      { text: "API Reference", href: "/sdks/guides/getting-started" },
     ],
   },
   {

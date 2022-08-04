@@ -16,7 +16,7 @@ You would need the following installed and configured for the app builder to bui
 1.  NodeJS v14 - (Download - [Mac](https://nodejs.org/dist/v14.17.0/node-v14.17.0.pkg) | [Windows](https://nodejs.org/dist/v14.17.0/node-v14.17.0-x86.msi) | [Linux](https://nodejs.org/dist/v14.17.0/node-v14.17.0.tar.gz))
 2.  [git](https://git-scm.com/downloads)
 
-## To build for iOS & Mac desktop:
+## To build for iOS and Mac desktop:
 
 - Apple developer account
 - [Xcode and XCode CLI tools](https://reactnative.dev/docs/environment-setup) **(NOTE: Please see instructions for react-native-cli NOT expo-cli)**
