@@ -126,7 +126,7 @@ import { GridLayout } from "fpe-api";
 
 <subtitle>
 
-## PinnedLayout : [React.ComponentType<RenderStateInterface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+## PinnedLayout : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)[<RenderStateInterface\>](a)
 
 </subtitle>
 
