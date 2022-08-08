@@ -125,7 +125,7 @@ You also need to add `CUSTOM_ELEMENTS_SCHEMA` in your module file for your compo
 
 <!-- RHS -->
 
-```js {11} showLineNumbers
+```js {11}
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 

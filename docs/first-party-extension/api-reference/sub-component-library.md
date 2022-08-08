@@ -74,7 +74,7 @@ import { icons } from "fpe-api";
 
 <subtitle>
 
-## MaxVideoView : [React.ComponentType<MaxVideoRendererInterface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+## ChatBubble : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatBubbleProps](#chatbubble)\>
 
 </subtitle>
 
@@ -82,7 +82,41 @@ import { icons } from "fpe-api";
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render user video feed. Also includes the following overlays components [NetworkQualityPill](a), [NameLabel](a) etc.
+The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
+
+```jsx
+import { ChatBubble } from "fpe-api";
+```
+
+<br/>
+
+#### ChatBubbleProps
+
+| Prop      | Type                                                                          | Description                                                                  |
+| --------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| message   | string                                                                        | Content of the chat message                                                  |
+| isLocal   | boolean                                                                       | Specifies if the message is from a local user or if it is from a remote user |
+| uid       | [UidType](a)                                                                  | Name of the user who sent the message                                        |
+| timestamp | number                                                                        | Timestamp of the message                                                     |
+| render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](a) | Render method for chat bubble to provide a custom jsx                        |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## MaxVideoView : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[MaxVideoRendererInterface](#maxvideorendererinterface)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+
+The MaxVideoView component is used to render the user video feed along with overlay components like [NameWithMicStatus](#namewithmicstatus), [NetworkQualityPill](#networkqualitypill) etc.
 
 ```jsx
 import { MaxVideoView } from "fpe-api";
@@ -104,7 +138,7 @@ import { MaxVideoView } from "fpe-api";
 
 <subtitle>
 
-## GridLayout : [React.ComponentType<RenderStateInterface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+## GridLayout : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RenderStateInterface](#renderstateinterface)\>
 
 </subtitle>
 
@@ -112,7 +146,7 @@ import { MaxVideoView } from "fpe-api";
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render user video feeds in a responsive grid parttern.
+The GridLayout component is used to render the user video feeds in a responsive grid parttern.
 
 ```jsx
 import { GridLayout } from "fpe-api";
@@ -126,7 +160,7 @@ import { GridLayout } from "fpe-api";
 
 <subtitle>
 
-## PinnedLayout : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)[<RenderStateInterface\>](a)
+## PinnedLayout : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RenderStateInterface](#renderstateinterface)\>
 
 </subtitle>
 
@@ -134,7 +168,7 @@ import { GridLayout } from "fpe-api";
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render user video feeds in a pinned view with a collapsible sidebar displaying unpinned user feeds.
+The PinnedLayout component is used to render the user video feeds in a pinned view with a collapsible sidebar displaying unpinned user feeds.
 
 ```jsx
 import { PinnedLayout } from "fpe-api";
@@ -156,7 +190,7 @@ import { PinnedLayout } from "fpe-api";
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render the selected layout.
+The VideoComponent is used to automatically render the user video feeds in the selected layout.
 
 ```jsx
 import { VideoComponent } from "fpe-api";
@@ -170,7 +204,7 @@ import { VideoComponent } from "fpe-api";
 
 <subtitle>
 
-## NameWithMicStatus : [React.ComponentType<NameWithMicStatusInteface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+## NameWithMicStatus : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NameWithMicStatusInteface](#namewithmicstatusinteface)\>
 
 </subtitle>
 
@@ -178,7 +212,7 @@ import { VideoComponent } from "fpe-api";
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render user name along with their mic muted state.
+The NameWithMicStatus component is used to render the user name along with their mic muted state.
 
 ```jsx
 import { NameWithMicStatus } from "fpe-api";
@@ -200,7 +234,7 @@ import { NameWithMicStatus } from "fpe-api";
 
 <subtitle>
 
-NetworkQualityPill : [React.ComponentType<NetworkQualityPillInteface\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+NetworkQualityPill : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NetworkQualityPillInteface](#networkqualitypillinteface)\>
 
 </subtitle>
 
@@ -208,7 +242,7 @@ NetworkQualityPill : [React.ComponentType<NetworkQualityPillInteface\>](https://
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render user network quality.
+The NetworkQualityPill component is used to render the user network quality in a pill container that expands when hovered over.
 
 ```jsx
 import { NetworkQualityPill } from "fpe-api";
@@ -236,7 +270,7 @@ import { NetworkQualityPill } from "fpe-api";
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render the entire video call screen.
+The VideoCallScreen component is used to render the entire video call screen.
 
 ```jsx
 import { VideoCallScreen } from "fpe-api";
@@ -258,7 +292,7 @@ import { VideoCallScreen } from "fpe-api";
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render the participant panel that Lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
+The ParticipantsView component is used to render the participant panel that lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
 
 ```jsx
 import { ParticipantsView } from "fpe-api";
@@ -278,7 +312,7 @@ import { ParticipantsView } from "fpe-api";
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The subcomponent used to render all the meeting controls.
+The Controls component is used to render all the meeting controls.
 
 ```jsx
 import { MaxVideoView } from "fpe-api";
@@ -296,7 +330,7 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <subtitle>
 
-## ControlsComponentArray : [React.ComponentType<ControlsComponentArray\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+## ControlsComponentArray : [React.ComponentType\[\]](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
@@ -304,15 +338,7 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The array of all meeting control button subcomponents listed below.
-
-```jsx
-import { ControlsComponentArray } from "fpe-api";
-```
-
-<br/>
-
-#### ControlsComponentArray
+The SidePanelButtonsArray is an array of all meeting control button subcomponents listed below.
 
 | Index | Name               | Type                             | Description                                                 |
 | ----- | ------------------ | -------------------------------- | ----------------------------------------------------------- |
@@ -324,6 +350,10 @@ import { ControlsComponentArray } from "fpe-api";
 | 5     | LocalEndCall       | [LocalEndCallComponent](a)       | Control button to end local user call                       |
 | 6     | LiveStreamControls | [LiveStreamControlsComponent](a) | Control button to send/recall local user raise hand request |
 
+```jsx
+import { ControlsComponentArray } from "fpe-api";
+```
+
 <br/>
 
 ### _Control Components_:
@@ -332,7 +362,7 @@ import { ControlsComponentArray } from "fpe-api";
 
 ### LocalAudioMuteComponent: [React.ComponentType](a)<[LocalAudioMuteProps](a)>
 
-LocalAudioMuteProps
+#### LocalAudioMuteProps
 
 | Key                | Type                                                     | Description                                       |
 | ------------------ | -------------------------------------------------------- | ------------------------------------------------- |
@@ -341,7 +371,7 @@ LocalAudioMuteProps
 
 <br/>
 
-LocalAudioMuteRenderProps
+#### LocalAudioMuteRenderProps
 
 | Parameter           | Type               | Description                                       |
 | ------------------- | ------------------ | ------------------------------------------------- |
@@ -357,6 +387,8 @@ LocalAudioMuteRenderProps
 
 ### LocalVideoMuteComponent: [React.ComponentType](a)<[LocalVideoMuteProps](a)>
 
+#### LocalVideoMuteProps
+
 | Key                | Type                                                                                                             | Description                                       |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | buttonTemplateName | [buttonTemplateName](a)                                                                                          | Type of button template to be used for the button |
@@ -370,7 +402,7 @@ LocalAudioMuteRenderProps
 
 ### LocalSwitchCameraComponent: [React.ComponentType](a)<[LocalSwitchCameraProps](a)>
 
-LocalSwitchCameraProps
+#### LocalSwitchCameraProps
 
 | Key                | Type                                                                                                             | Description                                       |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
@@ -385,7 +417,7 @@ LocalSwitchCameraProps
 
 ### ScreenshareButtonComponent: [React.ComponentType](a)<[ScreenshareButtonProps](a)>
 
-ScreenshareButtonProps
+#### ScreenshareButtonProps
 
 | Key                | Type                                                                                                             | Description                                       |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
@@ -400,7 +432,7 @@ ScreenshareButtonProps
 
 ### RecordingComponent: [React.ComponentType](a)<[RecordingProps](a)>
 
-RecordingProps
+#### RecordingProps
 
 | Key                | Type                                                                                                             | Description                                       |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
@@ -415,7 +447,7 @@ RecordingProps
 
 ### LocalEndCallComponent: [React.ComponentType](a)<[LocalEndCallProps](a)>
 
-LocalEndCallProps
+#### LocalEndCallProps
 
 | Key                | Type                                                                                      | Description                                       |
 | ------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------- |
@@ -430,7 +462,7 @@ LocalEndCallProps
 
 ### LiveStreamControlsComponent : [React.ComponentType](a)<[LiveStreamControlsProps](a)>
 
-LiveStreamControlsProps
+#### LiveStreamControlsProps
 
 | Key          | Type    | Description                                   |
 | ------------ | ------- | --------------------------------------------- |
@@ -454,15 +486,7 @@ LiveStreamControlsProps
 
 <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
-The array of all the side panel button subcomponents listed below.
-
-```jsx
-import { ControlsComponentArray } from "fpe-api";
-```
-
-<br/>
-
-#### SidePanelButtonsArray
+The SidePanelButtonsArray is an array of all the side panel button subcomponents listed below.
 
 | Index | Name                                  | Type                                                | Description                                              |
 | ----- | ------------------------------------- | --------------------------------------------------- | -------------------------------------------------------- |
@@ -476,15 +500,19 @@ import { ControlsComponentArray } from "fpe-api";
 | 6     | MuteAllAudioButton                    | [MuteAllAudioButtonComponent](a)                    | Side panel button to mute all remote users audio         |
 | 6     | MuteAllVideoButton                    | [MuteAllVideoButtonComponent](a)                    | Side panel button to mute all remote users video         |
 
+```jsx
+import { SidePanelButtonsArray } from "fpe-api";
+```
+
 <br/>
 
-### _Control Components_:
+### _SidePanel Control Components_:
 
 <collapsible>
 
 ### RemoteAudioMuteComponent : [React.ComponentType](a)<[RemoteAudioMuteProps](a)>
 
-RemoteAudioMuteProps
+#### RemoteAudioMuteProps
 
 | Key    | Type         | Description                               |
 | ------ | ------------ | ----------------------------------------- |
@@ -500,7 +528,7 @@ RemoteAudioMuteProps
 
 ### RemoteVideoMuteComponent : [React.ComponentType](a)<[RemoteVideoMuteProps](a)>
 
-RemoteVideoMuteProps
+#### RemoteVideoMuteProps
 
 | Key    | Type         | Description                               |
 | ------ | ------------ | ----------------------------------------- |
@@ -516,7 +544,7 @@ RemoteVideoMuteProps
 
 ### RemoteEndCallComponent : [React.ComponentType](a)<[RemoteEndCallProps](a)>
 
-RemoteEndCallProps
+#### RemoteEndCallProps
 
 | Key    | Type         | Description                               |
 | ------ | ------------ | ----------------------------------------- |
@@ -531,7 +559,7 @@ RemoteEndCallProps
 
 ### RemoteLiveStreamApprovedRequestRecallComponent : [React.ComponentType](a)<[RemoteLiveStreamApprovedRequestRecallProps](a)>
 
-RemoteLiveStreamApprovedRequestRecallProps
+#### RemoteLiveStreamApprovedRequestRecallProps
 
 | Key | Type         | Description                               |
 | --- | ------------ | ----------------------------------------- |
@@ -545,7 +573,7 @@ RemoteLiveStreamApprovedRequestRecallProps
 
 ### RemoteLiveStreamControlApproveComponent : [React.ComponentType](a)<[RemoteLiveStreamControlApproveProps](a)>
 
-RemoteLiveStreamControlApproveProps
+#### RemoteLiveStreamControlApproveProps
 
 | Key | Type         | Description                               |
 | --- | ------------ | ----------------------------------------- |
@@ -559,7 +587,7 @@ RemoteLiveStreamControlApproveProps
 
 ### RemoteLiveStreamControlRejectComponent : [React.ComponentType](a)<[RemoteLiveStreamControlRejectProps](a)>
 
-RemoteLiveStreamControlRejectProps
+#### RemoteLiveStreamControlRejectProps
 
 | Key | Type         | Description                               |
 | --- | ------------ | ----------------------------------------- |
@@ -573,7 +601,7 @@ RemoteLiveStreamControlRejectProps
 
 ### ChatSendButtonComponent : [React.ComponentType](a)<[ChatSendButtonProps](a)>
 
-ChatSendButtonProps
+#### ChatSendButtonProps
 
 | Key    | Type                                      | Description                              |
 | ------ | ----------------------------------------- | ---------------------------------------- |
@@ -587,7 +615,7 @@ ChatSendButtonProps
 
 ### MuteAllAudioButtonComponent : [React.ComponentType](a)<[MuteAllAudioButtonProps](a)>
 
-MuteAllAudioButtonProps
+#### MuteAllAudioButtonProps
 
 | Key    | Type                                      | Description                              |
 | ------ | ----------------------------------------- | ---------------------------------------- |
@@ -601,7 +629,7 @@ MuteAllAudioButtonProps
 
 ### MuteAllVideoButtonComponent: [React.ComponentType](a)<[MuteAllVideoButtonProps](a)>
 
-MuteAllVideoButtonProps
+#### MuteAllVideoButtonProps
 
 | Key    | Type                                      | Description                              |
 | ------ | ----------------------------------------- | ---------------------------------------- |

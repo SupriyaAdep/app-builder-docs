@@ -7,29 +7,31 @@ keywords: [i18nInterface, i18nDataInterface]
 sidebar_custom_props: { icon: "i18" }
 ---
 
-Customize the text content of your application using this API. The App Builder by default provides default values for customize the text content of your application using this API. The App Builder by default provides default values for
+Customize and add multiple language and locale translations for all strings used across App Builder using this API.
 
-## i18n : [i18nInterface](#i18ninterface)
+## i18n : [i18nInterface](#i18ninterface)\[\]
 
-Customize the text content of your application using this API. The App Builder by default provides default values for
+Accepts an array of [i18nInterface](#i18ninterface) objects, each specific to a language or locale.
 
-### _API_:
+The overrides are applied by passing the array under the top-level `i18n` key to the Customization API config object.
 
 #### i18nInterface
 
-| Key    | Type                                | Description                                                              |
-| ------ | ----------------------------------- | ------------------------------------------------------------------------ |
-| locale | string                              | Unique string identifier to specify a language.                          |
-| label? | string                              | Language name to display in the UI dropdown                              |
-| data   | [i18nDataInterface](#i18ninterface) | This object should contain the necessary translations for a given locale |
+| Key    | Type                                | Description                                     |
+| ------ | ----------------------------------- | ----------------------------------------------- |
+| locale | string                              | Unique string identifier to specify a language. |
+| label? | string                              | Language name to display in the UI dropdown     |
+| data   | [i18nDataInterface](#i18ninterface) | The necessary translations for a given locale   |
 
 #### i18nDataInterface
 
-| Key                         | Type                                                                                        | Description                                      | Defaults                            |
-| --------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------- |
-| meetingNameInputPlaceholder | [BaseI18nType](#basei18ntype)                                                               | Placeholder text for the name input field        | Name your meeting                   |
-| pstnToggle                  | [ConditionalStringI18nType](a)                                                              | Label for the PSTN controls toggle               | Use PSTN (Join by dialing a number) |
-| joinRoomButton              | [BaseI18nType](#basei18ntype)<[JoinRoomButtonTextInterface](#joinroombuttontextinterface)/> | Label for the join room button on precall screen | Join room                           |
+<!-- TODO(adictya): Try a different represntation method for this  -->
+
+| Key                          | Type                                                                                         | Description                                       | Defaults          |
+| ---------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------------- |
+| meetingNameInputPlaceholder? | [I18nBaseType](#i18nbasetypet)                                                               | Placeholder text for the meeting name input field | Name your meeting |
+| pstnUserLabel?               | [I18nBaseType](#i18nbasetypet)                                                               | Label for the PSTN user                           | PSTN User         |
+| joinRoomButton?              | [I18nBaseType](#i18nbasetypet)<[JoinRoomButtonTextInterface](#joinroombuttontextinterface)> | Label for the join room button on precall screen  | Join room         |
 
 <br/>
 
@@ -41,23 +43,38 @@ Customize the text content of your application using this API. The App Builder b
 
 ### _Usage_:
 
-Customize the text content of your application using this API. The App Builder by default provides default values for
+Use the example code given below showcasing overrding
 
 ```js
 import React from "react";
 import { installFPE } from "fpe-api/install";
 
-// todo(adicyta)
-const BottomBar = () => {
-  return <></>;
-};
-
 const userCustomization = installFPE({
-  components: {
-    videoCall: {
-      bottomBar: BottomBar,
+  i18n: [
+    {
+      locale: "en-us",
+      label: "English US",
+      data: {
+        meetingNameInputPlaceholder: "Name your Room",
+        pstnUserLabel: "Dial In User",
+        joinRoomButton: ({ ready, role }) =>
+          ready
+            ? !role
+              ? "Join Room"
+              : `Join Room as ${
+                  role === ClientRole.Broadcaster ? "Host" : "Audience"
+                }`
+            : `Loading...`,
+      },
     },
-  },
+    {
+      locale: "es",
+      label: "Español",
+      data: {
+        meetingNameInputPlaceholder: "Nombra tu habitación",
+      },
+    },
+  ],
 });
 
 export default userCustomization;
@@ -69,17 +86,19 @@ export default userCustomization;
 
 # TYPES
 
+<br/>
+
 <api>
 
 <method>
 
-## BaseI18nType : string
+## I18nBaseType<T\> : string | ((template: T) => string)
 
 </method>
 
 <method>
 
-## DynamicI18nType : (label: string) => string
+## I18nDynamicType : [I18nBaseType](#i18nbasetypet)<string\>
 
 </method>
 

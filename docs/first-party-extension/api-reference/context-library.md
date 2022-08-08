@@ -326,30 +326,32 @@ The PropsContext contains the various configuration options and callbacks that a
 
 #### PropsInterface
 
-| Key         | Type                             | Description                                                          |
-| ----------- | -------------------------------- | -------------------------------------------------------------------- |
-| rtcProps    | [RtcPropsInterface](a)           | Contains all the configuration options passed to setup the ui kit    |
-| styleProps? | Partial<[StylePropInterface](a)> | Contains various styles used by the ui kit                           |
-| callbacks?  | Partial<[CallbacksInterface](a)> | Contains various callbacks setup on rtc actions passed to the ui kit |
-| mode?       | ChannelProfile                   | Indicates the rtc channel profile to be used                         |
+| Key         | Type                                                                                                                                                    | Description                                                          |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| rtcProps    | [RtcPropsInterface](a)                                                                                                                                  | Contains all the configuration options passed to setup the ui kit    |
+| styleProps? | Partial<[StylePropInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html) \> | Contains various styles used by the ui kit                           |
+| callbacks?  | Partial<[CallbacksInterface](a)>                                                                                                                        | Contains various callbacks setup on rtc actions passed to the ui kit |
+| mode?       | ChannelProfile                                                                                                                                          | Indicates the rtc channel profile to be used                         |
 
 <br/>
 
-#### RtcPropsInterface
+#### RtcPropsInterface _extends_ [AgoraRnUiKitRtcPropsInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html)
 
-| Key                    | Type                  | Description                                                       |
-| ---------------------- | --------------------- | ----------------------------------------------------------------- |
-| appId                  | string                | Contains all the configuration options passed to setup the ui kit |
-| channel                | string                | Contains all the configuration options passed to setup the ui kit |
-| uid?                   | [UidType](a)          | Contains all the configuration options passed to setup the ui kit |
-| token?                 | string \| null        | Contains all the configuration options passed to setup the ui kit |
-| dual?                  | boolean \| null       | Contains all the configuration options passed to setup the ui kit |
-| profile?               | [VideoProfile](a)     | Contains all the configuration options passed to setup the ui kit |
-| initialDualStreamMode? | [DualStreamMode](a)   | Contains all the configuration options passed to setup the ui kit |
-| role?                  | [ClientRole](a)       | Contains all the configuration options passed to setup the ui kit |
-| callActive?            | boolean               | Contains all the configuration options passed to setup the ui kit |
-| encryption?            | [EncryptionConfig](a) | Contains all the configuration options passed to setup the ui kit |
-| geoFencing?            | boolean               | Contains all the configuration options passed to setup the ui kit |
+| Key         | Type    | Description                              |
+| ----------- | ------- | ---------------------------------------- |
+| geoFencing? | boolean | Determines whether geofencing is enabled |
+
+<br/>
+
+#### CallbacksInterface _extends_ [AgoraRnUiKitCallbackInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Agora_UIKit._internal_.CallbacksInterface.html)
+
+<!-- TODO(adictya): Add descriptions -->
+
+| Key              | Type                                                             | Description                                            |
+| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------ |
+| DequeVideo       | (uid: [UidType](a)) => void                                      | Called when render object for the given uid is dequeud |
+| UpdateRenderList | (uid: [UidType](a), user: Partial<[RenderInterface](a)>) => void | Called when render object for the given uid is dequeud |
+| AddCustomContent | (uid: [UidType](a), data: any) => void                           | Called when render object for the given uid is dequeud |
 
 <br/>
 

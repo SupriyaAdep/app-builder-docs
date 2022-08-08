@@ -102,7 +102,7 @@ To create a FPE in a VueJS web app you need to access the `createFPE` method on 
 
 <!-- RHS -->
 
-```html showLineNumbers {3-7}
+```html {3-7}
 <script>
 import AgoraAppBuilder from "AgoraAppBuilder";
 const fpe = AgoraAppBuilder.createFPE({
@@ -121,7 +121,7 @@ Pass the returned FPE Object to the `installFPE` method available under the same
 
 <!-- RHS -->
 
-```html showLineNumbers {8}
+```html {8}
 <script>
 import AgoraAppBuilder from "AgoraAppBuilder";
 const FPE = AgoraAppBuilder.createFPE({

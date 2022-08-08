@@ -11,7 +11,7 @@ sidebar_custom_props: { icon: "settings" }
 
 The Components API allows for granular overriding of various aspects of the App Builder user interface ranging from entire screens such as the “VideoCall” screen to specific components within these screens such as the “BottomBar” component.
 
-The overrides are applied by supplying values as an object under the top-level `components` key to the [Customization API config]('a') object.
+The overrides are applied by supplying values as an object under the top-level `components` key to the Customization API config object.
 
 ---
 
@@ -53,53 +53,22 @@ To reuse parts of default video call ui you can import them from the [SubCompone
 
 Use the example code given below showcasing reconstruction of the default video call ui as a guide.
 
-```js {15-42}
+```tsx {13-17}
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { installFPE } from "fpe-api/install";
-import {
-  ParticipantsView,
-  Chat,
-  Navbar,
-  SettingsView,
-  Controls,
-  VideoComponent,
-  useSidePanel,
-} from "fpe-api";
-import { SidePanelType } from "../src/subComponents/SidePanelEnum";
 
-const VideoCall: React.FC = () => {
-  const { sidePanel } = useSidePanel();
+const MyVideoCallComponent: React.FC = () => {
   return (
-    <View style={{ flex: 1, flexDirection: "column", overflow: "hidden" }}>
-      <Navbar></Navbar>
-      <View
-        style={{
-          flex: 12,
-          flexDirection: "row",
-        }}
-      >
-        <VideoComponent />
-        {/* Responsible for showing the user video feeds, 
-        something about layouts{ todo(adicyta) } */}
-        {sidePanel === SidePanelType.Chat ? (
-          <Chat />
-        ) : sidePanel === SidePanelType.Settings ? (
-          <SettingsView />
-        ) : sidePanel === SidePanelType.Participants ? (
-          <ParticipantsView />
-        ) : (
-          <></>
-        )}
-      </View>
-      <Controls />
+    <View>
+      <Text>My VideoCall screen</Text>
     </View>
   );
 };
 
 const data = installFPE({
   components: {
-    videoCall: VideoCall,
+    videoCall: MyVideoCallComponent,
   },
 });
 
@@ -125,30 +94,6 @@ You can override specific parts of the VideoCall screen by pasing in this object
 | [participantsPanel](#videocallparticipantspanel) ?: | [ParticipantPanelComponent](#participantspanelcomponent)        | Customize the Participants Panel by passing in your own component. |
 
 <br/>
-Use the example code given below showcasing overridding of specific video call components as a guide.
-
-```tsx {9-18}
-import { installFPE } from "fpe-api/install";
-import {
-  MyBottomBar,
-  myCustomContent,
-  myCustomLayout,
-  MyParticipantPanel,
-} from "./Customizations";
-
-const userCustomization = installFPE({
-  components: {
-    videoCall: {
-      bottomBar: MyBottomBar,
-      customContent: myCustomContent,
-      customLayout: myCustomLayout,
-      participantsPanel: MyParticipantPanel,
-    },
-  },
-});
-
-export default userCustomization;
-```
 
 </collapsible>
 </method>
@@ -182,19 +127,23 @@ To reuse parts of default bottom bar ui you can import them from the [SubCompone
 
 Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
 
-```tsx
+```tsx {13-19}
 import React from "react";
+import { View, Text } from "react-native";
 import { installFPE } from "fpe-api/install";
 
-// todo(adicyta)
-const BottomBar = () => {
-  return <></>;
+const MyBottomBarComponent: React.FC = () => {
+  return (
+    <View>
+      <Text>My bottom bar component</Text>
+    </View>
+  );
 };
 
 const userCustomization = installFPE({
   components: {
     videoCall: {
-      bottomBar: BottomBar,
+      bottomBar: MyBottomBarComponent,
     },
   },
 });
@@ -217,7 +166,7 @@ export default userCustomization;
 
 <image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
-The Chat component displays the ui to send and view group as well as private chat messages to every user in the meeting
+The Chat component displays the ui to send and view the chat messages.
 
 ### _Overrides_:
 
@@ -259,30 +208,37 @@ You can override the ChatBubble component by passing in a [React Component](http
 
 #### ChatBubbleProps
 
-| Prop    | Type    | Description                                                                  |
-| ------- | ------- | ---------------------------------------------------------------------------- |
-| msg     | string  | Content of the chat message                                                  |
-| isLocal | boolean | Specifies if the message is from a local user or if it is from a remote user |
-| uid     | string  | Name of the user who sent the message                                        |
-| ts      | number  | Timestamp of the message                                                     |
+| Prop      | Type                                                                          | Description                                                                  |
+| --------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| message   | string                                                                        | Content of the chat message                                                  |
+| isLocal   | boolean                                                                       | Specifies if the message is from a local user or if it is from a remote user |
+| uid       | [UidType](a)                                                                  | Name of the user who sent the message                                        |
+| timestamp | number                                                                        | Timestamp of the message                                                     |
+| render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](a) | Render method for chat bubble to provide a custom jsx                        |
 
 <br/>
 
-Use the code example given below showcasing reconstruction of the default chat bubble ui as a guide.
+Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
 
-```tsx
+```tsx {13-21}
 import React from "react";
+import { View, Text } from "react-native";
 import { installFPE } from "fpe-api/install";
 
-// todo(adicyta)
-const BottomBar = () => {
-  return <></>;
+const MyChatBubbleComponent = () => {
+  return (
+    <View>
+      <Text>My chat bubble component</Text>
+    </View>
+  );
 };
 
 const userCustomization = installFPE({
   components: {
     videoCall: {
-      bottomBar: BottomBar,
+      chat: {
+        chatBubble: MyChatBubbleComponent,
+      },
     },
   },
 });
@@ -307,7 +263,7 @@ export default userCustomization;
 
 <image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" />
 
-Specifies the react component to be used to render custom content injected into the renderingContext or to override default RTC render.
+The constomContent object specifies the react component to be used for rendering each custom content type including user inserted and default types present in the [renderingContext](a).
 
 ### _Overrides_:
 
@@ -316,7 +272,7 @@ Specifies the react component to be used to render custom content injected into 
 
 ### RenderingComponentInterface
 
-You can override the specific renderer of each render object type by passing in this object with key and values corresponding to the render object type you want to override under the `customContent` key to the `VideoCallInterface`
+You can override the render component for each content type present in the [renderingContext](a) by passing in this object with key corresponding to the custom content type you want to override under the `customContent` key to the `VideoCallInterface`.
 
 | Key                | Type                | Description                                                                                                 |
 | ------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -325,21 +281,27 @@ You can override the specific renderer of each render object type by passing in 
 
 <br/>
 
-Use the example code given below showcasing overriding of the default rtc renderer as a guide.
+Use the example code given below showcasing overriding of the default render component for `rtc` content type as a guide.
 
-```tsx
+```tsx {13-21}
 import React from "react";
+import { View, Text } from "react-native";
 import { installFPE } from "fpe-api/install";
 
-// todo(adicyta)
-const BottomBar = () => {
-  return <></>;
+const MyRTCRenderer = () => {
+  return (
+    <View style={{ flex: 1, backgroundColor: "deepskyblue" }}>
+      <Text>My RTC component</Text>
+    </View>
+  );
 };
 
 const userCustomization = installFPE({
   components: {
     videoCall: {
-      bottomBar: BottomBar,
+      customContent: {
+        rtc: MyRTCRenderer,
+      },
     },
   },
 });
@@ -356,7 +318,7 @@ export default userCustomization;
 <method>
 <subtitle>
 
-## videoCall.customLayouts : customLayoutsOverrideFunction
+## videoCall.customLayout : customLayoutsOverrideFunction
 
 </subtitle>
 
@@ -369,7 +331,7 @@ Customize the layout through LayoutInterface
 <method>
 <collapsible>
 
-### customLayoutsOverrideFunction: ( [DefaultLayouts](#defaultlayouts) ) => [LayoutInterface](#layoutinterface)[]
+### customLayoutsOverrideFunction: ( [DefaultLayouts](#defaultlayouts) ) => [LayoutObjectType](#layoutobjecttype)[]
 
 You can override the layouts by providing a function with LayoutInterface[] return type to the `customLayouts` under `VideoCallInterface` object.
 
@@ -384,31 +346,57 @@ This function recieves an array of default layouts and expects you to return an 
 
 <br/>
 
-#### LayoutInterface
+#### LayoutObjectType: [LayoutObjectWithIcon](a) | [LayoutObjectWithIconName](a)
 
-| Key       | Type                              | Description                                                                           |
-| --------- | --------------------------------- | ------------------------------------------------------------------------------------- |
-| name      | string                            | Specifies if the message is from a local user or if it is from a remote user          |
-| icon      | string                            | Can be a <br/> 1. Base 64 Image string <br/>2. CDN URL <br/>3. Bunder imported string |
-| Component | React.ComponentType<LayoutProps\> | Timestamp of the message                                                              |
+#### LayoutObjectWithIcon
+
+| Key       | Type                                   | Description                                                                           |
+| --------- | -------------------------------------- | ------------------------------------------------------------------------------------- |
+| name      | string                                 | Name of the layout                                                                    |
+| label     | string                                 | Label of the layout to be displayed in UI                                             |
+| icon      | string                                 | Can be a <br/> 1. Base 64 Image string <br/>2. CDN URL <br/>3. Bunder imported string |
+| Component | React.ComponentType<[LayoutProps](a)\> | Layout component to be used to render the video feeds                                 |
 
 <br/>
 
-Use the example code given below showcasing overriding of the default layout as a guide.
+#### LayoutObjectWithIconName
 
-```tsx
+| Key       | Type                      | Description                                           |
+| --------- | ------------------------- | ----------------------------------------------------- |
+| name      | string                    | Name of the layout                                    |
+| label     | string                    | Label of the layout to be displayed in UI             |
+| iconName  | keyof [IconsInterface](a) | Name of the icon to be displayed in UI for the layout |
+| Component | [layoutComponent](a)      | Layout component to be used to render the video feeds |
+
+<br/>
+
+Use the example code given below showcasing appending a custom layout as a guide.
+
+```tsx {13-27}
 import React from "react";
+import { View, Text } from "react-native";
 import { installFPE } from "fpe-api/install";
 
-// todo(adicyta)
-const BottomBar = () => {
-  return <></>;
+const MyLayoutComponent = ({ renderData }) => {
+  return (
+    <View style={{ flex: 1 }}>
+      <Text>My layout component</Text>
+    </View>
+  );
 };
 
 const userCustomization = installFPE({
   components: {
     videoCall: {
-      bottomBar: BottomBar,
+      customLayout: (DefaultLayouts) => [
+        ...DefaultLayouts,
+        {
+          label: "My Layout",
+          name: "myLayout",
+          iconName: "videocam",
+          component: MyLayoutComponent,
+        },
+      ],
     },
   },
 });
@@ -447,56 +435,28 @@ You can import parts of default participantsPanel ui from the [SubComponents Lib
 
 Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
 
-```js
+```tsx {13-19}
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { installFPE } from "fpe-api/install";
-import {
-  ParticipantsView,
-  Chat,
-  Navbar,
-  SettingsView,
-  Controls,
-  VideoComponent,
-  useSidePanel,
-} from "fpe-api";
-import { SidePanelType } from "../src/subComponents/SidePanelEnum";
 
-const VideoCall: React.FC = () => {
-  const { sidePanel } = useSidePanel();
+const MyParticipantPanel = () => {
   return (
-    <View style={{ flex: 1, flexDirection: "column", overflow: "hidden" }}>
-      <Navbar></Navbar>
-      <View
-        style={{
-          flex: 12,
-          flexDirection: "row",
-        }}
-      >
-        <VideoComponent />
-        {/* Responsible for showing the user video feeds, something about layouts{ todo(adicyta) } */}
-        {sidePanel === SidePanelType.Chat ? (
-          <Chat />
-        ) : sidePanel === SidePanelType.Settings ? (
-          <SettingsView />
-        ) : sidePanel === SidePanelType.Participants ? (
-          <ParticipantsView />
-        ) : (
-          <></>
-        )}
-      </View>
-      <Controls />
+    <View style={{ flex: 1 }}>
+      <Text>My participant panel</Text>
     </View>
   );
 };
 
-const data = installFPE({
+const userCustomization = installFPE({
   components: {
-    videoCall: VideoCall,
+    videoCall: {
+      participantsPanel: MyParticipantPanel,
+    },
   },
 });
 
-export default data;
+export default userCustomization;
 ```
 
 </collapsible>
