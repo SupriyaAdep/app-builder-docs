@@ -42,11 +42,6 @@ This page is an index of types, interfaces, enums used across various Customizat
 | disabling | 2     |
 | enabling  | 3     |
 
-| Key            | Type                       | Description                                                           |
-| -------------- | -------------------------- | --------------------------------------------------------------------- |
-| renderList     | [RenderObjectInterface](a) | Object containing all the render objects stored in the render context |
-| renderPosition | Array<[UidType](a)\>       | Array indicating order of all uids in the render context              |
-
 </collapsible>
 </method>
 
