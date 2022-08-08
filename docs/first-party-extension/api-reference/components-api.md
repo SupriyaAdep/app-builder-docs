@@ -49,7 +49,7 @@ However if [$config.precall]('a') is set to disabled, the videoCall screen is di
 
 You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
 
-To reuse parts of default video call ui you can import them from the [SubComponents Library](a) accessible under the `fpe-api` module.
+To reuse parts of default video call ui you can import them from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `fpe-api` module.
 
 Use the example code given below showcasing reconstruction of the default video call ui as a guide.
 
