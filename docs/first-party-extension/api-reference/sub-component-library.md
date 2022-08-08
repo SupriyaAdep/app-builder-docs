@@ -37,34 +37,35 @@ import { icons } from "fpe-api";
 
 #### IconsInterface
 
-| Name                  | Type                                                                                                                                                                      | Icon                                                                                                                          |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| videocam              | string                                                                                                                                                                    | <image alt="Video camera" lightImageSrc="icons/icons8-video-camera-24.png" darkImageSrc="icons/icons8-video-camera-24.png" /> |
-| videocamOff           | string                                                                                                                                                                    |
-| mic                   | string                                                                                                                                                                    |
-| micOff                | string                                                                                                                                                                    |
-| recordingIcon         | string                                                                                                                                                                    |
-| recordingActiveIcon   | string                                                                                                                                                                    |
-| screenshareIcon       | string                                                                                                                                                                    |
-| screenshareOffIcon    | string                                                                                                                                                                    |
-| raiseHandIcon         | string                                                                                                                                                                    |
-| endCall               | string                                                                                                                                                                    |
-| gridLayoutIcon        | string                                                                                                                                                                    |
-| gridLayoutFilledIcon  | string                                                                                                                                                                    |
-| pinnedLayoutIcon      | string                                                                                                                                                                    |
-| participantIcon       | string                                                                                                                                                                    |
-| participantFilledIcon | string                                                                                                                                                                    |
-| chatIcon              | string                                                                                                                                                                    |
-| chatIconFilled        | string                                                                                                                                                                    |
-| settings              | string                                                                                                                                                                    |
-| settingFilled         | string                                                                                                                                                                    |
-| clipboard             | string                                                                                                                                                                    |
-| checkCircleIcon       | string                                                                                                                                                                    |
-| crossCircleIcon       | string                                                                                                                                                                    |
-| demoteIcon            | string                                                                                                                                                                    |
-| exlamationIcon        | string                                                                                                                                                                    |
-| networkIcons          | {<br/>&emsp;Excellent: string,<br/>&emsp;Unsupported: string,<br/>&emsp;Good: string,<br/>&emsp;Bad: string,<br/>&emsp;VeryBad: string,<br/>&emsp;Loading: string,<br/> } |
-| backBtn               | string                                                                                                                                                                    |
+| Name                  | Type   | Icon                                                                                                  |
+| --------------------- | ------ | ----------------------------------------------------------------------------------------------------- |
+| videocam              | string | <image alt="Video camera" lightImageSrc="icons/VideoCam.png" darkImageSrc="icons/VideoCam.png" />     |
+| videocamOff           | string | <image alt="Video camera" lightImageSrc="icons/VideoCam-1.png" darkImageSrc="icons/VideoCam-1.png" /> |
+| mic                   | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Microphone.png" />           |
+| micOff                | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Microphone-1.png" />         |
+| recordingIcon         | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Record.png" />               |
+| recordingActiveIcon   | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Record-1.png" />             |
+| screenshareIcon       | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Screenshare.png" />          |
+| screenshareOffIcon    | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Screenshare-1.png" />        |
+| raiseHandIcon         | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Raise Hand.png" />           |
+| endCall               | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/End Call.png" />             |
+| gridLayoutIcon        | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Grid View.png" />            |
+| gridLayoutFilledIcon  | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Grid View Filled.png" />     |
+| pinnedLayoutIcon      | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Pinned Layout Web.png" />    |
+| participantIcon       | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Standard Base.png" />        |
+| participantFilledIcon | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Standard Base-1.png" />      |
+| chatIcon              | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Chat.png" />                 |
+| chatIconFilled        | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Chat-1.png" />               |
+| settings              | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Settings.png" />             |
+| settingFilled         | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Settings-1.png" />           |
+| clipboard             | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Copy.png" />                 |
+| checkCircleIcon       | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Check 1.png" />                     |
+| crossCircleIcon       | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Cross 1.png" />                     |
+| demoteIcon            | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Demote.png" />               |
+| exlamationIcon        | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Exclamation.png" />                     |
+| backBtn               | string | <image alt="Video camera" lightImageSrc="icons/.png" darkImageSrc="icons/Back.png" />                 |
+
+| networkIcons | {<br/>&emsp;Excellent: string,<br/>&emsp;Unsupported: string,<br/>&emsp;Good: string,<br/>&emsp;Bad: string,<br/>&emsp;VeryBad: string,<br/>&emsp;Loading: string,<br/> } |
 
 </method>
 
