@@ -64,7 +64,7 @@ This page is an index of types, interfaces, enums used across the Customization 
 
 <method>
 
-## UidType: string
+## UidType : string
 
 </method>
 
@@ -72,7 +72,7 @@ This page is an index of types, interfaces, enums used across the Customization 
 
 <method>
 
-## createHook: <T\>(context: [React.Context](#https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L373)<T\>) => { Partial<T\> }
+## createHook : <T\>(context: [React.Context](#https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L373)<T\>) => { Partial<T\> }
 
 </method>
 
