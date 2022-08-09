@@ -121,7 +121,7 @@ import { useIsVideoEnabled } from "fpe-api";
 <method>
 <subtitle>
 
-## ToOptions : [UidType](a)[UidType\[\]](a)
+## ToOptions : [UidType](/first-party-extension/api-reference/globals#uidtype-string)[UidType\[\]](a)
 
 </subtitle>
 

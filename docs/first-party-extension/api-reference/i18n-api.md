@@ -27,10 +27,10 @@ The overrides are applied by passing the array under the top-level `i18n` key to
 
 <!-- TODO(adictya): Try a different represntation method for this  -->
 
-| Key                          | Type                                                                                         | Description                                       | Defaults          |
-| ---------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------------- |
-| meetingNameInputPlaceholder? | [I18nBaseType](#i18nbasetypet)                                                               | Placeholder text for the meeting name input field | Name your meeting |
-| pstnUserLabel?               | [I18nBaseType](#i18nbasetypet)                                                               | Label for the PSTN user                           | PSTN User         |
+| Key                          | Type                                                                                        | Description                                       | Defaults          |
+| ---------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------------- |
+| meetingNameInputPlaceholder? | [I18nBaseType](#i18nbasetypet)                                                              | Placeholder text for the meeting name input field | Name your meeting |
+| pstnUserLabel?               | [I18nBaseType](#i18nbasetypet)                                                              | Label for the PSTN user                           | PSTN User         |
 | joinRoomButton?              | [I18nBaseType](#i18nbasetypet)<[JoinRoomButtonTextInterface](#joinroombuttontextinterface)> | Label for the join room button on precall screen  | Join room         |
 
 <br/>
@@ -106,10 +106,21 @@ export default userCustomization;
 
 ## JoinRoomButtonTextInterface
 
-| Key   | Type            | Description                                                 |
-| ----- | --------------- | ----------------------------------------------------------- |
-| ready | boolean         | Boolean that indicates whether a room is ready to be joined |
-| role  | [ClientRole](a) | Role of the user trying to join                             |
+| Key   | Type                      | Description                                                 |
+| ----- | ------------------------- | ----------------------------------------------------------- |
+| ready | boolean                   | Boolean that indicates whether a room is ready to be joined |
+| role  | [ClientRole](#clientrole) | Role of the user trying to join                             |
+
+</method>
+
+<method>
+
+## ClientRole
+
+| Index | Name        | Description                                                       |
+| ----- | ----------- | ----------------------------------------------------------------- |
+| 1     | Broadcaster | User publishes to other channel boradcasters and Audience members |
+| 2     | Audience    | User subscribing to other channel broadcasters without publishes  |
 
 </method>
 </api>
