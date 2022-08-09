@@ -9,6 +9,11 @@ export function H2({ children }) {
     return (
       <h2 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
+        <a
+          className="hash-link"
+          href={`#${id}`}
+          title="Direct link to heading"
+        ></a>
       </h2>
     );
   }
@@ -19,6 +24,11 @@ export function H2({ children }) {
     return (
       <h2 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
+        <a
+          className="hash-link"
+          href={`#${id}`}
+          title="Direct link to heading"
+        ></a>
       </h2>
     );
   }
@@ -32,6 +42,11 @@ export function H3({ children }) {
     return (
       <h3 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
+        <a
+          className="hash-link"
+          href={`#${id}`}
+          title="Direct link to heading"
+        ></a>
       </h3>
     );
   }
@@ -44,6 +59,11 @@ export function H3({ children }) {
     return (
       <h3 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
+        <a
+          className="hash-link"
+          href={`#${id}`}
+          title="Direct link to heading"
+        ></a>
       </h3>
     );
   }
@@ -57,6 +77,11 @@ export function H4({ children }) {
     return (
       <h4 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
+        <a
+          className="hash-link"
+          href={`#${id}`}
+          title="Direct link to heading"
+        ></a>
       </h4>
     );
   }
@@ -65,6 +90,11 @@ export function H4({ children }) {
     return (
       <h4 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
+        <a
+          className="hash-link"
+          href={`#${id}`}
+          title="Direct link to heading"
+        ></a>
       </h4>
     );
   }

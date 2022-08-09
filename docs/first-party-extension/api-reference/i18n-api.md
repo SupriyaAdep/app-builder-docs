@@ -21,7 +21,7 @@ The overrides are applied by passing the array under the top-level `i18n` key to
 | ------ | ----------------------------------- | ----------------------------------------------- |
 | locale | string                              | Unique string identifier to specify a language. |
 | label? | string                              | Language name to display in the UI dropdown     |
-| data   | [i18nDataInterface](#i18ninterface) | The necessary translations for a given locale   |
+| data   | [i18nDataInterface](#i18ndatainterface) | The necessary translations for a given locale   |
 
 #### i18nDataInterface
 

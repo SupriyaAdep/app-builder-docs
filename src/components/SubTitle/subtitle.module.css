@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
     margin-bottom: 20px;
 }
@@ -18,10 +18,12 @@
     padding: 6px 8px;
     border-radius: 5px;
     cursor: pointer;
+    margin:0 5px;
 }
 .linkText{
-  color:var(--ifm-link-color);
+  color:var(--ifm-heading-color);
   cursor: default;
+  font-size:20px;
 }
 .link:hover {
     text-decoration: none;
@@ -31,6 +33,5 @@
     font-size: 40px;
     margin:0 8px; 
     position: relative;
-    bottom: -5px;   
     line-height: 25px;
 }
