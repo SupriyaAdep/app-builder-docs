@@ -7,7 +7,7 @@ keywords: [videCallProps, ChatBubbleProps]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-This page is an index of types, interfaces, enums used across various Customization APIs
+This page is an index of types, interfaces, enums used across the Customization API
 
 <api>
 <method>
@@ -16,13 +16,13 @@ This page is an index of types, interfaces, enums used across various Customizat
 
 <collapsible>
 
-| Key         | Type             | Description                 |
-| ----------- | ---------------- | --------------------------- |
-| uid         | number \| string | Content of the chat message |
-| audio       | [ToggleState](a) | Content of the chat message |
-| video       | [ToggleState](a) | Content of the chat message |
-| streamType  | 'high' \| 'low'  | Content of the chat message |
-| contentType | 'rtc'            | Content of the chat message |
+| Key         | Type                        | Description                 |
+| ----------- | --------------------------- | --------------------------- |
+| uid         | number \| string            | Content of the chat message |
+| audio       | [ToggleState](#togglestate) | Content of the chat message |
+| video       | [ToggleState](#togglestate) | Content of the chat message |
+| streamType  | 'high' \| 'low'             | Content of the chat message |
+| contentType | 'rtc'                       | Content of the chat message |
 
 </collapsible>
 </method>
@@ -53,9 +53,9 @@ This page is an index of types, interfaces, enums used across various Customizat
 
 <collapsible>
 
-| Key            | Type                 | Description                                                                      |
-| -------------- | -------------------- | -------------------------------------------------------------------------------- |
-| [key: UidType] | [RenderInterface](a) | Object containing information necessary to render view for the corresponding uid |
+| Key            | Type                                | Description                                                                      |
+| -------------- | ----------------------------------- | -------------------------------------------------------------------------------- |
+| [key: UidType] | [RenderInterface](#renderinterface) | Object containing information necessary to render view for the corresponding uid |
 
 </collapsible>
 </method>
@@ -72,7 +72,7 @@ This page is an index of types, interfaces, enums used across various Customizat
 
 <method>
 
-## createHook: <T\>(context: [React.Context](a)<T\>) => { Partial<T\> }
+## createHook: <T\>(context: [React.Context](#https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L373)<T\>) => { Partial<T\> }
 
 </method>
 

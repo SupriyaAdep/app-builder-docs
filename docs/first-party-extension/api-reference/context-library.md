@@ -326,12 +326,12 @@ The PropsContext contains the various configuration options and callbacks that a
 
 #### PropsInterface
 
-| Key         | Type                                                                                                                                                    | Description                                                          |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| rtcProps    | [RtcPropsInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface)                                                                           | Contains all the configuration options passed to setup the ui kit    |
+| Key         | Type                                                                                                                                                     | Description                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| rtcProps    | [RtcPropsInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface)                                                                            | Contains all the configuration options passed to setup the ui kit    |
 | styleProps? | Partial< [StylePropInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html) \> | Contains various styles used by the ui kit                           |
-| callbacks?  | Partial< [CallbacksInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface) >                                                                 | Contains various callbacks setup on rtc actions passed to the ui kit |
-| mode?       | ChannelProfile                                                                                                                                          | Indicates the rtc channel profile to be used                         |
+| callbacks?  | Partial< [CallbacksInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface) >                                                                | Contains various callbacks setup on rtc actions passed to the ui kit |
+| mode?       | ChannelProfile                                                                                                                                           | Indicates the rtc channel profile to be used                         |
 
 <br/>
 
@@ -347,11 +347,11 @@ The PropsContext contains the various configuration options and callbacks that a
 
 <!-- TODO(adictya): Add descriptions -->
 
-| Key              | Type                                                                                                                                                                                  | Description                                            |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| DequeVideo       | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string)) => void                                                                                                 | Called when render object for the given uid is dequeud |
-| UpdateRenderList | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), user: Partial<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)>) => void | Called when render object for the given uid is dequeud |
-| AddCustomContent | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), data: any) => void                                                                                      | Called when render object for the given uid is dequeud |
+| Key              | Type                                                                                                                                                                                  | Description                          |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| DequeVideo       | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string)) => void                                                                                                 | Called when a render object dequeud  |
+| UpdateRenderList | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), user: Partial<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)>) => void | Called when render list is updated   |
+| AddCustomContent | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), data: any) => void                                                                                      | Called when custom content was added |
 
 <br/>
 

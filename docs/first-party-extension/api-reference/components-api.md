@@ -90,8 +90,8 @@ You can override specific parts of the VideoCall screen by pasing in this object
 | --------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | [bottomBar](#videocallbottombar) ?:                 | [BottomBarComponent](#bottombarcomponent)                       | Customize the Bottom Bar by passing in your own component                       |
 | [chat](#videocallchat) ?:                           | [ChatInterface](#chatinterface)                                 | Customize the entire chat panel or pass in an object to override a subcomponent |
-| [customContent](#videocallcustomcontent) ?:         | [RenderingComponentInterface](#renderingcomponentinterface)     | Customize the settings panel by passing in your own component.                  |
-| [customLayouts](#videocallcustomlayouts) ?:         | [CustomLayoutsOverrideFunction](#customlayoutsoverridefunction) | Customize the settings panel by passing in your own component.                  |
+| [customContent](#videocallcustomcontent) ?:         | [RenderingComponentInterface](#renderingcomponentinterface)     | Add custom content to the layouts by passing in your own Render object          |
+| [customLayouts](#videocallcustomlayouts) ?:         | [CustomLayoutsOverrideFunction](#customlayoutsoverridefunction) | Customize the available layouts or pass in your own layout.                     |
 | [participantsPanel](#videocallparticipantspanel) ?: | [ParticipantPanelComponent](#participantspanelcomponent)        | Customize the Participants Panel by passing in your own component.              |
 
 <br/>
