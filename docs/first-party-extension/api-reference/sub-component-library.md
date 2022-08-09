@@ -74,7 +74,7 @@ import { icons } from "fpe-api";
 
 <subtitle>
 
-## ChatBubble : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatBubbleProps](#chatbubble)\>
+## ChatBubble : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatBubbleProps](##chatbubbleprops)\>
 
 </subtitle>
 
@@ -92,13 +92,13 @@ import { ChatBubble } from "fpe-api";
 
 #### ChatBubbleProps
 
-| Prop      | Type                                                                          | Description                                                                  |
-| --------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| message   | string                                                                        | Content of the chat message                                                  |
-| isLocal   | boolean                                                                       | Specifies if the message is from a local user or if it is from a remote user |
-| uid       | [UidType](a)                                                                  | Name of the user who sent the message                                        |
-| timestamp | number                                                                        | Timestamp of the message                                                     |
-| render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](a) | Render method for chat bubble to provide a custom jsx                        |
+| Prop      | Type                                                                                                                                                                                                          | Description                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| message   | string                                                                                                                                                                                                        | Content of the chat message                                                  |
+| isLocal   | boolean                                                                                                                                                                                                       | Specifies if the message is from a local user or if it is from a remote user |
+| uid       | [UidType](/first-party-extension/api-reference/globals#uidtype-string)                                                                                                                                        | Name of the user who sent the message                                        |
+| timestamp | number                                                                                                                                                                                                        | Timestamp of the message                                                     |
+| render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Render method for chat bubble to provide a custom jsx                        |
 
 </method>
 
@@ -126,9 +126,9 @@ import { MaxVideoView } from "fpe-api";
 
 #### MaxVideoRendererInterface
 
-| Prop   | Type                 | Description                                            |
-| ------ | -------------------- | ------------------------------------------------------ |
-| user : | [RenderInterface](a) | The user object you need to display the video feed off |
+| Prop   | Type                                                                            | Description                                            |
+| ------ | ------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| user : | [RenderInterface](/first-party-extension/api-reference/globals#renderinterface) | The user object you need to display the video feed off |
 
 </method>
 
@@ -222,9 +222,9 @@ import { NameWithMicStatus } from "fpe-api";
 
 #### NameWithMicStatusInteface
 
-| Prop   | Type                 | Description                                                    |
-| ------ | -------------------- | -------------------------------------------------------------- |
-| user : | [RenderInterface](a) | The user object you need to display the name and mic status of |
+| Prop   | Type                                                                            | Description                                                    |
+| ------ | ------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| user : | [RenderInterface](/first-party-extension/api-reference/globals#renderinterface) | The user object you need to display the name and mic status of |
 
 </method>
 
@@ -252,9 +252,9 @@ import { NetworkQualityPill } from "fpe-api";
 
 #### NetworkQualityPillInteface
 
-| Prop   | Type                 | Description                                                |
-| ------ | -------------------- | ---------------------------------------------------------- |
-| user : | [RenderInterface](a) | The user object you need to display the network quality of |
+| Prop   | Type                                                                            | Description                                                |
+| ------ | ------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| user : | [RenderInterface](/first-party-extension/api-reference/globals#renderinterface) | The user object you need to display the network quality of |
 
 </method>
 
@@ -340,15 +340,15 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 The SidePanelButtonsArray is an array of all meeting control button subcomponents listed below.
 
-| Index | Name               | Type                             | Description                                                 |
-| ----- | ------------------ | -------------------------------- | ----------------------------------------------------------- |
-| 0     | LocalAudioMute     | [LocalAudioMuteComponent](a)     | Control button to mute/unmute local user audio              |
-| 1     | LocalVideoMute     | [LocalVideoMuteComponent](a)     | Control button to mute/unmute local user video              |
-| 2     | LocalSwitchCamera  | [LocalSwitchCameraComponent](a)  | Control button to switch local user video camera            |
-| 3     | ScreenshareButton  | [ScreenshareButtonComponent](a)  | Control button to start/stop screenshare                    |
-| 4     | Recording          | [LocalAudioMuteComponent](a)     | Control button to start/stop meeting recording              |
-| 5     | LocalEndCall       | [LocalEndCallComponent](a)       | Control button to end local user call                       |
-| 6     | LiveStreamControls | [LiveStreamControlsComponent](a) | Control button to send/recall local user raise hand request |
+| Index | Name               | Type                                                    | Description                                                 |
+| ----- | ------------------ | ------------------------------------------------------- | ----------------------------------------------------------- |
+| 0     | LocalAudioMute     | [LocalAudioMuteComponent](#localaudiomuteprops)         | Control button to mute/unmute local user audio              |
+| 1     | LocalVideoMute     | [LocalVideoMuteComponent](#localvideomuteprops)         | Control button to mute/unmute local user video              |
+| 2     | LocalSwitchCamera  | [LocalSwitchCameraComponent](#localswitchcameraprops)   | Control button to switch local user video camera            |
+| 3     | ScreenshareButton  | [ScreenshareButtonComponent](#screensharebuttonprops)   | Control button to start/stop screenshare                    |
+| 4     | Recording          | [RecordingComponent](#recordingprops)                   | Control button to start/stop meeting recording              |
+| 5     | LocalEndCall       | [LocalEndCallComponent](#localendcallprops)             | Control button to end local user call                       |
+| 6     | LiveStreamControls | [LiveStreamControlsComponent](#livestreamcontrolsprops) | Control button to send/recall local user raise hand request |
 
 ```jsx
 import { ControlsComponentArray } from "fpe-api";
@@ -360,14 +360,14 @@ import { ControlsComponentArray } from "fpe-api";
 
 <collapsible>
 
-### LocalAudioMuteComponent: [React.ComponentType](a)<[LocalAudioMuteProps](a)>
+### LocalAudioMuteComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[LocalAudioMuteProps](#localaudiomuteprops)>
 
 #### LocalAudioMuteProps
 
-| Key                | Type                                                     | Description                                       |
-| ------------------ | -------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                  | Type of button template to be used for the button |
-| render?            | [React.ComponentType](a)<[LocalAudioMuteRenderProps](a)> | Component to be used to render the button         |
+| Key                | Type                                                                                                                                                                                                            | Description                                       |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                         | Type of button template to be used for the button |
+| render?            | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[LocalAudioMuteRenderProps](#localaudiomuterenderprops)> | Component to be used to render the button         |
 
 <br/>
 
@@ -385,14 +385,14 @@ import { ControlsComponentArray } from "fpe-api";
 
 <collapsible>
 
-### LocalVideoMuteComponent: [React.ComponentType](a)<[LocalVideoMuteProps](a)>
+### LocalVideoMuteComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[LocalVideoMuteProps](#localvideomuteprops)>
 
 #### LocalVideoMuteProps
 
-| Key                | Type                                                                                                             | Description                                       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                          | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](a) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                             | Description                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -400,14 +400,14 @@ import { ControlsComponentArray } from "fpe-api";
 
 <collapsible>
 
-### LocalSwitchCameraComponent: [React.ComponentType](a)<[LocalSwitchCameraProps](a)>
+### LocalSwitchCameraComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[LocalSwitchCameraProps](#localswitchcameraprops)>
 
 #### LocalSwitchCameraProps
 
-| Key                | Type                                                                                                             | Description                                       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                          | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](a) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                             | Description                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -415,14 +415,14 @@ import { ControlsComponentArray } from "fpe-api";
 
 <collapsible>
 
-### ScreenshareButtonComponent: [React.ComponentType](a)<[ScreenshareButtonProps](a)>
+### ScreenshareButtonComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ScreenshareButtonProps](#screensharebuttonprops)>
 
 #### ScreenshareButtonProps
 
-| Key                | Type                                                                                                             | Description                                       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                          | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](a) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                             | Description                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -430,14 +430,14 @@ import { ControlsComponentArray } from "fpe-api";
 
 <collapsible>
 
-### RecordingComponent: [React.ComponentType](a)<[RecordingProps](a)>
+### RecordingComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RecordingProps](#recordingprops)>
 
 #### RecordingProps
 
-| Key                | Type                                                                                                             | Description                                       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                          | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](a) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                             | Description                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -445,14 +445,14 @@ import { ControlsComponentArray } from "fpe-api";
 
 <collapsible>
 
-### LocalEndCallComponent: [React.ComponentType](a)<[LocalEndCallProps](a)>
+### LocalEndCallComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[LocalEndCallProps](a)>
 
 #### LocalEndCallProps
 
-| Key                | Type                                                                                      | Description                                       |
-| ------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                   | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](a) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                      | Description                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                   | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -460,7 +460,7 @@ import { ControlsComponentArray } from "fpe-api";
 
 <collapsible>
 
-### LiveStreamControlsComponent : [React.ComponentType](a)<[LiveStreamControlsProps](a)>
+### LiveStreamControlsComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[LiveStreamControlsProps](#livestreamcontrolsprops)>
 
 #### LiveStreamControlsProps
 
@@ -488,17 +488,17 @@ import { ControlsComponentArray } from "fpe-api";
 
 The SidePanelButtonsArray is an array of all the side panel button subcomponents listed below.
 
-| Index | Name                                  | Type                                                | Description                                              |
-| ----- | ------------------------------------- | --------------------------------------------------- | -------------------------------------------------------- |
-| 0     | RemoteAudioMute                       | [RemoteAudioMuteComponent](a)                       | Side panel button to mute remote user audio              |
-| 1     | RemoteVideoMute                       | [RemoteVideoMuteComponent](a)                       | Side panel button to mute remote user video              |
-| 2     | RemoteEndCall                         | [RemoteEndCallComponent](a)                         | Side panel button to remote remote user from call        |
-| 3     | RemoteLiveStreamApprovedRequestRecall | [RemoteLiveStreamApprovedRequestRecallComponent](a) | Side panel button to recall attendee raise hand request  |
-| 4     | RemoteLiveStreamControlApprove        | [RemoteLiveStreamControlApproveComponent](a)        | Side panel button to approve attendee raise hand request |
-| 4     | RemoteLiveStreamControlReject         | [RemoteLiveStreamControlRejectComponent](a)         | Side panel button to reject attendee raise hand request  |
-| 5     | ChatSendButton                        | [ChatSendButtonComponent](a)                        | Side panel button send chat message                      |
-| 6     | MuteAllAudioButton                    | [MuteAllAudioButtonComponent](a)                    | Side panel button to mute all remote users audio         |
-| 6     | MuteAllVideoButton                    | [MuteAllVideoButtonComponent](a)                    | Side panel button to mute all remote users video         |
+| Index | Name                                  | Type                                                                                          | Description                                              |
+| ----- | ------------------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| 0     | RemoteAudioMute                       | [RemoteAudioMuteComponent](#remoteaudiomuteprops)                                             | Side panel button to mute remote user audio              |
+| 1     | RemoteVideoMute                       | [RemoteVideoMuteComponent](#remotevideomuteprops)                                             | Side panel button to mute remote user video              |
+| 2     | RemoteEndCall                         | [RemoteEndCallComponent](#remoteendcallprops)                                                 | Side panel button to remote remote user from call        |
+| 3     | RemoteLiveStreamApprovedRequestRecall | [RemoteLiveStreamApprovedRequestRecallComponent](#remotelivestreamapprovedrequestrecallprops) | Side panel button to recall attendee raise hand request  |
+| 4     | RemoteLiveStreamControlApprove        | [RemoteLiveStreamControlApproveComponent](#remotelivestreamcontrolapproveprops)               | Side panel button to approve attendee raise hand request |
+| 4     | RemoteLiveStreamControlReject         | [RemoteLiveStreamControlRejectComponent](#remotelivestreamcontrolrejectprops)                 | Side panel button to reject attendee raise hand request  |
+| 5     | ChatSendButton                        | [ChatSendButtonComponent](#chatsendbuttonprops)                                               | Side panel button send chat message                      |
+| 6     | MuteAllAudioButton                    | [MuteAllAudioButtonComponent](#muteallaudiobuttonprops)                                       | Side panel button to mute all remote users audio         |
+| 6     | MuteAllVideoButton                    | [MuteAllVideoButtonComponent](#muteallvideobuttonprops)                                       | Side panel button to mute all remote users video         |
 
 ```jsx
 import { SidePanelButtonsArray } from "fpe-api";
@@ -510,15 +510,15 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### RemoteAudioMuteComponent : [React.ComponentType](a)<[RemoteAudioMuteProps](a)>
+### RemoteAudioMuteComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RemoteAudioMuteProps](#remoteaudiomuteprops)>
 
 #### RemoteAudioMuteProps
 
-| Key    | Type         | Description                               |
-| ------ | ------------ | ----------------------------------------- |
-| uid    | [UidType](a) | uid of the user to perform the action for |
-| audio  | boolean      | audio mute state of the remote user       |
-| isHost | boolean      | host status of the local user             |
+| Key    | Type                                                                   | Description                               |
+| ------ | ---------------------------------------------------------------------- | ----------------------------------------- |
+| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
+| audio  | boolean                                                                | audio mute state of the remote user       |
+| isHost | boolean                                                                | host status of the local user             |
 
 </collapsible>
 
@@ -526,15 +526,15 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### RemoteVideoMuteComponent : [React.ComponentType](a)<[RemoteVideoMuteProps](a)>
+### RemoteVideoMuteComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RemoteVideoMuteProps](#remotevideomuteprops)>
 
 #### RemoteVideoMuteProps
 
-| Key    | Type         | Description                               |
-| ------ | ------------ | ----------------------------------------- |
-| uid    | [UidType](a) | uid of the user to perform the action for |
-| video  | boolean      | video mute state of the remote user       |
-| isHost | boolean      | host status of the local user             |
+| Key    | Type                                                                   | Description                               |
+| ------ | ---------------------------------------------------------------------- | ----------------------------------------- |
+| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
+| video  | boolean                                                                | video mute state of the remote user       |
+| isHost | boolean                                                                | host status of the local user             |
 
 </collapsible>
 
@@ -542,14 +542,14 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### RemoteEndCallComponent : [React.ComponentType](a)<[RemoteEndCallProps](a)>
+### RemoteEndCallComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RemoteEndCallProps](#remoteendcallprops)>
 
 #### RemoteEndCallProps
 
-| Key    | Type         | Description                               |
-| ------ | ------------ | ----------------------------------------- |
-| uid    | [UidType](a) | uid of the user to perform the action for |
-| isHost | boolean      | host status of the local user             |
+| Key    | Type                                                                   | Description                               |
+| ------ | ---------------------------------------------------------------------- | ----------------------------------------- |
+| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
+| isHost | boolean                                                                | host status of the local user             |
 
 </collapsible>
 
@@ -557,13 +557,13 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### RemoteLiveStreamApprovedRequestRecallComponent : [React.ComponentType](a)<[RemoteLiveStreamApprovedRequestRecallProps](a)>
+### RemoteLiveStreamApprovedRequestRecallComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RemoteLiveStreamApprovedRequestRecallProps](#remotelivestreamapprovedrequestrecallprops)>
 
 #### RemoteLiveStreamApprovedRequestRecallProps
 
-| Key | Type         | Description                               |
-| --- | ------------ | ----------------------------------------- |
-| uid | [UidType](a) | uid of the user to perform the action for |
+| Key | Type                                                                   | Description                               |
+| --- | ---------------------------------------------------------------------- | ----------------------------------------- |
+| uid | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
 
 </collapsible>
 
@@ -571,13 +571,13 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### RemoteLiveStreamControlApproveComponent : [React.ComponentType](a)<[RemoteLiveStreamControlApproveProps](a)>
+### RemoteLiveStreamControlApproveComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RemoteLiveStreamControlApproveProps](#remotelivestreamcontrolapproveprops)>
 
 #### RemoteLiveStreamControlApproveProps
 
-| Key | Type         | Description                               |
-| --- | ------------ | ----------------------------------------- |
-| uid | [UidType](a) | uid of the user to perform the action for |
+| Key | Type                                                                   | Description                               |
+| --- | ---------------------------------------------------------------------- | ----------------------------------------- |
+| uid | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
 
 </collapsible>
 
@@ -585,13 +585,13 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### RemoteLiveStreamControlRejectComponent : [React.ComponentType](a)<[RemoteLiveStreamControlRejectProps](a)>
+### RemoteLiveStreamControlRejectComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RemoteLiveStreamControlRejectProps](#remotelivestreamcontrolrejectprops)>
 
 #### RemoteLiveStreamControlRejectProps
 
-| Key | Type         | Description                               |
-| --- | ------------ | ----------------------------------------- |
-| uid | [UidType](a) | uid of the user to perform the action for |
+| Key | Type                                                                   | Description                               |
+| --- | ---------------------------------------------------------------------- | ----------------------------------------- |
+| uid | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
 
 </collapsible>
 
@@ -599,13 +599,13 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### ChatSendButtonComponent : [React.ComponentType](a)<[ChatSendButtonProps](a)>
+### ChatSendButtonComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatSendButtonProps](#chatsendbuttonprops)>
 
 #### ChatSendButtonProps
 
-| Key    | Type                                      | Description                              |
-| ------ | ----------------------------------------- | ---------------------------------------- |
-| render | (onPress: () => void) => [JSX.Element](a) | Function to be used to render the button |
+| Key    | Type                                                                                                                                                                      | Description                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| render | (onPress: () => void) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button |
 
 </collapsible>
 
@@ -613,13 +613,13 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### MuteAllAudioButtonComponent : [React.ComponentType](a)<[MuteAllAudioButtonProps](a)>
+### MuteAllAudioButtonComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[MuteAllAudioButtonProps](#muteallaudiobuttonprops)>
 
 #### MuteAllAudioButtonProps
 
-| Key    | Type                                      | Description                              |
-| ------ | ----------------------------------------- | ---------------------------------------- |
-| render | (onPress: () => void) => [JSX.Element](a) | Function to be used to render the button |
+| Key    | Type                                                                                                                                                                      | Description                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| render | (onPress: () => void) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button |
 
 </collapsible>
 
@@ -627,13 +627,13 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 <collapsible>
 
-### MuteAllVideoButtonComponent: [React.ComponentType](a)<[MuteAllVideoButtonProps](a)>
+### MuteAllVideoButtonComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[MuteAllVideoButtonProps](#muteallvideobuttonprops)>
 
 #### MuteAllVideoButtonProps
 
-| Key    | Type                                      | Description                              |
-| ------ | ----------------------------------------- | ---------------------------------------- |
-| render | (onPress: () => void) => [JSX.Element](a) | Function to be used to render the button |
+| Key    | Type                                                                                                                                                                      | Description                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| render | (onPress: () => void) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button |
 
 </collapsible>
 

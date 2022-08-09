@@ -13,7 +13,7 @@ The context library exposes various contexts used in app builder. All contexts a
 
 <method>
 
-## useRecordingContext : [createHook](a)<[RecordingContextInterface](#recordingcontextinterface)\>
+## useRecordingContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
 
 The RecordingContext contains methods to start and stop cloud recording as well as state that tracks recording status.
 
@@ -21,12 +21,12 @@ The RecordingContext contains methods to start and stop cloud recording as well 
 
 #### RecordingContextInterface
 
-| Key                | Type                                                 | Description                                                      |
-| ------------------ | ---------------------------------------------------- | ---------------------------------------------------------------- |
-| isRecordingActve   | boolean                                              | Flag to indicate if cloud recording is active in the application |
-| setRecordingActive | [React.Dispatch<React.SetStateAction<boolean\>\>](a) | Start/Stop cloud recording.                                      |
-| startRecording     | () => void                                           | Starts cloud recording                                           |
-| stopRecording      | () => void                                           | Stops cloud recording                                            |
+| Key                | Type                                                      | Description                                                      |
+| ------------------ | --------------------------------------------------------- | ---------------------------------------------------------------- |
+| isRecordingActve   | boolean                                                   | Flag to indicate if cloud recording is active in the application |
+| setRecordingActive | [React.Dispatch](a)<[React.SetStateAction](a)<boolean\>\> | Start/Stop cloud recording.                                      |
+| startRecording     | () => void                                                | Starts cloud recording                                           |
+| stopRecording      | () => void                                                | Stops cloud recording                                            |
 
 <br/>
 
@@ -67,7 +67,7 @@ const MyReactComponent = () => {
 
 <method>
 
-## useRenderContext : [createHook](a)<[RenderStateInterface](a)\>
+## useRenderContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderStateInterface](#renderstateinterface)\>
 
 The RenderContext contains the information necessary to render user content views.
 
@@ -75,10 +75,10 @@ The RenderContext contains the information necessary to render user content view
 
 #### RenderStateInterface
 
-| Key            | Type                       | Description                                                           |
-| -------------- | -------------------------- | --------------------------------------------------------------------- |
-| renderList     | [RenderObjectInterface](a) | Object containing all the render objects stored in the render context |
-| renderPosition | Array<[UidType](a)\>       | Array indicating order of all uids in the render context              |
+| Key            | Type                                                                                        | Description                                                           |
+| -------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| renderList     | [RenderObjectInterface](/first-party-extension/api-reference/globals#renderobjectinterface) | Object containing all the render objects stored in the render context |
+| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype-string)\>              | Array indicating order of all uids in the render context              |
 
 <br/>
 
@@ -113,7 +113,7 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLocalContext : [createHook](a)<[RenderInterface](a)\>
+## useLocalContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderInterface](#first-party-extension/api-reference/globals#renderinterface)\>
 
 The LocalContext contains the local user information.
 
@@ -136,7 +136,7 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLayoutContext : [createHook](a)<[LayoutContextInterface](a)\>
+## useLayoutContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[LayoutContextInterface](#layoutcontextinterface)\>
 
 The RenderContext contains the active layout and method to modify the active layout
 
@@ -144,10 +144,10 @@ The RenderContext contains the active layout and method to modify the active lay
 
 #### LayoutContextInterface
 
-| Key                 | Type                                                | Description                                   |
-| ------------------- | --------------------------------------------------- | --------------------------------------------- |
-| activeLayoutName    | string                                              | State variable containing active layout name  |
-| setActiveLayoutName | [React.Dispatch<React.SetStateAction<string\>\>](a) | Set state method to modify active layout name |
+| Key                 | Type                                                       | Description                                   |
+| ------------------- | ---------------------------------------------------------- | --------------------------------------------- |
+| activeLayoutName    | string                                                     | State variable containing active layout name  |
+| setActiveLayoutName | [React.Dispatch](a)< [React.SetStateAction](a) <string\>\> | Set state method to modify active layout name |
 
 <br/>
 
@@ -182,7 +182,7 @@ const MyReactComponent = () => {
 
 <method>
 
-## useMeetingInfoContext : [createHook](a)<[MeetingInfoContextInterface](a)\>
+## useMeetingInfoContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[MeetingInfoContextInterface](#meetinginfocontextinterface)\>
 
 The MeetingInfoContext contains the all the information about the active meeting.
 
@@ -268,7 +268,7 @@ const MyReactComponent = () => {
 
 <method>
 
-## useRtcContext : [createHook](a)<[RtcContextInterface](a)>
+## useRtcContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RtcContextInterface](#rtccontextinterface)>
 
 The RenderContext contains the information necessary to render user content views.
 
@@ -276,11 +276,11 @@ The RenderContext contains the information necessary to render user content view
 
 #### RtcContextInterface
 
-| Key               | Type                                                        | Description                                 |
-| ----------------- | ----------------------------------------------------------- | ------------------------------------------- |
-| RtcEngine         | [RtcEngine](a)                                              | The RtcEngine object from the Agora SDK     |
-| dispatch          | DispatchType](a)                                            | Method to dispatch various callbacks        |
-| setDualStreamMode | React.Dispatch<React.SetStateAction<[DualStreamMode](a)\>\> | Set state method to modify dual stream mode |
+| Key               | Type                                                                                                                                                                | Description                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                                                                     | The RtcEngine object from the Agora SDK     |
+| dispatch          | [DispatchType](https://agoraio-community.github.io/ReactNative-UIKit/modules/Built_in_Components._internal_.html#DispatchType)                                      | Method to dispatch various callbacks        |
+| setDualStreamMode | [React.Dispatch](a)< [React.SetStateAction](a) <[DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) \> \> | Set state method to modify dual stream mode |
 
 <br/>
 
@@ -318,7 +318,7 @@ const MyReactComponent = () => {
 
 <method>
 
-## usePropsContext : [createHook](a)<[PropsInterface](a)\>
+## usePropsContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[PropsInterface](#propsinterface)\>
 
 The PropsContext contains the various configuration options and callbacks that are passed to setup [Agora React Native UI Kit](a) internally.
 
@@ -326,12 +326,12 @@ The PropsContext contains the various configuration options and callbacks that a
 
 #### PropsInterface
 
-| Key         | Type                                                                                                                                                    | Description                                                          |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| rtcProps    | [RtcPropsInterface](a)                                                                                                                                  | Contains all the configuration options passed to setup the ui kit    |
-| styleProps? | Partial<[StylePropInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html) \> | Contains various styles used by the ui kit                           |
-| callbacks?  | Partial<[CallbacksInterface](a)>                                                                                                                        | Contains various callbacks setup on rtc actions passed to the ui kit |
-| mode?       | ChannelProfile                                                                                                                                          | Indicates the rtc channel profile to be used                         |
+| Key         | Type                                                                                                                                                     | Description                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| rtcProps    | [RtcPropsInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface)                                                                            | Contains all the configuration options passed to setup the ui kit    |
+| styleProps? | Partial< [StylePropInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html) \> | Contains various styles used by the ui kit                           |
+| callbacks?  | Partial< [CallbacksInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface) >                                                                | Contains various callbacks setup on rtc actions passed to the ui kit |
+| mode?       | ChannelProfile                                                                                                                                           | Indicates the rtc channel profile to be used                         |
 
 <br/>
 
@@ -347,11 +347,11 @@ The PropsContext contains the various configuration options and callbacks that a
 
 <!-- TODO(adictya): Add descriptions -->
 
-| Key              | Type                                                             | Description                                            |
-| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------ |
-| DequeVideo       | (uid: [UidType](a)) => void                                      | Called when render object for the given uid is dequeud |
-| UpdateRenderList | (uid: [UidType](a), user: Partial<[RenderInterface](a)>) => void | Called when render object for the given uid is dequeud |
-| AddCustomContent | (uid: [UidType](a), data: any) => void                           | Called when render object for the given uid is dequeud |
+| Key              | Type                                                                                                                                                                                  | Description                          |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| DequeVideo       | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string)) => void                                                                                                 | Called when a render object dequeud  |
+| UpdateRenderList | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), user: Partial<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)>) => void | Called when render list is updated   |
+| AddCustomContent | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), data: any) => void                                                                                      | Called when custom content was added |
 
 <br/>
 
