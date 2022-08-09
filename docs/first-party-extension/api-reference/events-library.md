@@ -13,11 +13,21 @@ The events library allows users to send and consume custom events. These events 
 
 Custom events can be of 3 predefined presistance levels
 
-Level 1:
+**Level 1:**
 
-Level 2:
+The messages are sent and recieved and no state is persisted.
 
-Level 3:
+**Level 2:**
+
+The messages are sent and recieved and the sender persists the state in their local user attributes. Any new user joining the channel would recieve the local attributes of all the other users in the channel and be informed of the intial sender's state.
+
+The local user attributes are removed when the sender leaves the channel hence state is only persisted until the user remains in the channel
+
+**Level 3:**
+
+The messages are sent and recieved after which the sender and the reciever both persist the state in their local user attributes. Any new user joining the channel would recieve the local attributes of all the other users in the channel and be informed of the intial sender's and reciever's state.
+
+The local user attributes are removed when the sender and reciever leave the channel hence state is only persisted until the sender and all recievers remains in the channel
 
 ---
 
@@ -25,14 +35,14 @@ Level 3:
 
 <subtitle>
 
-## FpeEvents
+## CustomEvents
 
 </subtitle>
 
-Event manager instance for customization api events.
+CustomEvents object handles customization api events and holds the necessary methods for sending and subscribing/unsubscribing to events.
 
 ```js
-import { useIsVideoEnabled } from "fpe-api";
+import { CustomEvents } from "fpe-api";
 ```
 
 <br/>
@@ -44,6 +54,14 @@ import { useIsVideoEnabled } from "fpe-api";
 
 ### send : (evt: string, payload: [EventPayload](#eventpayload), to?: [ToOptions](#tooptions) ) => void
 
+Sends the event with the provided details.
+
+| Prop    | Type                          | Description                                                                          |
+| ------- | ----------------------------- | ------------------------------------------------------------------------------------ |
+| evt     | string                        | Name of the event to be sent                                                         |
+| payload | [EventPayload](#eventpayload) | Payload to be sent along with the event                                              |
+| to?     | [ToOptions](#tooptions)       | Uid(s) to send the message to. Leave emtpy to send as a channel message to all users |
+
 </method>
 </collapsible>
 
@@ -54,6 +72,13 @@ import { useIsVideoEnabled } from "fpe-api";
 
 ### on: (evt: string, listener: [TEventCallback](#teventcallback) ) => void
 
+Subscribes to the event with the provided details.
+
+| Prop     | Type                              | Description                                                   |
+| -------- | --------------------------------- | ------------------------------------------------------------- |
+| evt      | string                            | Name of the event to be subscribed                            |
+| listener | [TEventCallback](#teventcallback) | Callback method for the event to be called when even recieved |
+
 </method>
 </collapsible>
 
@@ -62,7 +87,14 @@ import { useIsVideoEnabled } from "fpe-api";
 <collapsible>
 <method>
 
-### off: (evt: string, listener: [TEventCallback](#teventcallback) ) => void
+### off: (evt?: string, listenerToRemove?: [TEventCallback](#teventcallback) ) => void
+
+Unsubscribes to the event with the provided details.
+
+| Prop              | Type                              | Description                                                                                                                                 |
+| ----------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| evt?              | string                            | Name of the event to be unsubscribed. If no event name provided all subscribed events will be unsubscribed                                  |
+| listenerToRemove? | [TEventCallback](#teventcallback) | Callback method of the event to be unsubscribed. If no callback method provided all callbacks for the given event name will be unsubscribed |
 
 </method>
 </collapsible>
@@ -91,11 +123,11 @@ import { useIsVideoEnabled } from "fpe-api";
 
 </subtitle>
 
-| Key     | Type   | Description          |
-| ------- | ------ | -------------------- |
-| action? | any    |                      |
-| level?  | never  | level of persistance |
-| value   | string |                      |
+| Key     | Type   | Description              |
+| ------- | ------ | ------------------------ |
+| action? | any    | descriptor for the value |
+| level?  | never  | level of persistance     |
+| value   | string | value to be presisted    |
 
 </method>
 
@@ -108,11 +140,11 @@ import { useIsVideoEnabled } from "fpe-api";
 
 </subtitle>
 
-| Key     | Type   | Description          |
-| ------- | ------ | -------------------- |
-| action? | any    |                      |
-| level?  | 2 \| 3 | level of persistance |
-| value   | string |                      |
+| Key     | Type   | Description              |
+| ------- | ------ | ------------------------ |
+| action? | any    | descriptor for the value |
+| level?  | 2 \| 3 | level of persistance     |
+| value   | string | value to be presisted    |
 
 </method>
 
@@ -121,7 +153,7 @@ import { useIsVideoEnabled } from "fpe-api";
 <method>
 <subtitle>
 
-## ToOptions : [UidType](/first-party-extension/api-reference/globals#uidtype-string)[UidType\[\]](a)
+## ToOptions : [UidType](/first-party-extension/api-reference/globals#uidtype-string)[UidType\[\]](/first-party-extension/api-reference/globals#uidtype-string)
 
 </subtitle>
 
@@ -162,11 +194,11 @@ import { useIsVideoEnabled } from "fpe-api";
 
 </subtitle>
 
-| Key    | Type        | Description          |
-| ------ | ----------- | -------------------- |
-| action | string      |                      |
-| level  | 1 \| 2 \| 3 | level of persistance |
-| value  | string      |                      |
+| Key    | Type        | Description                     |
+| ------ | ----------- | ------------------------------- |
+| action | string      | String descriptor for the value |
+| level  | 1 \| 2 \| 3 | Level of persistance            |
+| value  | string      | Value of the persisted state    |
 
 </method>
 
