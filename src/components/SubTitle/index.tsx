@@ -59,6 +59,11 @@ export default function SubTitle({ children }) {
         {heading} {data.length > 0 && ":"}
       </h2>
       {data}
+      <a
+        className="hash-link"
+        href={"#" + heading.toLowerCase().split(".").join("").trim()}
+        title="Direct link to heading"
+      ></a>
     </div>
   );
 }
