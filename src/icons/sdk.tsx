@@ -1,7 +1,7 @@
 import React from "react";
 import { useColorMode } from "@docusaurus/theme-common";
 
-export default function SDKIcon({ width = 18, height = 17 }) {
+export default function SDKIcon({ width = 20, height = 20 }) {
   const { colorMode } = useColorMode();
   const color = colorMode === "dark" ? "white" : "black";
   return (
