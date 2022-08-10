@@ -50,7 +50,7 @@ margin-bottom: 20px;;
   text-decoration: none;
 }
 
-.card__footer{
-  color:red
-
+.releasing {
+  font-weight: 600;
+  color: var(--ifm-menu-color);
 }

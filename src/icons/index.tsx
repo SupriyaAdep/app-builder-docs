@@ -11,6 +11,11 @@ import InstagramIcon from "./instagram";
 import LinkedInIcon from "./linkedin";
 import I18Icon from "./i18n";
 import SettingsIcon from "./settings";
+import SlackIcon from "./slack";
+import ConsoleIcon from "./console";
+import GetStartedIcon from "./getStarted";
+import TurnKeyIcon from "./turnkey";
+import ManualIcon from "./manual";
 
 export default function Icon({ name, ...props }) {
   switch (name) {
@@ -38,6 +43,16 @@ export default function Icon({ name, ...props }) {
       return <I18Icon {...props} />;
     case "settings":
       return <SettingsIcon {...props} />;
+    case "slack":
+      return <SlackIcon {...props} />;
+    case "console":
+      return <ConsoleIcon {...props} />;
+    case "getstarted":
+      return <GetStartedIcon {...props} />;
+    case "turnkey":
+      return <TurnKeyIcon {...props} />;
+    case "manual":
+      return <ManualIcon {...props} />;
     default:
       return <CodeIcon {...props} />;
   }
