@@ -11,7 +11,7 @@ sidebar_custom_props: { icon: "code" }
 
 The events library allows users to send and consume custom events. These events can be broadcasted to specific user(s) in the meeting or to the entire channel.
 
-Custom events can be of 3 predefined presistance levels
+Custom events can be of 3 predefined presistance levels:
 
 **Level 1:**
 
@@ -21,13 +21,19 @@ The messages are sent and recieved and no state is persisted.
 
 The messages are sent and recieved and the sender persists the state in their local user attributes. Any new user joining the channel would recieve the local attributes of all the other users in the channel and be informed of the intial sender's state.
 
-The local user attributes are removed when the sender leaves the channel hence state is only persisted until the user remains in the channel
+The local user attributes are removed when the sender leaves the channel hence state is only persisted until the user remains in the channel.
 
 **Level 3:**
 
 The messages are sent and recieved after which the sender and the reciever both persist the state in their local user attributes. Any new user joining the channel would recieve the local attributes of all the other users in the channel and be informed of the intial sender's and reciever's state.
 
-The local user attributes are removed when the sender and reciever leave the channel hence state is only persisted until the sender and all recievers remains in the channel
+The local user attributes are removed when the sender and reciever leave the channel hence state is only persisted until the sender and all recievers remain in the channel.
+
+:::info
+
+**User Attributes**: Key-value pairs associated with each memeber present in the channel. Changes to a user's attributes are communicated to all other users in the channel.
+
+:::
 
 ---
 
@@ -125,9 +131,9 @@ Unsubscribes to the event with the provided details.
 
 | Key     | Type   | Description              |
 | ------- | ------ | ------------------------ |
-| action? | any    | descriptor for the value |
-| level?  | never  | level of persistance     |
-| value   | string | value to be presisted    |
+| action? | any    | Descriptor for the value |
+| level?  | never  | Level of persistance     |
+| value   | string | Value to be presisted    |
 
 </method>
 
@@ -142,9 +148,9 @@ Unsubscribes to the event with the provided details.
 
 | Key     | Type   | Description              |
 | ------- | ------ | ------------------------ |
-| action? | any    | descriptor for the value |
-| level?  | 2 \| 3 | level of persistance     |
-| value   | string | value to be presisted    |
+| action? | any    | Descriptor for the value |
+| level?  | 2 \| 3 | Level of persistance     |
+| value   | string | Value to be presisted    |
 
 </method>
 

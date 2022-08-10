@@ -9,8 +9,6 @@ sidebar_custom_props: { icon: "code" }
 
 <api>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
-
 The Sub Components library is a set of components to be composed as needed by the user. They can be imported under the `fpe-api` module name
 
 ---
@@ -24,8 +22,6 @@ The Sub Components library is a set of components to be composed as needed by th
 </subtitle>
 
 <br/>
-
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
 The object containing all the default icons used in the ui.
 
@@ -80,7 +76,7 @@ import { icons } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/ChatBubble.png" darkImageSrc="customization api/api/ChatBubble.png" />
 
 The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
 
@@ -114,7 +110,7 @@ import { ChatBubble } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/MaxVideoView.png" darkImageSrc="customization api/api/MaxVideoView.png" />
 
 The MaxVideoView component is used to render the user video feed along with overlay components like [NameWithMicStatus](#namewithmicstatus), [NetworkQualityPill](#networkqualitypill) etc.
 
@@ -144,7 +140,7 @@ import { MaxVideoView } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/GridLayout.png" darkImageSrc="customization api/api/GridLayout.png" />
 
 The GridLayout component is used to render the user video feeds in a responsive grid parttern.
 
@@ -166,7 +162,7 @@ import { GridLayout } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/PinnedLayout.png" darkImageSrc="customization api/api/PinnedLayout.png" />
 
 The PinnedLayout component is used to render the user video feeds in a pinned view with a collapsible sidebar displaying unpinned user feeds.
 
@@ -188,7 +184,8 @@ import { PinnedLayout } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/VideoComponent.png" darkImageSrc="customization api/api/VideoComponent.png" />
+
 
 The VideoComponent is used to automatically render the user video feeds in the selected layout.
 
@@ -210,7 +207,7 @@ import { VideoComponent } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/NameLabel.png" darkImageSrc="customization api/api/NameLabel.png" />
 
 The NameWithMicStatus component is used to render the user name along with their mic muted state.
 
@@ -240,7 +237,7 @@ NetworkQualityPill : [React.ComponentType](https://github.com/DefinitelyTyped/De
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/NetworkQuality.png" darkImageSrc="customization api/api/NetworkQuality.png" />
 
 The NetworkQualityPill component is used to render the user network quality in a pill container that expands when hovered over.
 
@@ -290,7 +287,7 @@ import { VideoCallScreen } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/Participants Panel.png" darkImageSrc="customization api/api/Participant Panel.png" />
 
 The ParticipantsView component is used to render the participant panel that lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
 
@@ -310,7 +307,7 @@ import { ParticipantsView } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image alt="Video Call" lightImageSrc="customization api/api/BottomBar.png" darkImageSrc="customization api/api/BottomBar.png" />
 
 The Controls component is used to render all the meeting controls.
 
@@ -335,8 +332,6 @@ The controls displayed change depending on the operating sytem/platform and the 
 </subtitle>
 
 <br/>
-
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
 The SidePanelButtonsArray is an array of all meeting control button subcomponents listed below.
 
@@ -483,8 +478,6 @@ import { ControlsComponentArray } from "fpe-api";
 </subtitle>
 
 <br/>
-
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
 
 The SidePanelButtonsArray is an array of all the side panel button subcomponents listed below.
 
