@@ -14,7 +14,7 @@ import SettingsIcon from "./settings";
 import SlackIcon from "./slack";
 import ConsoleIcon from "./console";
 import GetStartedIcon from "./getStarted";
-import TurnKeyIcon from "./turnKey";
+import TurnKeyIcon from "./turnkey";
 import ManualIcon from "./manual";
 
 export default function Icon({ name, ...props }) {
