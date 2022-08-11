@@ -9,31 +9,34 @@ sidebar_custom_props: { icon: "code" }
 
 <api>
 
-The events library allows users to send and consume custom events. These events can be broadcasted to specific user(s) in the meeting or to the entire channel.
+This event library allows users to send and listen to custom events. These events can be sent to a specific user(s) in the channel or to all the user(s) in the channel.
 
-Custom events can be of 3 predefined presistance levels:
+`send` method listed in the API have 3 predefined persistence levels
+
 
 **Level 1:**
 
-The messages are sent and recieved and no state is persisted.
+The messages are sent and received between the user(s) in the channel. Nothing is persisted.
+This is the default level when sending custom-events.
 
 **Level 2:**
 
-The messages are sent and recieved and the sender persists the state in their local user attributes. Any new user joining the channel would recieve the local attributes of all the other users in the channel and be informed of the intial sender's state.
+The messages are sent and received between the user(s) in the channel. 
+When sending a custom event, evt name as the key and message data as value is persisted in the sender's local attributes.
+Any new user who joins the call receives the latest state of the existing user(s) in the channel by reading their local attributes.
 
-The local user attributes are removed when the sender leaves the channel hence state is only persisted until the user remains in the channel.
+When the user leaves the channel, local user attributes are removed. Hence the state is persisted until the user remain in the channel.
 
 **Level 3:**
 
-The messages are sent and recieved after which the sender and the reciever both persist the state in their local user attributes. Any new user joining the channel would recieve the local attributes of all the other users in the channel and be informed of the intial sender's and reciever's state.
+The messages are sent and received between the user(s) in the channel. 
+When sending a custom event, evt name as the key and message data as the value is persisted in the sender's local attributes.
+While receiving a custom event, evt name as the key and message data as the value is persisted in the receiver's local attributes.
 
-The local user attributes are removed when the sender and reciever leave the channel hence state is only persisted until the sender and all recievers remain in the channel.
+Any new user who joins the call receives the latest state of the existing user(s) in the channel by reading their local attributes.
 
-:::info
-
-**User Attributes**: Key-value pairs associated with each memeber present in the channel. Changes to a user's attributes are communicated to all other users in the channel.
-
-:::
+The local user attributes are removed when the sender and receiver leave the channel.
+Hence the state is  persisted until the sender and all receiver(s) remain in the channel
 
 ---
 
@@ -45,7 +48,7 @@ The local user attributes are removed when the sender and reciever leave the cha
 
 </subtitle>
 
-CustomEvents object handles customization api events and holds the necessary methods for sending and subscribing/unsubscribing to events.
+CustomEvents object handles customization api events and hold the necessary methods for sending and subscribing/unsubscribing to events.
 
 ```js
 import { CustomEvents } from "fpe-api";
@@ -64,9 +67,9 @@ Sends the event with the provided details.
 
 | Prop    | Type                          | Description                                                                          |
 | ------- | ----------------------------- | ------------------------------------------------------------------------------------ |
-| evt     | string                        | Name of the event to be sent                                                         |
+| evt     | string                        | Name of the event to be sent which can be subscribed on                              |
 | payload | [EventPayload](#eventpayload) | Payload to be sent along with the event                                              |
-| to?     | [ToOptions](#tooptions)       | Uid(s) to send the message to. Leave emtpy to send as a channel message to all users |
+| to?     | [ToOptions](#tooptions)       | Uid(s) to send the message to. Leave empty to send as a channel message to all users |
 
 </method>
 </collapsible>
@@ -80,10 +83,10 @@ Sends the event with the provided details.
 
 Subscribes to the event with the provided details.
 
-| Prop     | Type                              | Description                                                   |
-| -------- | --------------------------------- | ------------------------------------------------------------- |
-| evt      | string                            | Name of the event to be subscribed                            |
-| listener | [TEventCallback](#teventcallback) | Callback method for the event to be called when even recieved |
+| Prop     | Type                              | Description                                                       |
+| -------- | --------------------------------- | ----------------------------------------------------------------- |
+| evt      | string                            | Name of the event to be subscribed                                |
+| listener | [TEventCallback](#teventcallback) | Callback method for the event to be called when event is received |
 
 </method>
 </collapsible>
@@ -99,8 +102,8 @@ Unsubscribes to the event with the provided details.
 
 | Prop              | Type                              | Description                                                                                                                                 |
 | ----------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| evt?              | string                            | Name of the event to be unsubscribed. If no event name provided all subscribed events will be unsubscribed                                  |
-| listenerToRemove? | [TEventCallback](#teventcallback) | Callback method of the event to be unsubscribed. If no callback method provided all callbacks for the given event name will be unsubscribed |
+| evt?              | string                            | Name of the event to be unsubscribed. If no event name is provided all subscribed events will be unsubscribed                                  |
+| listenerToRemove? | [TEventCallback](#teventcallback) | Callback method of the event to be unsubscribed. If no callback method is provided all callbacks for the given event name will be unsubscribed |
 
 </method>
 </collapsible>
@@ -132,7 +135,7 @@ Unsubscribes to the event with the provided details.
 | Key     | Type   | Description              |
 | ------- | ------ | ------------------------ |
 | action? | any    | Descriptor for the value |
-| level?  | never  | Level of persistance     |
+| level?  | never  | Level of persistence     |
 | value   | string | Value to be presisted    |
 
 </method>
@@ -149,7 +152,7 @@ Unsubscribes to the event with the provided details.
 | Key     | Type   | Description              |
 | ------- | ------ | ------------------------ |
 | action? | any    | Descriptor for the value |
-| level?  | 2 \| 3 | Level of persistance     |
+| level?  | 2 \| 3 | Level of persistence     |
 | value   | string | Value to be presisted    |
 
 </method>
@@ -203,7 +206,7 @@ Unsubscribes to the event with the provided details.
 | Key    | Type        | Description                     |
 | ------ | ----------- | ------------------------------- |
 | action | string      | String descriptor for the value |
-| level  | 1 \| 2 \| 3 | Level of persistance            |
+| level  | 1 \| 2 \| 3 | Level of persistence            |
 | value  | string      | Value of the persisted state    |
 
 </method>
