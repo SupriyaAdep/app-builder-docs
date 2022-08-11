@@ -134,9 +134,9 @@ Unsubscribes to the event with the provided details.
 
 | Key     | Type   | Description              |
 | ------- | ------ | ------------------------ |
-| action? | any    | descriptor for the value |
-| level?  | never  | level of persistence     |
-| value   | string | value to be presisted    |
+| action? | any    | Descriptor for the value |
+| level?  | never  | Level of persistence     |
+| value   | string | Value to be presisted    |
 
 </method>
 
@@ -151,9 +151,9 @@ Unsubscribes to the event with the provided details.
 
 | Key     | Type   | Description              |
 | ------- | ------ | ------------------------ |
-| action? | any    | descriptor for the value |
-| level?  | 2 \| 3 | level of persistence     |
-| value   | string | value to be presisted    |
+| action? | any    | Descriptor for the value |
+| level?  | 2 \| 3 | Level of persistence     |
+| value   | string | Value to be presisted    |
 
 </method>
 
