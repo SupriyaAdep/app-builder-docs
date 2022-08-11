@@ -108,7 +108,7 @@ You can override specific parts of the VideoCall screen by pasing in this object
 
 </subtitle>
 
-<image alt="Video Call" lightImageSrc="api/BottomBar.png" darkImageSrc="api/BottomBar.png" />
+<image alt="Bottom bar" lightImageSrc="api/Bottombar.png" darkImageSrc="api/Bottombar.png" />
 
 The BottomBarComponent occupies the bottom part of the VideoCall screen and displays all the meeting controls.
 
@@ -165,7 +165,7 @@ export default userCustomization;
 
 </subtitle>
 
-<image alt="Video Call" lightImageSrc="api/Chat.png" darkImageSrc="api/Chat.png" />
+<image alt="Chat" lightImageSrc="api/Chat.png" darkImageSrc="api/Chat.png" />
 
 The Chat component displays the ui to send and view the chat messages.
 
@@ -194,7 +194,7 @@ You can override the specific parts chat ui by pasing in this object with key an
 
 </subtitle>
 
-<image alt="Video Call" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
+<image alt="Chat Bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
 
 The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
 
@@ -417,7 +417,7 @@ export default userCustomization;
 
 </subtitle>
 
-<image alt="Video Call" lightImageSrc="api/Participant Panel.png" darkImageSrc="api/Participant Panel.png" />
+<image alt="Participant Panel" lightImageSrc="api/Participant Panel.png" darkImageSrc="api/Participant Panel.png" />
 
 The participantsPanel component lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
 
