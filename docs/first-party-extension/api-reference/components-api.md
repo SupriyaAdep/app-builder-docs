@@ -24,7 +24,7 @@ The overrides are applied by supplying values as an object under the top-level `
 
 </subtitle>
 
-<image alt="Video Call" lightImageSrc="api/VideoCall.png" darkImageSrc="api/VideoCall.png" />
+<image alt="Video Call" lightImageSrc="api/Videocall.png" darkImageSrc="api/Videocall.png" />
 
 The VideoCall screen displays the active video call / livestream UI. This UI is shown when a user has joined a meeting.
 
