@@ -20,8 +20,8 @@
 
 </subtitle>
 
-- image from =>  static/img/docAssets/customization-api/api
-<image alt="Video Call" lightImageSrc="customization-api/api/VideoCall.png" darkImageSrc="customization-api/api/VideoCall.png" />
+- image from =>  static/img/docAssets/api
+<image alt="Video Call" lightImageSrc="api/VideoCall.png" darkImageSrc="api/VideoCall.png" />
 
 - image from => static/img/docAssets/api/Videocall.png
 <image alt="P panel" lightImageSrc="api/VideoComponent.png" darkImageSrc="api/VideoComponent.png" />
