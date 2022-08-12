@@ -21,10 +21,10 @@
 </subtitle>
 
 - image from =>  static/img/docAssets/api
-<image alt="Video Call" lightImageSrc="api/Videocall.png" darkImageSrc="api/Videocall.png" />
+<image alt="Video Call" lightImageSrc="api/Videocall.png" darkImageSrc="api/Videocall1.png" />
 
 - image from => static/img/docAssets/api/Videocall.png
-<image alt="P panel" lightImageSrc="api/VideoComponent.png" darkImageSrc="api/VideoComponent.png" />
+<image alt="P panel" lightImageSrc="api/VideoComponent.png" darkImageSrc="api/Videocall.png" />
 
 
 <!-- <subtitle>
