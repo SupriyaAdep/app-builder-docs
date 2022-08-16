@@ -99,7 +99,7 @@ Make sure to provide necessary styling including a width and height on the paren
 
 <!-- RHS -->
 
-```js {4-11}
+```js {4-12}
 ...
 @Component({
   selector: 'app-root',

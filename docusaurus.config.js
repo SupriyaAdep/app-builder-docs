@@ -43,7 +43,8 @@ const config = {
       },
 
     ],
-    path.resolve(__dirname, './plugins/route-plugin')
+    path.resolve(__dirname, './plugins/route-plugin'),
+    require.resolve('docusaurus-plugin-image-zoom')
   ],
 
 
@@ -80,7 +81,19 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 
+
     ({
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(24, 24, 24)'
+        },
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        config: {
+          margin: 0
+        }
+      },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,
@@ -228,6 +241,7 @@ const config = {
     ],
 
   }
+
 };
 
 module.exports = config;

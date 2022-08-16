@@ -3,7 +3,7 @@ import clsx from "clsx";
 import styles from "./card.module.css";
 import Icon from "@site/src/icons";
 
-function Card({ title, icon, description, ctas }: ICardItem) {
+function Card({ title, icon, description, ctas, released }: ICardItem) {
   return (
     <div className="card padding--lg">
       <div className={styles.header}>
@@ -15,11 +15,15 @@ function Card({ title, icon, description, ctas }: ICardItem) {
           <p className={styles.desc}>{description}</p>
         </div>
         <div className={styles.footer}>
-          {ctas.map(({ text, href }) => (
-            <a className={styles.link} href={href} key={text}>
-              {text}
-            </a>
-          ))}
+          {released ? (
+            ctas.map(({ text, href }) => (
+              <a className={styles.link} href={href} key={text}>
+                {text}
+              </a>
+            ))
+          ) : (
+            <span className={styles.releasing}>Coming Soon</span>
+          )}
         </div>
       </div>
     </div>
