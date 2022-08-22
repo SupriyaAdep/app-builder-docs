@@ -36,7 +36,7 @@ Once complete a boilerplate user-customization will be created inside `<path-to-
 <!-- RHS -->
 
 <!-- ![Main menu, Build highlighted screenshot](sdk/angular/1.png) -->
-<image alt="Build option" lightImageSrc="sdk/angular/1.png" darkImageSrc="sdk/angular/1.png" />
+<image alt="Build option" lightImageSrc="customization-api/guides/quickstart-1.png" darkImageSrc="customization-api/guides/quickstart-1.png" />
 
 <!-- LHS -->
 
@@ -58,7 +58,7 @@ Open the `index.tsx` file present inside the newly created `test-fpe` folder.
 
 <!-- RHS -->
 
-<image alt="Build option" lightImageSrc="sdk/angular/2.png" darkImageSrc="sdk/angular/2.png" />
+<image alt="Build option" lightImageSrc="customization-api/guides/quickstart-2.png" darkImageSrc="customization-api/guides/quickstart-2.png" />
 
 <!-- LHS -->
 
@@ -125,5 +125,5 @@ You should now see your customization applied to App Builder when you build your
 <!-- RHS -->
 
 <!-- ![Website with App Builder embedded](sdk/angular/5.png) -->
-<image alt="Build option" lightImageSrc="sdk/angular/5.png" darkImageSrc="sdk/angular/5.png" />
+<image alt="Build option" lightImageSrc="customization-api/guides/quickstart-3.png" darkImageSrc="customization-api/guides/quickstart-3.png" />
 
