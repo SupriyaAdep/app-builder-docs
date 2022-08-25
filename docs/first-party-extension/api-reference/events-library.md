@@ -13,7 +13,6 @@ This event library allows users to send and listen to custom events. These event
 
 `send` method listed in the API have 3 predefined persistence levels
 
-
 **Level 1:**
 
 The messages are sent and received between the user(s) in the channel. Nothing is persisted.
@@ -21,7 +20,7 @@ This is the default level when sending custom-events.
 
 **Level 2:**
 
-The messages are sent and received between the user(s) in the channel. 
+The messages are sent and received between the user(s) in the channel.
 When sending a custom event, evt name as the key and message data as value is persisted in the sender's local attributes.
 Any new user who joins the call receives the latest state of the existing user(s) in the channel by reading their local attributes.
 
@@ -29,14 +28,14 @@ When the user leaves the channel, local user attributes are removed. Hence the s
 
 **Level 3:**
 
-The messages are sent and received between the user(s) in the channel. 
+The messages are sent and received between the user(s) in the channel.
 When sending a custom event, evt name as the key and message data as the value is persisted in the sender's local attributes.
 While receiving a custom event, evt name as the key and message data as the value is persisted in the receiver's local attributes.
 
 Any new user who joins the call receives the latest state of the existing user(s) in the channel by reading their local attributes.
 
 The local user attributes are removed when the sender and receiver leave the channel.
-Hence the state is  persisted until the sender and all receiver(s) remain in the channel
+Hence the state is persisted until the sender and all receiver(s) remain in the channel
 
 ---
 
@@ -100,8 +99,8 @@ Subscribes to the event with the provided details.
 
 Unsubscribes to the event with the provided details.
 
-| Prop              | Type                              | Description                                                                                                                                 |
-| ----------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Prop              | Type                              | Description                                                                                                                                    |
+| ----------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | evt?              | string                            | Name of the event to be unsubscribed. If no event name is provided all subscribed events will be unsubscribed                                  |
 | listenerToRemove? | [TEventCallback](#teventcallback) | Callback method of the event to be unsubscribed. If no callback method is provided all callbacks for the given event name will be unsubscribed |
 
@@ -162,7 +161,7 @@ Unsubscribes to the event with the provided details.
 <method>
 <subtitle>
 
-## ToOptions : [UidType](/first-party-extension/api-reference/globals#uidtype-string)[UidType\[\]](/first-party-extension/api-reference/globals#uidtype-string)
+## ToOptions : [UidType](/first-party-extension/api-reference/globals#uidtype)[UidType\[\]](/first-party-extension/api-reference/globals#uidtype-string)
 
 </subtitle>
 
