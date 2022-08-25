@@ -307,7 +307,7 @@ import { ParticipantsView } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/BottomBar.png" darkImageSrc="api/BottomBar.png" />
+<image alt="Video Call" lightImageSrc="api/Bottombar.png" darkImageSrc="api/Bottombar.png" />
 
 The Controls component is used to render all the meeting controls.
 
