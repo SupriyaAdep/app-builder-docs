@@ -92,7 +92,7 @@ import { ChatBubble } from "fpe-api";
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | message   | string                                                                                                                                                                                                        | Content of the chat message                                                  |
 | isLocal   | boolean                                                                                                                                                                                                       | Specifies if the message is from a local user or if it is from a remote user |
-| uid       | [UidType](/first-party-extension/api-reference/globals#uidtype-string)                                                                                                                                        | Name of the user who sent the message                                        |
+| uid       | [UidType](/first-party-extension/api-reference/globals#uidtype)                                                                                                                                               | Name of the user who sent the message                                        |
 | timestamp | number                                                                                                                                                                                                        | Timestamp of the message                                                     |
 | render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Render method for chat bubble to provide a custom jsx                        |
 
@@ -185,7 +185,6 @@ import { PinnedLayout } from "fpe-api";
 <br/>
 
 <image alt="Video Call" lightImageSrc="api/VideoComponent.png" darkImageSrc="api/VideoComponent.png" />
-
 
 The VideoComponent is used to automatically render the user video feeds in the selected layout.
 
@@ -307,7 +306,7 @@ import { ParticipantsView } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/BottomBar.png" darkImageSrc="api/BottomBar.png" />
+<image alt="Video Call" lightImageSrc="api/Bottombar.png" darkImageSrc="api/Bottombar.png" />
 
 The Controls component is used to render all the meeting controls.
 
@@ -507,11 +506,11 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 #### RemoteAudioMuteProps
 
-| Key    | Type                                                                   | Description                               |
-| ------ | ---------------------------------------------------------------------- | ----------------------------------------- |
-| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
-| audio  | boolean                                                                | audio mute state of the remote user       |
-| isHost | boolean                                                                | host status of the local user             |
+| Key    | Type                                                            | Description                               |
+| ------ | --------------------------------------------------------------- | ----------------------------------------- |
+| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype) | uid of the user to perform the action for |
+| audio  | boolean                                                         | audio mute state of the remote user       |
+| isHost | boolean                                                         | host status of the local user             |
 
 </collapsible>
 
@@ -523,11 +522,11 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 #### RemoteVideoMuteProps
 
-| Key    | Type                                                                   | Description                               |
-| ------ | ---------------------------------------------------------------------- | ----------------------------------------- |
-| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
-| video  | boolean                                                                | video mute state of the remote user       |
-| isHost | boolean                                                                | host status of the local user             |
+| Key    | Type                                                            | Description                               |
+| ------ | --------------------------------------------------------------- | ----------------------------------------- |
+| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype) | uid of the user to perform the action for |
+| video  | boolean                                                         | video mute state of the remote user       |
+| isHost | boolean                                                         | host status of the local user             |
 
 </collapsible>
 
@@ -539,10 +538,10 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 #### RemoteEndCallProps
 
-| Key    | Type                                                                   | Description                               |
-| ------ | ---------------------------------------------------------------------- | ----------------------------------------- |
-| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
-| isHost | boolean                                                                | host status of the local user             |
+| Key    | Type                                                            | Description                               |
+| ------ | --------------------------------------------------------------- | ----------------------------------------- |
+| uid    | [UidType](/first-party-extension/api-reference/globals#uidtype) | uid of the user to perform the action for |
+| isHost | boolean                                                         | host status of the local user             |
 
 </collapsible>
 
@@ -554,9 +553,9 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 #### RemoteLiveStreamApprovedRequestRecallProps
 
-| Key | Type                                                                   | Description                               |
-| --- | ---------------------------------------------------------------------- | ----------------------------------------- |
-| uid | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
+| Key | Type                                                            | Description                               |
+| --- | --------------------------------------------------------------- | ----------------------------------------- |
+| uid | [UidType](/first-party-extension/api-reference/globals#uidtype) | uid of the user to perform the action for |
 
 </collapsible>
 
@@ -568,9 +567,9 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 #### RemoteLiveStreamControlApproveProps
 
-| Key | Type                                                                   | Description                               |
-| --- | ---------------------------------------------------------------------- | ----------------------------------------- |
-| uid | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
+| Key | Type                                                            | Description                               |
+| --- | --------------------------------------------------------------- | ----------------------------------------- |
+| uid | [UidType](/first-party-extension/api-reference/globals#uidtype) | uid of the user to perform the action for |
 
 </collapsible>
 
@@ -582,9 +581,9 @@ import { SidePanelButtonsArray } from "fpe-api";
 
 #### RemoteLiveStreamControlRejectProps
 
-| Key | Type                                                                   | Description                               |
-| --- | ---------------------------------------------------------------------- | ----------------------------------------- |
-| uid | [UidType](/first-party-extension/api-reference/globals#uidtype-string) | uid of the user to perform the action for |
+| Key | Type                                                            | Description                               |
+| --- | --------------------------------------------------------------- | ----------------------------------------- |
+| uid | [UidType](/first-party-extension/api-reference/globals#uidtype) | uid of the user to perform the action for |
 
 </collapsible>
 

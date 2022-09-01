@@ -78,7 +78,7 @@ The RenderContext contains the information necessary to render user content view
 | Key            | Type                                                                                        | Description                                                           |
 | -------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | renderList     | [RenderObjectInterface](/first-party-extension/api-reference/globals#renderobjectinterface) | Object containing all the render objects stored in the render context |
-| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype-string)\>              | Array indicating order of all uids in the render context              |
+| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype)\>                     | Array indicating order of all uids in the render context              |
 
 <br/>
 
@@ -347,11 +347,11 @@ The PropsContext contains the various configuration options and callbacks that a
 
 <!-- TODO(adictya): Add descriptions -->
 
-| Key              | Type                                                                                                                                                                                  | Description                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| DequeVideo       | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string)) => void                                                                                                 | Called when a render object dequeud  |
-| UpdateRenderList | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), user: Partial<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)>) => void | Called when render list is updated   |
-| AddCustomContent | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), data: any) => void                                                                                      | Called when custom content was added |
+| Key              | Type                                                                                                                                                                           | Description                          |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
+| DequeVideo       | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype)) => void                                                                                                 | Called when a render object dequeud  |
+| UpdateRenderList | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype), user: Partial<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)>) => void | Called when render list is updated   |
+| AddCustomContent | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype), data: any) => void                                                                                      | Called when custom content was added |
 
 <br/>
 

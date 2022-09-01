@@ -15,7 +15,7 @@ You can access these hooks and utility functions under the `fpe-api` module as a
 
 <method>
 
-## useIsVideoEnabled : (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string) ) => boolean
+## useIsVideoEnabled : (uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ) => boolean
 
 Checks the video state for a given uid and returns true/false
 
@@ -29,7 +29,7 @@ import { useIsVideoEnabled } from "fpe-api";
 
 <method>
 
-## useIsAudioEnabled : (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string) ) => boolean
+## useIsAudioEnabled : (uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ) => boolean
 
 Checks the audio state for a given uid is host and returns true/false
 
@@ -61,7 +61,7 @@ import { useIsHost } from "fpe-api";
 
 <collapsible>
 
-### isHostCheckFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string) ) => boolean
+### isHostCheckFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ) => boolean
 
 </collapsible>
 
@@ -89,7 +89,7 @@ import { useIsAttendee } from "fpe-api";
 
 <collapsible>
 
-### isAttendeeCheckFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string)) => boolean
+### isAttendeeCheckFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype)) => boolean
 
 </collapsible>
 
@@ -348,7 +348,7 @@ import { useRemoteMute } from "fpe-api";
 
 <collapsible>
 
-### muteToggleLocalFunction: (type: [MUTE_REMOTE_TYPE](a), uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string) ) => Promise<void\>
+### muteToggleLocalFunction: (type: [MUTE_REMOTE_TYPE](a), uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ) => Promise<void\>
 
 </collapsible>
 
@@ -376,7 +376,7 @@ import { useRemoteEndCall } from "fpe-api";
 
 <collapsible>
 
-### remoteEndCallFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string)) => void
+### remoteEndCallFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype)) => void
 
 </collapsible>
 
