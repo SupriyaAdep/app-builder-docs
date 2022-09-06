@@ -11,6 +11,9 @@
 html {
   scroll-behavior: smooth;
 }
+.theme-doc-sidebar-item-link.hidden {
+  display: none;
+}
 
  h2 {
   font-size: 1.25rem;

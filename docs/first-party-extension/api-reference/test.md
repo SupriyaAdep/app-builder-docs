@@ -1,3 +1,8 @@
+---
+sidebar_label: Test Page
+draft: true
+---
+
 # Subtitle Test Page - To be removed
 
 <subtitle>
@@ -8,11 +13,9 @@
 
 <!-- <subtitle>
 
-## videoCall : VideoCallComponent : VideoCallInterface 
+## videoCall : VideoCallComponent : VideoCallInterface
 
 </subtitle> -->
-
-
 
 <subtitle>
 
@@ -20,12 +23,11 @@
 
 </subtitle>
 
-- image from =>  static/img/docAssets/api
-<image alt="Video Call" lightImageSrc="api/Videocall.png" darkImageSrc="api/Videocall1.png" />
+- image from => static/img/docAssets/api
+  <image alt="Video Call" lightImageSrc="api/Videocall.png" darkImageSrc="api/Videocall1.png" />
 
 - image from => static/img/docAssets/api/Videocall.png
-<image alt="P panel" lightImageSrc="api/VideoComponent.png" darkImageSrc="api/Videocall.png" />
-
+  <image alt="P panel" lightImageSrc="api/VideoComponent.png" darkImageSrc="api/Videocall.png" />
 
 <!-- <subtitle>
 

@@ -13,7 +13,7 @@ sidebar_custom_props: { icon: "settings" }
 
 To create a development build,
 
-1.  Follow the [quickstart guide](/docs/turn-key/quickstart) to create a new app with the app builder and install all the dependencies
+1.  Follow the [quickstart guide](/turn-key/quickstart) to create a new app with the app builder and install all the dependencies
 1.  Run `npm start` in the project root. This will launch the CLI
 1.  Select **Build** in the main menu
     <image alt="Linux_Build" className="guide-img" lightImageSrc="guides/Linux_Build.png" darkImageSrc="guides/Linux_Build.png" />
@@ -27,7 +27,7 @@ To create a development build,
 
 To create a production build,
 
-1.  Follow the [quickstart guide](docs/turn-key/quickstart) to create a new app with the app builder and install all the dependencies
+1.  Follow the [quickstart guide](/turn-key/quickstart) to create a new app with the app builder and install all the dependencies
 1.  Run `npm start` in the project root. This will launch the CLI
 1.  Select **Build** in the main menu
     <image alt="Linux_Build" className="guide-img" lightImageSrc="guides/Linux_Build.png" darkImageSrc="guides/Linux_Build.png" />

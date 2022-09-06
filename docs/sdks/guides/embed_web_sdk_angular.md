@@ -13,7 +13,7 @@ The following guide describes the process of embedding the App Bulder Web SDK in
 
 #### STEP 1
 
-You need to download and extract the app builder source code, you can read more [here](google.com).
+You need to download and extract the app builder source code, you can read more [here](/turn-key/quickstart).
 
 Run the **app-builder-cli** in your project folder using the following command:
 
@@ -88,7 +88,6 @@ import AgoraAppBuilder from "AgoraAppBuilder";
 console.log(AgoraAppBuilder);
 ```
 
-
 <!-- LHS -->
 
 #### STEP 2
@@ -116,7 +115,6 @@ Make sure to provide necessary styling including a width and height on the paren
 ...
 ```
 
-
 <!-- LHS -->
 
 #### STEP 3
@@ -142,7 +140,6 @@ import { BrowserModule } from '@angular/platform-browser';
 ...
 ```
 
-
 <!-- LHS -->
 
 #### STEP 4
@@ -154,7 +151,6 @@ Start the development server inside your Angular project directory with the foll
 ```shell
 ng serve
 ```
-
 
 <!-- LHS -->
 
@@ -177,8 +173,7 @@ You should now see your App Builder project being displayed in your desired Angu
 
 You can use FPEs (First Party Extension) to customize your embedded App Builder project.
 
-Read [this guide](https://google.com) for more information.
-
+Read [this guide](/first-party-extension/quickstart) for more information.
 
 <!-- LHS -->
 
@@ -197,7 +192,6 @@ const fpe = AgoraAppBuilder.createFPE({
   */
 });
 ```
-
 
 <!-- LHS -->
 
@@ -218,7 +212,6 @@ const fpe = AgoraAppBuilder.createFPE({
 AgoraAppBuilder.installFPE(fpe);
 ```
 
-
 <!-- LHS -->
 
 #### STEP 4
@@ -229,4 +222,3 @@ You should now be able to see your customizations in action!
 
 <!-- ![Website with App Builder embedded customized](sdk/angular/6.png) -->
 <image alt="Build option" lightImageSrc="sdk/angular/6.png" darkImageSrc="sdk/angular/6.png" />
-

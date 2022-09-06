@@ -11,7 +11,7 @@ const config = {
   tagline: 'Agora App Builder for Live Video Chat & Streaming Apps',
   url: 'https://app-builder-docs.vercel.app/',
   baseUrl: '/',
-  onBrokenLinks: 'ignore',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
@@ -60,7 +60,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/AgoraIO-Community/app-builder-docs/tree/master',
+            'https://github.com/AgoraIO-Community/app-builder-docs/tree/preprod',
         },
         blog: false,
         theme: {
