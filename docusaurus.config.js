@@ -74,7 +74,7 @@ const config = {
           trackingID: 'G-KNSXGMLE89',
           anonymizeIP: true,
         },
-      }),
+      })
     ],
   ],
 
@@ -84,7 +84,7 @@ const config = {
 
     ({
       zoom: {
-        selector: '.markdown :not(em) > img',
+        selector: '.markdown  .mdImage',
         background: {
           light: 'rgb(255, 255, 255)',
           dark: 'rgb(24, 24, 24)'
