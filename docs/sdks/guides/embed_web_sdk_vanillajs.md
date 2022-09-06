@@ -15,7 +15,7 @@ The following guide describes the process of embedding the App Bulder Web SDK in
 
 <!-- LHS -->
 
-You need to download and extract the app builder source code, you can read more [here](google.com).
+You need to download and extract the app builder source code, you can read more [here](/turn-key/quickstart).
 
 Run the **app-builder-cli** in your project folder using the following command:
 
@@ -138,7 +138,7 @@ You should now see your App Builder project being displayed in your desired webp
 
 You can use FPEs (First Party Extension) to customize your embedded App Builder project.
 
-Read [this guide](https://google.com) for more information.
+Read [this guide](/first-party-extension/quickstart) for more information.
 
 <!-- LHS -->
 

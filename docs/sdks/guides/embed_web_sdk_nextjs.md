@@ -15,7 +15,7 @@ The following guide describes the process of embedding the App Bulder React SDK 
 
 <!-- LHS -->
 
-You need to download and extract the app builder source code, you can read more [here](google.com).
+You need to download and extract the app builder source code, you can read more [here](/turn-key/quickstart).
 
 Run the **app-builder-cli** in your project folder using the following command:
 
@@ -25,8 +25,8 @@ Run the **app-builder-cli** in your project folder using the following command:
 npm i && npm run start
 ```
 
-
 #### STEP 2
+
 <!-- LHS -->
 
 Navigate using the arrow keys and select the `Build` option using the enter key
@@ -36,8 +36,8 @@ Navigate using the arrow keys and select the `Build` option using the enter key
 <!-- ![Main menu, Build highlighted screenshot](./1.png) -->
 <image alt="Build option" lightImageSrc="sdk/nextjs/1.png" darkImageSrc="sdk/nextjs/1.png" />
 
-
 #### STEP 3
+
 <!-- LHS -->
 
 Select the `React SDK` platform, after which the CLI will start the build process. This will take a few minutes.
@@ -47,8 +47,8 @@ Select the `React SDK` platform, after which the CLI will start the build proces
 <!-- ![Build menu, React-SDK highlighted screenshot](./2.png) -->
 <image alt="Build option" lightImageSrc="sdk/nextjs/2.png" darkImageSrc="sdk/nextjs/2.png" />
 
-
 #### STEP 4
+
 <!-- LHS -->
 
 Once the build is complete open a terminal window in your NextJs project directory.
@@ -58,8 +58,8 @@ Once the build is complete open a terminal window in your NextJs project directo
 <!-- ![Terminal window inside Next js project folder](./3.png) -->
 <image alt="Build option" lightImageSrc="sdk/nextjs/3.png" darkImageSrc="sdk/nextjs/3.png" />
 
-
 #### STEP 5
+
 <!-- LHS -->
 
 The **app-builder-cli** compiles your App Builder project into a node module inside the `<Agora App Builder>/Builds/react-sdk` folder. Simply install this module using the following command.
@@ -72,13 +72,13 @@ The **app-builder-cli** compiles your App Builder project into a node module ins
 
 ## Usage
 
-
 #### STEP 1
+
 <!-- LHS -->
 
 The module is installed with same name as your App Builder project which can be imported into your Nextjs App.
 
-However in a NextJS environment, Client Side rendering must be enforced for the App Builder component. One way to do so is by importing App Builer into a **new App Builder wrapper compoonent**. 
+However in a NextJS environment, Client Side rendering must be enforced for the App Builder component. One way to do so is by importing App Builer into a **new App Builder wrapper compoonent**.
 
 <!-- RHS -->
 
@@ -88,8 +88,8 @@ However in a NextJS environment, Client Side rendering must be enforced for the 
 import AgoraAppBuilder from "AgoraAppBuilder";
 ```
 
-
 #### STEP 2
+
 <!-- LHS -->
 
 After importing the module your App Builder project can be rendered using the `View` property on the imported `AgoraAppBuilder` object.
@@ -117,8 +117,8 @@ const AppBuilderWrapper = () => {
 };
 ```
 
-
 #### STEP 3
+
 <!-- LHS -->
 
 **Dynamically import** the wrapper in your desired Nextjs page/component using the `dynamic` function.
@@ -134,11 +134,10 @@ const AgoraAppBuilderWraper = dynamic(
     ssr: false,
   }
 );
-
 ```
 
-
 #### STEP 4
+
 <!-- LHS -->
 
 After dynamically importing the wrapper it can be rendered normally in any page/component.
@@ -161,19 +160,15 @@ const AgoraAppBuilderWraper = dynamic(
 
 const VideoCall = () => {
   return (
-    <div
-      suppressHydrationWarning={true}
-    >
+    <div suppressHydrationWarning={true}>
       <AgoraAppBuilderWrapper />
     </div>
   );
 };
-
 ```
 
-
-
 #### STEP 5
+
 <!-- LHS -->
 
 Start the development server inside your NextJs project directory with the following command
@@ -182,8 +177,8 @@ Start the development server inside your NextJs project directory with the follo
 
 `npm run dev`
 
-
 #### STEP 6
+
 <!-- LHS -->
 
 You should now see your App Builder project being displayed in your desired web page.
@@ -197,16 +192,16 @@ You should now see your App Builder project being displayed in your desired web 
 
 ## Customization
 
-
 #### STEP 1
+
 <!-- LHS -->
 
 You can use FPEs (First Party Extension) to customize your embedded App Builder project.
 
-Read [this guide](https://google.com) for more information.
-
+Read [this guide](/first-party-extension/quickstart) for more information.
 
 #### STEP 2
+
 <!-- LHS -->
 
 To create a FPE in a NextJs web app you need to access the `createFPE` method on the imported `AgoraAppBuilder` object, which takes the `FPEConfig` as a parameter and returns a FPE Object.
@@ -232,8 +227,8 @@ const AppBuilderWrapper = () = {
 ...
 ```
 
-
 #### STEP 3
+
 <!-- LHS -->
 
 Pass the returned FPE Object to the `installFPE` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
@@ -258,8 +253,8 @@ const AppBuilderWrapper = () = {
 ...
 ```
 
-
 #### STEP 4
+
 <!-- LHS -->
 
 You should now be able to see your customizations in action!
@@ -268,4 +263,3 @@ You should now be able to see your customizations in action!
 
 <!-- ![Website with App Builder embedded customized](./6.png) -->
 <image alt="Build option" lightImageSrc="sdk/nextjs/6.png" darkImageSrc="sdk/nextjs/6.png" />
-

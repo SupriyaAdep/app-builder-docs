@@ -13,7 +13,7 @@ The following guide describes the process of embedding the App Bulder Web SDK in
 
 #### STEP 1
 
-You need to download and extract the app builder source code, you can read more [here](https://appbuilder.agora.io/docs/Frontend/Web-guide)<br/> Run the app-builder-cli in your project folder using the following command:
+You need to download and extract the app builder source code, you can read more [here](/turn-key/quickstart)<br/> Run the app-builder-cli in your project folder using the following command:
 
 ```shell
 npm i && npm run start
@@ -92,7 +92,7 @@ npm install <path-to-app-builder-project-folder>/Builds/web-sdk
 ## CUSTOMIZATION
 
 You can use FPEs (First Party Extension) to customize your embedded App Builder project.<br/>
-Read this [guide](https://appbuilder.agora.io/docs/Frontend/Web-guide) for more information
+Read this [guide](/first-party-extension/quickstart) for more information
 
 #### STEP 1
 
@@ -104,12 +104,12 @@ To create a FPE in a VueJS web app you need to access the `createFPE` method on 
 
 ```html {3-7}
 <script>
-import AgoraAppBuilder from "AgoraAppBuilder";
-const fpe = AgoraAppBuilder.createFPE({
-  /*
+  import AgoraAppBuilder from "AgoraAppBuilder";
+  const fpe = AgoraAppBuilder.createFPE({
+    /*
     My FPE Config. See https://example.com for config reference.
   */
-});
+  });
 </script>
 ```
 
@@ -123,13 +123,13 @@ Pass the returned FPE Object to the `installFPE` method available under the same
 
 ```html {8}
 <script>
-import AgoraAppBuilder from "AgoraAppBuilder";
-const FPE = AgoraAppBuilder.createFPE({
-  /*
+  import AgoraAppBuilder from "AgoraAppBuilder";
+  const FPE = AgoraAppBuilder.createFPE({
+    /*
     My FPE Config. See https://example.com for config reference.
   */
-});
-AgoraAppBuilder.installFPE(FPE);
+  });
+  AgoraAppBuilder.installFPE(FPE);
 </script>
 ```
 
