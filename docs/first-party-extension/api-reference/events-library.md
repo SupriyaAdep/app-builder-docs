@@ -1,8 +1,8 @@
 ---
-sidebar_label: Events and Notification Library
+sidebar_label: Custom Events Library
 sidebar_position: 6
-description: Events and Notification Library
-title: Events and Notification Library
+description: Custom Events Library
+title: Custom Events Library
 keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---

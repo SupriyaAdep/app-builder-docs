@@ -1,5 +1,5 @@
 ---
-sidebar_label: Internationalization API
+sidebar_label: i18n API
 sidebar_position: 2
 description: Customize the text content of your application using this API
 title: i18n API

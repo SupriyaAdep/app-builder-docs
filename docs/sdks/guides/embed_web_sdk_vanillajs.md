@@ -1,5 +1,5 @@
 ---
-sidebar_label: How to embed the App Builder Web SDK in a VanillaJS web app ?
+sidebar_label: VanillaJS usage
 sidebar_position: 2
 description: Embed App Builder SDK in your app
 title: How to embed the App Builder Web SDK in a VanillaJS web app ?

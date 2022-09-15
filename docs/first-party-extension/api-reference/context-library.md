@@ -1,13 +1,13 @@
 ---
-sidebar_label: App state and Context Library
+sidebar_label: App State Library
 sidebar_position: 4
-description: Context Library
-title: Context Library
+description: App State Library
+title: App State Library
 keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-The context library exposes various contexts used in app builder. All contexts are wrapped around a selector hook that allows for selective subscribing of data.
+The App State Library exposes various contexts used in App Builder. All contexts are wrapped around a selector hook that allows for selective subscribing of data.
 
 ---
 

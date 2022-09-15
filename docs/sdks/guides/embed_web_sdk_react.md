@@ -1,5 +1,5 @@
 ---
-sidebar_label: How to embed the App Builder Web SDK in a React web app ?
+sidebar_label: ReactJS usage
 sidebar_position: 1
 description: Embed App Builder SDK in your app
 title: How to embed the App Builder Web SDK in a React web app ?

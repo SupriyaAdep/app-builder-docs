@@ -1,8 +1,8 @@
 ---
-sidebar_label: Globals
+sidebar_label: Types
 sidebar_position: 7
-description: Globals
-title: Globals
+description: Types
+title: Types
 keywords: [videCallProps, ChatBubbleProps]
 sidebar_custom_props: { icon: "settings" }
 ---
