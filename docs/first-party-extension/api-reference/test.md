@@ -27,6 +27,152 @@ draft: false
 
 <imageSlider alt="chatBubble" lightImageSrc1="api/ChatBubble.png" darkImageSrc1="api/ChatBubble.png"  lightImageSrc2="api/ChatBubble.png" darkImageSrc2="api/TestChatBubble.png"  />
 
+### Codeblock 1
+
+```tsx {13-17}
+import React from "react";
+import { View, Text } from "react-native";
+import { installApi } from "api/install";
+
+const MyComponent: React.FC = () => {
+  return (
+    <View>
+      <Text>My Component</Text>
+    </View>
+  );
+};
+
+const data = installApi({
+  components: {
+    Header: HeaderComponent,
+  },
+});
+
+export default data;
+```
+
+### Codeblock 2
+
+```tsx {5-7}
+import React from "react";
+import { View, Text } from "react-native";
+import { installApi } from "api/install";
+
+const MyComponent: React.FC = () => {
+  return (
+    <View>
+      <Text>My Component</Text>
+    </View>
+  );
+};
+
+const data = installApi({
+  components: {
+    Header: HeaderComponent,
+  },
+});
+
+export default data;
+```
+
+### Codeblock 3
+
+```tsx {15-17}
+import React from "react";
+import { View, Text } from "react-native";
+import { installApi } from "api/install";
+
+const MyComponent: React.FC = () => {
+  return (
+    <View>
+      <Text>My Component</Text>
+    </View>
+  );
+};
+
+const data = installApi({
+  components: {
+    Header: HeaderComponent,
+  },
+});
+
+export default data;
+```
+
+### Codeblock 4
+
+```tsx {10-11}
+import React from "react";
+import { View, Text } from "react-native";
+import { installApi } from "api/install";
+
+const MyComponent: React.FC = () => {
+  return (
+    <View>
+      <Text>My Component</Text>
+    </View>
+  );
+};
+
+const data = installApi({
+  components: {
+    Header: HeaderComponent,
+  },
+});
+
+export default data;
+```
+
+### Codeblock 5
+
+```tsx {8-10}
+import React from "react";
+import { View, Text } from "react-native";
+import { installApi } from "api/install";
+
+const MyComponent: React.FC = () => {
+  return (
+    <View>
+      <Text>My Component</Text>
+    </View>
+  );
+};
+
+const data = installApi({
+  components: {
+    Header: HeaderComponent,
+  },
+});
+
+export default data;
+```
+
+check if all codeblock get auto scrolled to highlighted section
+
+### Codeblock 6
+
+```tsx {15-17}
+import React from "react";
+import { View, Text } from "react-native";
+import { installApi } from "api/install";
+
+const MyComponent: React.FC = () => {
+  return (
+    <View>
+      <Text>My Component</Text>
+    </View>
+  );
+};
+
+const data = installApi({
+  components: {
+    Header: HeaderComponent,
+  },
+});
+
+export default data;
+```
+
 <!-- <subtitle>
 
 ## i18n : [i18nInterface](#i18ninterface)\[\]
