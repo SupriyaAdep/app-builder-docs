@@ -1,6 +1,6 @@
 ---
 sidebar_label: Test Page
-draft: true
+draft: false
 ---
 
 # Subtitle Test Page - To be removed
@@ -23,11 +23,9 @@ draft: true
 
 </subtitle>
 
-- image from => static/img/docAssets/api
-  <image alt="Video Call" lightImageSrc="api/Videocall.png" darkImageSrc="api/Videocall1.png" />
+### Image Slider
 
-- image from => static/img/docAssets/api/Videocall.png
-  <image alt="P panel" lightImageSrc="api/VideoComponent.png" darkImageSrc="api/Videocall.png" />
+<imageSlider alt="chatBubble" lightImageSrc1="api/ChatBubble.png" darkImageSrc1="api/ChatBubble.png"  lightImageSrc2="api/ChatBubble.png" darkImageSrc2="api/TestChatBubble.png"  />
 
 <!-- <subtitle>
 
