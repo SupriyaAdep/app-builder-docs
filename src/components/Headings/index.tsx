@@ -2,10 +2,17 @@ import React from "react";
 import styles from "./heading.module.css";
 import clsx from "clsx";
 
+const regex = /^[^:(]*/gm;
+
 export function H2({ children }) {
   if (!children) return null;
   if (typeof children === "string") {
-    const id = children.split(":")[0].toLowerCase().trim().split(" ").join("-");
+    const id = children
+      .match(regex)[0]
+      .toLowerCase()
+      .trim()
+      .split(" ")
+      .join("-");
     return (
       <h2 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
@@ -20,7 +27,7 @@ export function H2({ children }) {
 
   if (children.length >= 2) {
     if (React.isValidElement(children[0])) return <h2>{children}</h2>;
-    const id = children[0].split(":")[0].toLowerCase().trim();
+    const id = children[0].match(regex)[0].toLowerCase().trim();
     return (
       <h2 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
@@ -38,7 +45,7 @@ export function H2({ children }) {
 export function H3({ children }) {
   if (!children) return null;
   if (typeof children === "string") {
-    const id = children.split(":")[0].toLowerCase().trim();
+    const id = children.match(regex)[0].toLowerCase().trim();
     return (
       <h3 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
@@ -55,7 +62,7 @@ export function H3({ children }) {
   }
   if (children.length >= 2) {
     if (React.isValidElement(children[0])) return <h3>{children}</h3>;
-    const id = children[0].split(":")[0].toLowerCase().trim() || "";
+    const id = children[0].match(regex)[0].toLowerCase().trim() || "";
     return (
       <h3 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
@@ -73,7 +80,7 @@ export function H3({ children }) {
 export function H4({ children }) {
   if (!children) return null;
   if (typeof children === "string") {
-    const id = children.split(":")[0].toLowerCase().trim();
+    const id = children.match(regex)[0].toLowerCase().trim();
     return (
       <h4 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
@@ -86,7 +93,7 @@ export function H4({ children }) {
     );
   }
   if (children.length >= 2) {
-    const id = children[0].split(":")[0].toLowerCase().trim();
+    const id = children[0].match(regex)[0].toLowerCase().trim();
     return (
       <h4 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
