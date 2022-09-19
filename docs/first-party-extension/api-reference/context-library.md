@@ -113,7 +113,7 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLocalContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderInterface](#first-party-extension/api-reference/globals#renderinterface)\>
+## useLocalContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)\>
 
 The LocalContext contains the local user information.
 

@@ -23,9 +23,23 @@ draft: false
 
 </subtitle>
 
+---
+
+old format
+
+## useRecordingContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
+
+new format with typedoc convention (** Selector can be documented in Types **)
+
+## useRecordingLatest (selector?: [Selector](/first-party-extension/api-reference/globals#renderinterface)) : [RecordingContextInterface](/first-party-extension/api-reference/context-library#recordingcontextinterface)
+
+---
+
 ### Image Slider
 
 <imageSlider alt="chatBubble" lightImageSrc1="api/ChatBubble.png" darkImageSrc1="api/ChatBubble.png"  lightImageSrc2="api/ChatBubble.png" darkImageSrc2="api/TestChatBubble.png"  />
+
+---
 
 ### Codeblock 1
 
