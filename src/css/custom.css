@@ -62,6 +62,10 @@ h3 {
   font-size: 18px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .mdImage {
   border-radius: var(--ifm-code-border-radius);
   margin-bottom: var(--ifm-leading) !important;
@@ -192,12 +196,11 @@ table tr:nth-child(2n) {
 
 .prism-code code {
   max-height: 300px;
-  overflow-y: auto;
+  overflow-y: visible;
   transition: max-height ease-in-out .35s;
 }
 .fullscreen .prism-code code {
   max-height: 200vh;
- 
 }
 
 /* Device related  */
@@ -366,7 +369,7 @@ html[data-theme='dark'] {
   --ifm-color-primary-light: #0d85ff;
   --ifm-color-primary-lighter: #1a8bff;
   --ifm-color-primary-lightest: #3e9eff;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --docusaurus-highlighted-code-line-bg: #555555;
   --card-content-color: #AFAFAF; 
   --sidebar-background-color:#181818;
   --interface-background-color:#111111;

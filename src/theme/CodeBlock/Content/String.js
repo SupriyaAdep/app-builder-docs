@@ -36,6 +36,8 @@ export default function CodeBlockString({
   // future. Note that MDX doesn't strip quotes when parsing metastring:
   // "title=\"xyz\"" => title: "\"xyz\""
   const containerRef = React.createRef();
+  const hline = React.useRef(0); // line no where syntax highlight starts
+  const tlines = React.useRef(0);// total no of lines 
   const title = parseCodeBlockTitle(metastring) || titleProp;
   const setRef = (ref) => {
     containerRef.current = ref.current;
@@ -47,6 +49,17 @@ export default function CodeBlockString({
   });
   const showLineNumbers =
     showLineNumbersProp ?? containsLineNumbers(metastring);
+
+  React.useEffect(() => {
+    const scrollBy = 20 * hline.current; // height of one line 20px
+    const section = containerRef?.current?.querySelector('pre')
+    if (tlines?.current < 20) {
+      const expandbtn = containerRef?.current?.querySelector('.expand-btn')
+      expandbtn?.classList?.add('hidden')
+    }
+    section?.scrollTo({ top: scrollBy, behavior: 'smooth' })
+
+  }, [])
   return (
     <Container
       as="div"
@@ -57,8 +70,10 @@ export default function CodeBlockString({
         !blockClassName.includes(`language-${language}`) &&
         `language-${language}`,
       )}>
+
       {title && <div className={styles.codeBlockTitle}>{title}</div>}
       <div className={styles.codeBlockContent}>
+
         <Highlight
           {...defaultProps}
           theme={prismTheme}
@@ -75,8 +90,13 @@ export default function CodeBlockString({
                   styles.codeBlockLines,
                   showLineNumbers && styles.codeBlockLinesWithNumbering,
                 )}>
-                {tokens.map((line, i) => (
-                  <Line
+
+                {tokens.map((line, i) => {
+                  if (lineClassNames[i] == 'theme-code-block-highlighted-line') {
+                    hline.current = hline.current === 0 ? i : hline.current
+                  }
+                  tlines.current += i;
+                  return <Line
                     key={i}
                     line={line}
                     getLineProps={getLineProps}
@@ -84,7 +104,7 @@ export default function CodeBlockString({
                     classNames={lineClassNames[i]}
                     showLineNumbers={showLineNumbers}
                   />
-                ))}
+                })}
               </code>
             </pre>
           )}
@@ -97,10 +117,8 @@ export default function CodeBlockString({
               isEnabled={wordWrap.isEnabled}
             />
           )}
-
           <CopyButton className={styles.codeButton} code={code} />
-
-          <FullScreenButton forwardRef={containerRef} />
+          <FullScreenButton className="expand-btn" forwardRef={containerRef} />
         </div>
       </div>
     </Container>

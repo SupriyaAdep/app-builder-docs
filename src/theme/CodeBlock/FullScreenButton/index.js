@@ -40,6 +40,9 @@ function FullScreenButton({ code, className, forwardRef }) {
     // }
   }, [code]);
 
+
+
+
   return (
     <button
       type="button"
