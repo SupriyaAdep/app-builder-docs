@@ -37,6 +37,7 @@ export default function CodeBlockString({
   // "title=\"xyz\"" => title: "\"xyz\""
   const containerRef = React.createRef();
   const hline = React.useRef(0); // line no where syntax highlight starts
+  const tlines = React.useRef(0);// total no of lines 
   const title = parseCodeBlockTitle(metastring) || titleProp;
   const setRef = (ref) => {
     containerRef.current = ref.current;
@@ -90,6 +91,7 @@ export default function CodeBlockString({
                   if (lineClassNames[i] == 'theme-code-block-highlighted-line') {
                     hline.current = hline.current === 0 ? i : hline.current
                   }
+                  tlines.current += i;
                   return <Line
                     key={i}
                     line={line}
@@ -111,10 +113,8 @@ export default function CodeBlockString({
               isEnabled={wordWrap.isEnabled}
             />
           )}
-
           <CopyButton className={styles.codeButton} code={code} />
-
-          <FullScreenButton forwardRef={containerRef} />
+          <FullScreenButton forwardRef={containerRef} noOfLines={tlines.current} />
         </div>
       </div>
     </Container>
