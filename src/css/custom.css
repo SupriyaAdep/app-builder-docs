@@ -62,6 +62,10 @@ h3 {
   font-size: 18px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .mdImage {
   border-radius: var(--ifm-code-border-radius);
   margin-bottom: var(--ifm-leading) !important;

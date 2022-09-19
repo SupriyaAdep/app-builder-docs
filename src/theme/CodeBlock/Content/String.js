@@ -53,6 +53,10 @@ export default function CodeBlockString({
   React.useEffect(() => {
     const scrollBy = 20 * hline.current; // height of one line 20px
     const section = containerRef?.current?.querySelector('pre')
+    if (tlines?.current < 20) {
+      const expandbtn = containerRef?.current?.querySelector('.expand-btn')
+      expandbtn?.classList?.add('hidden')
+    }
     section?.scrollTo({ top: scrollBy, behavior: 'smooth' })
 
   }, [])
@@ -114,7 +118,7 @@ export default function CodeBlockString({
             />
           )}
           <CopyButton className={styles.codeButton} code={code} />
-          <FullScreenButton forwardRef={containerRef} noOfLines={tlines.current} />
+          <FullScreenButton className="expand-btn" forwardRef={containerRef} />
         </div>
       </div>
     </Container>

@@ -4,7 +4,7 @@ import copy from 'copy-text-to-clipboard';
 import { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
-function FullScreenButton({ code, className, forwardRef, noOfLines }) {
+function FullScreenButton({ code, className, forwardRef }) {
 
 
   const handleFullScreen = useCallback((e) => {
@@ -40,9 +40,8 @@ function FullScreenButton({ code, className, forwardRef, noOfLines }) {
     // }
   }, [code]);
 
-  if (noOfLines < 20) {
-    return null
-  }
+
+
 
   return (
     <button
