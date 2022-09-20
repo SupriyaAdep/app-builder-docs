@@ -7,13 +7,13 @@ keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-The App State Library exposes various contexts used in App Builder. All contexts are wrapped around a selector hook that allows for selective subscribing of data.
+The App State Library exposes various contexts used in App Builder. All contexts are wrapped around a [selector](/first-party-extension/api-reference/globals#renderinterface) hook that allows for selective subscribing of data.
 
 ---
 
 <method>
 
-## useRecordingContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
+## useRecording(selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [RecordingContextInterface](/first-party-extension/api-reference/context-library#recordingcontextinterface)
 
 The RecordingContext contains methods to start and stop cloud recording as well as state that tracks recording status.
 
@@ -21,44 +21,18 @@ The RecordingContext contains methods to start and stop cloud recording as well 
 
 #### RecordingContextInterface
 
-| Key                | Type                                                      | Description                                                      |
-| ------------------ | --------------------------------------------------------- | ---------------------------------------------------------------- |
-| isRecordingActve   | boolean                                                   | Flag to indicate if cloud recording is active in the application |
-| setRecordingActive | [React.Dispatch](a)<[React.SetStateAction](a)<boolean\>\> | Start/Stop cloud recording.                                      |
-| startRecording     | () => void                                                | Starts cloud recording                                           |
-| stopRecording      | () => void                                                | Stops cloud recording                                            |
+| Key              | Type       | Description                                                      |
+| ---------------- | ---------- | ---------------------------------------------------------------- |
+| isRecordingActve | boolean    | Flag to indicate if cloud recording is active in the application |
+| startRecording   | () => void | Starts cloud recording                                           |
+| stopRecording    | () => void | Stops cloud recording                                            |
 
 <br/>
 
 Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
 ```jsx
-import { useRecordingContext } from "fpe-api";
-
-const MyReactComponent = () => {
-  const {
-    isRecordingActve,
-    setRecordingActive,
-    startRecording,
-    stopRecording,
-  } = useRecordingContext((RecordingContext) => {
-    const {
-      isRecordingActve,
-      setRecordingActive,
-      startRecording,
-      stopRecording,
-    } = RecordingContext;
-
-    return {
-      isRecordingActve,
-      setRecordingActive,
-      startRecording,
-      stopRecording,
-    };
-  });
-
-  ...
-};
+const { isRecordingActive, startRecording, stopRecording } = useRecording();
 ```
 
 </method>
@@ -67,7 +41,9 @@ const MyReactComponent = () => {
 
 <method>
 
-## useRenderContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderStateInterface](#renderstateinterface)\>
+<!-- PENDING -->
+
+## useRender(selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [RenderStateInterface](#renderstateinterface)
 
 The RenderContext contains the information necessary to render user content views.
 
@@ -113,9 +89,18 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLocalContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)\>
+## useLocalUserInfo : (selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [LocalUserInfo](#localuserinfo)
 
 The LocalContext contains the local user information.
+
+<!-- PENDING -->
+
+#### LocalUserInfo
+
+| Key                 | Type                                                       | Description                                   |
+| ------------------- | ---------------------------------------------------------- | --------------------------------------------- |
+| activeLayoutName    | string                                                     | State variable containing active layout name  |
+| setActiveLayoutName | [React.Dispatch](a)< [React.SetStateAction](a) <string\>\> | Set state method to modify active layout name |
 
 <br/>
 
@@ -136,7 +121,9 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLayoutContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[LayoutContextInterface](#layoutcontextinterface)\>
+## useLayout : (selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [LayoutContextInterface](#layoutcontextinterface)
+
+<!-- PENDING -->
 
 The RenderContext contains the active layout and method to modify the active layout
 
@@ -144,36 +131,17 @@ The RenderContext contains the active layout and method to modify the active lay
 
 #### LayoutContextInterface
 
-| Key                 | Type                                                       | Description                                   |
-| ------------------- | ---------------------------------------------------------- | --------------------------------------------- |
-| activeLayoutName    | string                                                     | State variable containing active layout name  |
-| setActiveLayoutName | [React.Dispatch](a)< [React.SetStateAction](a) <string\>\> | Set state method to modify active layout name |
+| Key           | Type                           | Description                                                                                                                                                                                    |
+| ------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| currentLayout | string                         | Name of the current layout. Can be `GridLayout`, `PinnedLayout` or any other key defined in the [custom layout API](#first-party-extension/api-reference/components-api#videocallcustomlayout) |
+| setLayout     | ( layoutName: string ) => void | Sets the current layout with given layout name                                                                                                                                                 |
 
 <br/>
 
 Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
 ```jsx
-import { useLayoutContext } from "fpe-api";
-
-const MyReactComponent = () => {
-  const {
-    activeLayoutName,
-    setActiveLayoutName,
-  } = useLocalContext((LayoutContext) => {
-    const {
-      activeLayoutName,
-      setActiveLayoutName,
-    } = LayoutContext;
-
-    return {
-      activeLayoutName,
-      setActiveLayoutName,
-    };
-  });
-
-  ...
-};
+const { currentLayout, setLayout } = useLayout();
 ```
 
 </method>
@@ -182,13 +150,15 @@ const MyReactComponent = () => {
 
 <method>
 
-## useMeetingInfoContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[MeetingInfoContextInterface](#meetinginfocontextinterface)\>
+## useMeetingInfo : (selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [MeetingInfo](#meetinginfo)
 
 The MeetingInfoContext contains the all the information about the active meeting.
 
 <br/>
 
-#### MeetingInfoContextInterface
+<!-- PENDING -->
+
+#### MeetingInfo
 
 | Key                | Type                                                                                                                                                      | Description                                                                                       |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -210,56 +180,20 @@ The MeetingInfoContext contains the all the information about the active meeting
 Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
 ```jsx
-import { useMeetingInfoContext } from "fpe-api";
-
-const MyReactComponent = () => {
-  const {
-    isHost,
-    meetingTitle,
-    meetingPassphrase,
-    isSeparateHostLink,
-    channel,
-    uid,
-    token,
-    rtm,
-    secret,
-    screenShareUid,
-    screenShareToken,
-    isJoinDataFetched,
-  } = useMeetingInfoContext((MeetingInfoContext) => {
-    const {
-      isHost,
-      meetingTitle,
-      meetingPassphrase,
-      isSeparateHostLink,
-      channel,
-      uid,
-      token,
-      rtm,
-      secret,
-      screenShareUid,
-      screenShareToken,
-      isJoinDataFetched,
-    } = MeetingInfoContext;
-
-    return {
-      isHost,
-      meetingTitle,
-      meetingPassphrase,
-      isSeparateHostLink,
-      channel,
-      uid,
-      token,
-      rtm,
-      secret,
-      screenShareUid,
-      screenShareToken,
-      isJoinDataFetched,
-    };
-  });
-
-  ...
-};
+const {
+  isHost,
+  meetingTitle,
+  meetingPassphrase,
+  isSeparateHostLink,
+  channel,
+  uid,
+  token,
+  rtm,
+  secret,
+  screenShareUid,
+  screenShareToken,
+  isJoinDataFetched,
+} = useMeetingInfoContext();
 ```
 
 </method>
@@ -268,7 +202,7 @@ const MyReactComponent = () => {
 
 <method>
 
-## useRtcContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RtcContextInterface](#rtccontextinterface)>
+## useRtcContext : (selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [RtcContextInterface](#rtccontextinterface)
 
 The RenderContext contains the information necessary to render user content views.
 
@@ -305,80 +239,6 @@ const MyReactComponent = () => {
       RtcEngine,
       dispatch,
       setDualStreamMode,
-    };
-  });
-
-  ...
-};
-```
-
-</method>
-
----
-
-<method>
-
-## usePropsContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[PropsInterface](#propsinterface)\>
-
-The PropsContext contains the various configuration options and callbacks that are passed to setup [Agora React Native UI Kit](a) internally.
-
-<br/>
-
-#### PropsInterface
-
-| Key         | Type                                                                                                                                                     | Description                                                          |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| rtcProps    | [RtcPropsInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface)                                                                            | Contains all the configuration options passed to setup the ui kit    |
-| styleProps? | Partial< [StylePropInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html) \> | Contains various styles used by the ui kit                           |
-| callbacks?  | Partial< [CallbacksInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface) >                                                                | Contains various callbacks setup on rtc actions passed to the ui kit |
-| mode?       | ChannelProfile                                                                                                                                           | Indicates the rtc channel profile to be used                         |
-
-<br/>
-
-#### RtcPropsInterface _extends_ [AgoraRnUiKitRtcPropsInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html)
-
-| Key         | Type    | Description                              |
-| ----------- | ------- | ---------------------------------------- |
-| geoFencing? | boolean | Determines whether geofencing is enabled |
-
-<br/>
-
-#### CallbacksInterface _extends_ [AgoraRnUiKitCallbackInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Agora_UIKit._internal_.CallbacksInterface.html)
-
-<!-- TODO(adictya): Add descriptions -->
-
-| Key              | Type                                                                                                                                                                           | Description                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
-| DequeVideo       | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype)) => void                                                                                                 | Called when a render object dequeud  |
-| UpdateRenderList | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype), user: Partial<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)>) => void | Called when render list is updated   |
-| AddCustomContent | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype), data: any) => void                                                                                      | Called when custom content was added |
-
-<br/>
-
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
-
-```jsx
-import { usePropsContext } from "fpe-api";
-
-const MyReactComponent = () => {
-  const {
-    rtcProps,
-    styleProps,
-    callbacks,
-    mode,
-  } = usePropsContext((PropsContext) => {
-    const {
-      rtcProps,
-      styleProps,
-      callbacks,
-      mode,
-    } = PropsContext;
-
-    return {
-      rtcProps,
-      styleProps,
-      callbacks,
-      mode,
     };
   });
 
