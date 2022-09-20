@@ -167,7 +167,7 @@ const App = () = {
 
 <!-- LHS -->
 
-Pass the returned FPE Object to the `installFPE` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
+Pass the returned FPE Object to the `customize` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
 
 <!-- RHS -->
 
@@ -181,7 +181,7 @@ const App = () = {
       My FPE Config. See https://example.com for config reference.
     */
     });
-    AgoraAppBuilder.installFPE(FPE);
+    AgoraAppBuilder.customize(FPE);
   },[])
 ...
 ```

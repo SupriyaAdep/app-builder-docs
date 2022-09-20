@@ -32,7 +32,11 @@ Hence it is displayed after:
 
 - The user clicks on `JoinButton` inside the `Precall` screen.
 
-However if `$config.precall` is set to disabled, the videoCall screen is directly displayed after:
+However if Precall Screen is disabled in the Builder, 
+
+<image alt="Precall Screen Builder Option" lightImageSrc="customization-api/api/components-api/precall.png" darkImageSrc="customization-api/api/components-api/precall.png" />
+
+the videoCall screen is directly displayed after:
 
 - The user clicks on the “Start Meeting” button inside the `Share` screen
 - The user clicks on a meeting invite link.
@@ -56,7 +60,7 @@ Use the example code given below showcasing reconstruction of the default video 
 ```tsx {13-17}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyVideoCallComponent: React.FC = () => {
   return (
@@ -66,7 +70,7 @@ const MyVideoCallComponent: React.FC = () => {
   );
 };
 
-const data = installFPE({
+const data = customize({
   components: {
     videoCall: MyVideoCallComponent,
   },
@@ -74,6 +78,10 @@ const data = installFPE({
 
 export default data;
 ```
+
+Result:
+
+<imageSlider alt="videocall component override" lightImageSrc1="replace-me.png" darkImageSrc1="replace-me.png"  lightImageSrc2="replace-me.png" darkImageSrc2="replace-me.png"  />
 
 </collapsible>
 
@@ -131,7 +139,7 @@ Use the example code given below showcasing reconstruction of the default bottom
 ```tsx {13-19}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyBottomBarComponent: React.FC = () => {
   return (
@@ -141,7 +149,7 @@ const MyBottomBarComponent: React.FC = () => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       bottomBar: MyBottomBarComponent,
@@ -224,7 +232,7 @@ Use the code example given below showcasing overriding of the default chat bubbl
 ```tsx {13-21}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyChatBubbleComponent = () => {
   return (
@@ -234,7 +242,7 @@ const MyChatBubbleComponent = () => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       chat: {
@@ -287,7 +295,7 @@ Use the example code given below showcasing overriding of the default render com
 ```tsx {13-21}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyRTCRenderer = () => {
   return (
@@ -297,7 +305,7 @@ const MyRTCRenderer = () => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       customContent: {
@@ -375,7 +383,7 @@ Use the example code given below showcasing appending a custom layout as a guide
 ```tsx {13-27}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyLayoutComponent = ({ renderData }) => {
   return (
@@ -385,7 +393,7 @@ const MyLayoutComponent = ({ renderData }) => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       customLayout: (DefaultLayouts) => [
@@ -438,7 +446,7 @@ Use the example code given below showcasing reconstruction of the default partic
 ```tsx {13-19}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyParticipantPanel = () => {
   return (
@@ -448,7 +456,7 @@ const MyParticipantPanel = () => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       participantsPanel: MyParticipantPanel,

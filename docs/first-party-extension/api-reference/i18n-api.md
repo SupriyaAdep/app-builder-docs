@@ -17,10 +17,10 @@ The overrides are applied by passing the array under the top-level `i18n` key to
 
 #### i18nInterface
 
-| Key    | Type                                | Description                                     |
-| ------ | ----------------------------------- | ----------------------------------------------- |
-| locale | string                              | Unique string identifier to specify a language. |
-| label? | string                              | Language name to display in the UI dropdown     |
+| Key    | Type                                    | Description                                     |
+| ------ | --------------------------------------- | ----------------------------------------------- |
+| locale | string                                  | Unique string identifier to specify a language. |
+| label? | string                                  | Language name to display in the UI dropdown     |
 | data   | [i18nDataInterface](#i18ndatainterface) | The necessary translations for a given locale   |
 
 #### i18nDataInterface
@@ -47,9 +47,9 @@ Use the example code given below showcasing overrding
 
 ```js
 import React from "react";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   i18n: [
     {
       locale: "en-us",

@@ -169,7 +169,7 @@ This object contains `createFPE` method which takes the `FPEConfig` as a paramet
 
 #### STEP 3
 
-Pass the returned FPE Object to the `installFPE` method available under the same `AgoraAppBuilder` global object to apply the config to your embedded App Builder project.
+Pass the returned FPE Object to the `customize` method available under the same `AgoraAppBuilder` global object to apply the config to your embedded App Builder project.
 
 <!-- RHS -->
 

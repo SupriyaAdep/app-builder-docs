@@ -117,7 +117,7 @@ To create a FPE in a VueJS web app you need to access the `createFPE` method on 
 
 <!-- LHS -->
 
-Pass the returned FPE Object to the `installFPE` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
+Pass the returned FPE Object to the `customize` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
 
 <!-- RHS -->
 
@@ -129,7 +129,7 @@ Pass the returned FPE Object to the `installFPE` method available under the same
     My FPE Config. See https://example.com for config reference.
   */
   });
-  AgoraAppBuilder.installFPE(FPE);
+  AgoraAppBuilder.customize(FPE);
 </script>
 ```
 
