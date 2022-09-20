@@ -25,7 +25,11 @@ draft: false
 
 ---
 
-old format
+<image alt="Participant Panel" darkImageSrc="api/Participant Panel.png"  />
+
+old format1
+
+---
 
 ## useRecordingContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
 
@@ -37,7 +41,7 @@ new format with typedoc convention (** Selector can be documented in Types **)
 
 ### Image Slider
 
-<imageSlider alt="chatBubble" lightImageSrc1="api/ChatBubble.png" darkImageSrc1="api/ChatBubble.png"  lightImageSrc2="api/ChatBubble.png" darkImageSrc2="api/TestChatBubble.png"  />
+<imageSlider alt="chatBubble"  darkImageSrc1="api/ChatBubble.png"  darkImageSrc2="api/TestChatBubble.png"  />
 
 ---
 
