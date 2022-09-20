@@ -32,14 +32,18 @@ Hence it is displayed after:
 
 - The user clicks on `JoinButton` inside the `Precall` screen.
 
-However if Precall Screen is disabled in the Builder, 
+However if Precall Screen is disabled in the Builder,
 
-<image alt="Precall Screen Builder Option" lightImageSrc="customization-api/api/components-api/precall.png" darkImageSrc="customization-api/api/components-api/precall.png" />
+<image alt="Precall Screen Builder Option" darkImageSrc="replace-me.png" />
 
 the videoCall screen is directly displayed after:
 
 - The user clicks on the “Start Meeting” button inside the `Share` screen
 - The user clicks on a meeting invite link.
+
+:::tip
+To make the customizations powerful, you can use the libraries to access the internal app state, send custom events, or re-use prebuilt subcomponents
+:::
 
 <br/>
 
@@ -52,8 +56,6 @@ the videoCall screen is directly displayed after:
 ### VideoCallComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
-
-To reuse parts of default video call ui you can import them from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `fpe-api` module.
 
 Use the example code given below showcasing reconstruction of the default video call ui as a guide.
 
@@ -81,7 +83,7 @@ export default data;
 
 Result:
 
-<imageSlider alt="videocall component override" lightImageSrc1="replace-me.png" darkImageSrc1="replace-me.png"  lightImageSrc2="replace-me.png" darkImageSrc2="replace-me.png"  />
+<imageSlider alt="videocall component override" darkImageSrc1="replace-me.png" darkImageSrc2="replace-me.png" />
 
 </collapsible>
 
