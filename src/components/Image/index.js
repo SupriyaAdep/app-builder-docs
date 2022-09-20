@@ -4,10 +4,10 @@ import styles from "./image.module.css";
 import { useColorMode } from "@docusaurus/theme-common";
 
 
-export default function Image({ alt, lightImageSrc, darkImageSrc, className = '' }) {
+export default function Image({ alt, lightImageSrc = '', darkImageSrc, className = '' }) {
   const { colorMode } = useColorMode();
   const img1 = `/img/docAssets/${darkImageSrc}`;
-  const img2 = `/img/docAssets/${lightImageSrc}`;
+  const img2 = `/img/docAssets/${lightImageSrc ? lightImageSrc : darkImageSrc}`;
 
   return (
     <img loading="lazy"

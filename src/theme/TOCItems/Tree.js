@@ -16,7 +16,7 @@ function TOCItemTree({ toc, className, linkClassName, isChild }) {
             {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
             <a
               //href={`#${heading.id.split('--')[0]}`}
-              href={`#${id}`.toLowerCase()}
+              href={`#${id}`.toLowerCase().replaceAll('.', '')}
 
               className={linkClassName ?? undefined}
               // Developer provided the HTML, so assume it's safe.

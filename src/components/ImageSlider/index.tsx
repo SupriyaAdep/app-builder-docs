@@ -11,8 +11,12 @@ function ImageSlider({
 }) {
   const { colorMode } = useColorMode();
 
-  const slot1LightImg = `/img/docAssets/${lightImageSrc1}`;
-  const slot2LightImg = `/img/docAssets/${lightImageSrc2}`;
+  const slot1LightImg = `/img/docAssets/${
+    lightImageSrc1 ? lightImageSrc1 : darkImageSrc1
+  }`;
+  const slot2LightImg = `/img/docAssets/${
+    lightImageSrc2 ? lightImageSrc2 : darkImageSrc2
+  }`;
   const slot1DarktImg = `/img/docAssets/${darkImageSrc1}`;
   const slot2DarktImg = `/img/docAssets/${darkImageSrc2}`;
 
