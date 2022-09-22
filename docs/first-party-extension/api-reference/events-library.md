@@ -40,7 +40,7 @@ These events can be sent with different levels of persistance.
 customEvents object handles customization api events and provides methods for sending, subscribing and unsubscribing to events.
 
 ```js
-import { customEvents } from "fpe-api";
+import { CustomEvents } from "customization-api";
 ```
 
 <br/>

@@ -46,7 +46,7 @@ Once complete a boilerplate user-customization will be created inside `<path-to-
 
 Customization API is a set of APIs and Libraries that allow you to customize your App Builder project.
 
-**APIs** are exposed under the `customize` method by passing an object with keys corresponding to the API you want to interact with. Whereas **Libraries** are available as imports under the `fpe-api` namespace.
+**APIs** are exposed under the `customize` method by passing an object with keys corresponding to the API you want to interact with. Whereas **Libraries** are available as imports under the `customization-api` namespace.
 
 **The following steps indicate an example customization by overriding the App Builder Chat Bubble component.**
 
@@ -71,7 +71,7 @@ Create the component you want to override the default Chat Bubble component with
 ```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useUserList } from "fpe-api";
+import { useUserList } from "customization-api";
 
 const ChatBubbleComponent = (props) => {
   const { renderList } = useUserList();

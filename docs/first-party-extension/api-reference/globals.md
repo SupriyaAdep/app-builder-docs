@@ -64,7 +64,7 @@ This page is an index of types, interfaces, enums used across the Customization 
 
 <method>
 
-## UidType : string
+## UidType : number
 
 </method>
 

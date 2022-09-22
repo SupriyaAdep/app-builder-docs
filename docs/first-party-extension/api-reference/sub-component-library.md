@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: "code" }
 
 <api>
 
-The Sub Components library is a set of components to be composed as needed by the user. They can be imported under the `fpe-api` module name
+The Sub Components library is a set of components to be composed as needed by the user. They can be imported under the `customization-api` module name
 
 ---
 
@@ -26,7 +26,7 @@ The Sub Components library is a set of components to be composed as needed by th
 The object containing all the default icons used in the ui.
 
 ```jsx
-import { icons } from "fpe-api";
+import { icons } from "customization-api";
 ```
 
 <br/>
@@ -81,7 +81,7 @@ import { icons } from "fpe-api";
 The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
 
 ```jsx
-import { ChatBubble } from "fpe-api";
+import { ChatBubble } from "customization-api";
 ```
 
 <br/>
@@ -115,7 +115,7 @@ import { ChatBubble } from "fpe-api";
 The MaxVideoView component is used to render the user video feed along with overlay components like [NameWithMicStatus](#namewithmicstatus), [NetworkQualityPill](#networkqualitypill) etc.
 
 ```jsx
-import { MaxVideoView } from "fpe-api";
+import { MaxVideoView } from "customization-api";
 ```
 
 <br/>
@@ -145,7 +145,7 @@ import { MaxVideoView } from "fpe-api";
 The GridLayout component is used to render the user video feeds in a responsive grid parttern.
 
 ```jsx
-import { GridLayout } from "fpe-api";
+import { GridLayout } from "customization-api";
 ```
 
 </method>
@@ -167,7 +167,7 @@ import { GridLayout } from "fpe-api";
 The PinnedLayout component is used to render the user video feeds in a pinned view with a collapsible sidebar displaying unpinned user feeds.
 
 ```jsx
-import { PinnedLayout } from "fpe-api";
+import { PinnedLayout } from "customization-api";
 ```
 
 </method>
@@ -189,7 +189,7 @@ import { PinnedLayout } from "fpe-api";
 The VideoComponent is used to automatically render the user video feeds in the selected layout.
 
 ```jsx
-import { VideoComponent } from "fpe-api";
+import { VideoComponent } from "customization-api";
 ```
 
 </method>
@@ -211,7 +211,7 @@ import { VideoComponent } from "fpe-api";
 The NameWithMicStatus component is used to render the user name along with their mic muted state.
 
 ```jsx
-import { NameWithMicStatus } from "fpe-api";
+import { NameWithMicStatus } from "customization-api";
 ```
 
 <br/>
@@ -241,7 +241,7 @@ NetworkQualityPill : [React.ComponentType](https://github.com/DefinitelyTyped/De
 The NetworkQualityPill component is used to render the user network quality in a pill container that expands when hovered over.
 
 ```jsx
-import { NetworkQualityPill } from "fpe-api";
+import { NetworkQualityPill } from "customization-api";
 ```
 
 <br/>
@@ -269,7 +269,7 @@ import { NetworkQualityPill } from "fpe-api";
 The VideoCallScreen component is used to render the entire video call screen.
 
 ```jsx
-import { VideoCallScreen } from "fpe-api";
+import { VideoCallScreen } from "customization-api";
 ```
 
 </method>
@@ -291,7 +291,7 @@ import { VideoCallScreen } from "fpe-api";
 The ParticipantsView component is used to render the participant panel that lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
 
 ```jsx
-import { ParticipantsView } from "fpe-api";
+import { ParticipantsView } from "customization-api";
 ```
 
 </method>
@@ -311,7 +311,7 @@ import { ParticipantsView } from "fpe-api";
 The Controls component is used to render all the meeting controls.
 
 ```jsx
-import { MaxVideoView } from "fpe-api";
+import { MaxVideoView } from "customization-api";
 ```
 
 :::note
@@ -345,7 +345,7 @@ The SidePanelButtonsArray is an array of all meeting control button subcomponent
 | 6     | LiveStreamControls | [LiveStreamControlsComponent](#livestreamcontrolsprops) | Control button to send/recall local user raise hand request |
 
 ```jsx
-import { ControlsComponentArray } from "fpe-api";
+import { ControlsComponentArray } from "customization-api";
 ```
 
 <br/>
@@ -493,7 +493,7 @@ The SidePanelButtonsArray is an array of all the side panel button subcomponents
 | 6     | MuteAllVideoButton                    | [MuteAllVideoButtonComponent](#muteallvideobuttonprops)                                       | Side panel button to mute all remote users video         |
 
 ```jsx
-import { SidePanelButtonsArray } from "fpe-api";
+import { SidePanelButtonsArray } from "customization-api";
 ```
 
 <br/>

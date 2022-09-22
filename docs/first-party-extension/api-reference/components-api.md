@@ -134,7 +134,7 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 You can override the BottomBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `bottomBar` key to the `VideoCallInterface Object`
 
-To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `fpe-api` module.
+To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `customization-api` module.
 
 Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
 
@@ -441,7 +441,7 @@ The participantsPanel component lists all the users in the video call / livestre
 
 You can override the entire participantsPanel component by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `participanPanel` key to the `VideocallInterface Object`
 
-You can import parts of default participantsPanel ui from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `fpe-api` module to reuse them in your component.
+You can import parts of default participantsPanel ui from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `customization-api` module to reuse them in your component.
 
 Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
 

@@ -61,7 +61,7 @@ The RenderContext contains the information necessary to render user content view
 Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
 ```jsx
-import { useRenderContext } from "fpe-api";
+import { useRenderContext } from "customization-api";
 
 const MyReactComponent = () => {
   const {
@@ -107,7 +107,7 @@ The LocalContext contains the local user information.
 Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
 ```jsx
-import { useLocalContext } from "fpe-api";
+import { useLocalContext } from "customization-api";
 
 const MyReactComponent = () => {
   const LocalContext = useLocalContext();
@@ -221,7 +221,7 @@ The RenderContext contains the information necessary to render user content view
 Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
 ```jsx
-import { useRtcContext } from "fpe-api";
+import { useRtcContext } from "customization-api";
 
 const MyReactComponent = () => {
   const {
