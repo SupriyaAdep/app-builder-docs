@@ -28,15 +28,15 @@ This guide helps you get started with your web app as well as build your app for
 5.  Run the following command: **`npm i && npm start`**
     <image alt="CLI Start"  lightImageSrc="guides/CLIStart.png" darkImageSrc="guides/CLIStart.png" />
 6.  This will launch the App Builder CLI, where you can install and build your applications. The App Builder CLI allows you to easily Install and Build apps.
-    <image alt="CLI Launch" className="guide-img"  lightImageSrc="guides/CLILaunched.png" darkImageSrc="guides/CLILaunched.png" />
+    <image alt="CLI Launch" className="center-img"  lightImageSrc="guides/CLILaunched.png" darkImageSrc="guides/CLILaunched.png" />
 7.  First, you have to install the codebase onto your local machine. Press Enter to start the installation.
-    <image alt="CLI Install"  className="guide-img"  lightImageSrc="guides/CLIInstall.png" darkImageSrc="guides/CLIInstall.png" />
+    <image alt="CLI Install"  className="center-img"  lightImageSrc="guides/CLIInstall.png" darkImageSrc="guides/CLIInstall.png" />
 
 8.  Once the codebase is installed, you are ready to try your application!
 9.  Go to the 'Build' option in the CLI (using the down arrow key 👇)
 10. Hit enter on the platform you wish to test on.
 11. Choose Development build if you are looking to test the app out. Once you are ready to pass it to others, choose Production build.
-    <image alt="CLI Build" className="guide-img" lightImageSrc="guides/CLIBuild.png" darkImageSrc="guides/CLIBuild.png" />
+    <image alt="CLI Build" className="center-img" lightImageSrc="guides/CLIBuild.png" darkImageSrc="guides/CLIBuild.png" />
 
 ## Step 3 Distribute your app
 

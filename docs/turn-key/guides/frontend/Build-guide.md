@@ -114,14 +114,14 @@ _Copy paste the appropriate redirect file into dist (which contains index.html
 **Troubleshooting:**
 
 1. If `npx pod-install` fails, run `npm audit fix` and run `npx pod-install` again
-2. If you're getting the following error: <image alt="ioserror1" className="guide-img" lightImageSrc="guides/iOS1.jpeg" darkImageSrc="guides/iOS1.jpeg" />
+2. If you're getting the following error: <image alt="ioserror1" className="center-img" lightImageSrc="guides/iOS1.jpeg" darkImageSrc="guides/iOS1.jpeg" />
 
 ​ Do the following:
 
-1. Create a new file called File.swift using xcode!<image alt="ioserror2" className="guide-img" lightImageSrc="guides/iOS2.png" darkImageSrc="guides/iOS2.png" />
+1. Create a new file called File.swift using xcode!<image alt="ioserror2" className="center-img" lightImageSrc="guides/iOS2.png" darkImageSrc="guides/iOS2.png" />
 
-2. Create a swift file and click next <image alt="ioserror3" className="guide-img" lightImageSrc="guides/iOS3.png" darkImageSrc="guides/iOS3.png" /> <br /> <image alt="ioserror4" className="guide-img" lightImageSrc="guides/iOS4.png" darkImageSrc="guides/iOS4.png" />
+2. Create a swift file and click next <image alt="ioserror3" className="center-img" lightImageSrc="guides/iOS3.png" darkImageSrc="guides/iOS3.png" /> <br /> <image alt="ioserror4" className="center-img" lightImageSrc="guides/iOS4.png" darkImageSrc="guides/iOS4.png" />
 
-3. Make sure to select the option "Create Bridging Header" <image alt="ioserror5" className="guide-img" lightImageSrc="guides/iOS5.png" darkImageSrc="guides/iOS5.png" />
+3. Make sure to select the option "Create Bridging Header" <image alt="ioserror5" className="center-img" lightImageSrc="guides/iOS5.png" darkImageSrc="guides/iOS5.png" />
 
 4. If you cannot see the app changes on mobile, try clearing the metro cache. Remove `$TMPDIR/metro-cache`

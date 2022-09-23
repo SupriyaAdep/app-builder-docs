@@ -19,7 +19,7 @@ Code signing is necessary to distribute your Android, IOS, MacOS and Windows app
 
     **Repeat** this step for the **Tests** target in your project
 
-    <image alt="signIOS" className="guide-img" lightImageSrc="guides/SignIOS1.png" darkImageSrc="guides/SignIOS1.png" />
+    <image alt="signIOS" className="center-img" lightImageSrc="guides/SignIOS1.png" darkImageSrc="guides/SignIOS1.png" />
 
     Original guide : [https://reactnative.dev/docs/running-on-device#2-configure-code-signing](https://reactnative.dev/docs/running-on-device#2-configure-code-signing)
 
@@ -32,9 +32,9 @@ Code signing is necessary to distribute your Android, IOS, MacOS and Windows app
 1.  Register for an [Apple developer account](https://developer.apple.com/) if you don't have one yet.
 2.  Generate an application specific password from [Apple ID account page](https://appleid.apple.com/account/home) (Read : [https://support.apple.com/en-gb/HT204397](https://support.apple.com/en-gb/HT204397))
 
-   <image alt="signMac1" className="guide-img" lightImageSrc="guides/SignMac1.png" darkImageSrc="guides/SignMac1.png" />
-    <image alt="signMac2" className="guide-img" lightImageSrc="guides/SignMac2.png" darkImageSrc="guides/SignMac2.png" />
-    <image alt="signMac3" className="guide-img" lightImageSrc="guides/SignMac3.png" darkImageSrc="guides/SignMac3.png" />
+   <image alt="signMac1" className="center-img" lightImageSrc="guides/SignMac1.png" darkImageSrc="guides/SignMac1.png" />
+    <image alt="signMac2" className="center-img" lightImageSrc="guides/SignMac2.png" darkImageSrc="guides/SignMac2.png" />
+    <image alt="signMac3" className="center-img" lightImageSrc="guides/SignMac3.png" darkImageSrc="guides/SignMac3.png" />
 
 3.  Execute `security add-generic-password -a "<APPLE ID HERE>" -w "<APP SPECIFIC PASSWORD HERE>" -s "AC_PASSWORD"` (Replace **APPLE ID HERE** and **APP SPECIFIC PASSWORD HERE** with your Apple ID and app-specific password generated above. Note that **AC_PASSWORD** is a static identifier and should **NOT** be replaced)
 4.  Open `XCode > preferences`
@@ -42,11 +42,11 @@ Code signing is necessary to distribute your Android, IOS, MacOS and Windows app
 6.  Sign in to XCode with the developer account if not done already
 7.  Click manage certificates
 
-      <image alt="signMac4" className="guide-img" lightImageSrc="guides/SignMac4.png" darkImageSrc="guides/SignMac4.png" />
+      <image alt="signMac4" className="center-img" lightImageSrc="guides/SignMac4.png" darkImageSrc="guides/SignMac4.png" />
 
 8.  Create a new certificate of the type “Developer ID Application”
 
-     <image alt="signMac5" className="guide-img" lightImageSrc="guides/SignMac5.png" darkImageSrc="guides/SignMac5.png" />
+     <image alt="signMac5" className="center-img" lightImageSrc="guides/SignMac5.png" darkImageSrc="guides/SignMac5.png" />
 
 9.  Execute `security find-identity -v -p codesigning` and copy the correct hash corresponding to **“Developer ID Application”** into your clipboard
 10. Execute `export CSC_NAME="<Your copied certificate hash>"`

@@ -83,6 +83,11 @@ const config = {
 
 
     ({
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true
+        }
+      },
       zoom: {
         selector: '.markdown  .mdImage',
         background: {
