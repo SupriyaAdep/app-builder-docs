@@ -108,8 +108,10 @@ _Copy paste the appropriate redirect file into dist (which contains index.html
     3.  Add a new URI scheme – set scheme as **lowercase** version of PRODUCT_ID (for deep links)
 
 5.  Run the project by clicking the Run button in Xcode
-6.  Note Simulators won’t work since IOS simulator can’t access camera
-7.  For Code Signing, refer to this guide: https://github.com/AgoraIO-Community/app-builder-docs/wiki/Code-Signing-guide
+    :::note
+    Simulators won’t work since IOS simulator can’t access camera
+    :::
+6.  For Code Signing, refer to this guide: https://github.com/AgoraIO-Community/app-builder-docs/wiki/Code-Signing-guide
 
 **Troubleshooting:**
 

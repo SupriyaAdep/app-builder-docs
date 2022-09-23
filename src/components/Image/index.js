@@ -15,7 +15,7 @@ export default function Image({ alt, lightImageSrc = '', darkImageSrc, className
         src={colorMode === 'dark' ? img1 : img2
         }
         alt={alt} />
-      {caption && <figcaption class="caption">{caption}</figcaption>}
+      {caption && <figcaption className="caption">{caption}</figcaption>}
     </div>
 
   )

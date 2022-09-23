@@ -56,7 +56,10 @@ To create a production build with code signing,
 security add-generic-password -a "APPLE ID HERE" -w "APP SPECIFIC PASSWORD HERE" -s "AC_PASSWORD"
 ```
 
-(Replace **APPLE ID HERE** and **APP SPECIFIC PASSWORD HERE** with your Apple ID and app-specific password generated above. Note that **AC_PASSWORD** is a static identifier and should **NOT** be replaced)
+(Replace **APPLE ID HERE** and **APP SPECIFIC PASSWORD HERE** with your Apple ID and app-specific password generated above.
+:::note
+**AC_PASSWORD** is a static identifier and should **NOT** be replaced)
+:::
 
 4.  Open `XCode > preferences`
 5.  Open accounts tab

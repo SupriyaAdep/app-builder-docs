@@ -76,7 +76,7 @@ import { icons } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
 
 The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
 
@@ -286,7 +286,7 @@ import { VideoCallScreen } from "fpe-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/Participants Panel.png" darkImageSrc="api/Participant Panel.png" />
+<image alt="Video Call" className="center-img" caption="participant panel" lightImageSrc="api/Participants Panel.png" darkImageSrc="api/Participant Panel.png" />
 
 The ParticipantsView component is used to render the participant panel that lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
 

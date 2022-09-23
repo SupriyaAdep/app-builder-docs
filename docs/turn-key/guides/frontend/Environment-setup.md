@@ -19,13 +19,19 @@ You would need the following installed and configured for the app builder to bui
 ## To build for iOS and Mac desktop:
 
 - Apple developer account
-- [Xcode and XCode CLI tools](https://reactnative.dev/docs/environment-setup) **(NOTE: Please see instructions for react-native-cli NOT expo-cli)**
+- [Xcode and XCode CLI tools](https://reactnative.dev/docs/environment-setup)
+  :::note
+  Please see instructions for react-native-cli NOT expo-cli
+  :::
 - An iPhone registered as a development device (Simulator doesn’t have access to camera so a physical device is mandatory)
 
 ## To build for Android:
 
-- [Android Studio](https://developer.android.com/studio) to build android apps and the [necessary environment variables for react native](https://reactnative.dev/docs/environment-setup) to detect your android studio. **(NOTE: Please see instructions for react-native-cli NOT expo-cli)**
+- [Android Studio](https://developer.android.com/studio) to build android apps and the [necessary environment variables for react native](https://reactnative.dev/docs/environment-setup) to detect your android studio.
 - [Setting up adb for running on a physical device](https://reactnative.dev/docs/running-on-device)
+  :::note
+  Please see instructions for react-native-cli NOT expo-cli
+  :::
 
 ## To build for Windows desktop:
 

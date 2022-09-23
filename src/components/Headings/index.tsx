@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./heading.module.css";
 import clsx from "clsx";
 
-const regex = /^[^:(]*/gm;
+const regex = /^[^<:(]*/gm;
 
 export function H2({ children }) {
   if (!children) return null;

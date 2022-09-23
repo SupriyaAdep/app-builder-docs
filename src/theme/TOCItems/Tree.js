@@ -4,7 +4,7 @@ function TOCItemTree({ toc, className, linkClassName, isChild }) {
   if (!toc.length) {
     return null;
   }
-  const regex = /^[^:(]*/;
+  const regex = /^[^&:(]*/gm;
   const idRegex = /^[^-]*/;
   return (
     <ul className={isChild ? undefined : className}>
