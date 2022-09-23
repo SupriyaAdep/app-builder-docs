@@ -17,13 +17,13 @@ You can sign up for a Turbobridge account [here](https://account.turbobridge.com
 
 Go to turbobridge.com and login with your credentials as an Account Administrator. You can access your Account ID from the dashboard
 
-<image alt="PSTN1" className="guide-img" lightImageSrc="guides-be/PSTN1.png" darkImageSrc="guides-be/PSTN1.png" />
+<image alt="PSTN1" className="center-img" lightImageSrc="guides-be/PSTN1.png" darkImageSrc="guides-be/PSTN1.png" />
 
 ## Step 3 Enter Your Credentials
 
 You can enter your credentials in your Console:
 
-<image alt="PSTN2" className="guide-img" lightImageSrc="guides-be/PSTN2.png" darkImageSrc="guides-be/PSTN2.png" />
+<image alt="PSTN2" className="center-img" lightImageSrc="guides-be/PSTN2.png" darkImageSrc="guides-be/PSTN2.png" />
 
 ## Step 4 Change PSTN Number
 

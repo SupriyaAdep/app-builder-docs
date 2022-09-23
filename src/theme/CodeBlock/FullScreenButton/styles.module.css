@@ -2,14 +2,14 @@
   opacity: 1 !important;
 }
 
-.copyButtonIcons {
+.codeButtonIcons {
   position: relative;
   width: 1.125rem;
   height: 1.125rem;
 }
 
-.copyButtonIcon,
-.copyButtonSuccessIcon {
+.codeButtonIcon
+ {
   position: absolute;
   top: 0;
   left: 0;
@@ -20,15 +20,8 @@
   transition: all 0.15s ease;
 }
 
-.copyButtonSuccessIcon {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.33);
-  opacity: 0;
-  color: #00d600;
-}
 
-.copyButtonCopied .copyButtonIcon {
+.fullScreen .codeButtonIcon {
   transform: scale(0.33);
   opacity: 0;
 }

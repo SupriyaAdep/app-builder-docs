@@ -16,11 +16,11 @@ To create a development build,
 1.  Follow the [quickstart guide](/turn-key/quickstart) to create a new app with the app builder and install all the dependencies
 1.  Run `npm start` in the project root. This will launch the CLI
 1.  Select **Build** in the main menu
-    <image alt="Linux_Build" className="guide-img" lightImageSrc="guides/Linux_Build.png" darkImageSrc="guides/Linux_Build.png" />
+    <image alt="Linux_Build" className="center-img" lightImageSrc="guides/Linux_Build.png" darkImageSrc="guides/Linux_Build.png" />
 1.  Select **Web** in the platforms menu
-    <image alt="CLIBuild" className="guide-img" lightImageSrc="guides/CLIBuild.png" darkImageSrc="guides/CLIBuild.png" />
+    <image alt="CLIBuild" className="center-img" lightImageSrc="guides/CLIBuild.png" darkImageSrc="guides/CLIBuild.png" />
 1.  Select **Development** in the build menu
-    <image alt="Linux_Type_Development" className="guide-img" lightImageSrc="guides/Linux_Type_Development.png" darkImageSrc="guides/Linux_Type_Development.png" />
+    <image alt="Linux_Type_Development" className="center-img" lightImageSrc="guides/Linux_Type_Development.png" darkImageSrc="guides/Linux_Type_Development.png" />
 1.  This will launch the development edition of the Web application on your system
 
 ## Production build
@@ -30,11 +30,11 @@ To create a production build,
 1.  Follow the [quickstart guide](/turn-key/quickstart) to create a new app with the app builder and install all the dependencies
 1.  Run `npm start` in the project root. This will launch the CLI
 1.  Select **Build** in the main menu
-    <image alt="Linux_Build" className="guide-img" lightImageSrc="guides/Linux_Build.png" darkImageSrc="guides/Linux_Build.png" />
+    <image alt="Linux_Build" className="center-img" lightImageSrc="guides/Linux_Build.png" darkImageSrc="guides/Linux_Build.png" />
 1.  Select **Web** in the platforms menu
-    <image alt="CLIBuild" className="guide-img"  lightImageSrc="guides/CLIBuild.png" darkImageSrc="guides/CLIBuild.png" />
+    <image alt="CLIBuild" className="center-img"  lightImageSrc="guides/CLIBuild.png" darkImageSrc="guides/CLIBuild.png" />
 1.  Select **Production** in the build menu
-    <image alt="Linux_Type_Production" className="guide-img" lightImageSrc="guides/Linux_Type_Production.png" darkImageSrc="guides/Linux_Type_Production.png" />
+    <image alt="Linux_Type_Production" className="center-img" lightImageSrc="guides/Linux_Type_Production.png" darkImageSrc="guides/Linux_Type_Production.png" />
 1.  This will build the production edition of the Web application on your system
 1.  The binary will be located at `agora-app-builder/<PRODUCT_ID>/dist`
 1.  This project uses react-router to perform front-end routing. So you need to configure your website host (or webserver) to redirect all the requests to index.html. We have already provided the config for two popular SPA hosts: [vercel](https://vercel.com/) & [netlify](https://www.netlify.com/)

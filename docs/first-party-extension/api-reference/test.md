@@ -5,6 +5,16 @@ draft: false
 
 # Subtitle Test Page - To be removed
 
+## Image
+
+- center img with caption
+  <image alt="Chat Bubble" caption="chat bubble" className="center-img"  darkImageSrc="api/ChatBubble.png" />
+
+- full width img with caption
+  <image alt="Bottom bar" darkImageSrc="api/Bottombar.png" caption="bottom bar" />
+
+---
+
 <subtitle>
 
 ## ChatBubble : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatBubbleProps](#chatbubbleprops)\>
@@ -25,11 +35,7 @@ draft: false
 
 ---
 
-<image alt="Participant Panel" darkImageSrc="api/Participant Panel.png"  />
-
-old format1
-
----
+old format
 
 ## useRecordingContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
 

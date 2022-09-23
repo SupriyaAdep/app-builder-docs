@@ -13,17 +13,34 @@ html {
 }
 .theme-doc-sidebar-item-link.hidden {
   display: none;
+  font-family: 'Source Sans Pro';
+}
+
+.container {
+  padding-top: 40px !important;
+
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 45px;
+  
 }
 
  h2 {
-  font-size: 1.25rem;
-  font-family: 'Source Code Pro';
+  font-size: 22px;
+  line-height: 24px;
+
 }
 
 h3 {
   font-size: 1.125rem;
-  font-family: 'Source Code Pro';
+
   font-weight: 400;
+}
+p {
+  font-size: 16px;
+  line-height: 24px;;
 }
 
 .markdown h1:first-child  {
@@ -66,19 +83,39 @@ h3 {
   display: none !important;
 }
 
-.mdImage {
+.center-img {
+  background-color: #181818;
+  padding-top:28px;
+  border-radius: 8px;
+
+}
+.mdImage img {
   border-radius: var(--ifm-code-border-radius);
-  margin-bottom: var(--ifm-leading) !important;
   display: block;
-  margin-left:auto;
+  width:100%;
   margin-right: auto;
 }
 
-.guide-img {
-  display: block;
-  max-width: 40%;
- 
+.center-img img {
+  margin-left: auto;
+  margin-right: auto;
+  width:50%
 }
+.icon img {
+  width: auto;
+}
+
+.caption {
+  text-align: center;
+  padding-top:16px;
+  padding-bottom: 16px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #fff;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
 
 a:hover {
   text-decoration: none;
@@ -131,7 +168,6 @@ table tr:nth-child(2n) {
 }
 
 .table-of-contents__link--active {
-  background-color: #1e2a41;
   color : var(--ifm-color-primary) !important
 }
 .table-of-contents__link {
@@ -319,6 +355,10 @@ table tr:nth-child(2n) {
 }
 
 
+.menu__link--active:not(.menu__link--sublist) {
+  color: var(--ifm-menu-color-current) 
+}
+
 
 
 :root {
@@ -334,9 +374,11 @@ table tr:nth-child(2n) {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --page-title-color: #000;
   --ifm-menu-color: #808080;
-  --ifm-menu-color-active: #000;
   --ifm-heading-color: #000;
-  --ifm-font-color-base: #999999;
+  --ifm-font-color-base: #AEAEAE;
+  --ifm-menu-color-background-active: #001F42;/* rgba(255, 255, 255, 0.05)  */
+  --ifm-menu-color-active:  #fff;
+  --ifm-menu-color-current: #099dfd;
 
   --ifm-card-vertical-spacing: 20px;
   --ifm-table-head-font-weight: 400;
@@ -349,6 +391,7 @@ table tr:nth-child(2n) {
   --ifm-table-cell-padding:20px;
   --ifm-paragraph-margin-bottom:12px;
   --ifm-leading:12px;
+  --ifm-spacing-horizontal:24px;
   
  
 
@@ -369,18 +412,19 @@ html[data-theme='dark'] {
   --ifm-color-primary-light: #0d85ff;
   --ifm-color-primary-lighter: #1a8bff;
   --ifm-color-primary-lightest: #3e9eff;
-  --docusaurus-highlighted-code-line-bg: #555555;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.03);;
   --card-content-color: #AFAFAF; 
   --sidebar-background-color:#181818;
   --interface-background-color:#111111;
   --collapsible-background-color:#373737b0;
   --collapsible-border-color:#575757a6;
   --collapsible-button-color:#ffffff;
-
+  --ifm-font-color-base: #AEAEAE;
   --ifm-heading-color: #FFFFFF;
   --page-title-color: #F2EFED;
-  --ifm-menu-color-active: #fff;
-
+  --ifm-menu-color-background-active: #001F42;/* rgba(255, 255, 255, 0.05)  */
+  --ifm-menu-color-active:  #fff;
+  --ifm-menu-color-current: #099dfd;
   --ifm-table-head-background: #313131;
   --ifm-table-background: #1f1f1f;
   --ifm-table-stripe-background: #1f1f1f;
