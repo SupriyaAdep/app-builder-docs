@@ -10,7 +10,7 @@ export default function Image({ alt, lightImageSrc = '', darkImageSrc, className
   const img2 = `/img/docAssets/${lightImageSrc ? lightImageSrc : darkImageSrc}`;
 
   return (
-    <div className={`mdImage ${className}`}>
+    <div className={`mdImage ${className}`} style={{ paddingBottom: !caption ? '28px' : 0 }}>
       <img loading="lazy"
         src={colorMode === 'dark' ? img1 : img2
         }
