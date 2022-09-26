@@ -11,7 +11,7 @@ const config = {
   tagline: 'Agora App Builder for Live Video Chat & Streaming Apps',
   url: 'https://app-builder-docs.vercel.app/',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
@@ -83,7 +83,7 @@ const config = {
     ({
       colorMode: {
         defaultMode: 'dark',
-        disableSwitch: false,
+        disableSwitch: true,
 
       },
       tableOfContents: {
@@ -123,11 +123,11 @@ const config = {
               },
               {
                 label: 'Guides',
-                to: '/first-party-extension/guides',
+                to: '/turn-key/quickstart',
               },
               {
                 label: 'API Refernces',
-                to: '/first-party-extension/api-reference',
+                to: '/first-party-extension/api-reference/components-api',
               },
             ],
           },
@@ -137,15 +137,15 @@ const config = {
             items: [
               {
                 label: 'About Us',
-                to: 'https://www.agora.io/en/',
+                to: 'https://www.agora.io/en/about-us/',
               },
               {
                 label: 'Contact Us',
-                to: 'https://www.agora.io/en/',
+                to: 'https://www.agora.io/en/talk-to-us/',
               },
               {
                 label: 'Careers',
-                to: 'https://www.agora.io/en/',
+                to: 'https://www.agora.io/en/careers/',
               },
             ],
           },
@@ -162,15 +162,12 @@ const config = {
               },
               {
                 label: 'Support Plans',
-                to: 'https://www.agora.io/en/',
+                to: 'https://www.agora.io/en/pricing/support-plans/',
               },
-              {
-                label: 'Talk to Us',
-                to: 'https://www.agora.io/en/',
-              },
+
               {
                 label: 'Developer Resources',
-                to: 'https://www.agora.io/en/',
+                to: 'https://www.agora.io/en/developer-resources/',
               },
             ],
           },

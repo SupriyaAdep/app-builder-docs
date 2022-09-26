@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 const cardList: ICardItem[] = [
   {
-    title: "Configuration Reference",
+    title: "Product manual",
     icon: "config",
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [{ text: "Guide", href: "/sdk/guides" }],
@@ -14,24 +14,27 @@ const cardList: ICardItem[] = [
     title: "Turn Key",
     icon: "config",
     description: <>Designed for efficiency and ease of use by our developers</>,
-    ctas: [{ text: "Guide", href: "/sdk/guides" }],
+    ctas: [{ text: "Guide", href: "/turn-key/quickstart" }],
   },
   {
-    title: "SDKs",
+    title: "Embed SDKs",
     icon: "config",
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [
-      { text: "Guide", href: "/sdk/guides" },
-      { text: "API Reference", href: "/api-ref" },
+      { text: "Guide", href: "/sdks/guides/getting-started" },
+      { text: "API Reference", href: "/sdks/guides/getting-started" },
     ],
   },
   {
-    title: "First Party Extension",
+    title: "Customization API",
     icon: "code",
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [
-      { text: "Guide", href: "/first-party-extension/guides" },
-      { text: "API Reference", href: "/first-party-extension/api-reference" },
+      { text: "Guide", href: "/first-party-extension/guides/getting-started" },
+      {
+        text: "API Reference",
+        href: "/first-party-extension/api-reference/components-api",
+      },
     ],
   },
 ];

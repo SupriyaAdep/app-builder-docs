@@ -1,5 +1,5 @@
 ---
-sidebar_label: i18n API
+sidebar_label: Internationalization API
 sidebar_position: 2
 description: Customize the text content of your application using this API
 title: i18n API
@@ -7,135 +7,120 @@ keywords: [i18nInterface, i18nDataInterface]
 sidebar_custom_props: { icon: "i18" }
 ---
 
-<subtitle>
+Customize and add multiple language and locale translations for all strings used across App Builder using this API.
 
-## i18n : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) i18nInterface
+## i18n : [i18nInterface](#i18ninterface)\[\]
 
-</subtitle>
+Accepts an array of [i18nInterface](#i18ninterface) objects, each specific to a language or locale.
 
-Customize the text content of your application using this API. The App Builder by default provides default values for
+The overrides are applied by passing the array under the top-level `i18n` key to the Customization API config object.
 
-<collapsible>
+#### i18nInterface
 
-### i18nInterface
+| Key    | Type                                | Description                                     |
+| ------ | ----------------------------------- | ----------------------------------------------- |
+| locale | string                              | Unique string identifier to specify a language. |
+| label? | string                              | Language name to display in the UI dropdown     |
+| data   | [i18nDataInterface](#i18ndatainterface) | The necessary translations for a given locale   |
 
-Translations for a given language
+#### i18nDataInterface
 
-| locale | string            | Unique string identifier to specify a language.                          |
-| ------ | ----------------- | ------------------------------------------------------------------------ |
-| label? | string            | Language name to display in the UI dropdown                              |
-| data   | i18nDataInterface | This object should contain the necessary translations for a given locale |
+<!-- TODO(adictya): Try a different represntation method for this  -->
+
+| Key                          | Type                                                                                        | Description                                       | Defaults          |
+| ---------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------------- |
+| meetingNameInputPlaceholder? | [I18nBaseType](#i18nbasetypet)                                                              | Placeholder text for the meeting name input field | Name your meeting |
+| pstnUserLabel?               | [I18nBaseType](#i18nbasetypet)                                                              | Label for the PSTN user                           | PSTN User         |
+| joinRoomButton?              | [I18nBaseType](#i18nbasetypet)<[JoinRoomButtonTextInterface](#joinroombuttontextinterface)> | Label for the join room button on precall screen  | Join room         |
+
+<br/>
 
 > App Builder ships with `en-us` out of the Box. Providing an object with en-us as it's locale will replace the default strings
 
 > When there are two or more translations in the App(including the default `en-us`), A dropdown language selector will be display in both the precall screen as well as the settings panel.
 
-</collapsible>
+<br/>
 
-<collapsible>
+### _Usage_:
 
-### i18nDataInterface
+Use the example code given below showcasing overrding
 
-| Key                                | Type                      | Description                                                                                                                                                                                          | Defaults                                                                                               |
-| ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| meetingNameInputPlaceholder        | BaseI18nType              | Placeholder text for the name input field                                                                                                                                                            | Name your meeting                                                                                      |
-| hostControlsToggle                 | ConditionalStringI18nType | Label for the host controls toggle                                                                                                                                                                   |                                                                                                        |
-| \-                                 | \-                        |                                                                                                                                                                                                      | Restrict Host Controls Everyone is a Host                                                              |
-| \-                                 | \-                        |                                                                                                                                                                                                      | Restrict Host Controls Separate host link                                                              |
-| pstnToggle                         | ConditionalStringI18nType | Label for the PSTN controls toggle                                                                                                                                                                   | Use PSTN (Join by dialing a number)                                                                    |
-|                                    |                           |                                                                                                                                                                                                      | Need to check with vineeth - we are showing above string based on config json value not with any state |
-| createMeetingButton                | BaseI18nType              | Button text for the Create Meeting Button                                                                                                                                                            | Create Meeting                                                                                         |
-| ?                                  |                           |                                                                                                                                                                                                      | Have a Meeting ID?                                                                                     |
-| meetingIdInputPlaceholder          | BaseI18nType              | Placeholder text for the Meeting Id input field                                                                                                                                                      | Enter Meeting ID                                                                                       |
-| enterMeetingButton                 | BaseI18nType              | Button text for the Enter Meeting Button                                                                                                                                                             | Enter Meeting                                                                                          |
-| attendeeUrlLabel                   | BaseI18nType              | Label for the attendee URL in share screen                                                                                                                                                           | Attendee URL                                                                                           |
-| hostUrlLabel                       | BaseI18nType              | Label for the host URL in share screen                                                                                                                                                               | Host URL                                                                                               |
-| enterMeetingAfterCreateButton      | BaseI18nType              | Button text for the Enter Meeting Button inside the Share Screen                                                                                                                                     | Start Meeting (as host)                                                                                |
-| copyInviteButton                   | BaseI18nType              | Button text for Copy Invite Button. Clicking this button will copy the invite to the clipboard                                                                                                       | Copy invite to clipboard                                                                               |
-| pstnLabel                          | BaseI18nType              | Label for Dial-in section in the Share screen                                                                                                                                                        | PSTN                                                                                                   |
-| pstnNumberLabel                    | BaseI18nType              | Label for Dial-in number in the Share screen                                                                                                                                                         | Number                                                                                                 |
-| meetingUrlLabel                    | BaseI18nType              | Meeting URL Label is displayed in the Share screen when the host controls checkbox in create screen is unchecked                                                                                     | Meeting URL                                                                                            |
-| hostIdLabel                        | BaseI18nType              | Host Id / Attendee Ids are displayed on non-web platforms where FRONTEND_ENDPOINT is not provided. In all other cases, Host URL/ Attendee URL would be used                                          | Host ID                                                                                                |
-| meetingIdLabel                     | BaseI18nType              | Meeting Id is displayed on non-web platforms where FRONTEND_ENDPOINT is not provided and the host controls checkbox in the create screen is unchecked. In all other cases, Meeting URL would be used | Meeting ID                                                                                             |
-| attendeeIdLabel                    | BaseI18nType              | Host Id / Attendee Ids are displayed on non-web platforms where FRONTEND_ENDPOINT is not provided. In all other cases, Host URL/ Attendee URL would be used                                          | Attendee ID                                                                                            |
-| copiedToClipboardNotificationLabel | BaseI18nType              | In-App notification to indicate that a meeting has been created successfully                                                                                                                         | Copied to Clipboard                                                                                    |
-| meetingInviteText                  |                           | Create and return a meeting invite that would be copied to clipboard                                                                                                                                 |                                                                                                        |
-| joinRoomButton                     | ConditionalStringI18nType | Button text for the Join Room button.                                                                                                                                                                |                                                                                                        |
-|                                    |                           |                                                                                                                                                                                                      | Loading...                                                                                             |
-|                                    |                           |                                                                                                                                                                                                      | Join Room                                                                                              |
-| precallLabel                       | BaseI18nType              | Label for the precall screen                                                                                                                                                                         | Precall                                                                                                |
-| selectInputDeviceLabel             | BaseI18nType              | Select input device section title                                                                                                                                                                    | Select Input Device                                                                                    |
-| userNamePlaceholder                | BaseI18nType              | Placeholder text for the name input field                                                                                                                                                            | Display name\*                                                                                         |
-| fetchingNamePlaceholder            | BaseI18nType              | Placeholder text for disabled name input field while the name is being fetched from the server                                                                                                       | Getting name...                                                                                        |
-| toggleVideoButton                  | BaseI18nType              | Button label for Video Mute/Unmute button                                                                                                                                                            | Video                                                                                                  |
-| toggleAudioButton                  | BaseI18nType              | Button label for Audio Mute/Unmute button                                                                                                                                                            | Audio                                                                                                  |
-| screenShareButton                  | BaseI18nType              | Button label for Screen Share button                                                                                                                                                                 | Share                                                                                                  |
-| recordingButton                    | ConditionalStringI18nType | Button label for Recording button                                                                                                                                                                    |                                                                                                        |
-|                                    |                           |                                                                                                                                                                                                      | Record                                                                                                 |
-|                                    |                           |                                                                                                                                                                                                      | Recording                                                                                              |
-| recordingNotificationLabel         | BaseI18nType              | Text indicating that recording has begun                                                                                                                                                             | Recording Started                                                                                      |
-| endCallButton                      | BaseI18nType              | End Call Button ends the call                                                                                                                                                                        | Hang Up                                                                                                |
-| participantsLabel                  | BaseI18nType              | Participants panel header                                                                                                                                                                            | Participants                                                                                           |
-| groupChatLabel                     | BaseI18nType              | Group chat tab header                                                                                                                                                                                | Group                                                                                                  |
-| privateChatLabel                   | BaseI18nType              | Private chat tab header                                                                                                                                                                              | Private                                                                                                |
-| chatMessageInputPlaceholder        | BaseI18nType              | Placeholder text for the chat input field                                                                                                                                                            | Type your message..                                                                                    |
-| hostControlsLabel                  | BaseI18nType              | Host controls section label                                                                                                                                                                          | Host Controls                                                                                          |
-| muteAllAudioButton                 | BaseI18nType              | Clicking the Mute All Audio button will mute the microphones of all co-hosts in the channel                                                                                                          | Mute all audios                                                                                        |
-| muteAllVideoButton                 | BaseI18nType              | Clicking the Mute All Video button will mute the cameras of all co-hosts in the channel                                                                                                              | Mute all videos                                                                                        |
-| switchCameraButton                 | BaseI18nType              | Switch Camera Button toggles between front camera and back camera on mobile devices                                                                                                                  | Switch                                                                                                 |
-| networkQualityLabel                | BaseI18nType              | Text label for the Network Quality indicator                                                                                                                                                         |                                                                                                        |
-| screenshareUserName                | i18nDynamicType           | User Name label for screen share users                                                                                                                                                               | {NAME}'s screenshare                                                                                   |
-| localScreenshareDefaultLabel       | BaseI18nType              | Default User Name label for local screen share users if users don't enter their names                                                                                                                | Your screenshare                                                                                       |
-| localUserDefaultLabel              | BaseI18nType              | Default User Name label for local users if the users don't enter their names                                                                                                                         | You                                                                                                    |
-| remoteUserDefaultLabel             | BaseI18nType              | Default User Name label for remote users if users don't enter their names                                                                                                                            | User                                                                                                   |
-| pstnUserLabel                      | BaseI18nType              | Default name for PSTN users                                                                                                                                                                          | PSTN User                                                                                              |
-| remoteScreenshareDefaultLabel      | BaseI18nType              | Default User Name label for remote screen share users if the users don't enter their names                                                                                                           | User's screenshare                                                                                     |
-| authenticationSuccessLabel         | BaseI18nType              | Message to display when authentication is successful                                                                                                                                                 | Authenticated Successfully!                                                                            |
-| meetingCreatedNotificationLabel    | BaseI18nType              | In-App notification to indicate that a meeting has been created successfully                                                                                                                         | Created                                                                                                |
-| messageSenderNotificationLabel     | i18nDynamicType           | Label to denote the sender of a message. This label is a part of the In-App notification that users receive when a new message is sent                                                               | From: ${USER}                                                                                          |
-| joiningLoaderLabel                 | BaseI18nType              | Label for the joining loader                                                                                                                                                                         | Starting Call. Just a second.                                                                          |
-| oauthLoginLabel                    | BaseI18nType              | OAuth page heading title                                                                                                                                                                             | Login using OAuth                                                                                      |
-| oauthProviderLabel                 | BaseI18nType              | OAuth page provider select label                                                                                                                                                                     | Please select an OAuth provider to log in.                                                             |
-| copyMeetingInviteButton            | BaseI18nType              | Copy the Meeting Invite button inside the participants panel                                                                                                                                         | Copy Meeting Invite                                                                                    |
-|                                    | BaseI18nType              |                                                                                                                                                                                                      | Its backend error message                                                                              |
-| goBackButton                       | BaseI18nType              | Button text for the go back button inside an error message                                                                                                                                           | Go back                                                                                                |
-| logoutButton                       | BaseI18nType              | Button text for the logout button                                                                                                                                                                    | Logout                                                                                                 |
-| screensharingActiveOverlayLabel    | i18nDynamicType           | Overlay when the local screen share is active                                                                                                                                                        | {USER}'s screen share is active.                                                                       |
-|                                    |                           |                                                                                                                                                                                                      | change to: Your screen share is active                                                                 |
-| googleAuthButton                   | BaseI18nType              | Button text for Google OAuth                                                                                                                                                                         | Google                                                                                                 |
-| microsoftAuthButton                | BaseI18nType              | Button text for Microsoft OAuth                                                                                                                                                                      | Microsoft                                                                                              |
-| slackAuthButton                    | BaseI18nType              | Button text for Slack OAuth                                                                                                                                                                          | Slack                                                                                                  |
-| appleAuthButton                    | BaseI18nType              | Button text for Apple OAuth                                                                                                                                                                          | Apple                                                                                                  |
-|                                    |                           |                                                                                                                                                                                                      |                                                                                                        |
-|                                    |                           |                                                                                                                                                                                                      | Join Room as Host                                                                                      |
-|                                    |                           |                                                                                                                                                                                                      | Join Room as Audience                                                                                  |
-| participantListPlaceholder         | BaseI18nType              | Placeholder text for empty participant list                                                                                                                                                          | No one has joined yet                                                                                  |
-| hostLabel                          | BaseI18nType              | A label for "Host"                                                                                                                                                                                   | Host                                                                                                   |
-| attendeeLabel                      | BaseI18nType              | A label for "Attendee"                                                                                                                                                                               | Audience                                                                                               |
-| raisedHandsListTitleLabel          | BaseI18nType              | Text title for Raised Hands section                                                                                                                                                                  | Streaming Request                                                                                      |
-| raisedHandsListPlaceholder         | BaseI18nType              | Placeholder text for empty raised hands list                                                                                                                                                         | No streaming request(s)                                                                                |
-| raiseHandLocalNotification         | BaseI18nType              | In-App notification that is displayed to the local user when the Raise Hand button is pressed                                                                                                        | You have raised your hand. Request sent to host for approval                                           |
-| raiseHandRemoteHostNotification    | i18nDynamicType           | In-App notification that is displayed to the hosts when a Raise Hand request is received                                                                                                             | {user} has raised their hand                                                                           |
-| lowerHandRemoteHostNotification    | i18nDynamicType           | In-App notification that is displayed to the hosts when an escalated attendee lowers their hand                                                                                                      | {user} has lowered their hand                                                                          |
-| raiseHandApprovedLocalNotification | BaseI18nType              | In-App notification that is displayed to the local user when a host approves the Raise Hand request                                                                                                  | Your request was approved, unmute to start talking                                                     |
-| raiseHandRejectedLocalNotification | BaseI18nType              | In-App notification that is displayed to the local user when a host rejects the Raise Hand request                                                                                                   | Your request was rejected by the host                                                                  |
-| lowerHandsLocalNotification        | BaseI18nType              | In-App notification that is displayed to the local user when the Lower Hand button is pressed                                                                                                        | You have lowered your hand                                                                             |
-| raiseHandRevokedLocalNotification  | BaseI18nType              | In-App notification that is displayed to the local user when a host revokes the co-host status of the local user                                                                                     | The host has revoked streaming permissions                                                             |
-| raiseHandButton                    | BaseI18nType              | Button text for Raise Hand button                                                                                                                                                                    | Lower hand                                                                                             |
-|                                    |                           |                                                                                                                                                                                                      | Raise Hand                                                                                             |
-|                                    |                           |                                                                                                                                                                                                      | User not found                                                                                         |
-|                                    |                           |                                                                                                                                                                                                      | Pin                                                                                                    |
-|                                    |                           |                                                                                                                                                                                                      | Language                                                                                               |
-|                                    |                           |                                                                                                                                                                                                      | User is offline<br/>                                                                                   |
-|                                    |                           |                                                                                                                                                                                                      | Loading...                                                                                             |
-|                                    |                           |                                                                                                                                                                                                      | PSTN Number                                                                                            |
-|                                    |                           |                                                                                                                                                                                                      | PSTN Pin                                                                                               |
-|                                    |                           |                                                                                                                                                                                                      | URL for Attendee                                                                                       |
-|                                    |                           |                                                                                                                                                                                                      | URL for Host                                                                                           |
-|                                    |                           |                                                                                                                                                                                                      | Attendee Meeting ID                                                                                    |
-|                                    |                           |                                                                                                                                                                                                      | Host Meeting ID                                                                                        |
-|                                    |                           |                                                                                                                                                                                                      | Pin                                                                                                    |
-|                                    |                           |                                                                                                                                                                                                      | Language                                                                                               |
-|                                    |                           |                                                                                                                                                                                                      | Video and Audio sharing is disabled for attendees. Raise hand to request permission to share.          |
+```js
+import React from "react";
+import { installFPE } from "fpe-api/install";
 
-</collapsible>
+const userCustomization = installFPE({
+  i18n: [
+    {
+      locale: "en-us",
+      label: "English US",
+      data: {
+        meetingNameInputPlaceholder: "Name your Room",
+        pstnUserLabel: "Dial In User",
+        joinRoomButton: ({ ready, role }) =>
+          ready
+            ? !role
+              ? "Join Room"
+              : `Join Room as ${
+                  role === ClientRole.Broadcaster ? "Host" : "Audience"
+                }`
+            : `Loading...`,
+      },
+    },
+    {
+      locale: "es",
+      label: "Español",
+      data: {
+        meetingNameInputPlaceholder: "Nombra tu habitación",
+      },
+    },
+  ],
+});
+
+export default userCustomization;
+```
+
+---
+
+<br/>
+
+# TYPES
+
+<br/>
+
+<api>
+
+<method>
+
+## I18nBaseType<T\> : string | ((template: T) => string)
+
+</method>
+
+<method>
+
+## I18nDynamicType : [I18nBaseType](#i18nbasetypet)<string\>
+
+</method>
+
+<method>
+
+## JoinRoomButtonTextInterface
+
+| Key   | Type                      | Description                                                 |
+| ----- | ------------------------- | ----------------------------------------------------------- |
+| ready | boolean                   | Boolean that indicates whether a room is ready to be joined |
+| role  | [ClientRole](#clientrole) | Role of the user trying to join                             |
+
+</method>
+
+<method>
+
+## ClientRole
+
+| Index | Name        | Description                                                       |
+| ----- | ----------- | ----------------------------------------------------------------- |
+| 1     | Broadcaster | User publishes to other channel boradcasters and Audience members |
+| 2     | Audience    | User subscribing to other channel broadcasters without publishes  |
+
+</method>
+</api>

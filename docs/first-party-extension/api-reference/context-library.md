@@ -1,155 +1,389 @@
 ---
-sidebar_label: Context Library
-sidebar_position: 3
+sidebar_label: App state and Context Library
+sidebar_position: 4
 description: Context Library
 title: Context Library
 keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-## useMeetingInfo(): MeetingInfoContextInterface
+The context library exposes various contexts used in app builder. All contexts are wrapped around a selector hook that allows for selective subscribing of data.
 
-<collapsible>
+---
 
-### MeetingInfoContextInterface
+<method>
 
-Details about the meeting info interface
+## useRecordingContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
 
-| isHost             | boolean                                                                      | Indicates if the user joined using the Host URL or using the Attendee URL                          |
-| ------------------ | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| meetingTitle       | string                                                                       | Meeting Title                                                                                      |
-| meetingPassphras   | { attendee: string; host?: string; pstn?: { number: string; pin: string; } } |                                                                                                    |
-| isSeparateHostLink | boolean                                                                      | A flag that determines if t he host uses a separate link or if everybody uses the same(host) link. |
-| channel            | string                                                                       |                                                                                                    |
-| token              | string                                                                       |                                                                                                    |
+The RecordingContext contains methods to start and stop cloud recording as well as state that tracks recording status.
 
-</collapsible>
+<br/>
 
-## useSidePanel(): SidePanelContextInterface
+#### RecordingContextInterface
 
-<collapsible>
+| Key                | Type                                                      | Description                                                      |
+| ------------------ | --------------------------------------------------------- | ---------------------------------------------------------------- |
+| isRecordingActve   | boolean                                                   | Flag to indicate if cloud recording is active in the application |
+| setRecordingActive | [React.Dispatch](a)<[React.SetStateAction](a)<boolean\>\> | Start/Stop cloud recording.                                      |
+| startRecording     | () => void                                                | Starts cloud recording                                           |
+| stopRecording      | () => void                                                | Stops cloud recording                                            |
 
-### SidePanelContextInterface
+<br/>
 
-| sidePanel             | SidePanelType: string                           | This state represents the active side panel                                                       |
-| --------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| setSidePanel          | React.Dispatch<SetStateAction<SidePanelType\>\> | Sets the Side Panel type based on the parameter. This method is used to show/hide the side panels |
-| createSidePanel - TBD | TBD                                             | TBD                                                                                               |
+Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
-</collapsible>
+```jsx
+import { useRecordingContext } from "fpe-api";
 
-## useLayout(): LayoutContextInterface
+const MyReactComponent = () => {
+  const {
+    isRecordingActve,
+    setRecordingActive,
+    startRecording,
+    stopRecording,
+  } = useRecordingContext((RecordingContext) => {
+    const {
+      isRecordingActve,
+      setRecordingActive,
+      startRecording,
+      stopRecording,
+    } = RecordingContext;
 
-<collapsible>
+    return {
+      isRecordingActve,
+      setRecordingActive,
+      startRecording,
+      stopRecording,
+    };
+  });
 
-### LayoutContextInterface
+  ...
+};
+```
 
-| activeLayoutName<br/>    | String         | This state contains the active layout of the app<br/>"Grid" ➝<br/>"Pinned" ➝<br/>"<Custom Key\>" ➝   |
-| ------------------------ | -------------- | ---------------------------------------------------------------------------------------------------- |
-| setActiveLayoutName<br/> | React.Dispatch | Sets the Video Call layout. Default values include "grid" and "pinned". An FPE may add more layouts. |
+</method>
 
-</collapsible>
+---
 
-## usePreCall(): PreCallContextInterface
+<method>
 
-<collapsible>
+## useRenderContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderStateInterface](#renderstateinterface)\>
 
-### PreCallContextInterface
+The RenderContext contains the information necessary to render user content views.
 
-| setCallActive | React.Dispatch<React.SetStateAction<boolean\>\> | Programatically switch between Pre Call(false) and Video Call() screen.                                       |
-| ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| callActive    | boolean                                         | The app is in the Video Call screen if the value is true. It is in the Pre Call screen if the value is false. |
+<br/>
 
-</collapsible>
+#### RenderStateInterface
 
-## useShareLink(): ShareLinkContextInterface
+| Key            | Type                                                                                        | Description                                                           |
+| -------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| renderList     | [RenderObjectInterface](/first-party-extension/api-reference/globals#renderobjectinterface) | Object containing all the render objects stored in the render context |
+| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype-string)\>              | Array indicating order of all uids in the render context              |
 
-<collapsible>
+<br/>
 
-### ShareLinkContextInterface
+Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
-- Can be used on the share screen
-  - Copy Attendee URL
-  - Copy Host URL
-  - Copy PSTN
-  - Copy Meeting invite
-- Sharing meeting invites on a Video Call screen
+```jsx
+import { useRenderContext } from "fpe-api";
 
-  - Copy icon button
-  - A button in the participant panel
+const MyReactComponent = () => {
+  const {
+    renderList,
+    renderPosition,
+  } = useRenderContext((RenderContext) => {
+    const {
+      renderList,
+      renderPosition,
+    } = RenderContext;
 
-  |                          | enum SHARE_LINK_CONTENT_TYPE {<br/>ATTENDEE,<br/>HOST,<br/>PSTN,<br/>MEETING_INVITE,<br/>}<br/> |                                                                 |
-  | ------------------------ | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-  | copyShareLinkToClipboard | (type: SHARE_LINK_CONTENT_TYPE) => void<br/>                                                    | The function used to copy invite to clipboard based on the type |
-  | getShareLink<br/>        | (type: SHARE_LINK_CONTENT_TYPE) => string;                                                      | The function used to get invite content based on the type       |
+    return {
+      renderList,
+      renderPosition,
+    };
+  });
 
-</collapsible>
+  ...
+};
+```
 
-## useScreenshare(): ScreenshareContextInterface
+</method>
 
-<collapsible>
+---
 
-### ScreenshareContextInterface
+<method>
 
-const
+## useLocalContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderInterface](#first-party-extension/api-reference/globals#renderinterface)\>
 
-| isScreenshareActive<br/>  | boolean       | Flag to indicate if screen sharing is active in the application |
-| ------------------------- | ------------- | --------------------------------------------------------------- |
-| startUserScreenshare<br/> | () => Promise | Starts screen sharing                                           |
-| stopUserScreenShare       | () => Promise | Stops screen sharing                                            |
-|                           |               |                                                                 |
+The LocalContext contains the local user information.
 
-</collapsible>
+<br/>
 
-## useRecording(): RecordingContextInterface
+Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
-<collapsible>
+```jsx
+import { useLocalContext } from "fpe-api";
 
-### RecordingContextInterface
+const MyReactComponent = () => {
+  const LocalContext = useLocalContext();
+  ...
+};
+```
 
-| isRecordingActve<br/><br/> | boolean                                         | Flag to indicate if cloud recording is active in the application                                                    |
-| -------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| startRecording<br/>        | () => void                                      | Starts cloud recording                                                                                              |
-| stopRecording              | () => void                                      | Stops cloud recording                                                                                               |
-| setRecordingActive         | React.Dispatch<React.SetStateAction<boolean\>\> | Start/Stop cloud recording.<br/>Example<br/>\`setRecordingActive(false)\`<br/>\`setRecordingActive(curr => !curr)\` |
+</method>
 
-</collapsible>
+---
 
-## useDeviceContext(): DeviceContext
+<method>
 
-<collapsible>
+## useLayoutContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[LayoutContextInterface](#layoutcontextinterface)\>
 
-### DeviceContext
+The RenderContext contains the active layout and method to modify the active layout
 
-| selectedCam    | string                                | DeviceId of selected camera                                                                                         |
-| -------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| setSelectedCam | (cam:string) => void                  | Select a camera by setting a camera deviceId                                                                        |
-| selectedMic    | string                                | DeviceId of selected microphone                                                                                     |
-| setSelectedMic | (mic: string) => void                 | Select a microphone by setting a microphone deviceId                                                                |
-| deviceList     | MediaDeviceInfo\[\]                   | List of devices following [MediaDeviceInfo](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo) spec. |
-| setDeviceList  | (devices:MediaDeviceInfo\[\]) => void | Edit the list of devices                                                                                            |
+<br/>
 
-</collapsible>
+#### LayoutContextInterface
 
-## useStorageContext(): StorageContextInterface
+| Key                 | Type                                                       | Description                                   |
+| ------------------- | ---------------------------------------------------------- | --------------------------------------------- |
+| activeLayoutName    | string                                                     | State variable containing active layout name  |
+| setActiveLayoutName | [React.Dispatch](a)< [React.SetStateAction](a) <string\>\> | Set state method to modify active layout name |
 
-<collapsible>
+<br/>
 
-### StorageContextInterface
+Use the example code given below showcasing the use of selector to grab all the contents of the context.
 
-| store    | StoreInterface                                                 | Contains the list of Key-Value pairs that are persistently stored |
-| -------- | -------------------------------------------------------------- | ----------------------------------------------------------------- |
-| setStore | React.Dispatch<React.SetStateAction<StoreInterface\>\> \| null | Modify the persistant store by adding/removing Key-Value pairs    |
+```jsx
+import { useLayoutContext } from "fpe-api";
 
-</collapsible>
+const MyReactComponent = () => {
+  const {
+    activeLayoutName,
+    setActiveLayoutName,
+  } = useLocalContext((LayoutContext) => {
+    const {
+      activeLayoutName,
+      setActiveLayoutName,
+    } = LayoutContext;
 
-<collapsible>
+    return {
+      activeLayoutName,
+      setActiveLayoutName,
+    };
+  });
 
-### StoreInterface
+  ...
+};
+```
 
-| token                | null | string | OAuth Token. It's null if Authentication is disabled. |
-| -------------------- | ---- | ------ | ----------------------------------------------------- |
-| displayName          | null | string | User name of the local user                           |
-| selectedLanguageCode | null | string | Selected i18n locale                                  |
+</method>
 
-</collapsible>
+---
+
+<method>
+
+## useMeetingInfoContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[MeetingInfoContextInterface](#meetinginfocontextinterface)\>
+
+The MeetingInfoContext contains the all the information about the active meeting.
+
+<br/>
+
+#### MeetingInfoContextInterface
+
+| Key                | Type                                                                                                                                                      | Description                                                                                       |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| isHost             | boolean                                                                                                                                                   | Indicates if the user joined using the Host URL or using the Attendee URL                         |
+| meetingTitle       | string                                                                                                                                                    | Meeting title                                                                                     |
+| meetingPassphrase  | {<br/>&emsp;attendee: string,<br/>&emsp;host?: string,<br/>&emsp;pstn?: {<br/>&emsp;&emsp;number: string,<br/> &emsp;&emsp;pin: string<br/>&emsp;}<br/> } | Object containing host and attendee meeting passphrases along with PSTN info                      |
+| isSeparateHostLink | boolean                                                                                                                                                   | A flag that determines if the host uses a separate link or if everybody uses the same(host) link. |
+| channel            | string                                                                                                                                                    | Channel name of current meeting                                                                   |
+| uid                | number                                                                                                                                                    | uid of the local user                                                                             |
+| token              | string                                                                                                                                                    | rtc authentication token required to join the channel                                             |
+| rtm                | string                                                                                                                                                    | rtm uid of the local user                                                                         |
+| secret             | string                                                                                                                                                    | authentication secret                                                                             |
+| screenShareUid     | string                                                                                                                                                    | uid of local user screenshare                                                                     |
+| screenShareToken   | string                                                                                                                                                    | authentication token for local user screenshare                                                   |
+| isJoinDataFetched  | boolean                                                                                                                                                   | Videocall screen only - The boolean value indicates if the backend query has been completed.      |
+
+<br/>
+
+Use the example code given below showcasing the use of selector to grab all the contents of the context.
+
+```jsx
+import { useMeetingInfoContext } from "fpe-api";
+
+const MyReactComponent = () => {
+  const {
+    isHost,
+    meetingTitle,
+    meetingPassphrase,
+    isSeparateHostLink,
+    channel,
+    uid,
+    token,
+    rtm,
+    secret,
+    screenShareUid,
+    screenShareToken,
+    isJoinDataFetched,
+  } = useMeetingInfoContext((MeetingInfoContext) => {
+    const {
+      isHost,
+      meetingTitle,
+      meetingPassphrase,
+      isSeparateHostLink,
+      channel,
+      uid,
+      token,
+      rtm,
+      secret,
+      screenShareUid,
+      screenShareToken,
+      isJoinDataFetched,
+    } = MeetingInfoContext;
+
+    return {
+      isHost,
+      meetingTitle,
+      meetingPassphrase,
+      isSeparateHostLink,
+      channel,
+      uid,
+      token,
+      rtm,
+      secret,
+      screenShareUid,
+      screenShareToken,
+      isJoinDataFetched,
+    };
+  });
+
+  ...
+};
+```
+
+</method>
+
+---
+
+<method>
+
+## useRtcContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RtcContextInterface](#rtccontextinterface)>
+
+The RenderContext contains the information necessary to render user content views.
+
+<br/>
+
+#### RtcContextInterface
+
+| Key               | Type                                                                                                                                                                | Description                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                                                                     | The RtcEngine object from the Agora SDK     |
+| dispatch          | [DispatchType](https://agoraio-community.github.io/ReactNative-UIKit/modules/Built_in_Components._internal_.html#DispatchType)                                      | Method to dispatch various callbacks        |
+| setDualStreamMode | [React.Dispatch](a)< [React.SetStateAction](a) <[DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) \> \> | Set state method to modify dual stream mode |
+
+<br/>
+
+Use the example code given below showcasing the use of selector to grab all the contents of the context.
+
+```jsx
+import { useRtcContext } from "fpe-api";
+
+const MyReactComponent = () => {
+  const {
+    RtcEngine,
+    dispatch,
+    setDualStreamMode,
+  } = useRtcContext((RtcContext) => {
+    const {
+      RtcEngine,
+      dispatch,
+      setDualStreamMode,
+    } = RtcContext;
+
+    return {
+      RtcEngine,
+      dispatch,
+      setDualStreamMode,
+    };
+  });
+
+  ...
+};
+```
+
+</method>
+
+---
+
+<method>
+
+## usePropsContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[PropsInterface](#propsinterface)\>
+
+The PropsContext contains the various configuration options and callbacks that are passed to setup [Agora React Native UI Kit](a) internally.
+
+<br/>
+
+#### PropsInterface
+
+| Key         | Type                                                                                                                                                     | Description                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| rtcProps    | [RtcPropsInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface)                                                                            | Contains all the configuration options passed to setup the ui kit    |
+| styleProps? | Partial< [StylePropInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html) \> | Contains various styles used by the ui kit                           |
+| callbacks?  | Partial< [CallbacksInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface) >                                                                | Contains various callbacks setup on rtc actions passed to the ui kit |
+| mode?       | ChannelProfile                                                                                                                                           | Indicates the rtc channel profile to be used                         |
+
+<br/>
+
+#### RtcPropsInterface _extends_ [AgoraRnUiKitRtcPropsInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html)
+
+| Key         | Type    | Description                              |
+| ----------- | ------- | ---------------------------------------- |
+| geoFencing? | boolean | Determines whether geofencing is enabled |
+
+<br/>
+
+#### CallbacksInterface _extends_ [AgoraRnUiKitCallbackInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Agora_UIKit._internal_.CallbacksInterface.html)
+
+<!-- TODO(adictya): Add descriptions -->
+
+| Key              | Type                                                                                                                                                                                  | Description                          |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| DequeVideo       | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string)) => void                                                                                                 | Called when a render object dequeud  |
+| UpdateRenderList | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), user: Partial<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)>) => void | Called when render list is updated   |
+| AddCustomContent | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype-string), data: any) => void                                                                                      | Called when custom content was added |
+
+<br/>
+
+Use the example code given below showcasing the use of selector to grab all the contents of the context.
+
+```jsx
+import { usePropsContext } from "fpe-api";
+
+const MyReactComponent = () => {
+  const {
+    rtcProps,
+    styleProps,
+    callbacks,
+    mode,
+  } = usePropsContext((PropsContext) => {
+    const {
+      rtcProps,
+      styleProps,
+      callbacks,
+      mode,
+    } = PropsContext;
+
+    return {
+      rtcProps,
+      styleProps,
+      callbacks,
+      mode,
+    };
+  });
+
+  ...
+};
+```
+
+</method>

@@ -8,7 +8,7 @@ interface ICollapsibeProps {
 }
 
 export default function Collapsible({ children }: ICollapsibeProps) {
-  const [isCollapsed, setIsCollapsed] = React.useState(false);
+  const [isCollapsed, setIsCollapsed] = React.useState(true);
   const [height, setHeight] = React.useState(0);
   const contentRef = React.useRef(null);
   const maxContentHeight = 300;

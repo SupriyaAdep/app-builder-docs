@@ -1,9 +1,4 @@
 {
-  "label": "SDKs",
-
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "slug": "/sdks"
-  }
+  "label": "Embed SDKs",
+  "position": 2
 }
