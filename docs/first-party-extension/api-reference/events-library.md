@@ -7,68 +7,94 @@ keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-<api>
+# Custom Events
 
-This event library allows users to send and listen to custom events. These events can be sent to a specific user(s) in the channel or to all the user(s) in the channel.
+This library allows users to send and consume custom events.
 
-`send` method listed in the API have 3 predefined persistence levels
+These events can be sent to
 
-**Level 1:**
+- A specific user in the channel.
+- A set of users in the channel.
+- All the users in the channel.
 
-The messages are sent and received between the user(s) in the channel. Nothing is persisted.
-This is the default level when sending custom-events.
+These events can be sent with different levels of persistance.
 
-**Level 2:**
+- **Level 1:**
 
-The messages are sent and received between the user(s) in the channel.
-When sending a custom event, evt name as the key and message data as value is persisted in the sender's local attributes.
-Any new user who joins the call receives the latest state of the existing user(s) in the channel by reading their local attributes.
+  The event(s) are sent, received between the present user(s) in the channel. User(s) joining the channel later are unaware of the past events.
 
-When the user leaves the channel, local user attributes are removed. Hence the state is persisted until the user remain in the channel.
+- **Level 2:**
 
-**Level 3:**
+  The event(s) are sent, received between the present user(s) in the channel and persisted till the user is active in the call. New user(s) joining the channel will receive the events of the active user(s) in the call.
 
-The messages are sent and received between the user(s) in the channel.
-When sending a custom event, evt name as the key and message data as the value is persisted in the sender's local attributes.
-While receiving a custom event, evt name as the key and message data as the value is persisted in the receiver's local attributes.
+- **Level 3:**
 
-Any new user who joins the call receives the latest state of the existing user(s) in the channel by reading their local attributes.
+  The event(s) are sent, received between the present user(s) in the channel and persisted for the duration of the entire call. New user(s) joining the channel will receive the events of the active user(s) and past user(s) of the call.
 
-The local user attributes are removed when the sender and receiver leave the channel.
-Hence the state is persisted until the sender and all receiver(s) remain in the channel
+<br/>
+
+## Import
 
 ---
 
-<method>
-
-<subtitle>
-
-## CustomEvents
-
-</subtitle>
-
-CustomEvents object handles customization api events and hold the necessary methods for sending and subscribing/unsubscribing to events.
+customEvents object handles customization api events and provides methods for sending, subscribing and unsubscribing to events.
 
 ```js
-import { CustomEvents } from "fpe-api";
+import { customEvents } from "fpe-api";
 ```
 
 <br/>
 
-### _Methods_:
+## Methods
+
+---
 
 <collapsible>
 <method>
 
-### send : (evt: string, payload: [EventPayload](#eventpayload), to?: [ToOptions](#tooptions) ) => void
+### send
 
 Sends the event with the provided details.
 
-| Prop    | Type                          | Description                                                                          |
-| ------- | ----------------------------- | ------------------------------------------------------------------------------------ |
-| evt     | string                        | Name of the event to be sent which can be subscribed on                              |
-| payload | [EventPayload](#eventpayload) | Payload to be sent along with the event                                              |
-| to?     | [ToOptions](#tooptions)       | Uid(s) to send the message to. Leave empty to send as a channel message to all users |
+```ts
+send : (eventName: string, payload: string, persistLevel: EventPersistLevel ,receiver?: ReceiverUid ) => void
+```
+
+| Prop         | Type              | Description                                                                          |
+| ------------ | ----------------- | ------------------------------------------------------------------------------------ |
+| eventName    | string            | Name of the event to be sent                                                         |
+| payload      | string            | Payload to be sent along with the event                                              |
+| persistLevel | EventPersistLevel | Payload to be sent along with the event                                              |
+| receiver?    | ReceiverUid       | Uid(s) to send the message to. Leave emtpy to send as a channel message to all users |
+
+```ts
+import { customEvents } from "fpe-api";
+
+...
+
+// 1. Sending to specific user 0001 in the channel
+customEvents.send(
+  "event-specific-single",
+  "Paylaod is Hello!!",
+  EventPersistLevel.LEVEL1,
+  001
+);
+
+// 2. Sending to user(s) 001 002, 003in the channel
+customEvents.send(
+  "event-specific-multiple",
+  "Payload is Hello!!",
+  EventPersistLevel.LEVEL1,
+  [001, 002, 003]
+);
+
+// 3. Sending in the channel
+customEvents.send(
+  "event-channel",
+  "Payload is Hello!!",
+  EventPersistLevel.LEVEL1
+);
+```
 
 </method>
 </collapsible>
@@ -78,14 +104,45 @@ Sends the event with the provided details.
 <collapsible>
 <method>
 
-### on: (evt: string, listener: [TEventCallback](#teventcallback) ) => void
+### on
 
-Subscribes to the event with the provided details.
+Subscribes to the event. Use on method to add listener for specific event.
 
-| Prop     | Type                              | Description                                                       |
-| -------- | --------------------------------- | ----------------------------------------------------------------- |
-| evt      | string                            | Name of the event to be subscribed                                |
-| listener | [TEventCallback](#teventcallback) | Callback method for the event to be called when event is received |
+```ts
+on: (eventName: string, listener: Function ) => void
+```
+
+| Prop      | Type     | Description                                                       |
+| --------- | -------- | ----------------------------------------------------------------- |
+| eventName | string   | Name of the event to be subscribed                                |
+| listener  | Function | Callback method for the event to be called when event is received |
+
+```ts
+import react from "React";
+import { customEvents } from "fpe-api";
+
+...
+
+    React.useEffect(() => {
+        const funcOne = (data) => {};
+        const funcTwo = (data) => {};
+        const funcThree = (data) => {};
+
+        // 1. Adding single anonymous listener
+        customEvents.on("event-one", (data)=> {console.log(data)});
+
+        // 2. Adding single named listener
+        customEvents.on("event-two", funcOne);
+
+        // 3. Adding multiple listener(s) to same event. Kindly note function name should be different when using multiple listeners
+        customEvents.on("event-three", funcTwo);
+        customEvents.on("event-three", funcThree);
+
+    }, []);
+
+...
+
+```
 
 </method>
 </collapsible>
@@ -95,133 +152,106 @@ Subscribes to the event with the provided details.
 <collapsible>
 <method>
 
-### off: (evt?: string, listenerToRemove?: [TEventCallback](#teventcallback) ) => void
+### off
 
-Unsubscribes to the event with the provided details.
+Use off method to remove listener for specific event. If no listener is provided, all listeners added on eventName will be removed.
+If both eventName and listener are not provided, all events will be removed;
 
-| Prop              | Type                              | Description                                                                                                                                    |
-| ----------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| evt?              | string                            | Name of the event to be unsubscribed. If no event name is provided all subscribed events will be unsubscribed                                  |
-| listenerToRemove? | [TEventCallback](#teventcallback) | Callback method of the event to be unsubscribed. If no callback method is provided all callbacks for the given event name will be unsubscribed |
+Additionally, method `on` returns `unbind` function. Call it and this listener
+will be removed from event.
+
+```ts
+off: (eventName?: string, listener?: Function ) => void
+```
+
+| Prop       | Type     | Description                                                                                                  |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| eventName? | string   | Name of the event to be unsubscribed. If no event name provided all subscribed events will be unsubscribed   |
+| listener?  | Function | Method to unsubscribe. If no listener is provided, all listeners added on the eventName will be unsubscribed |
+
+```ts
+import react from "React";
+import { customEvents } from "fpe-api";
+
+...
+
+    React.useEffect(() => {
+        const funcOne = (data) => {};
+        const funcTwo = (data) => {};
+        const funcThree = (data) => {};
+
+        // 1. Approach 1
+        const unbind = customEvents.on("event-zero", (data)=> {console.log(data)});
+
+        // 2. Adding single named listener
+        customEvents.on("event-two", funcOne);
+
+        // 2. Adding multiple listener(s) to same event. Kindly note function name should be different when using multiple listeners
+        customEvents.on("event-three", funcTwo);
+        customEvents.on("event-three", funcThree);
+
+        return () => {
+            // 1. Remove specific single listener.
+            // We can call unbind or pass eventname and listener name.
+            unbind();
+            customEvents.off("event-two", funcOne);
+
+            // 2. Remove all listeners for a given specific event
+            customEvents.off("event-two") // Here both funcTwo and funcThree will be removed
+
+            // 3. Remove all events and their listener(s)
+            customEvents.off()
+
+        }
+    }, []);
+
+...
+
+```
 
 </method>
 </collapsible>
 
-</method>
+<br/>
 
-</api>
-
-## **TYPES**:
-
-<method>
-<subtitle>
-
-## EventPayload : IEventPayloadWithoutAttributes : IEventPayloadWithAttributes
-
-</subtitle>
-
-</method>
+## Example
 
 ---
 
-<method>
-<subtitle>
+```ts
+import react from "React";
+import { customEvents, EventPersistLevel } from "fpe-api";
 
-## IEventPayloadWithoutAttributes
+React.useEffect(() => {
+  // Adding Listener
+  const unbind = customEvents.on("hello-event", (data) => {
+    /**
+     * The callback data object contains following properties
+     * payload: string
+     * persistLevel: EventPersistLevel
+     * sender: UidType
+     * ts: nnumber
+     */
+    console.log(
+      `I have received payload ${data.payload} from user ${data.sender} at time ${data.timestamp} with persistance of ${data.persistLevel}`
+    );
+  });
 
-</subtitle>
+  return () => {
+    // Removing listener
+    unbind();
+  };
+}, []);
 
-| Key     | Type   | Description              |
-| ------- | ------ | ------------------------ |
-| action? | any    | Descriptor for the value |
-| level?  | never  | Level of persistence     |
-| value   | string | Value to be presisted    |
+function App() {
+  // Sending event
+  const sendEvent = () =>
+    customEvents.send("hello-event", "Hello!!", EventPersistLevel.LEVEL1);
 
-</method>
-
----
-
-<method>
-<subtitle>
-
-## IEventPayloadWithAttributes
-
-</subtitle>
-
-| Key     | Type   | Description              |
-| ------- | ------ | ------------------------ |
-| action? | any    | Descriptor for the value |
-| level?  | 2 \| 3 | Level of persistence     |
-| value   | string | Value to be presisted    |
-
-</method>
-
----
-
-<method>
-<subtitle>
-
-## ToOptions : [UidType](/first-party-extension/api-reference/globals#uidtype)[UidType\[\]](/first-party-extension/api-reference/globals#uidtype-string)
-
-</subtitle>
-
-</method>
-
----
-
-<method>
-
-## TEventCallback : \(args: [EvtCbPayload](#evtcbpayload)): void
-
-</method>
-
----
-
-<method>
-<subtitle>
-
-## EvtCbPayload
-
-</subtitle>
-
-| Name    | Value                               |
-| ------- | ----------------------------------- |
-| payload | [dataPayload](#datapayload)         |
-| sender  | string                              |
-| ts      | number                              |
-| source  | [EventSourceEnum](#eventsourceenum) |
-
-</method>
-
----
-
-<method>
-<subtitle>
-
-## dataPayload
-
-</subtitle>
-
-| Key    | Type        | Description                     |
-| ------ | ----------- | ------------------------------- |
-| action | string      | String descriptor for the value |
-| level  | 1 \| 2 \| 3 | Level of persistence            |
-| value  | string      | Value of the persisted state    |
-
-</method>
-
----
-
-<method>
-<subtitle>
-
-## EventSourceEnum
-
-</subtitle>
-
-| Name | Value |
-| ---- | ----- |
-| core | core  |
-| fpe  | fpe   |
-
-</method>
+  return (
+    <div>
+      <button onClick={sendEvent}>Send event!</button>
+    </div>
+  );
+}
+```
