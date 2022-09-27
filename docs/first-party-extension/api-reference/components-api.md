@@ -34,7 +34,7 @@ Hence it is displayed after:
 
 However if Precall Screen is disabled in the Builder,
 
-<image alt="Precall Screen Builder Option" darkImageSrc="replace-me.png" />
+<image alt="Precall Screen Builder Option" darkImageSrc="customization-api/api/components-api/precall.png" />
 
 the videoCall screen is directly displayed after:
 

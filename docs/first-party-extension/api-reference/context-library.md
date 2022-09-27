@@ -231,11 +231,11 @@ The RenderContext contains the information necessary to render user content view
 
 #### RtcContextInterface
 
-| Key               | Type                                                                                                                                                                | Description                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                                                                     | The RtcEngine object from the Agora SDK     |
-| dispatch          | [DispatchType](https://agoraio-community.github.io/ReactNative-UIKit/modules/Built_in_Components._internal_.html#DispatchType)                                      | Method to dispatch various callbacks        |
-| setDualStreamMode | [React.Dispatch](a)< [React.SetStateAction](a) <[DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) \> \> | Set state method to modify dual stream mode |
+| Key               | Type                                                                                                                                   | Description                             |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                                        | The RtcEngine object from the Agora SDK |
+| dispatch          | [DispatchType](https://agoraio-community.github.io/ReactNative-UIKit/modules/Built_in_Components._internal_.html#DispatchType)         | Method to dispatch various callbacks    |
+| setDualStreamMode | ( mode:[DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) ): void | Method to modify dual stream mode       |
 
 <br/>
 
