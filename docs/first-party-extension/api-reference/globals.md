@@ -1,6 +1,6 @@
 ---
 sidebar_label: Types
-sidebar_position: 8
+sidebar_position: 9
 description: Types
 title: Types
 keywords: [videCallProps, ChatBubbleProps]
