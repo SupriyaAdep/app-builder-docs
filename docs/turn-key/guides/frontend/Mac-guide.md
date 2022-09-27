@@ -70,13 +70,11 @@ security add-generic-password -a "APPLE ID HERE" -w "APP SPECIFIC PASSWORD HERE"
 8.  Create a new certificate of the type “Developer ID Application”
 
    <image alt="SignMac3" lightImageSrc="guides/SignMac3.png" darkImageSrc="guides/SignMac5.png" />
-9.  Execute the following command in a terminal:
+9.  Execute the following command in a terminal and copy the correct hash corresponding to **“Developer ID Application”** into your clipboard
 
 ```
 security find-identity -v -p codesigning
 ```
-
-and copy the correct hash corresponding to **“Developer ID Application”** into your clipboard
 
 10. Execute the following command in a terminal:
 

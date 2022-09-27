@@ -35,12 +35,22 @@ h1 {
 
 h3 {
   font-size: 1.125rem;
-
   font-weight: 400;
+}
+h4 {
+  font-size: 16px;
+  line-height: 20px;
 }
 p {
   font-size: 16px;
   line-height: 24px;;
+}
+.markdown > h2 {
+  margin-bottom: 16px;
+}
+.markdown > h4 {
+  margin-top:16px;
+  margin-bottom: 16px;
 }
 
 .markdown h1:first-child  {
@@ -87,7 +97,11 @@ p {
   background-color: #181818;
   padding-top:28px;
   border-radius: 8px;
+}
 
+.mdImage {
+  margin-top: 12px;
+  margin-bottom: 32px;
 }
 .mdImage img {
   border-radius: var(--ifm-code-border-radius);
@@ -353,16 +367,23 @@ table tr:nth-child(2n) {
   line-height: 100%;
   font-size: 14px;
 }
+.admonition {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
 
 
 .menu__link--active:not(.menu__link--sublist) {
   color: var(--ifm-menu-color-current) 
 }
 
+.theme-code-block-highlighted-line {
+  border-left: 4px solid var(--ifm-color-primary);
+}
 
 
 :root {
-  --ifm-color-primary: #0079f4;
+  --ifm-color-primary: #099DFD;
   --ifm-font-family-base: 'Source Sans Pro';
   --ifm-color-primary-dark: #006ddc;
   --ifm-color-primary-darker: #0067cf;
@@ -392,6 +413,7 @@ table tr:nth-child(2n) {
   --ifm-paragraph-margin-bottom:12px;
   --ifm-leading:12px;
   --ifm-spacing-horizontal:24px;
+  --ifm-list-item-margin:12px
   
  
 

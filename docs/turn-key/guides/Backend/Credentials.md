@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: "settings" }
 
 # Setup Credentials
 
-### Step 1: Get the Agora Credentials
+## Step 1 Get the Agora Credentials
 
 - To get the App ID, you can follow the following guide: https://docs.agora.io/en/Agora%20Platform/token?platform=All%20Platforms#getappid
 
@@ -18,7 +18,7 @@ sidebar_custom_props: { icon: "settings" }
 
 <br />
 
-### Step 2: Get AWS Credentials
+## Step 2 Get AWS Credentials
 
 First, you need to create an S3 bucket. This is where all your recording will be stored. You can refer to this guide on how to do that: https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html
 
@@ -26,13 +26,13 @@ Here's a guide on generating your access key and access secret: https://docs.aws
 
 <br />
 
-### Step 3: Setup Project name on the backend
+## Step 3 Setup Project name on the backend
 
 You need to set SCHEME as the project name that was set in the [console](https://appbuilder.agora.io)
 
 <br />
 
-### Step 4: Get OAuth Credentials
+## Step 4 Get OAuth Credentials
 
 Link to the guides to setup authentication for each provider:
 
@@ -65,11 +65,11 @@ Link to the guides to setup authentication for each provider:
 }
 ```
 
-For APP_ID, APP_CERTIFICATE, CUSTOMER_ID and CUSTOMER_CERTIFICATE, follow Step 1
+For APP_ID, APP_CERTIFICATE, CUSTOMER_ID and CUSTOMER_CERTIFICATE, follow [Step 1](#step-1-get-the-agora-credentials)
 
-For BUCKET_NAME, BUCKET_ACCESS_KEY AND BUCKET_ACCESS_SECRET, follow Step 2
+For BUCKET_NAME, BUCKET_ACCESS_KEY AND BUCKET_ACCESS_SECRET, follow [Step 2](#step-2-get-aws-credentials)
 
-For GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET follow Step 4
+For GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET follow Step [Step 4](#step-4-get-oauth-credentials)
 
 For PSTN_USERNAME, PSTN_PASSWORD and PSTN_ACCOUNT follow our [PSTN Guide](/turn-key/guides/Backend/How-to-Setup-PSTN)
 

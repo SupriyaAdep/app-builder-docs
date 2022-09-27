@@ -72,11 +72,11 @@ Set `MICROSOFT_CLIENT_SECRET` to the client secret you got above
 To have OAuth using Slack, you need to setup your own Slack App. To do that, go to the following URL: https://api.slack.com/apps. Make sure you're signed into your Slack Account.
 
 1. Click on "Create an App"
-   <image alt="SLACK1" lightImageSrc="guides-be/SLACK1.png" darkImageSrc="guides-be/SLACK1.png" />
+   <image alt="SLACK1"  className="center-img" lightImageSrc="guides-be/SLACK1.png" darkImageSrc="guides-be/SLACK1.png" />
 2. Click on "From Scratch"
-   <image alt="SLACK2" lightImageSrc="guides-be/SLACK2.png" darkImageSrc="guides-be/SLACK2.png" />
+   <image alt="SLACK2" className="center-img"  lightImageSrc="guides-be/SLACK2.png" darkImageSrc="guides-be/SLACK2.png" />
 3. Enter the name of your app and choose your workspace
-   <image alt="SLACK3" lightImageSrc="guides-be/SLACK3.png" darkImageSrc="guides-be/SLACK3.png" />
+   <image alt="SLACK3"    lightImageSrc="guides-be/SLACK3.png" darkImageSrc="guides-be/SLACK3.png" />
 4. After you click on "Create App", you should be able to your App's page. Scroll down to see your app's credentials. You can see your App's Client ID and Client Secret. You can directly enter them inside your project using the App Builder console.
 
 <br />
@@ -94,20 +94,20 @@ Set `SLACK_CLIENT_SECRET` to the client secret you got above
 To set up authentication using Apple, you need to have an [Apple Developer Account](https://developer.apple.com/). After you have that setup, login to your account and follow the following steps:
 
 1. You need to navigate to the **Certificates, Identifiers and Profiles** page.
-   <image alt="APPLE1" lightImageSrc="guides-be/APPLE1.png" darkImageSrc="guides-be/APPLE1.png" />
+   <image alt="APPLE1"  className="mdImage center-img" lightImageSrc="guides-be/APPLE1.png" darkImageSrc="guides-be/APPLE1.png" />
 2. Click on **Identifiers** in the left menu.
 
-   <image alt="APPLE2" lightImageSrc="guides-be/APPLE2.png" darkImageSrc="guides-be/APPLE2.png" />
+   <image alt="APPLE2" className="center-img"  lightImageSrc="guides-be/APPLE2.png" darkImageSrc="guides-be/APPLE2.png" />
 
 3. Click on the blue icon next to Identifiers, select App IDs, and click Continue.
 
-   <image alt="APPLE3" lightImageSrc="guides-be/APPLE3.png" darkImageSrc="guides-be/APPLE3.png" />
+   <image alt="APPLE3"  className="center-img"  lightImageSrc="guides-be/APPLE3.png" darkImageSrc="guides-be/APPLE3.png" />
 
 4. Select the type as App and click Continue
 5. Enter a description and bundle ID of your choice. _Example for Bundle ID: com.companyname.appname_
 6. Scroll down the Capabilities section and select "Sign In with Apple."
 
-   <image alt="APPLE4" lightImageSrc="guides-be/APPLE4.png" darkImageSrc="guides-be/APPLE4.png" />
+   <image alt="APPLE4" className="center-img"  lightImageSrc="guides-be/APPLE4.png" darkImageSrc="guides-be/APPLE4.png" />
 
 7. Click on the Continue button on the top and then click on Register.
 8. Now, go back to the Identifier page on Step 3 and click on the blue icon again. This time, select Services IDs and click Continue.
@@ -115,7 +115,7 @@ To set up authentication using Apple, you need to have an [Apple Developer Accou
 10. Click on Continue and then click on the Register button.
 11. Go back to the Identifiers page. This time, on the left menu, click on **Keys**.
 
-    <image alt="APPLE5" lightImageSrc="guides-be/APPLE5.png" darkImageSrc="guides-be/APPLE5.png" />
+    <image alt="APPLE5" className="center-img"  lightImageSrc="guides-be/APPLE5.png" darkImageSrc="guides-be/APPLE5.png" />
 
 12. Click on the blue icon next to Keys.
 
@@ -138,7 +138,7 @@ To set up authentication using Apple, you need to have an [Apple Developer Accou
     <image alt="APPLE9" lightImageSrc="guides-be/APPLE9.png" darkImageSrc="guides-be/APPLE9.png" />
 
 You can now enter your details in the console.
-<image alt="APPLE10" lightImageSrc="guides-be/APPLE10.png" darkImageSrc="guides-be/APPLE10.png" />
+<image alt="APPLE10"  className="center-img" lightImageSrc="guides-be/APPLE10.png" darkImageSrc="guides-be/APPLE10.png" />
 
 The Apple Client ID is the Client ID that you got in Step 9
 
