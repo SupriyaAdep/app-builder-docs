@@ -7,31 +7,37 @@ keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-The App State Library exposes various contexts used in App Builder. All contexts are wrapped around a [selector](/first-party-extension/api-reference/globals#renderinterface) hook that allows for selective subscribing of data.
+Provides methods to interact with various app states used in App Builder. Some methods accept a [selector](/first-party-extension/api-reference/globals#renderinterface) method that allows for selective subscribing of data.
+
+You can access them under the `customization-api` module as a named export.
 
 ---
 
 <method>
 
-## useRecording(selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [RecordingContextInterface](/first-party-extension/api-reference/context-library#recordingcontextinterface)
+## useRecording(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RecordingContextInterface](/first-party-extension/api-reference/context-library#recordingcontextinterface)
 
-The RecordingContext contains methods to start and stop cloud recording as well as state that tracks recording status.
+The Recording app state governs the App Builder cloud recording functionality.
 
 <br/>
 
 #### RecordingContextInterface
 
-| Key              | Type       | Description                                                      |
-| ---------------- | ---------- | ---------------------------------------------------------------- |
-| isRecordingActve | boolean    | Flag to indicate if cloud recording is active in the application |
-| startRecording   | () => void | Starts cloud recording                                           |
-| stopRecording    | () => void | Stops cloud recording                                            |
+| Key              | Type       | Description                                               |
+| ---------------- | ---------- | --------------------------------------------------------- |
+| isRecordingActve | boolean    | Indicates if cloud recording is active in the application |
+| startRecording   | () => void | Starts cloud recording                                    |
+| stopRecording    | () => void | Stops cloud recording                                     |
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the context:
 
 ```jsx
+import { useRecording } from "customization-api";
+
+...
+
 const { isRecordingActive, startRecording, stopRecording } = useRecording();
 ```
 
@@ -43,44 +49,29 @@ const { isRecordingActive, startRecording, stopRecording } = useRecording();
 
 <!-- PENDING -->
 
-## useRender(selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [RenderStateInterface](#renderstateinterface)
+## useRender(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RenderStateInterface](#renderstateinterface)
 
-The RenderContext contains the information necessary to render user content views.
+The Render context contains the information necessary to render user content views displayed in the videocall screen.
 
 <br/>
 
 #### RenderStateInterface
 
-| Key            | Type                                                                                        | Description                                                           |
-| -------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| renderList     | [RenderObjectInterface](/first-party-extension/api-reference/globals#renderobjectinterface) | Object containing all the render objects stored in the render context |
-| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype)\>                     | Array indicating order of all uids in the render context              |
+| Key            | Type                                                                                      | Description                              |
+| -------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------- |
+| renderList     | [RenderListInterface](/first-party-extension/api-reference/globals#renderobjectinterface) | Object containing all the render objects |
+| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype)\>                   | Array of all uids in the render context  |
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the context:
 
 ```jsx
-import { useRenderContext } from "customization-api";
+import { useRender } from "customization-api";
 
-const MyReactComponent = () => {
-  const {
-    renderList,
-    renderPosition,
-  } = useRenderContext((RenderContext) => {
-    const {
-      renderList,
-      renderPosition,
-    } = RenderContext;
+...
 
-    return {
-      renderList,
-      renderPosition,
-    };
-  });
-
-  ...
-};
+const { renderList, renderPosition } = useRender();
 ```
 
 </method>
@@ -89,30 +80,18 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLocalUserInfo : (selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [LocalUserInfo](#localuserinfo)
+## useLocalUserInfo(): [LocalUserInfo](/first-party-extension/api-reference/globals#renderinterface)
 
-The LocalContext contains the local user information.
+The LocalUserInfo context contains the local user information.
 
-<!-- PENDING -->
-
-#### LocalUserInfo
-
-| Key                 | Type                                                       | Description                                   |
-| ------------------- | ---------------------------------------------------------- | --------------------------------------------- |
-| activeLayoutName    | string                                                     | State variable containing active layout name  |
-| setActiveLayoutName | [React.Dispatch](a)< [React.SetStateAction](a) <string\>\> | Set state method to modify active layout name |
-
-<br/>
-
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the context:
 
 ```jsx
-import { useLocalContext } from "customization-api";
+import { useLocalUserInfo } from "customization-api";
 
-const MyReactComponent = () => {
-  const LocalContext = useLocalContext();
-  ...
-};
+...
+
+const { uid, audio, video, streamType, contentType } = useLocalUserInfo();
 ```
 
 </method>
@@ -121,11 +100,9 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLayout : (selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [LayoutContextInterface](#layoutcontextinterface)
+## useLayout(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [LayoutContextInterface](#layoutcontextinterface)
 
-<!-- PENDING -->
-
-The RenderContext contains the active layout and method to modify the active layout
+The Layout context governs the video call screen content display layout.
 
 <br/>
 
@@ -138,9 +115,13 @@ The RenderContext contains the active layout and method to modify the active lay
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the context:
 
 ```jsx
+import { useLayout } from "customization-api";
+
+...
+
 const { currentLayout, setLayout } = useLayout();
 ```
 
@@ -150,7 +131,7 @@ const { currentLayout, setLayout } = useLayout();
 
 <method>
 
-## useMeetingInfo : (selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [MeetingInfo](#meetinginfo)
+## useMeetingInfo(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [MeetingInfo](#meetinginfo)
 
 The MeetingInfoContext contains the all the information about the active meeting.
 
@@ -160,40 +141,38 @@ The MeetingInfoContext contains the all the information about the active meeting
 
 #### MeetingInfo
 
-| Key                | Type                                                                                                                                                      | Description                                                                                       |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| isHost             | boolean                                                                                                                                                   | Indicates if the user joined using the Host URL or using the Attendee URL                         |
-| meetingTitle       | string                                                                                                                                                    | Meeting title                                                                                     |
-| meetingPassphrase  | {<br/>&emsp;attendee: string,<br/>&emsp;host?: string,<br/>&emsp;pstn?: {<br/>&emsp;&emsp;number: string,<br/> &emsp;&emsp;pin: string<br/>&emsp;}<br/> } | Object containing host and attendee meeting passphrases along with PSTN info                      |
-| isSeparateHostLink | boolean                                                                                                                                                   | A flag that determines if the host uses a separate link or if everybody uses the same(host) link. |
-| channel            | string                                                                                                                                                    | Channel name of current meeting                                                                   |
-| uid                | number                                                                                                                                                    | uid of the local user                                                                             |
-| token              | string                                                                                                                                                    | rtc authentication token required to join the channel                                             |
-| rtm                | string                                                                                                                                                    | rtm uid of the local user                                                                         |
-| secret             | string                                                                                                                                                    | authentication secret                                                                             |
-| screenShareUid     | string                                                                                                                                                    | uid of local user screenshare                                                                     |
-| screenShareToken   | string                                                                                                                                                    | authentication token for local user screenshare                                                   |
-| isJoinDataFetched  | boolean                                                                                                                                                   | Videocall screen only - The boolean value indicates if the backend query has been completed.      |
+| Key               | Type                                | Description                                              |
+| ----------------- | ----------------------------------- | -------------------------------------------------------- |
+| isJoinDataFetched | boolean                             | Indicates meeting info has been fetched from the backend |
+| data?             | [MeetingInfoData](#meetinginfodata) | Meeting info data                                        |
+
+#### MeetingInfoData
+
+| Key                | Type                                                            | Description                                                               |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| isHost             | boolean                                                         | Indicates if the user joined using the Host URL or using the Attendee URL |
+| meetingTitle       | string                                                          | Meeting title                                                             |
+| roomId             | {<br/>&emsp;attendee: string,<br/>&emsp;host?: string,<br/>}    | Host and attendee roomIds                                                 |
+| pstn?              | {<br/>&emsp;number: string,<br/>&emsp;pin: string<br/>}         | PSTN info                                                                 |
+| isSeparateHostLink | boolean                                                         | Indicates if seperate host and attendee links generated                   |
+| channel            | string                                                          | Channel name of current meeting                                           |
+| uid                | [UidType](/first-party-extension/api-reference/globals#uidtype) | Uid of the local user                                                     |
+| token              | string                                                          | RTC authentication token required to join the channel                     |
+| rtmToken           | string                                                          | RTM authentication token required to join the channel                     |
+| encryptionSecret?  | string                                                          | Packet encryption secret secret                                           |
+| screenShareUid     | string                                                          | Uid of local user's screenshare                                           |
+| screenShareToken   | string                                                          | Authentication token for local user's screenshare                         |
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the context:
 
 ```jsx
-const {
-  isHost,
-  meetingTitle,
-  meetingPassphrase,
-  isSeparateHostLink,
-  channel,
-  uid,
-  token,
-  rtm,
-  secret,
-  screenShareUid,
-  screenShareToken,
-  isJoinDataFetched,
-} = useMeetingInfoContext();
+import { useMeetingInfo } from "customization-api";
+
+...
+
+const { isJoinDataFetched, data } = useMeetingInfo();
 ```
 
 </method>
@@ -202,7 +181,49 @@ const {
 
 <method>
 
-## useRtcContext : (selector?: [Selector](/first-party-extension/api-reference/globals#selector)) : [RtcContextInterface](#rtccontextinterface)
+## useUserName(): \[[userName](#username), [setUserName](#setusername)\]
+
+The UserName context contains the local user's display name.
+
+```js
+import { useUserName } from "customization-api";
+
+...
+
+const [userName, setUserName] = useUserName();
+```
+
+<br/>
+
+### _Returns_:
+
+<method>
+
+<collapsible>
+
+### userName: string
+
+</collapsible>
+
+<br/>
+
+<collapsible>
+
+### setUserName: (name: string) => void;
+
+</collapsible>
+
+</method>
+
+</method>
+
+---
+
+<method>
+
+## useRtcContext(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RtcContextInterface](#rtccontextinterface)
+
+<!-- PENDING -->
 
 The RenderContext contains the information necessary to render user content views.
 
@@ -223,27 +244,9 @@ Use the example code given below showcasing the use of selector to grab all the 
 ```jsx
 import { useRtcContext } from "customization-api";
 
-const MyReactComponent = () => {
-  const {
-    RtcEngine,
-    dispatch,
-    setDualStreamMode,
-  } = useRtcContext((RtcContext) => {
-    const {
-      RtcEngine,
-      dispatch,
-      setDualStreamMode,
-    } = RtcContext;
+...
 
-    return {
-      RtcEngine,
-      dispatch,
-      setDualStreamMode,
-    };
-  });
-
-  ...
-};
+const { RtcEngine, dispatch, setDualStreamMode } = useRtcContext();
 ```
 
 </method>

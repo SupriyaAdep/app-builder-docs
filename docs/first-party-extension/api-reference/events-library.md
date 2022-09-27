@@ -1,6 +1,6 @@
 ---
 sidebar_label: Custom Events Library
-sidebar_position: 6
+sidebar_position: 7
 description: Custom Events Library
 title: Custom Events Library
 keywords: [MeetingInfoContextInterface, LayoutContextInterface]
@@ -9,7 +9,9 @@ sidebar_custom_props: { icon: "code" }
 
 # Custom Events
 
-This library allows users to send and consume custom events.
+Provides methods to send and listen to custom events. These events can be sent to a specific user(s) in the channel or to all the user(s) in the channel.
+
+You can access them under the `customization-api` module as a named export.
 
 These events can be sent to
 

@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: "settings" }
 
 <!-- <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" /> -->
 
-The Components API allows for granular overriding of various aspects of the App Builder user interface ranging from entire screens such as the “VideoCall” screen to specific components within these screens such as the “BottomBar” component.
+Provides API for granular overriding of various aspects of the App Builder user interface ranging from entire screens such as the “VideoCall” screen to specific components within these screens such as the “BottomBar” component.
 
 The overrides are applied by supplying values as an object under the top-level `components` key to the Customization API config object.
 

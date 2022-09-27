@@ -7,7 +7,7 @@ keywords: [i18nInterface, i18nDataInterface]
 sidebar_custom_props: { icon: "i18" }
 ---
 
-Customize and add multiple language and locale translations for all strings used across App Builder using this API.
+Provides API to customize and add multiple language and locale translations for all strings used across App Builder.
 
 ## i18n : [i18nInterface](#i18ninterface)\[\]
 

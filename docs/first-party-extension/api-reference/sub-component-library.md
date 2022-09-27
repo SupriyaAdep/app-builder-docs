@@ -9,7 +9,9 @@ sidebar_custom_props: { icon: "code" }
 
 <api>
 
-The Sub Components library is a set of components to be composed as needed by the user. They can be imported under the `customization-api` module name
+Set of components to be composed as needed by the user.
+
+You can access them under the `customization-api` module as a named export.
 
 ---
 
@@ -104,7 +106,7 @@ import { ChatBubble } from "customization-api";
 
 <subtitle>
 
-## MaxVideoView : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[MaxVideoRendererInterface](#maxvideorendererinterface)\>
+## MaxVideoView : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[MaxVideoRendererProps](#maxvideorendererprops)\>
 
 </subtitle>
 
@@ -120,7 +122,7 @@ import { MaxVideoView } from "customization-api";
 
 <br/>
 
-#### MaxVideoRendererInterface
+#### MaxVideoRendererProps
 
 | Prop   | Type                                                                            | Description                                            |
 | ------ | ------------------------------------------------------------------------------- | ------------------------------------------------------ |
@@ -200,7 +202,7 @@ import { VideoComponent } from "customization-api";
 
 <subtitle>
 
-## NameWithMicStatus : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NameWithMicStatusInteface](#namewithmicstatusinteface)\>
+## NameWithMicStatus : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NameWithMicStatusProps](#namewithmicstatusprops)\>
 
 </subtitle>
 
@@ -216,7 +218,7 @@ import { NameWithMicStatus } from "customization-api";
 
 <br/>
 
-#### NameWithMicStatusInteface
+#### NameWithMicStatusProps
 
 | Prop   | Type                                                                            | Description                                                    |
 | ------ | ------------------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -230,7 +232,7 @@ import { NameWithMicStatus } from "customization-api";
 
 <subtitle>
 
-NetworkQualityPill : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NetworkQualityPillInteface](#networkqualitypillinteface)\>
+NetworkQualityPill : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NetworkQualityPillProps](#networkqualitypillprops)\>
 
 </subtitle>
 
@@ -246,7 +248,7 @@ import { NetworkQualityPill } from "customization-api";
 
 <br/>
 
-#### NetworkQualityPillInteface
+#### NetworkQualityPillProps
 
 | Prop   | Type                                                                            | Description                                                |
 | ------ | ------------------------------------------------------------------------------- | ---------------------------------------------------------- |
