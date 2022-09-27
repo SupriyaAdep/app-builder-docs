@@ -64,7 +64,7 @@ This page is an index of types, interfaces, enums used across the Customization 
 
 <method>
 
-## UidType : number
+## UidType : string | number
 
 </method>
 
@@ -72,7 +72,27 @@ This page is an index of types, interfaces, enums used across the Customization 
 
 <method>
 
-## selector( e ) => e
+## Selector( e: T ): Partial<T\>
+
+Method to subscribe to portions of the app-state. When passed to an app-state accessor method it reicieves the contents of the associated app-state as argument, it must selectively return the contents which are intended to be subscribed and eventually returned by the accessor method.
+
+```jsx
+import { useRecording } from "customization-api";
+
+const { isRecordingActive, startRecording } = useRecording(
+  ({isRecordingActve ,startRecording, stopRecording}) => {
+    return({{isRecordingActve, startRecording}})
+  }
+);
+
+/*
+#### RecordingContextInterface
+
+isRecordingActve : boolean
+startRecording   : () => void
+stopRecording    : () => void
+*/
+```
 
 </method>
 

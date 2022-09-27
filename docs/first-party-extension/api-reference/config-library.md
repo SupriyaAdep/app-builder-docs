@@ -96,6 +96,7 @@ Flag to enable/disable screen sharing functionality.
 ## CLIENT_ID: string
 
 <!-- PENDING -->
+To be removed
 
 </method>
 
