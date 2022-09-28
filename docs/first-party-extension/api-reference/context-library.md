@@ -7,7 +7,7 @@ keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-Provides methods to interact with various app states used in App Builder. Some methods accept a [selector](/first-party-extension/api-reference/globals#selector) method that allows for selective subscribing of data.
+Provides accessors for various app states used in App Builder. Some accessors accept a [selector](/first-party-extension/api-reference/globals#selector) method that allows for selective subscribing of data.
 
 You can access them under the `customization-api` module as a named export.
 
@@ -31,7 +31,7 @@ The Recording app state governs the App Builder cloud recording functionality.
 
 <br/>
 
-Usage example of the context:
+Usage example of the app state:
 
 ```jsx
 import { useRecording } from "customization-api";
@@ -47,28 +47,120 @@ const { isRecordingActive, startRecording, stopRecording } = useRecording();
 
 <method>
 
-<!-- PENDING -->
+## useChatUiControl(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [ChatUiControlInterface](/first-party-extension/api-reference/context-library#chatuicontrolinterface)
 
-## useRender(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RenderStateInterface](#renderstateinterface)
-
-<!-- The Render context contains the information necessary to render user content views displayed in the videocall screen. This app state is passed to the layouts as an array of components to display the content views. The renderList object contains renderObjects for every uid in the the renderContext as key value pairs. -->
-
-The Render context governs the information necessary to render each user content view displayed in the videocall screen.
-
-It is composed of:
-
-#### RenderStateInterface
-
-| Key            | Type                                                                                    | Description                                                                                                        |
-| -------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| renderList     | [RenderListInterface](/first-party-extension/api-reference/globals#renderlistinterface) | Object containing information necessary to render the content view corresponding to each uid in the render context |
-| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype)\>                 | Array of all uids in the render context                                                                            |
+The ChatUiControl app state governs the chat ui.
 
 <br/>
 
-Each [renderObject](/first-party-extension/api-reference/globals#renderobjectinterface) in the `renderList` is passed as a prop to corresponding type of [content component](/first-party-extension/api-reference/components-api#renderingcomponentinterface). All the resulting components are then passed to the layouts as an array to be rendered as desired.
+#### ChatUiControlInterface
 
-**For eg.** The render context contains a renderObject of `type:'rtc'` for each user in the meeting by default. It is used to display user video feeds coming from AgoraRTC hence they contain all the necessary information like: `uid` to identify and subscribe to the video and audio, `audio` and `video` mute states to correctly display fallbacks and icons, etc. Each renderObject is passed as a prop to [MaxVideoView](/first-party-extension/api-reference/sub-components-library#maxvideoview) unless overriden by [CustomContent API](/first-party-extension/api-reference/components-api#videocallcustomcontent). After which the resulting array of components is passed to layout to be rendered.
+| Key                   | Type                            | Description                                           |
+| --------------------- | ------------------------------- | ----------------------------------------------------- |
+| groupActive           | boolean                         | Determines if group tab is active in chat sidepanel   |
+| setGroupActive        | (status: boolean) => void       | Method to set group tab active status                 |
+| privateActive         | boolean                         | Determines if private tab is active in chat sidepanel |
+| setPrivateActive      | (status: boolean) => void       | Method to set private tab active status               |
+| selectedChatUserId    | [UidType](link)                 | Uid of the user selected in private chat tab          |
+| setSelectedChatUserId | (uid: [UidType](link) ) => void | Method to set selected user                           |
+| message               | string                          | Content of message to be sent                         |
+| setMessage            | (message: string) => void       | Method to set content of message to be sent           |
+
+<br/>
+
+Usage example of the app state:
+
+```jsx
+import { useRecording } from "customization-api";
+
+...
+
+const { isRecordingActive, startRecording, stopRecording } = useRecording();
+```
+
+</method>
+
+---
+
+<method>
+
+## useMessages(): [MessageInterface](/first-party-extension/api-reference/context-library#messageinterface)
+
+The Messages app state governs the chat messages.
+
+<br/>
+
+#### MessageInterface
+
+| Key                      | Type                                                                 | Description                                                                   |
+| ------------------------ | -------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| groupMessages            | [messageStoreInterface](#messagestoreinterface)[]                    | Array of all the group messages                                               |
+| privateMessages          | { [key: string]: [messageStoreInterface](#messagestoreinterface)[] } | Object containing all private messages                                        |
+| sendMessage              | ( msg: string, toUid?: number ) => void                              | Method to send a message. Sends group message if `toUid` is not passed        |
+| editMessage              | ( msgId: string, msg: string, toUid?: number ) => void               | Method to edit a message                                                      |
+| deleteMessage            | ( msgId: string, toUid?: number ) => void                            | Method to delete a message                                                    |
+| groupUnreadCount         | number                                                               | Number of unread group messages                                               |
+| setGroupUnreadCount      | (count: number) => void                                              | method to set number of unread group messages                                 |
+| individualunreadcount    | { [key: string]: number }                                            | object containing number of unread private messages corresponding to each uid |
+| setindividualunreadcount | (count: { [key: string]: number } ) => void                          | method to set nubmer of unread private messages                               |
+
+#### messagestoreinterface
+
+| key               | type            | description                     |
+| ----------------- | --------------- | ------------------------------- |
+| createdtimestamp  | number          | message creation timestamp      |
+| updatedtimestamp? | number          | last message update timestamp   |
+| msg               | string          | message content                 |
+| msgid             | string          | message id                      |
+| isdeleted         | boolean         | indicates if message is deleted |
+| uid               | [uidtype](link) | uid of the message sender       |
+
+<br/>
+
+usage example of the app state:
+
+```jsx
+import { usemessages } from "customization-api";
+
+const {
+  groupmessages,
+  privatemessages,
+  sendmessage,
+  editmessage,
+  deletemessage,
+  groupunreadcount,
+  setgroupunreadcount,
+  individualunreadcount,
+  setindividualunreadcount,
+} = usemessages();
+```
+
+</method>
+
+---
+
+<method>
+
+## useRender(selector?: [selector](/first-party-extension/api-reference/globals#selector)): [renderstateinterface](#renderstateinterface)
+
+<!-- the render app state contains the information necessary to render user content views displayed in the videocall screen. this app state is passed to the layouts as an array of components to display the content views. the renderlist object contains renderobjects for every uid in the the rendercontext as key value pairs. -->
+
+the render app state governs the information necessary to render each user content view displayed in the videocall screen.
+
+it is composed of:
+
+#### renderstateinterface
+
+| key            | type                                                                                    | description                                                                                                          |
+| -------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| renderlist     | [renderlistinterface](/first-party-extension/api-reference/globals#renderlistinterface) | object containing information necessary to render the content view corresponding to each uid in the render app state |
+| renderposition | array<[uidtype](/first-party-extension/api-reference/globals#uidtype)\>                 | array of all uids in the render app state                                                                            |
+
+<br/>
+
+each [renderobject](/first-party-extension/api-reference/globals#renderobjectinterface) in the `renderlist` is passed as a prop to corresponding type of [content component](/first-party-extension/api-reference/components-api#renderingcomponentinterface). all the resulting components are then passed to the layouts as an array to be rendered as desired.
+
+**for eg.** the render app state contains a renderobject of `type:'rtc'` for each user in the meeting by default. it is used to display user video feeds coming from agorartc hence they contain all the necessary information like: `uid` to identify and subscribe to the video and audio, `audio` and `video` mute states to correctly display fallbacks and icons, etc. each renderobject is passed as a prop to [maxVideoView](/first-party-extension/api-reference/sub-components-library#maxvideoview) unless overriden by [CustomContent API](/first-party-extension/api-reference/components-api#videocallcustomcontent). After which the resulting array of components is passed to layout to be rendered.
 
 :::tip
 
@@ -76,7 +168,7 @@ You can add custom render objects to the render app state using the 'AddCustomCo
 
 :::
 
-Usage example of the context:
+Usage example of the app state:
 
 ```jsx
 import { useRender } from "customization-api";
@@ -94,16 +186,16 @@ const { renderList, renderPosition } = useRender();
 
 ## useLocalUserInfo(): [LocalUserInfo](/first-party-extension/api-reference/globals#rtcrenderinterface)
 
-The LocalUserInfo context contains the local user information.
+The LocalUserInfo app state contains the local user information.
 
-Usage example of the context:
+Usage example of the app state:
 
 ```jsx
 import { useLocalUserInfo } from "customization-api";
 
 ...
 
-const { uid, audio, video, streamType, contentType } = useLocalUserInfo();
+const { uid, audio, video, streamType, contentType, name, screenUid, offline} = useLocalUserInfo();
 ```
 
 </method>
@@ -114,7 +206,7 @@ const { uid, audio, video, streamType, contentType } = useLocalUserInfo();
 
 ## useLayout(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [LayoutContextInterface](#layoutcontextinterface)
 
-The Layout context governs the video call screen content display layout.
+The Layout app state governs the video call screen content display layout.
 
 <br/>
 
@@ -127,7 +219,7 @@ The Layout context governs the video call screen content display layout.
 
 <br/>
 
-Usage example of the context:
+Usage example of the app state:
 
 ```jsx
 import { useLayout } from "customization-api";
@@ -145,7 +237,7 @@ const { currentLayout, setLayout } = useLayout();
 
 ## useMeetingInfo(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [MeetingInfo](#meetinginfo)
 
-The MeetingInfoContext contains the all the information about the active meeting.
+The MeetingInfo app state contains information about the active meeting.
 
 <br/>
 
@@ -177,7 +269,7 @@ The MeetingInfoContext contains the all the information about the active meeting
 
 <br/>
 
-Usage example of the context:
+Usage example of the app state:
 
 ```jsx
 import { useMeetingInfo } from "customization-api";
@@ -195,9 +287,9 @@ const { isJoinDataFetched, data } = useMeetingInfo();
 
 ## useUserName(): \[[userName](#username), [setUserName](#setusername)\]
 
-The UserName context contains the local user's display name.
+The UserName app state governs the local user's display name.
 
-Usage example of the context:
+Usage example of the app state:
 
 ```js
 import { useUserName } from "customization-api";
@@ -235,15 +327,13 @@ const [userName, setUserName] = useUserName();
 
 <method>
 
-## useRtcContext(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RtcContextInterface](#rtccontextinterface)
+## useRtc(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RtcInterface](#rtcinterface)
 
-<!-- PENDING -->
-
-The RenderContext contains the information necessary to render user content views.
+The RTC app state exposes the internal RtcEngine object as well as dispatch interface to perform various actions.
 
 <br/>
 
-#### RtcContextInterface
+#### RtcInterface
 
 | Key               | Type                                                                                                                          | Description                                                                                                                                                   |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -257,14 +347,14 @@ Avoid using `RtcEngine` to perform actions such as muting audio, joining a chann
 
 <br/>
 
-Usage example of the context:
+Usage example of the app state:
 
 ```jsx
-import { useRtcContext } from "customization-api";
+import { useRtc } from "customization-api";
 
 ...
 
-const { RtcEngine, dispatch, setDualStreamMode } = useRtcContext();
+const { RtcEngine, dispatch, setDualStreamMode } = useRtc();
 ```
 
 </method>

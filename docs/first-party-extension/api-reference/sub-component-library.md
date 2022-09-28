@@ -202,7 +202,7 @@ import { VideoComponent } from "customization-api";
 
 <subtitle>
 
-## NameWithMicStatus : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NameWithMicStatusProps](#namewithmicstatusprops)\>
+## NameWithMicIcon : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NameWithMicIconProps](#namewithmiciconprops)\>
 
 </subtitle>
 
@@ -210,15 +210,15 @@ import { VideoComponent } from "customization-api";
 
 <image alt="Video Call" lightImageSrc="api/NameLabel.png" darkImageSrc="api/NameLabel.png" />
 
-The NameWithMicStatus component is used to render the user name along with their mic muted state.
+The NameWithMicIcon component is used to render the user name along with their mic muted state.
 
 ```jsx
-import { NameWithMicStatus } from "customization-api";
+import { NameWithMicIcon } from "customization-api";
 ```
 
 <br/>
 
-#### NameWithMicStatusProps
+#### NameWithMicIconProps
 
 | Prop   | Type                                                                            | Description                                                    |
 | ------ | ------------------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -232,7 +232,7 @@ import { NameWithMicStatus } from "customization-api";
 
 <subtitle>
 
-NetworkQualityPill : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NetworkQualityPillProps](#networkqualitypillprops)\>
+## NetworkQualityPill: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NetworkQualityPillProps](#networkqualitypillprops)\>
 
 </subtitle>
 
@@ -313,7 +313,7 @@ import { ParticipantsView } from "customization-api";
 The Controls component is used to render all the meeting controls.
 
 ```jsx
-import { MaxVideoView } from "customization-api";
+import { Controls } from "customization-api";
 ```
 
 :::note
@@ -328,13 +328,480 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <subtitle>
 
+## HorizontalRule : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[HorizontalRuleProps](#horizontalruleprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call" caption="chat bubble" darkImageSrc="api/HorizontalRule.png" />
+
+<br/>
+
+The HorizontalRule component displays a horizontal line.
+
+```jsx
+import { HorizontalRule } from "customization-api";
+```
+
+<br/>
+
+#### HorizontalRuleProps
+
+| Prop  | Type              | Description                           |
+| ----- | ----------------- | ------------------------------------- |
+| style | [ViewProps](link) | custom css to override existing style |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## RenderComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[RenderComponentProps](#rendercomponentprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/RenderComponent.png" darkImageSrc="api/RenderComponent.png" />
+
+<br/>
+
+The Render component handles rendering the correct content view component as defined in [custom content api](/first-party-extension/api-reference/components-api#videocallcustomcontent) based on the content type corresponding to the `uid` as defined in the [Render app state](/first-party-extension/api-reference/context-library#userender).
+
+```jsx
+import { RenderComponent } from "customization-api";
+```
+
+<br/>
+
+#### RenderComponentProps
+
+| Prop | Type            | Description                                |
+| ---- | --------------- | ------------------------------------------ |
+| uid  | [UidType](link) | uid of [renderObject](link) to be rendered |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## SettingsView : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/SettingsView.png" darkImageSrc="api/SettingsView.png" />
+
+The SettingsView component is used to render the settings side panel.
+
+```jsx
+import { SettingsView } from "customization-api";
+```
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## ChatSendButton : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatSendButtonProps](#chatsendbuttonprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/ChatSendButton.png" darkImageSrc="api/ChatSendButton.png" />
+
+The ChatSendButton component displays the chat send button. Relies on [ChatUiControl app state](link) to determine required information.
+
+```jsx
+import { ChatSendButton } from "customization-api";
+```
+
+<br/>
+
+#### ChatSendButtonProps
+
+| Prop    | Type                                   | Description                      |
+| ------- | -------------------------------------- | -------------------------------- |
+| render? | ( onPress: () => void ) => JSX.Element | Render method for ChatSendButton |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## ChatTextInput : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatTextInputProps](#chatinputprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/ChatTextInput.png" darkImageSrc="api/ChatTextInput.png" />
+
+The ChatTextInput component displays the chat input box. Relies on [ChatUiControl app state](link) to determine required information.
+
+```jsx
+import { ChatTextInput } from "customization-api";
+```
+
+<br/>
+
+#### ChatTextInputProps
+
+| Prop    | Type                                                                   | Description                     |
+| ------- | ---------------------------------------------------------------------- | ------------------------------- |
+| render? | ([ChatTextInputRenderProps](#chattextinputrenderprops)) => JSX.Element | Render method for ChatTextInput |
+
+#### ChatTextInputRenderProps
+
+| Prop                        | Type                      |
+| --------------------------- | ------------------------- |
+| message                     | string                    |
+| onChangeText                | ( text: string ) => void, |
+| onSubmitEditing             | () => void,               |
+| chatMessageInputPlaceholder | string                    |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## Chat : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatProps](#chatprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/Chat.png" darkImageSrc="api/Chat.png" />
+
+The Chat component displays the chat sidepanel. Relies on [ChatUiControl app state](link) to determine required information.
+
+```jsx
+import { Chat } from "customization-api";
+```
+
+<br/>
+
+#### ChatProps
+
+| Prop            | Type                                                                                                                                                                                                 | Description                         |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| chatBubble?     | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatBubbleProps](#chatbubbleprops)\>         | ChatBubble component to be used     |
+| chatTextInput?  | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatTextInputProps](#chatinputprops)\>       | ChatTextInput component to be used  |
+| chatSendButton? | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatSendButtonProps](#chatsendbuttonprops)\> | ChatSendButton component to be used |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## NavBar : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NavBarProps](#navbarprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/NavBar.png" darkImageSrc="api/NavBar.png" />
+
+The NavBar component displays the nav bar.
+
+```jsx
+import { NavBar } from "customization-api";
+```
+
+<br/>
+
+#### NavBarProps
+
+| Prop    | Type   | Description                 |
+| ------- | ------ | --------------------------- |
+| message | string | Content of the chat message |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## TextInput : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)< [TextInputProps](https://reactnative.dev/docs/textinput#props)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/TextInput.png" darkImageSrc="api/TextInput.png" />
+
+The TextInput component is used to render a text input box.
+
+```jsx
+import { TextInput } from "customization-api";
+```
+
+<br/>
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## PrimaryButton : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[PrimaryButtonProps](#primarybuttonprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/PrimaryButton.png" darkImageSrc="api/PrimaryButton.png" />
+
+The PrimaryButton component is used to render a button with app builder primary button styling.
+
+```jsx
+import { PrimaryButton } from "customization-api";
+```
+
+<br/>
+
+#### PrimaryButtonProps
+
+| Prop | Type   | Description                        |
+| ---- | ------ | ---------------------------------- |
+| text | string | Text to be displayed on the button |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## SecondaryButton : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[SecondaryButtonProps](#secondarybuttonprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/SecondaryButton.png" darkImageSrc="api/SecondaryButton.png" />
+
+The SecondaryButton component is used to render a button with app builder primary button styling.
+
+```jsx
+import { SecondaryButton } from "customization-api";
+```
+
+<br/>
+
+#### SecondaryButtonProps
+
+| Prop | Type   | Description                        |
+| ---- | ------ | ---------------------------------- |
+| text | string | Text to be displayed on the button |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## UiKitBtnTemplate : [BtnTemplate](https://agoraio-community.github.io/VideoUIKit-ReactNative/modules/Built_in_Components.html#BtnTemplate)
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/UiKitBtnTemplateInterface.png" darkImageSrc="api/UiKitBtnTemplateInterface.png" />
+
+The UiKitBtnTemplate component renders a button in UiKit button structure.
+
+```jsx
+import { UiKitBtnTemplate } from "customization-api";
+```
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## UiKitMaxVideoView : [MaxVideoView](https://agoraio-community.github.io/VideoUIKit-ReactNative/modules/Built_in_Components.html#MaxVideoView)
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/UiKitMaxVideoView.png" darkImageSrc="api/UiKitMaxVideoView.png" />
+
+The MaxVideoView component is used to render the user video feed along with overlay components like [NameWithMicIcon](#namewithmicicon), [NetworkQualityPill](#networkqualitypill) etc.
+
+```jsx
+import { UiKitMaxVideoView } from "customization-api";
+```
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## UiKitImageIcon : [ImageIcon](https://agoraio-community.github.io/VideoUIKit-ReactNative/modules/Built_in_Components.html#ImageIcon)
+
+</subtitle>
+
+<br/>
+
+<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/UiKitImageIcon.png" darkImageSrc="api/UiKitImageIcon.png" />
+
+The UiKitImageIcon component is used to render a given icon within a wrapper component.
+
+```jsx
+import { UiKitImageIcon } from "customization-api";
+```
+
+</method>
+
+<method>
+
+<subtitle>
+
+## NavBarComponentsArray : [React.ComponentType\[\]](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+</subtitle>
+
+<br/>
+
+The NavBarComponentsArray is an array of all buttons present on the default nav bar component.
+
+| Index | Name                   | Type                                                                | Description                             |
+| ----- | ---------------------- | ------------------------------------------------------------------- | --------------------------------------- |
+| 0     | CopyJoinInfo           | [CopyJoinInfoComponent](#copyjoininfocomponent)                     | Button to copy meeting invite           |
+| 1     | ParticipantsIconButton | [ParticipantsIconButtonComponent](#participantsiconbuttoncomponent) | Button to toggle participants sidepanel |
+| 2     | ChatIconButton         | [ChatIconButtonComponent](#chaticonbuttoncomponent)                 | Button to toggle chat sidepanel         |
+| 3     | LayoutIconButton       | [LayoutIconButtonComponent](#layouticonbuttoncomponent)             | Button to switch layouts                |
+| 4     | SettingsIconButton     | [SettingsIconButtonComponent](#settingsiconbuttoncomponent)         | Button to toggle setting sidepanel      |
+
+```jsx
+import { NavBarComponentsArray } from "customization-api";
+```
+
+<br/>
+
+### _Control Components_:
+
+<collapsible>
+
+### CopyJoinInfoComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[CopyJoinInfoProps](#copyjoininfoprops)>
+
+#### CopyJoinInfoProps
+
+| Key                | Type                                                                                                                                                                                                                     | Description                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| showText           | `boolean`                                                                                                                                                                                                                | Flag to determine whether to show text besides button |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                  | Type of button template to be used for the button     |
+| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Component to be used to render the button             |
+
+</collapsible>
+
+<br/>
+
+<collapsible>
+
+### ParticipantsIconButtonComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ParticipantsIconButtonProps](#ParticipantsIconButtonProps)>
+
+#### ParticipantsIconButtonProps
+
+| Key                    | Type                                                                                                                                                                                                                                                                             | Description                                       |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| badgeContainerPosition | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                                                                         | Position for peninding chat messages alert badge  |
+| badgeTextStyle         | [TextStyle](https://reactnative.dev/docs/text-style-props)                                                                                                                                                                                                                       | custom style for badge text                       |
+| buttonTemplateName     | [buttonTemplateName](a)                                                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?                | ( onPress: `()=>void` , isPanelActive: `boolean`, totalUnreadCount: `number` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+
+</collapsible>
+
+<br/>
+
+<collapsible>
+
+### ChatIconButtonComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatIconButtonProps](#chaticonbuttonprops)>
+
+#### ChatIconButtonProps
+
+| Key                                   | Type                                                                                                                                                                                                                                               | Description                                          |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| liveStreamingRequestAlertIconPosition | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                                           | Position for pending raise hand requests alert badge |
+| buttonTemplateName                    | [buttonTemplateName](a)                                                                                                                                                                                                                            | Type of button template to be used for the button    |
+| render?                               | ( onPress: `()=>void`, isPanelActive: `boolean`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button             |
+
+</collapsible>
+
+<br/>
+
+<collapsible>
+
+### LayoutIconButtonComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[LayoutIconButtonProps](#layouticonbuttonprops)>
+
+#### LayoutIconButtonProps
+
+| Key                | Type                                                                                                                                                                                                                     | Description                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| modalPosition      | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                 | Position of the switch layout modal               |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                  | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+
+</collapsible>
+
+<br/>
+
+<collapsible>
+
+### SettingsIconButtonComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[SettingsIconButtonProps](#SettingsIconButtonProps)>
+
+#### SettingsIconButtonProps
+
+| Key                | Type                                                                                                                                                                                                                     | Description                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                  | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+
+</collapsible>
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
 ## ControlsComponentArray : [React.ComponentType\[\]](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
 </subtitle>
 
 <br/>
 
-The SidePanelButtonsArray is an array of all meeting control button subcomponents listed below.
+The ControlsComponentArray is an array of all meeting control button subcomponents listed below.
 
 | Index | Name               | Type                                                    | Description                                                 |
 | ----- | ------------------ | ------------------------------------------------------- | ----------------------------------------------------------- |
@@ -360,20 +827,10 @@ import { ControlsComponentArray } from "customization-api";
 
 #### LocalAudioMuteProps
 
-| Key                | Type                                                                                                                                                                                                            | Description                                       |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                         | Type of button template to be used for the button |
-| render?            | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[LocalAudioMuteRenderProps](#localaudiomuterenderprops)> | Component to be used to render the button         |
-
-<br/>
-
-#### LocalAudioMuteRenderProps
-
-| Parameter           | Type               | Description                                       |
-| ------------------- | ------------------ | ------------------------------------------------- |
-| onPress             | () => void         | Function called when button is pressed            |
-| isEnabled?          | boolean            | Display state of the button                       |
-| buttonTemplateName? | buttonTemplateName | Type of button template to be used for the button |
+| Key                | Type                                                                                                                                                                                                                                           | Description                                       |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                        | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void`, isEnabled: `boolean`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Component to be used to render the button         |
 
 </collapsible>
 
