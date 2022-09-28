@@ -58,7 +58,7 @@ export function H3({ children }) {
     );
   }
   if (children.length == 2) {
-    console.log(children);
+    // console.log(children);
   }
   if (children.length >= 2) {
     if (React.isValidElement(children[0])) return <h3>{children}</h3>;

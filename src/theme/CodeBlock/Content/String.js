@@ -51,15 +51,16 @@ export default function CodeBlockString({
     showLineNumbersProp ?? containsLineNumbers(metastring);
 
   React.useEffect(() => {
-    const scrollBy = 20 * hline.current; // height of one line 20px
+    const scrollBy = 18 * hline.current; // height of one line 20x , 300-(32*64) /18
     const section = containerRef?.current?.querySelector('pre')
-    if (tlines?.current < 20) {
+    if (tlines?.current < 13) {
       const expandbtn = containerRef?.current?.querySelector('.expand-btn')
       expandbtn?.classList?.add('hidden')
     }
     section?.scrollTo({ top: scrollBy, behavior: 'smooth' })
 
   }, [])
+
   return (
     <Container
       as="div"
@@ -70,7 +71,6 @@ export default function CodeBlockString({
         !blockClassName.includes(`language-${language}`) &&
         `language-${language}`,
       )}>
-
       {title && <div className={styles.codeBlockTitle}>{title}</div>}
       <div className={styles.codeBlockContent}>
 
@@ -79,35 +79,40 @@ export default function CodeBlockString({
           theme={prismTheme}
           code={code}
           language={language ?? 'text'}>
-          {({ className, tokens, getLineProps, getTokenProps }) => (
-            <pre
-              /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
-              tabIndex={0}
-              ref={wordWrap.codeBlockRef}
-              className={clsx(className, styles.codeBlock, 'thin-scrollbar')}>
-              <code
-                className={clsx(
-                  styles.codeBlockLines,
-                  showLineNumbers && styles.codeBlockLinesWithNumbering,
-                )}>
+          {({ className, tokens, getLineProps, getTokenProps }) => {
+            tlines.current = tokens.length;
+            return (
+              <pre
+                /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+                tabIndex={0}
+                ref={wordWrap.codeBlockRef}
+                className={clsx(className, styles.codeBlock, 'thin-scrollbar')}>
+                <code
+                  className={clsx(
+                    styles.codeBlockLines,
+                    showLineNumbers && styles.codeBlockLinesWithNumbering,
+                  )}>
 
-                {tokens.map((line, i) => {
-                  if (lineClassNames[i] == 'theme-code-block-highlighted-line') {
-                    hline.current = hline.current === 0 ? i : hline.current
-                  }
-                  tlines.current += i;
-                  return <Line
-                    key={i}
-                    line={line}
-                    getLineProps={getLineProps}
-                    getTokenProps={getTokenProps}
-                    classNames={lineClassNames[i]}
-                    showLineNumbers={showLineNumbers}
-                  />
-                })}
-              </code>
-            </pre>
-          )}
+
+                  {tokens.map((line, i) => {
+                    if (lineClassNames[i] == 'theme-code-block-highlighted-line') {
+                      hline.current = hline.current === 0 ? i : hline.current
+                    }
+                    // tlines.current += i;
+                    return <Line
+                      key={i}
+                      line={line}
+                      getLineProps={getLineProps}
+                      getTokenProps={getTokenProps}
+                      classNames={lineClassNames[i]}
+                      showLineNumbers={showLineNumbers}
+                    />
+                  })}
+                </code>
+              </pre>
+            )
+          }}
+
         </Highlight>
         <div className={styles.buttonGroup}>
           {(wordWrap.isEnabled || wordWrap.isCodeScrollable) && (
@@ -122,5 +127,6 @@ export default function CodeBlockString({
         </div>
       </div>
     </Container>
-  );
-}
+  )
+};
+
