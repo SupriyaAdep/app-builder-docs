@@ -28,7 +28,7 @@ const isVideoEnabled = useIsVideoEnabled();
 
 ...
 
-if (isVideoEnabled(/* 123457 */)) {
+if (isVideoEnabled( 123457 )) {
   // if user video enabled
 } else {
   // if user video disabled
@@ -68,7 +68,7 @@ const isAudioEnabled = useIsAudioEnabled();
 
 ...
 
-if (isAudioEnabled(/* 123457 */)) {
+if (isAudioEnabled( 123457 )) {
   // if user audio enabled
 } else {
   // if user audio disabled
@@ -108,7 +108,7 @@ const isHost = useIsHost();
 
 ...
 
-if (isHost(/* 123457 */)) {
+if (isHost( 123457 )) {
   // if user is host
 } else {
   // if user is not host
@@ -148,7 +148,7 @@ const isAttendee = useIsAttendee();
 
 ...
 
-if (isAttendee(/* 123457 */)) {
+if (isAttendee( 123457 )) {
   // if user is attendee
 } else {
   // if user is not attendee
@@ -188,7 +188,7 @@ const isPSTN = isPSTN();
 
 ...
 
-if (isPSTN(/* 123457 */)) {
+if (isPSTN( 123457 )) {
   // if user joined via pstn
 } else {
   // if user did not join via pstn

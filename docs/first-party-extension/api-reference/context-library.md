@@ -7,7 +7,7 @@ keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-Provides methods to interact with various app states used in App Builder. Some methods accept a [selector](/first-party-extension/api-reference/globals#renderinterface) method that allows for selective subscribing of data.
+Provides methods to interact with various app states used in App Builder. Some methods accept a [selector](/first-party-extension/api-reference/globals#selector) method that allows for selective subscribing of data.
 
 You can access them under the `customization-api` module as a named export.
 
@@ -51,18 +51,30 @@ const { isRecordingActive, startRecording, stopRecording } = useRecording();
 
 ## useRender(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RenderStateInterface](#renderstateinterface)
 
-The Render context contains the information necessary to render user content views displayed in the videocall screen.
+<!-- The Render context contains the information necessary to render user content views displayed in the videocall screen. This app state is passed to the layouts as an array of components to display the content views. The renderList object contains renderObjects for every uid in the the renderContext as key value pairs. -->
 
-<br/>
+The Render context governs the information necessary to render each user content view displayed in the videocall screen.
+
+It is composed of:
 
 #### RenderStateInterface
 
-| Key            | Type                                                                                      | Description                              |
-| -------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------- |
-| renderList     | [RenderListInterface](/first-party-extension/api-reference/globals#renderobjectinterface) | Object containing all the render objects |
-| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype)\>                   | Array of all uids in the render context  |
+| Key            | Type                                                                                    | Description                                                                                                        |
+| -------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| renderList     | [RenderListInterface](/first-party-extension/api-reference/globals#renderlistinterface) | Object containing information necessary to render the content view corresponding to each uid in the render context |
+| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype)\>                 | Array of all uids in the render context                                                                            |
 
 <br/>
+
+Each [renderObject](/first-party-extension/api-reference/globals#renderobjectinterface) in the `renderList` is passed as a prop to corresponding type of [content component](/first-party-extension/api-reference/components-api#renderingcomponentinterface). All the resulting components are then passed to the layouts as an array to be rendered as desired.
+
+**For eg.** The render context contains a renderObject of `type:'rtc'` for each user in the meeting by default. It is used to display user video feeds coming from AgoraRTC hence they contain all the necessary information like: `uid` to identify and subscribe to the video and audio, `audio` and `video` mute states to correctly display fallbacks and icons, etc. Each renderObject is passed as a prop to [MaxVideoView](/first-party-extension/api-reference/sub-components-library#maxvideoview) unless overriden by [CustomContent API](/first-party-extension/api-reference/components-api#videocallcustomcontent). After which the resulting array of components is passed to layout to be rendered.
+
+:::tip
+
+You can add custom render objects to the render app state using the 'AddCustomContent' action in [dispatch](/first-party-extension/api-reference/globals#dispatchtype)
+
+:::
 
 Usage example of the context:
 
@@ -80,7 +92,7 @@ const { renderList, renderPosition } = useRender();
 
 <method>
 
-## useLocalUserInfo(): [LocalUserInfo](/first-party-extension/api-reference/globals#renderinterface)
+## useLocalUserInfo(): [LocalUserInfo](/first-party-extension/api-reference/globals#rtcrenderinterface)
 
 The LocalUserInfo context contains the local user information.
 
@@ -185,6 +197,8 @@ const { isJoinDataFetched, data } = useMeetingInfo();
 
 The UserName context contains the local user's display name.
 
+Usage example of the context:
+
 ```js
 import { useUserName } from "customization-api";
 
@@ -231,15 +245,19 @@ The RenderContext contains the information necessary to render user content view
 
 #### RtcContextInterface
 
-| Key               | Type                                                                                                                                   | Description                             |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                                        | The RtcEngine object from the Agora SDK |
-| dispatch          | [DispatchType](https://agoraio-community.github.io/ReactNative-UIKit/modules/Built_in_Components._internal_.html#DispatchType)         | Method to dispatch various callbacks    |
-| setDualStreamMode | ( mode:[DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) ): void | Method to modify dual stream mode       |
+| Key               | Type                                                                                                                          | Description                                                                                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                               | The RtcEngine object from the AgoraRTC SDK                                                                                                                    |
+| dispatch          | [DispatchType](/first-party-extension/api-reference/globals#dispatchtype)                                                     | Method to perform various app builder actions. You can see list of available actions [here](/first-party-extension/api-reference/globals#callbacksinterface). |
+| setDualStreamMode | ( mode: [DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) ): void | Method to modify dual stream mode                                                                                                                             |
+
+:::danger
+Avoid using `RtcEngine` to perform actions such as muting audio, joining a channel etc. Instead rely on [Actions Library](/first-party-extension/api-reference/actions-library) or [Dispatch](/first-party-extension/api-reference/globals#dispatchtype) provided by the `customization-api`.
+:::
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the context:
 
 ```jsx
 import { useRtcContext } from "customization-api";

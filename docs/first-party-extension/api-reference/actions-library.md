@@ -84,7 +84,7 @@ const muteToggleLocal = useMuteToggleLocal();
 
 ...
 
-muteToggleLocal(/* MUTE_REMOTE_TYPE.audio */); // toggle local user's audio mute state
+muteToggleLocal( MUTE_LOCAL_TYPE.audio ); // toggle local user's audio mute state
 ```
 
 <br/>
@@ -120,7 +120,7 @@ const muteToggleRemote = useRemoteMute();
 
 ...
 
-muteToggleRemote(/* MUTE_REMOTE_TYPE.audio, 123457 */); // toggle uid:123457 user's audio mute state
+muteToggleRemote( MUTE_REMOTE_TYPE.audio, 123457 ); // toggle uid:123457 user's audio mute state
 ```
 
 <br/>
@@ -156,7 +156,7 @@ const remoteEndCall = useRemoteEndCall();
 
 ...
 
-remoteEndCall(/* 123457 */); // end uid:123457 user's call
+remoteEndCall( 123457 ); // end uid:123457 user's call
 ```
 
 <br/>
