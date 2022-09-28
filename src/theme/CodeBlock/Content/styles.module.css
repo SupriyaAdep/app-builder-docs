@@ -66,14 +66,13 @@
   .buttonGroup button {
     display: flex;
     align-items: center;
-    background: var(--prism-background-color);
     color: var(--prism-color);
-    border: 1px solid var(--ifm-color-emphasis-300);
-    border-radius: var(--ifm-global-radius);
-    padding: 0.4rem;
+    border-radius: 4px;
+    padding: 4px;
     line-height: 0;
     transition: opacity 200ms ease-in-out;
     opacity: 1;
+    background: var(--prism-button-background-color)
   }
   
   .buttonGroup button:focus-visible,

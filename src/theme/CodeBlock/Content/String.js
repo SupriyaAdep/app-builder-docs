@@ -16,6 +16,7 @@ import WordWrapButton from '@theme/CodeBlock/WordWrapButton';
 import Container from '@theme/CodeBlock/Container';
 import styles from './styles.module.css';
 import FullScreenButton from '../FullScreenButton';
+import GithubButton from '../GithubButton';
 
 export default function CodeBlockString({
   children,
@@ -122,6 +123,7 @@ export default function CodeBlockString({
               isEnabled={wordWrap.isEnabled}
             />
           )}
+          <GithubButton />
           <CopyButton className={styles.codeButton} code={code} />
           <FullScreenButton className="expand-btn" forwardRef={containerRef} />
         </div>

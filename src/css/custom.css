@@ -20,22 +20,28 @@ html {
   padding-top: 40px !important;
 
 }
+footer .container {
+  padding-top: 0 !important;
+}
 
 h1 {
   font-size: 36px;
   line-height: 45px;
+  font-weight: 700;
   
 }
 
  h2 {
   font-size: 22px;
   line-height: 24px;
+  font-weight: 600 !important;
 
 }
 
 h3 {
   font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: 400 !important;
+  
 }
 h4 {
   font-size: 16px;
@@ -100,7 +106,7 @@ p {
 }
 
 .mdImage {
-  margin-top: 12px;
+  margin-top: 16px;
   margin-bottom: 32px;
 }
 .mdImage img {
@@ -405,6 +411,7 @@ table tr:nth-child(2n) {
   --ifm-table-head-font-weight: 400;
   --ifm-toc-border-color: #555555;
   --prism-background-color: #f6f8fa;
+  --prism-button-background-color:#091831;
   --prism-color: #393a34;
   --ifm-pre-padding: 32px;
   --ifm-leading:24px;
@@ -459,6 +466,7 @@ html[data-theme='dark'] {
   --ifm-toc-border-color: #555555;
   --prism-background-color: #051021;
   --prism-color: #f8f8f2;
+  --prism-button-background-color:#091831;
 
   --ifm-footer-background-color: #0a0a0a;
   --ifm-footer-color: #ffffff;
