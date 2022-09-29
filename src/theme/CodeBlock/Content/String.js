@@ -52,6 +52,7 @@ export default function CodeBlockString({
     showLineNumbersProp ?? containsLineNumbers(metastring);
 
   React.useEffect(() => {
+    wordWrap.toggle();
     const scrollBy = 18 * hline.current; // height of one line 20x , 300-(32*64) /18
     const section = containerRef?.current?.querySelector('pre')
     if (tlines?.current < 13) {
@@ -116,13 +117,13 @@ export default function CodeBlockString({
 
         </Highlight>
         <div className={styles.buttonGroup}>
-          {(wordWrap.isEnabled || wordWrap.isCodeScrollable) && (
+          {/* {(wordWrap.isEnabled || wordWrap.isCodeScrollable) && (
             <WordWrapButton
               className={styles.codeButton}
               onClick={() => wordWrap.toggle()}
               isEnabled={wordWrap.isEnabled}
             />
-          )}
+          )} */}
           <GithubButton />
           <CopyButton className={styles.codeButton} code={code} />
           <FullScreenButton className="expand-btn" forwardRef={containerRef} />
