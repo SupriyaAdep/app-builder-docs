@@ -83,7 +83,7 @@ export default data;
 
 Result:
 
-<imageSlider alt="videocall component override" darkImageSrc1="replace-me.png" darkImageSrc2="replace-me.png" />
+<imageSlider alt="videocall component override" darkImageSrc1="api/GridLayout.png" darkImageSrc2="api/PinnedLayout.png" />
 
 </collapsible>
 
