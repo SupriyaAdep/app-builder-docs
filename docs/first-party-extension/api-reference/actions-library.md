@@ -21,6 +21,14 @@ Returns an asynchronous function to create a meeting with the given options.
 
 ```js
 import { useCreateMeeting } from "customization-api";
+
+...
+
+const createMeeting = useCreateMeeting();
+
+...
+
+await createMeeting(/*roomTitle:*/ 'My Meeting', /*enablePSTN?:*/ false, /*isSeperateHostLink?:*/ false );
 ```
 
 <br/>
@@ -49,6 +57,15 @@ Returns an asynchronous function to join a meeting with the given phrase.
 
 ```js
 import { useJoinMeeting } from "customization-api";
+
+...
+
+const joinMeeting = useJoinMeeting();
+
+...
+
+await joinMeeting(/*roomId:*/ 12342139812);
+
 ```
 
 <br/>
@@ -59,7 +76,7 @@ import { useJoinMeeting } from "customization-api";
 
 <collapsible>
 
-### joinMeeting(phrase: string): Promise<void\>
+### joinMeeting(roomId: string): Promise<void\>
 
 </collapsible>
 

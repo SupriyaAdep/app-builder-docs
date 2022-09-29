@@ -51,14 +51,12 @@ import { CustomEvents } from "customization-api";
 
 ---
 
-<collapsible>
 <method>
+<collapsible>
 
-### send
+### send( eventName: string, payload: string, persistLevel: EventPersistLevel ,receiver?: ReceiverUid ): void
 
 Sends the event with the provided details.
-
-### send : (eventName: string, payload: string, persistLevel: EventPersistLevel ,receiver?: ReceiverUid ) => void
 
 | Prop         | Type              | Description                                                                          |
 | ------------ | ----------------- | ------------------------------------------------------------------------------------ |
@@ -96,19 +94,18 @@ customEvents.send(
 );
 ```
 
-</method>
 </collapsible>
+</method>
 
 <br/>
 
-<collapsible>
 <method>
+<collapsible>
 
-### on
+### on( eventName: string, listener: Function ): void
 
 Subscribes to the event. Use on method to add listener for specific event.
 
-### on: (eventName: string, listener: Function ) => void
 
 | Prop      | Type     | Description                                                       |
 | --------- | -------- | ----------------------------------------------------------------- |
@@ -142,23 +139,21 @@ import { customEvents } from "fpe-api";
 
 ```
 
-</method>
 </collapsible>
+</method>
 
 <br/>
 
-<collapsible>
 <method>
+<collapsible>
 
-### off
+### off(eventName?: string, listener?: Function ): void
 
 Use off method to remove listener for specific event. If no listener is provided, all listeners added on eventName will be removed.
 If both eventName and listener are not provided, all events will be removed;
 
 Additionally, method `on` returns `unbind` function. Call it and this listener
 will be removed from event.
-
-### off: (eventName?: string, listener?: Function ) => void
 
 | Prop       | Type     | Description                                                                                                  |
 | ---------- | -------- | ------------------------------------------------------------------------------------------------------------ |
@@ -205,8 +200,8 @@ import { customEvents } from "fpe-api";
 
 ```
 
-</method>
 </collapsible>
+</method>
 
 <br/>
 
