@@ -56,7 +56,7 @@ import { customEvents } from "fpe-api";
 
 Sends the event with the provided details.
 
-###send : (eventName: string, payload: string, persistLevel: EventPersistLevel ,receiver?: ReceiverUid ) => void
+### send : (eventName: string, payload: string, persistLevel: EventPersistLevel ,receiver?: ReceiverUid ) => void
 
 | Prop         | Type              | Description                                                                          |
 | ------------ | ----------------- | ------------------------------------------------------------------------------------ |
@@ -106,7 +106,7 @@ customEvents.send(
 
 Subscribes to the event. Use on method to add listener for specific event.
 
-###on: (eventName: string, listener: Function ) => void
+### on: (eventName: string, listener: Function ) => void
 
 | Prop      | Type     | Description                                                       |
 | --------- | -------- | ----------------------------------------------------------------- |
@@ -156,7 +156,7 @@ If both eventName and listener are not provided, all events will be removed;
 Additionally, method `on` returns `unbind` function. Call it and this listener
 will be removed from event.
 
-###off: (eventName?: string, listener?: Function ) => void
+### off: (eventName?: string, listener?: Function ) => void
 
 | Prop       | Type     | Description                                                                                                  |
 | ---------- | -------- | ------------------------------------------------------------------------------------------------------------ |
