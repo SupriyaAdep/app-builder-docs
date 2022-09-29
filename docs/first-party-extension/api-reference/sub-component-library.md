@@ -348,9 +348,9 @@ import { HorizontalRule } from "customization-api";
 
 #### HorizontalRuleProps
 
-| Prop  | Type              | Description                           |
-| ----- | ----------------- | ------------------------------------- |
-| style | [ViewProps](link) | custom css to override existing style |
+| Prop  | Type                                                       | Description                           |
+| ----- | ---------------------------------------------------------- | ------------------------------------- |
+| style | [viewProps](https://reactnative.dev/docs/view-style-props) | custom css to override existing style |
 
 </method>
 
@@ -380,9 +380,9 @@ import { RenderComponent } from "customization-api";
 
 #### RenderComponentProps
 
-| Prop | Type            | Description                                |
-| ---- | --------------- | ------------------------------------------ |
-| uid  | [UidType](link) | uid of [renderObject](link) to be rendered |
+| Prop | Type                                                            | Description                                                                                                             |
+| ---- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| uid  | [uidtype](/first-party-extension/api-reference/globals#uidtype) | uid of [renderObject](http://localhost:3000/first-party-extension/api-reference/globals#renderinterface) to be rendered |
 
 </method>
 
@@ -420,7 +420,7 @@ import { SettingsView } from "customization-api";
 
 <image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/ChatSendButton.png" darkImageSrc="api/ChatSendButton.png" />
 
-The ChatSendButton component displays the chat send button. Relies on [ChatUiControl app state](link) to determine required information.
+The ChatSendButton component displays the chat send button. Relies on [ChatUiControl app state](/first-party-extension/api-reference/context-library#chatuicontrolinterface) to determine required information.
 
 ```jsx
 import { ChatSendButton } from "customization-api";
@@ -449,7 +449,7 @@ import { ChatSendButton } from "customization-api";
 
 <image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/ChatTextInput.png" darkImageSrc="api/ChatTextInput.png" />
 
-The ChatTextInput component displays the chat input box. Relies on [ChatUiControl app state](link) to determine required information.
+The ChatTextInput component displays the chat input box. Relies on [ChatUiControl app state](/first-party-extension/api-reference/context-library#chatuicontrolinterface) to determine required information.
 
 ```jsx
 import { ChatTextInput } from "customization-api";
@@ -487,7 +487,7 @@ import { ChatTextInput } from "customization-api";
 
 <image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/Chat.png" darkImageSrc="api/Chat.png" />
 
-The Chat component displays the chat sidepanel. Relies on [ChatUiControl app state](link) to determine required information.
+The Chat component displays the chat sidepanel. Relies on [ChatUiControl app state](/first-party-extension/api-reference/context-library#chatuicontrolinterface) to determine required information.
 
 ```jsx
 import { Chat } from "customization-api";
@@ -716,11 +716,11 @@ import { NavBarComponentsArray } from "customization-api";
 
 #### CopyJoinInfoProps
 
-| Key                | Type                                                                                                                                                                                                                     | Description                                           |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| showText           | `boolean`                                                                                                                                                                                                                | Flag to determine whether to show text besides button |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                  | Type of button template to be used for the button     |
-| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Component to be used to render the button             |
+| Key                | Type                                                                                                                                                                                                                                                                                   | Description                                           |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| showText           | `boolean`                                                                                                                                                                                                                                                                              | Flag to determine whether to show text besides button |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                  | Type of button template to be used for the button     |
+| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Component to be used to render the button             |
 
 </collapsible>
 
@@ -732,12 +732,12 @@ import { NavBarComponentsArray } from "customization-api";
 
 #### ParticipantsIconButtonProps
 
-| Key                    | Type                                                                                                                                                                                                                                                                             | Description                                       |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| badgeContainerPosition | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                                                                         | Position for peninding chat messages alert badge  |
-| badgeTextStyle         | [TextStyle](https://reactnative.dev/docs/text-style-props)                                                                                                                                                                                                                       | custom style for badge text                       |
-| buttonTemplateName     | [buttonTemplateName](a)                                                                                                                                                                                                                                                          | Type of button template to be used for the button |
-| render?                | ( onPress: `()=>void` , isPanelActive: `boolean`, totalUnreadCount: `number` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+| Key                    | Type                                                                                                                                                                                                                                                                                                                                           | Description                                       |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| badgeContainerPosition | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                                                                                                                                       | Position for peninding chat messages alert badge  |
+| badgeTextStyle         | [TextStyle](https://reactnative.dev/docs/text-style-props)                                                                                                                                                                                                                                                                                     | custom style for badge text                       |
+| buttonTemplateName     | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?                | ( onPress: `()=>void` , isPanelActive: `boolean`, totalUnreadCount: `number` , buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -749,11 +749,11 @@ import { NavBarComponentsArray } from "customization-api";
 
 #### ChatIconButtonProps
 
-| Key                                   | Type                                                                                                                                                                                                                                               | Description                                          |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| liveStreamingRequestAlertIconPosition | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                                           | Position for pending raise hand requests alert badge |
-| buttonTemplateName                    | [buttonTemplateName](a)                                                                                                                                                                                                                            | Type of button template to be used for the button    |
-| render?                               | ( onPress: `()=>void`, isPanelActive: `boolean`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button             |
+| Key                                   | Type                                                                                                                                                                                                                                                                                                             | Description                                          |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| liveStreamingRequestAlertIconPosition | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                                                                                                         | Position for pending raise hand requests alert badge |
+| buttonTemplateName                    | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                                            | Type of button template to be used for the button    |
+| render?                               | ( onPress: `()=>void`, isPanelActive: `boolean`, buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button             |
 
 </collapsible>
 
@@ -765,11 +765,11 @@ import { NavBarComponentsArray } from "customization-api";
 
 #### LayoutIconButtonProps
 
-| Key                | Type                                                                                                                                                                                                                     | Description                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
-| modalPosition      | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                 | Position of the switch layout modal               |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                  | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                                                                   | Description                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| modalPosition      | { top?: `number`, right?: `number`, left?: `number`, bottom?: `number` }                                                                                                                                                                                                               | Position of the switch layout modal               |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                  | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -781,10 +781,10 @@ import { NavBarComponentsArray } from "customization-api";
 
 #### SettingsIconButtonProps
 
-| Key                | Type                                                                                                                                                                                                                     | Description                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                  | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                                                                   | Description                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                  | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void`, buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -827,10 +827,10 @@ import { ControlsComponentArray } from "customization-api";
 
 #### LocalAudioMuteProps
 
-| Key                | Type                                                                                                                                                                                                                                           | Description                                       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                        | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void`, isEnabled: `boolean`, buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Component to be used to render the button         |
+| Key                | Type                                                                                                                                                                                                                                                                                                         | Description                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                                        | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void`, isEnabled: `boolean`, buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Component to be used to render the button         |
 
 </collapsible>
 
@@ -842,10 +842,10 @@ import { ControlsComponentArray } from "customization-api";
 
 #### LocalVideoMuteProps
 
-| Key                | Type                                                                                                                                                                                                                                             | Description                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                          | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                                                                                           | Description                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -857,10 +857,10 @@ import { ControlsComponentArray } from "customization-api";
 
 #### LocalSwitchCameraProps
 
-| Key                | Type                                                                                                                                                                                                                                             | Description                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                          | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                                                                                           | Description                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -872,10 +872,10 @@ import { ControlsComponentArray } from "customization-api";
 
 #### ScreenshareButtonProps
 
-| Key                | Type                                                                                                                                                                                                                                             | Description                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                          | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                                                                                           | Description                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -887,10 +887,10 @@ import { ControlsComponentArray } from "customization-api";
 
 #### RecordingProps
 
-| Key                | Type                                                                                                                                                                                                                                             | Description                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                                          | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                                                                                           | Description                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                                          | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , isEnabled: `boolean` , buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 
@@ -902,10 +902,10 @@ import { ControlsComponentArray } from "customization-api";
 
 #### LocalEndCallProps
 
-| Key                | Type                                                                                                                                                                                                                      | Description                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| buttonTemplateName | [buttonTemplateName](a)                                                                                                                                                                                                   | Type of button template to be used for the button |
-| render?            | ( onPress: `()=>void` , buttonTemplateName: [buttonTemplateName](a) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
+| Key                | Type                                                                                                                                                                                                                                                                                    | Description                                       |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| buttonTemplateName | [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename)                                                                                                                                                                                                   | Type of button template to be used for the button |
+| render?            | ( onPress: `()=>void` , buttonTemplateName: [buttonTemplateName](/first-party-extension/api-reference/globals#buttontemplatename) ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Function to be used to render the button          |
 
 </collapsible>
 

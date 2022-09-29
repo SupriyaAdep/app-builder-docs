@@ -9,9 +9,13 @@ sidebar_custom_props: { icon: "settings" }
 
 List of config variables set via the App Builder Console as configured by the user.
 
+You can access them under the `customization-api` module via tha named export `$config`.
+
 <api>
 
 <method>
+
+---
 
 ## APP_NAME: string
 

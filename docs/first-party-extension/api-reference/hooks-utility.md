@@ -243,28 +243,6 @@ import { useNavParams } from "customization-api";
 
 <method>
 
-## shouldAuthenticate(): boolean
-
-Checks whether the [user config](/first-party-extension/api-reference/config-library) has OAuth enabled with necessary information and returns true/false.
-
-```js
-import { shouldAuthenticate } from "customization-api";
-
-...
-
-if (shouldAuthenticate()) {
-  // if running as an electron desktop application
-} else {
-  // if not running as an electron desktop application
-}
-```
-
-</method>
-
----
-
-<method>
-
 ## useIsWeb(): [isWeb](#isweb)
 
 Returns a function that checks whether the application is running as a web app and returns true/false.
@@ -279,9 +257,9 @@ const isWeb = useIsWeb();
 ...
 
 if (isWeb()) {
-  // if running as an electron desktop application
+  // if running as a web application
 } else {
-  // if not running as an electron desktop application
+  // if not running as a web application
 }
 ```
 
@@ -319,9 +297,9 @@ const isIOS = useIsIOS();
 ...
 
 if (isIOS()) {
-  // if running as an electron desktop application
+  // if running as an ios application
 } else {
-  // if not running as an electron desktop application
+  // if not running as an ios application
 }
 ```
 
@@ -359,9 +337,9 @@ const isAndroid = useIsAndroid();
 ...
 
 if (isAndroid()) {
-  // if running as an electron desktop application
+  // if running as an android application
 } else {
-  // if not running as an electron desktop application
+  // if not running as an android application
 }
 ```
 

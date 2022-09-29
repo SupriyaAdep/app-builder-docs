@@ -66,6 +66,22 @@ Defined by the user, can contain any information necessary for the corresponding
 </collapsible>
 </method>
 
+<method>
+
+<!-- ***************************************************************************************************************** -->
+
+## ButtonTemplateName
+
+<collapsible>
+
+| Name      | Value |
+| --------- | ----- |
+| topBar    | 0     |
+| bottomBar | 1     |
+
+</collapsible>
+</method>
+
 <!-- ***************************************************************************************************************** -->
 
 <method>

@@ -55,16 +55,16 @@ The ChatUiControl app state governs the chat ui.
 
 #### ChatUiControlInterface
 
-| Key                   | Type                            | Description                                           |
-| --------------------- | ------------------------------- | ----------------------------------------------------- |
-| groupActive           | boolean                         | Determines if group tab is active in chat sidepanel   |
-| setGroupActive        | (status: boolean) => void       | Method to set group tab active status                 |
-| privateActive         | boolean                         | Determines if private tab is active in chat sidepanel |
-| setPrivateActive      | (status: boolean) => void       | Method to set private tab active status               |
-| selectedChatUserId    | [UidType](link)                 | Uid of the user selected in private chat tab          |
-| setSelectedChatUserId | (uid: [UidType](link) ) => void | Method to set selected user                           |
-| message               | string                          | Content of message to be sent                         |
-| setMessage            | (message: string) => void       | Method to set content of message to be sent           |
+| Key                   | Type                                                                            | Description                                           |
+| --------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| groupActive           | boolean                                                                         | Determines if group tab is active in chat sidepanel   |
+| setGroupActive        | (status: boolean) => void                                                       | Method to set group tab active status                 |
+| privateActive         | boolean                                                                         | Determines if private tab is active in chat sidepanel |
+| setPrivateActive      | (status: boolean) => void                                                       | Method to set private tab active status               |
+| selectedChatUserId    | [uidtype](/first-party-extension/api-reference/globals#uidtype)                 | Uid of the user selected in private chat tab          |
+| setSelectedChatUserId | (uid: [uidtype](/first-party-extension/api-reference/globals#uidtype) ) => void | Method to set selected user                           |
+| message               | string                                                                          | Content of message to be sent                         |
+| setMessage            | (message: string) => void                                                       | Method to set content of message to be sent           |
 
 <br/>
 
@@ -106,14 +106,14 @@ The Messages app state governs the chat messages.
 
 #### messagestoreinterface
 
-| key               | type            | description                     |
-| ----------------- | --------------- | ------------------------------- |
-| createdtimestamp  | number          | message creation timestamp      |
-| updatedtimestamp? | number          | last message update timestamp   |
-| msg               | string          | message content                 |
-| msgid             | string          | message id                      |
-| isdeleted         | boolean         | indicates if message is deleted |
-| uid               | [uidtype](link) | uid of the message sender       |
+| key               | type                                                            | description                     |
+| ----------------- | --------------------------------------------------------------- | ------------------------------- |
+| createdtimestamp  | number                                                          | message creation timestamp      |
+| updatedtimestamp? | number                                                          | last message update timestamp   |
+| msg               | string                                                          | message content                 |
+| msgid             | string                                                          | message id                      |
+| isdeleted         | boolean                                                         | indicates if message is deleted |
+| uid               | [uidtype](/first-party-extension/api-reference/globals#uidtype) | uid of the message sender       |
 
 <br/>
 
@@ -141,31 +141,29 @@ const {
 
 <method>
 
-## useRender(selector?: [selector](/first-party-extension/api-reference/globals#selector)): [renderstateinterface](#renderstateinterface)
+## useRender(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [Renderstateinterface](#renderstateinterface)
 
 <!-- the render app state contains the information necessary to render user content views displayed in the videocall screen. this app state is passed to the layouts as an array of components to display the content views. the renderlist object contains renderobjects for every uid in the the rendercontext as key value pairs. -->
 
-the render app state governs the information necessary to render each user content view displayed in the videocall screen.
+The Render app state governs the information necessary to render each user content view displayed in the videocall screen.
 
 it is composed of:
 
-#### renderstateinterface
+#### Renderstateinterface
 
 | key            | type                                                                                    | description                                                                                                          |
 | -------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| renderlist     | [renderlistinterface](/first-party-extension/api-reference/globals#renderlistinterface) | object containing information necessary to render the content view corresponding to each uid in the render app state |
-| renderposition | array<[uidtype](/first-party-extension/api-reference/globals#uidtype)\>                 | array of all uids in the render app state                                                                            |
+| renderlist     | [renderlistinterface](/first-party-extension/api-reference/globals#renderlistinterface) | Object containing information necessary to render the content view corresponding to each uid in the Render app state |
+| renderposition | array<[Uidtype](/first-party-extension/api-reference/globals#uidtype)\>                 | Array of all uids in the Render app state                                                                            |
 
 <br/>
 
-each [renderobject](/first-party-extension/api-reference/globals#renderobjectinterface) in the `renderlist` is passed as a prop to corresponding type of [content component](/first-party-extension/api-reference/components-api#renderingcomponentinterface). all the resulting components are then passed to the layouts as an array to be rendered as desired.
+Each [renderobject](/first-party-extension/api-reference/globals#renderobjectinterface) in the `renderlist` is passed as a prop to corresponding type of [content component](/first-party-extension/api-reference/components-api#renderingcomponentinterface). All the resulting components are then passed to the layouts as an array to be rendered as desired.
 
-**for eg.** the render app state contains a renderobject of `type:'rtc'` for each user in the meeting by default. it is used to display user video feeds coming from agorartc hence they contain all the necessary information like: `uid` to identify and subscribe to the video and audio, `audio` and `video` mute states to correctly display fallbacks and icons, etc. each renderobject is passed as a prop to [maxVideoView](/first-party-extension/api-reference/sub-components-library#maxvideoview) unless overriden by [CustomContent API](/first-party-extension/api-reference/components-api#videocallcustomcontent). After which the resulting array of components is passed to layout to be rendered.
+**For eg.** The Render app state contains a [renderobject](/first-party-extension/api-reference/globals#rtcrenderinterface) of `type:'rtc'` for each user in the meeting by default stored in `renderList`. It is used to display user video feeds coming from AgoraRTC hence they contain all the necessary information like: `uid` to identify and subscribe to the video and audio, `audio` and `video` mute states to correctly display fallbacks and icons, etc. each Renderobject is passed as a prop to [MaxVideoView](/first-party-extension/api-reference/sub-components-library#maxvideoview) unless overriden by [CustomContent API](/first-party-extension/api-reference/components-api#videocallcustomcontent). After which the resulting array of components is passed to layout to be rendered.
 
 :::tip
-
 You can add custom render objects to the render app state using the 'AddCustomContent' action in [dispatch](/first-party-extension/api-reference/globals#dispatchtype)
-
 :::
 
 Usage example of the app state:
@@ -186,7 +184,7 @@ const { renderList, renderPosition } = useRender();
 
 ## useLocalUserInfo(): [LocalUserInfo](/first-party-extension/api-reference/globals#rtcrenderinterface)
 
-The LocalUserInfo app state contains the local user information.
+The LocalUserInfo app state contains the local user information like `uid`, `audio` and `video` mute states etc.
 
 Usage example of the app state:
 
@@ -212,10 +210,10 @@ The Layout app state governs the video call screen content display layout.
 
 #### LayoutContextInterface
 
-| Key           | Type                           | Description                                                                                                                                                                                    |
-| ------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| currentLayout | string                         | Name of the current layout. Can be `GridLayout`, `PinnedLayout` or any other key defined in the [custom layout API](#first-party-extension/api-reference/components-api#videocallcustomlayout) |
-| setLayout     | ( layoutName: string ) => void | Sets the current layout with given layout name                                                                                                                                                 |
+| Key           | Type                           | Description                                                                                                                                                                        |
+| ------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| currentLayout | string                         | Name of the current layout. Can be `grid`, `pinned` or any other key defined in the [custom layout API](#first-party-extension/api-reference/components-api#videocallcustomlayout) |
+| setLayout     | ( layoutName: string ) => void | Sets the current layout with given layout name                                                                                                                                     |
 
 <br/>
 
@@ -342,7 +340,7 @@ The RTC app state exposes the internal RtcEngine object as well as dispatch inte
 | setDualStreamMode | ( mode: [DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) ): void | Method to modify dual stream mode                                                                                                                             |
 
 :::danger
-Avoid using `RtcEngine` to perform actions such as muting audio, joining a channel etc. Instead rely on [Actions Library](/first-party-extension/api-reference/actions-library) or [Dispatch](/first-party-extension/api-reference/globals#dispatchtype) provided by the `customization-api`.
+Avoid using `RtcEngine` directly to perform actions such as muting audio, joining a channel etc. Instead rely on [Actions Library](/first-party-extension/api-reference/actions-library) or [Dispatch](/first-party-extension/api-reference/globals#dispatchtype) provided by the `customization-api` as they handle modifying the internal app states along with performing the required action.
 :::
 
 <br/>
