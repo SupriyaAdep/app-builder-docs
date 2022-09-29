@@ -1,5 +1,5 @@
 ---
-sidebar_label: How to embed the App Builder Web SDK in a VanillaJS web app ?
+sidebar_label: VanillaJS usage
 sidebar_position: 2
 description: Embed App Builder SDK in your app
 title: How to embed the App Builder Web SDK in a VanillaJS web app ?
@@ -169,7 +169,7 @@ This object contains `createFPE` method which takes the `FPEConfig` as a paramet
 
 #### STEP 3
 
-Pass the returned FPE Object to the `installFPE` method available under the same `AgoraAppBuilder` global object to apply the config to your embedded App Builder project.
+Pass the returned FPE Object to the `customize` method available under the same `AgoraAppBuilder` global object to apply the config to your embedded App Builder project.
 
 <!-- RHS -->
 

@@ -7,7 +7,7 @@ keywords: [appBuilder, websdk]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-The following guide describes how to quickly get started with Customization API to modify your App Builder application.
+The following guide describes how to quickly get started with Customization API to modify your App Builder application. As a showcase we will be exploring how to override the default ChatBubble component with our own component while retaining all of its functionality.
 
 ## INITIALIZING
 
@@ -46,7 +46,7 @@ Once complete a boilerplate user-customization will be created inside `<path-to-
 
 Customization API is a set of APIs and Libraries that allow you to customize your App Builder project.
 
-**APIs** are exposed under the `installFPE` method by passing an object with keys corresponding to the API you want to interact with. Whereas **Libraries** are available as imports under the `fpe-api` namespace.
+**APIs** are exposed under the `customize` method by passing an object with keys corresponding to the API you want to interact with. Whereas **Libraries** are available as imports under the `customization-api` namespace.
 
 **The following steps indicate an example customization by overriding the App Builder Chat Bubble component.**
 
@@ -64,14 +64,77 @@ Open the `index.tsx` file present inside the newly created `test-fpe` folder.
 
 #### STEP 2
 
-Create the component you want to override the default Chat Bubble component with.
+Create a component you want to override the default Chat Bubble component with.
+
+<!-- RHS -->
+
+```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
+import React from "react";
+
+const ChatBubbleComponent = (props) => {
+  return <></>;
+};
+
+export default ChatBubbleComponent;
+```
+
+<!-- LHS -->
+
+#### STEP 3
+
+When passed as an override the component will recieve props to display necessary information or perform necessary actions. We can refer to the [api reference](/first-party-extension/api-reference/components-api#chatbubblecomponent) to see the props available to our component and destructure them for use.
+
+<!-- RHS -->
+
+```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
+import React from "react";
+
+const ChatBubbleComponent = (props) => {
+  let { isLocal, createdTimestamp, message, uid } = props;
+
+  return <></>;
+};
+
+export default ChatBubbleComponent;
+```
+
+<!-- LHS -->
+
+#### STEP 4
+
+Once we have the props, we can fetch any other information like in our case we recieve the message senders `uid` as prop however in UI it would be more helpful to show the `displayName` of the user. We can fetch any such information using the [App state library](/first-party-extension/api-reference/context-library) the `displayName` in specific can be fetched from the [Render app state](/first-party-extension/api-reference/context-library#userender)
+
+<!-- RHS -->
+
+```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
+import React from "react";
+import { useUserList } from "customization-api";
+
+const ChatBubbleComponent = (props) => {
+  const { renderList } = useUserList();
+
+  let { isLocal, createdTimestamp, message, uid } = props;
+
+  const displayName = renderList[uid].name;
+
+  return <></>;
+};
+
+export default ChatBubbleComponent;
+```
+
+<!-- LHS -->
+
+#### STEP 5
+
+Having all the needed information at hand we can define our UI.
 
 <!-- RHS -->
 
 ```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useUserList } from "fpe-api";
+import { useUserList } from "customization-api";
 
 const ChatBubbleComponent = (props) => {
   const { renderList } = useUserList();
@@ -185,18 +248,18 @@ export default ChatBubbleComponent;
 
 <!-- LHS -->
 
-#### STEP 3
+#### STEP 6
 
-Call the `installFPE` method and pass an object with the necessary keys. Since we want to override the Chat Bubble component our object should look like so based on the [Api Reference](/first-party-extension/api-reference/components-api).
+Call the `customize` method and pass an object with the necessary keys. Since we want to override the Chat Bubble component our object should look like so based on the [Api Reference](/first-party-extension/api-reference/components-api).
 
 <!-- RHS -->
 
 ```tsx {5-13} title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/index.tsx'
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 import MyChatBubbleComponent from "./components/MyChatBubbleComponent";
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       chat: {
@@ -211,18 +274,18 @@ export default userCustomization;
 
 <!-- LHS -->
 
-#### STEP 4
+#### STEP 7
 
-Finally we export our customization generated by the `installFPE` method to allow App Builder to apply it.
+Finally we export our customization generated by the `customize` method to allow App Builder to apply it.
 
 <!-- RHS -->
 
 ```js {15} title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/index.tsx'
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 import MyChatBubbleComponent from "./components/MyChatBubbleComponent";
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       chat: {
@@ -237,7 +300,7 @@ export default userCustomization;
 
 <!-- LHS -->
 
-#### STEP 5
+#### STEP 8
 
 You should now see your customization applied to App Builder when you build your project.
 

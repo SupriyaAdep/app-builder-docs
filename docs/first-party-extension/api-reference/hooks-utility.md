@@ -1,56 +1,38 @@
 ---
 sidebar_label: Utility Library
-sidebar_position: 5
+sidebar_position: 6
 description: Components API is a very powreful way to override
 title: Utility Library
 keywords: [videCallProps, ChatBubbleProps]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-The Utlity Library provides the user with utility hooks and functions to perform app builder specific tasks easily
+Provides utility hooks and functions to perform app builder specific tasks easily.
 
-You can access these hooks and utility functions under the `fpe-api` module as a named export.
-
----
-
-<method>
-
-## useIsVideoEnabled : (uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ) => boolean
-
-Checks the video state for a given uid and returns true/false
-
-```js
-import { useIsVideoEnabled } from "fpe-api";
-```
-
-</method>
+You can access them under the `customization-api` module as a named export.
 
 ---
 
 <method>
 
-## useIsAudioEnabled : (uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ) => boolean
+## useIsVideoEnabled(): [isVideoEnabled](#isvideoenabled)
 
-Checks the audio state for a given uid is host and returns true/false
-
-```js
-import { useIsAudioEnabled } from "fpe-api";
-```
-
-<br/>
-
-</method>
-
----
-
-<method>
-
-## useIsHost : () => boolean | [isHostCheckFunction](#ishostcheckfunction)
-
-Returns a function that checks whether given uid and returns true/false
+Returns a function that checks the video state for a given uid and returns true/false
 
 ```js
-import { useIsHost } from "fpe-api";
+import { useIsVideoEnabled } from "customization-api";
+
+...
+
+const isVideoEnabled = useIsVideoEnabled();
+
+...
+
+if (isVideoEnabled( 123457 )) {
+  // if user video enabled
+} else {
+  // if user video disabled
+}
 ```
 
 <br/>
@@ -61,7 +43,7 @@ import { useIsHost } from "fpe-api";
 
 <collapsible>
 
-### isHostCheckFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ) => boolean
+### isVideoEnabled(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): boolean
 
 </collapsible>
 
@@ -73,12 +55,24 @@ import { useIsHost } from "fpe-api";
 
 <method>
 
-## useIsAttendee : () => boolean | [isAttendeeCheckFunction](#isattendeecheckfunction)
+## useIsAudioEnabled(): [isAudioEnabled](#isaudioenabled)
 
-Returns a function that checks whether given uid is attendee and returns true/false
+Returns a function that checks the audio state for a given uid and returns true/false
 
 ```js
-import { useIsAttendee } from "fpe-api";
+import { useIsAudioEnabled } from "customization-api";
+
+...
+
+const isAudioEnabled = useIsAudioEnabled();
+
+...
+
+if (isAudioEnabled( 123457 )) {
+  // if user audio enabled
+} else {
+  // if user audio disabled
+}
 ```
 
 <br/>
@@ -89,7 +83,7 @@ import { useIsAttendee } from "fpe-api";
 
 <collapsible>
 
-### isAttendeeCheckFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype)) => boolean
+### isAudioEnabled(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): boolean
 
 </collapsible>
 
@@ -101,28 +95,24 @@ import { useIsAttendee } from "fpe-api";
 
 <method>
 
-## useIsPSTN : (uid: [UidType](a) ) => boolean
+## useIsHost(): [isHost](#ishost)
 
-Checks the audio state for a given uid is a PSTN user and returns true/false
-
-```js
-import { useIsPSTN } from "fpe-api";
-```
-
-<br/>
-
-</method>
-
----
-
-<method>
-
-## useSetName: () => [setDisplayNameFunction](#setdisplaynamefunction)
-
-Returns a function to set local users display name for everyone in the meeting.
+Returns a function that checks whether the given uid is a host and returns true/false
 
 ```js
-import { useSetName } from "fpe-api";
+import { useIsHost } from "customization-api";
+
+...
+
+const isHost = useIsHost();
+
+...
+
+if (isHost( 123457 )) {
+  // if user is host
+} else {
+  // if user is not host
+}
 ```
 
 <br/>
@@ -133,7 +123,7 @@ import { useSetName } from "fpe-api";
 
 <collapsible>
 
-### setDisplayNameFunction: (name: string) => void;
+### isHost(uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ): boolean
 
 </collapsible>
 
@@ -145,12 +135,24 @@ import { useSetName } from "fpe-api";
 
 <method>
 
-## useGetName: () => [getDisplayNameFunction](#getdisplaynamefunction)
+## useIsAttendee(): [isAttendee](#isattendee)
 
-Returns a function to get local users display name.
+Returns a function that checks whether the given uid is an attendee and returns true/false
 
 ```js
-import { useSetName } from "fpe-api";
+import { useIsAttendee } from "customization-api";
+
+...
+
+const isAttendee = useIsAttendee();
+
+...
+
+if (isAttendee( 123457 )) {
+  // if user is attendee
+} else {
+  // if user is not attendee
+}
 ```
 
 <br/>
@@ -161,7 +163,7 @@ import { useSetName } from "fpe-api";
 
 <collapsible>
 
-### getDisplayNameFunction: () => string;
+### isAttendee(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): boolean
 
 </collapsible>
 
@@ -173,28 +175,24 @@ import { useSetName } from "fpe-api";
 
 <method>
 
-## useUserList: () => [RenderStateInterface](a)
+## useIsPSTN(): [isPSTN](#ispstn)
 
-Returns the userList interface containing [renderPosition](a) and [renderList](a)
-
-```js
-import { useUserList } from "fpe-api";
-```
-
-<br/>
-
-</method>
-
----
-
-<method>
-
-## useNavigateTo: () => [navigateToFunction](#navigatetofunction)
-
-Returns a function to navigate to a given path.
+Returns a function that checks whether the given uid is a PSTN user and returns true/false
 
 ```js
-import { useNavigateTo } from "fpe-api";
+import { useIsPSTN } from "customization-api";
+
+...
+
+const isPSTN = isPSTN();
+
+...
+
+if (isPSTN( 123457 )) {
+  // if user joined via pstn
+} else {
+  // if user did not join via pstn
+}
 ```
 
 <br/>
@@ -205,7 +203,7 @@ import { useNavigateTo } from "fpe-api";
 
 <collapsible>
 
-### navigateToFunction: (path: string) => void;
+### isPSTN(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): boolean
 
 </collapsible>
 
@@ -217,58 +215,13 @@ import { useNavigateTo } from "fpe-api";
 
 <method>
 
-## useNavParams: () => [getNavParamsFunction](#getnavparamsfunction)
+## useHistory: [useHistoryHook](https://v5.reactrouter.com/web/api/Hooks/usehistory)
 
-Returns a function to navigate get the navigataion parameters.
-
-```js
-import { useNavParams } from "fpe-api";
-```
-
-<br/>
-
-### _Returns_:
-
-<method>
-
-<collapsible>
-
-### getNavParamsFunction: () => {[key:string]: string};
-
-</collapsible>
-
-</method>
-
-</method>
-
----
-
-<method>
-<subtitle>
-
-useCreateMeeting: () => [createMeetingFunction](#createmeetingfunction)
-
-</subtitle>
-
-Returns an asynchronous function to create a meeting with the given options.
+Returns the internal "react-router" instance's history object.
 
 ```js
-import { useCreateMeeting } from "fpe-api";
+import { useHistory } from "customization-api";
 ```
-
-<br/>
-
-### _Returns_:
-
-<method>
-
-<collapsible>
-
-### createMeetingFunction: (roomTitle: string, enablePSTN?: boolean, isSeperateHostLink?: boolean) => Promise<void\>
-
-</collapsible>
-
-</method>
 
 </method>
 
@@ -276,12 +229,38 @@ import { useCreateMeeting } from "fpe-api";
 
 <method>
 
-## useJoinMeeting: () => [joinMeetingFunction](#joinmeetingfunction)
+## useParams: [useParamsHook](https://v5.reactrouter.com/web/api/Hooks/useparams)
 
-Returns an asynchronous function to join a meeting with the given phrase.
+Returns the navigataion parameters passed via the url/path.
 
 ```js
-import { useJoinMeeting } from "fpe-api";
+import { useNavParams } from "customization-api";
+```
+
+</method>
+
+---
+
+<method>
+
+## useIsWeb(): [isWeb](#isweb)
+
+Returns a function that checks whether the application is running as a web app and returns true/false.
+
+```js
+import { useIsWeb } from "customization-api";
+
+...
+
+const isWeb = useIsWeb();
+
+...
+
+if (isWeb()) {
+  // if running as a web application
+} else {
+  // if not running as a web application
+}
 ```
 
 <br/>
@@ -292,7 +271,7 @@ import { useJoinMeeting } from "fpe-api";
 
 <collapsible>
 
-### joinMeetingFunction: (phrase: string) => Promise<void\>
+### isWeb(): boolean
 
 </collapsible>
 
@@ -304,12 +283,24 @@ import { useJoinMeeting } from "fpe-api";
 
 <method>
 
-## useMuteToggleLocal: () => [muteToggleLocalFunction](#mutetogglelocalfunction)
+## useIsIOS(): [isIOS](#isios)
 
-Returns an asynchronous function to toggle muted state for the given track type for local user.
+Returns a function that checks whether the application is running as an iOS app and returns true/false.
 
 ```js
-import { useMuteToggleLocal } from "fpe-api";
+import { useIsIOS } from "customization-api";
+
+...
+
+const isIOS = useIsIOS();
+
+...
+
+if (isIOS()) {
+  // if running as an ios application
+} else {
+  // if not running as an ios application
+}
 ```
 
 <br/>
@@ -320,7 +311,7 @@ import { useMuteToggleLocal } from "fpe-api";
 
 <collapsible>
 
-### muteToggleLocalFunction: (type: [MUTE_LOCAL_TYPE](a)) => Promise<void\>
+### isIOS(): boolean
 
 </collapsible>
 
@@ -332,12 +323,24 @@ import { useMuteToggleLocal } from "fpe-api";
 
 <method>
 
-## useRemoteMute: () => [muteToggleRemoteFunction](#mutetogglelocalfunction)
+## useIsAndroid(): [isAndroid](#isandroid)
 
-Returns an asynchronous function to toggle muted state for the given track type for a remote user with the given uid.
+Returns a function that checks whether the application is running as an android app and returns true/false.
 
 ```js
-import { useRemoteMute } from "fpe-api";
+import { useIsAndroid } from "customization-api";
+
+...
+
+const isAndroid = useIsAndroid();
+
+...
+
+if (isAndroid()) {
+  // if running as an android application
+} else {
+  // if not running as an android application
+}
 ```
 
 <br/>
@@ -348,7 +351,7 @@ import { useRemoteMute } from "fpe-api";
 
 <collapsible>
 
-### muteToggleLocalFunction: (type: [MUTE_REMOTE_TYPE](a), uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ) => Promise<void\>
+### isAndroid(): boolean
 
 </collapsible>
 
@@ -360,12 +363,24 @@ import { useRemoteMute } from "fpe-api";
 
 <method>
 
-## useRemoteEndCall: () => [remoteEndCallFunction](#remoteendcallfunction)
+## useIsDesktop(): [isDesktop](#isdesktop)
 
-Returns a function to end call for a remote user with the given uid
+Returns a function that checks whether the application is running as an electron desktop app and returns true/false.
 
 ```js
-import { useRemoteEndCall } from "fpe-api";
+import { useIsDesktop } from "customization-api";
+
+...
+
+const isDesktop = useIsDesktop();
+
+...
+
+if (isDesktop()) {
+  // if running as an electron desktop application
+} else {
+  // if not running as an electron desktop application
+}
 ```
 
 <br/>
@@ -376,152 +391,10 @@ import { useRemoteEndCall } from "fpe-api";
 
 <collapsible>
 
-### remoteEndCallFunction: (uid: [UidType](/first-party-extension/api-reference/globals#uidtype)) => void
+### isDesktop(): boolean
 
 </collapsible>
 
 </method>
-
-</method>
-
----
-
-<method>
-
-## hasBrandLogo: () => boolean
-
-Checks whether the user config has a brand logo and returns true/false
-
-```js
-import { hasBrandLogo } from "fpe-api";
-```
-
-</method>
-
----
-
-<method>
-
-## shouldAuthenticate: () => boolean
-
-Checks whether the user config has OAuth enabled with necessary information and returns true/false.
-
-```js
-import { shouldAuthenticate } from "fpe-api";
-```
-
-</method>
-
----
-
-<method>
-
-## isWeb: () => boolean
-
-Checks whether the application is running on web platform and returns true/false.
-
-```js
-import { isWeb } from "fpe-api";
-```
-
-</method>
-
----
-
-<method>
-
-## isIOS: () => boolean
-
-Checks whether the application is running on iOS operating system and returns true/false.
-
-```js
-import { isIOS } from "fpe-api";
-```
-
-</method>
-
----
-
-<method>
-
-## isAndroid : () => boolean
-
-Checks whether the application is running on android operating system and returns true/false.
-
-```js
-import { isAndroid } from "fpe-api";
-```
-
-</method>
-
----
-
-<method>
-
-## isArray: () => boolean
-
-Checks whether the given parameter is an array and returns true/false.
-
-```js
-import { isArray } from "fpe-api";
-```
-
-</method>
-
----
-
-<method>
-
-## isValidReactComponent: () => boolean
-
-Checks whether the given parameter is a valid react component and returns true/false.
-
-```js
-import { isValidReactComponent } from "fpe-api";
-```
-
-</method>
-
----
-
-# **TYPES**:
-
-<br/>
-
-<method>
-<subtitle>
-
-MUTE_LOCAL_TYPE
-
-</subtitle>
-
-| Name  | Value |
-| ----- | ----- |
-| audio | 0     |
-| video | 1     |
-
-```js
-import { MUTE_LOCAL_TYPE } from "fpe-api";
-```
-
-</method>
-
----
-
-<method>
-<subtitle>
-
-MUTE_REMOTE_TYPE
-
-</subtitle>
-
-| Name  | Value |
-| ----- | ----- |
-| audio | 0     |
-| video | 1     |
-
-```js
-import { MUTE_REMOTE_TYPE } from "fpe-api";
-```
 
 </method>

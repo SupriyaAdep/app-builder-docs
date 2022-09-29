@@ -1,15 +1,17 @@
 ---
-sidebar_label: Events and Notification Library
-sidebar_position: 6
-description: Events and Notification Library
-title: Events and Notification Library
+sidebar_label: Custom Events Library
+sidebar_position: 7
+description: Custom Events Library
+title: Custom Events Library
 keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
 # Custom Events
 
-This library allows users to send and consume custom events.
+Provides methods to send and listen to custom events. These events can be sent to a specific user(s) in the channel or to all the user(s) in the channel.
+
+You can access them under the `customization-api` module as a named export.
 
 These events can be sent to
 
@@ -40,7 +42,7 @@ These events can be sent with different levels of persistance.
 customEvents object handles customization api events and provides methods for sending, subscribing and unsubscribing to events.
 
 ```js
-import { customEvents } from "fpe-api";
+import { CustomEvents } from "customization-api";
 ```
 
 <br/>
@@ -56,7 +58,7 @@ import { customEvents } from "fpe-api";
 
 Sends the event with the provided details.
 
-###send : (eventName: string, payload: string, persistLevel: EventPersistLevel ,receiver?: ReceiverUid ) => void
+### send : (eventName: string, payload: string, persistLevel: EventPersistLevel ,receiver?: ReceiverUid ) => void
 
 | Prop         | Type              | Description                                                                          |
 | ------------ | ----------------- | ------------------------------------------------------------------------------------ |
@@ -106,7 +108,7 @@ customEvents.send(
 
 Subscribes to the event. Use on method to add listener for specific event.
 
-###on: (eventName: string, listener: Function ) => void
+### on: (eventName: string, listener: Function ) => void
 
 | Prop      | Type     | Description                                                       |
 | --------- | -------- | ----------------------------------------------------------------- |
@@ -156,7 +158,7 @@ If both eventName and listener are not provided, all events will be removed;
 Additionally, method `on` returns `unbind` function. Call it and this listener
 will be removed from event.
 
-###off: (eventName?: string, listener?: Function ) => void
+### off: (eventName?: string, listener?: Function ) => void
 
 | Prop       | Type     | Description                                                                                                  |
 | ---------- | -------- | ------------------------------------------------------------------------------------------------------------ |

@@ -1,8 +1,8 @@
 ---
-sidebar_label: Globals
-sidebar_position: 7
-description: Globals
-title: Globals
+sidebar_label: Types
+sidebar_position: 9
+description: Types
+title: Types
 keywords: [videCallProps, ChatBubbleProps]
 sidebar_custom_props: { icon: "settings" }
 ---
@@ -12,17 +12,38 @@ This page is an index of types, interfaces, enums used across the Customization 
 <api>
 <method>
 
-## RenderInterface
+## RtcRenderInterface
 
 <collapsible>
 
-| Key         | Type                        | Description                 |
-| ----------- | --------------------------- | --------------------------- |
-| uid         | number \| string            | Content of the chat message |
-| audio       | [ToggleState](#togglestate) | Content of the chat message |
-| video       | [ToggleState](#togglestate) | Content of the chat message |
-| streamType  | 'high' \| 'low'             | Content of the chat message |
-| contentType | 'rtc'                       | Content of the chat message |
+| Key        | Type                        | Description                   |
+| ---------- | --------------------------- | ----------------------------- |
+| uid        | [UidType](#uidtype)         | uid of the user               |
+| audio      | [ToggleState](#togglestate) | audio mute state              |
+| video      | [ToggleState](#togglestate) | video mute state              |
+| streamType | 'high' \| 'low'             | stream quality type           |
+| name       | string                      | display name of the user      |
+| screenUid  | number                      | uid of the screenshare stream |
+| offline    | boolean                     | offline status of the user    |
+| type       | 'rtc'                       | content type                  |
+
+</collapsible>
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+## UserRenderInterface
+
+Defined by the user, can contain any information necessary for the corresponding [custom content](/first-party-extension/api-reference/components-api#videocallcustomcontent) added.
+
+<collapsible>
+
+| Key           | Type   | Description                 |
+| ------------- | ------ | --------------------------- |
+| type          | string | Content of the chat message |
+| [key: string] | any    | Content of the chat message |
 
 </collapsible>
 </method>
@@ -45,17 +66,18 @@ This page is an index of types, interfaces, enums used across the Customization 
 </collapsible>
 </method>
 
-<!-- ***************************************************************************************************************** -->
-
 <method>
 
-## RenderObjectInterface
+<!-- ***************************************************************************************************************** -->
+
+## ButtonTemplateName
 
 <collapsible>
 
-| Key            | Type                                | Description                                                                      |
-| -------------- | ----------------------------------- | -------------------------------------------------------------------------------- |
-| [key: UidType] | [RenderInterface](#renderinterface) | Object containing information necessary to render view for the corresponding uid |
+| Name      | Value |
+| --------- | ----- |
+| topBar    | 0     |
+| bottomBar | 1     |
 
 </collapsible>
 </method>
@@ -64,7 +86,7 @@ This page is an index of types, interfaces, enums used across the Customization 
 
 <method>
 
-## UidType : string
+## RenderInterface: [RtcRenderInterface](#rtcrenderinterface) \| [UserRenderInterface](#userrenderinterface)
 
 </method>
 
@@ -72,7 +94,82 @@ This page is an index of types, interfaces, enums used across the Customization 
 
 <method>
 
-## createHook : <T\>(context: [React.Context](#https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L373)<T\>) => { Partial<T\> }
+## RenderListInterface
+
+<collapsible>
+
+| Key                        | Type                                | Description                                                                              |
+| -------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| [key: [UidType](#uidtype)] | [RenderInterface](#renderinterface) | Object containing information necessary to render content view for the corresponding uid |
+
+</collapsible>
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+## UidType : string | number
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+## Selector( e: T ): Partial<T\>
+
+Method to subscribe to portions of the app-state. When passed to an app-state accessor method it reicieves the contents of the associated app-state as argument, it must then selectively return the contents which are intended to be subscribed and eventually returned by the accessor method.
+
+```jsx
+import { useRecording } from "customization-api";
+
+const { isRecordingActive, startRecording } = useRecording(
+  ({isRecordingActve ,startRecording, stopRecording}) => {
+    return({{isRecordingActve, startRecording}})
+  }
+);
+
+/*
+#### RecordingContextInterface
+
+isRecordingActve : boolean
+startRecording   : () => void
+stopRecording    : () => void
+*/
+```
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+## DispatchType: <T, V>(action: { type: T; value: V }) => void
+
+**T**: keyof [CallbacksInterface](#callbacksinterface)
+
+**V**: Parameters<[CallbacksInterface](#callbacksinterface)[**T**]>
+
+Used to dispatch various app builder actions.
+Part of [RtcContext](/first-party-extension/api-reference/context-library#rtccontextinterface).
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+## CallbacksInterface
+
+| Key              | Type                                                                                      | Description                                                                                                                                                                                                                                                                                       |
+| ---------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EndCall          | () => void                                                                                | Ends the call                                                                                                                                                                                                                                                                                     |
+| SwitchCamera     | () => void                                                                                | Switches the video device being used [ mobile only ]                                                                                                                                                                                                                                              |
+| SwapVideo        | ( uid: [UidType](#uidtype) ) => void                                                      | Swaps given `uid` with the uid at the top in [renderPosition](/first-party-extension/api-reference/context-library#renderstateinterface)                                                                                                                                                          |
+| DequeVideo       | ( uid: [UidType](#uidtype) ) => void                                                      | Shifts given `uid` to top of [renderPosition](/first-party-extension/api-reference/context-library#renderstateinterface)                                                                                                                                                                          |
+| UpdateRenderList | ( uid: [UidType](#uidtype), user: Partial<[RenderInterface](#renderinterface)\> ) => void | Updates [renderObject](#renderinterface) of the given `uid` in [renderList](/first-party-extension/api-reference/context-library#renderstateinterface)                                                                                                                                            |
+| AddCustomContent | ( uid: [UidType](#uidtype), data: [RenderInterface](#renderinterface) ) => void           | Adds the given `data` to [renderlist](/first-party-extension/api-reference/context-library#renderstateinterface) with given `uid` as key. Used alongside [CustomContent API](/first-party-extension/api-reference/components-api#videocallcustomcontent) for adding and displaying custom content |
 
 </method>
 

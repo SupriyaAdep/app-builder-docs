@@ -1,5 +1,5 @@
 ---
-sidebar_label: Internationalization API
+sidebar_label: i18n API
 sidebar_position: 2
 description: Customize the text content of your application using this API
 title: i18n API
@@ -7,7 +7,7 @@ keywords: [i18nInterface, i18nDataInterface]
 sidebar_custom_props: { icon: "i18" }
 ---
 
-Customize and add multiple language and locale translations for all strings used across App Builder using this API.
+Provides API to customize and add multiple language and locale translations for all strings used across App Builder.
 
 ## i18n : [i18nInterface](#i18ninterface)\[\]
 
@@ -17,10 +17,10 @@ The overrides are applied by passing the array under the top-level `i18n` key to
 
 #### i18nInterface
 
-| Key    | Type                                | Description                                     |
-| ------ | ----------------------------------- | ----------------------------------------------- |
-| locale | string                              | Unique string identifier to specify a language. |
-| label? | string                              | Language name to display in the UI dropdown     |
+| Key    | Type                                    | Description                                     |
+| ------ | --------------------------------------- | ----------------------------------------------- |
+| locale | string                                  | Unique string identifier to specify a language. |
+| label? | string                                  | Language name to display in the UI dropdown     |
 | data   | [i18nDataInterface](#i18ndatainterface) | The necessary translations for a given locale   |
 
 #### i18nDataInterface
@@ -47,9 +47,9 @@ Use the example code given below showcasing overrding
 
 ```js
 import React from "react";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   i18n: [
     {
       locale: "en-us",

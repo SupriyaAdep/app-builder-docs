@@ -1,5 +1,5 @@
 ---
-sidebar_label: How to embed the App Builder Web SDK in a NextJS web app ?
+sidebar_label: NextJS usage
 sidebar_position: 5
 description: Embed App Builder SDK in your app
 title: How to embed the App Builder Web SDK in a NextJS web app ?
@@ -231,7 +231,7 @@ const AppBuilderWrapper = () = {
 
 <!-- LHS -->
 
-Pass the returned FPE Object to the `installFPE` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
+Pass the returned FPE Object to the `customize` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
 
 <!-- RHS -->
 
@@ -248,7 +248,7 @@ const AppBuilderWrapper = () = {
     */
     });
     // <!-- [ dim code end ] -->
-    AgoraAppBuilder.installFPE(FPE);
+    AgoraAppBuilder.customize(FPE);
   },[])
 ...
 ```

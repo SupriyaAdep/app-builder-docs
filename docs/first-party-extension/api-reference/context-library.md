@@ -1,64 +1,44 @@
 ---
-sidebar_label: App state and Context Library
+sidebar_label: App State Library
 sidebar_position: 4
-description: Context Library
-title: Context Library
+description: App State Library
+title: App State Library
 keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-The context library exposes various contexts used in app builder. All contexts are wrapped around a selector hook that allows for selective subscribing of data.
+Provides accessors for various app states used in App Builder. Some accessors accept a [selector](/first-party-extension/api-reference/globals#selector) method that allows for selective subscribing of data.
+
+You can access them under the `customization-api` module as a named export.
 
 ---
 
 <method>
 
-## useRecordingContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
+## useRecording(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RecordingContextInterface](/first-party-extension/api-reference/context-library#recordingcontextinterface)
 
-The RecordingContext contains methods to start and stop cloud recording as well as state that tracks recording status.
+The Recording app state governs the App Builder cloud recording functionality.
 
 <br/>
 
 #### RecordingContextInterface
 
-| Key                | Type                                                      | Description                                                      |
-| ------------------ | --------------------------------------------------------- | ---------------------------------------------------------------- |
-| isRecordingActve   | boolean                                                   | Flag to indicate if cloud recording is active in the application |
-| setRecordingActive | [React.Dispatch](a)<[React.SetStateAction](a)<boolean\>\> | Start/Stop cloud recording.                                      |
-| startRecording     | () => void                                                | Starts cloud recording                                           |
-| stopRecording      | () => void                                                | Stops cloud recording                                            |
+| Key              | Type       | Description                                               |
+| ---------------- | ---------- | --------------------------------------------------------- |
+| isRecordingActve | boolean    | Indicates if cloud recording is active in the application |
+| startRecording   | () => void | Starts cloud recording                                    |
+| stopRecording    | () => void | Stops cloud recording                                     |
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the app state:
 
 ```jsx
-import { useRecordingContext } from "fpe-api";
+import { useRecording } from "customization-api";
 
-const MyReactComponent = () => {
-  const {
-    isRecordingActve,
-    setRecordingActive,
-    startRecording,
-    stopRecording,
-  } = useRecordingContext((RecordingContext) => {
-    const {
-      isRecordingActve,
-      setRecordingActive,
-      startRecording,
-      stopRecording,
-    } = RecordingContext;
+...
 
-    return {
-      isRecordingActve,
-      setRecordingActive,
-      startRecording,
-      stopRecording,
-    };
-  });
-
-  ...
-};
+const { isRecordingActive, startRecording, stopRecording } = useRecording();
 ```
 
 </method>
@@ -67,44 +47,35 @@ const MyReactComponent = () => {
 
 <method>
 
-## useRenderContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderStateInterface](#renderstateinterface)\>
+## useChatUiControl(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [ChatUiControlInterface](/first-party-extension/api-reference/context-library#chatuicontrolinterface)
 
-The RenderContext contains the information necessary to render user content views.
-
-<br/>
-
-#### RenderStateInterface
-
-| Key            | Type                                                                                        | Description                                                           |
-| -------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| renderList     | [RenderObjectInterface](/first-party-extension/api-reference/globals#renderobjectinterface) | Object containing all the render objects stored in the render context |
-| renderPosition | Array<[UidType](/first-party-extension/api-reference/globals#uidtype)\>                     | Array indicating order of all uids in the render context              |
+The ChatUiControl app state governs the chat ui.
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+#### ChatUiControlInterface
+
+| Key                   | Type                                                                            | Description                                           |
+| --------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| groupActive           | boolean                                                                         | Determines if group tab is active in chat sidepanel   |
+| setGroupActive        | (status: boolean) => void                                                       | Method to set group tab active status                 |
+| privateActive         | boolean                                                                         | Determines if private tab is active in chat sidepanel |
+| setPrivateActive      | (status: boolean) => void                                                       | Method to set private tab active status               |
+| selectedChatUserId    | [uidtype](/first-party-extension/api-reference/globals#uidtype)                 | Uid of the user selected in private chat tab          |
+| setSelectedChatUserId | (uid: [uidtype](/first-party-extension/api-reference/globals#uidtype) ) => void | Method to set selected user                           |
+| message               | string                                                                          | Content of message to be sent                         |
+| setMessage            | (message: string) => void                                                       | Method to set content of message to be sent           |
+
+<br/>
+
+Usage example of the app state:
 
 ```jsx
-import { useRenderContext } from "fpe-api";
+import { useRecording } from "customization-api";
 
-const MyReactComponent = () => {
-  const {
-    renderList,
-    renderPosition,
-  } = useRenderContext((RenderContext) => {
-    const {
-      renderList,
-      renderPosition,
-    } = RenderContext;
+...
 
-    return {
-      renderList,
-      renderPosition,
-    };
-  });
-
-  ...
-};
+const { isRecordingActive, startRecording, stopRecording } = useRecording();
 ```
 
 </method>
@@ -113,21 +84,55 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLocalContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)\>
+## useMessages(): [MessageInterface](/first-party-extension/api-reference/context-library#messageinterface)
 
-The LocalContext contains the local user information.
+The Messages app state governs the chat messages.
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+#### MessageInterface
+
+| Key                      | Type                                                                 | Description                                                                   |
+| ------------------------ | -------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| groupMessages            | [messageStoreInterface](#messagestoreinterface)[]                    | Array of all the group messages                                               |
+| privateMessages          | { [key: string]: [messageStoreInterface](#messagestoreinterface)[] } | Object containing all private messages                                        |
+| sendMessage              | ( msg: string, toUid?: number ) => void                              | Method to send a message. Sends group message if `toUid` is not passed        |
+| editMessage              | ( msgId: string, msg: string, toUid?: number ) => void               | Method to edit a message                                                      |
+| deleteMessage            | ( msgId: string, toUid?: number ) => void                            | Method to delete a message                                                    |
+| groupUnreadCount         | number                                                               | Number of unread group messages                                               |
+| setGroupUnreadCount      | (count: number) => void                                              | method to set number of unread group messages                                 |
+| individualunreadcount    | { [key: string]: number }                                            | object containing number of unread private messages corresponding to each uid |
+| setindividualunreadcount | (count: { [key: string]: number } ) => void                          | method to set nubmer of unread private messages                               |
+
+#### messagestoreinterface
+
+| key               | type                                                            | description                     |
+| ----------------- | --------------------------------------------------------------- | ------------------------------- |
+| createdtimestamp  | number                                                          | message creation timestamp      |
+| updatedtimestamp? | number                                                          | last message update timestamp   |
+| msg               | string                                                          | message content                 |
+| msgid             | string                                                          | message id                      |
+| isdeleted         | boolean                                                         | indicates if message is deleted |
+| uid               | [uidtype](/first-party-extension/api-reference/globals#uidtype) | uid of the message sender       |
+
+<br/>
+
+usage example of the app state:
 
 ```jsx
-import { useLocalContext } from "fpe-api";
+import { usemessages } from "customization-api";
 
-const MyReactComponent = () => {
-  const LocalContext = useLocalContext();
-  ...
-};
+const {
+  groupmessages,
+  privatemessages,
+  sendmessage,
+  editmessage,
+  deletemessage,
+  groupunreadcount,
+  setgroupunreadcount,
+  individualunreadcount,
+  setindividualunreadcount,
+} = usemessages();
 ```
 
 </method>
@@ -136,44 +141,90 @@ const MyReactComponent = () => {
 
 <method>
 
-## useLayoutContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[LayoutContextInterface](#layoutcontextinterface)\>
+## useRender(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [Renderstateinterface](#renderstateinterface)
 
-The RenderContext contains the active layout and method to modify the active layout
+<!-- the render app state contains the information necessary to render user content views displayed in the videocall screen. this app state is passed to the layouts as an array of components to display the content views. the renderlist object contains renderobjects for every uid in the the rendercontext as key value pairs. -->
+
+The Render app state governs the information necessary to render each user content view displayed in the videocall screen.
+
+it is composed of:
+
+#### Renderstateinterface
+
+| key            | type                                                                                    | description                                                                                                          |
+| -------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| renderlist     | [renderlistinterface](/first-party-extension/api-reference/globals#renderlistinterface) | Object containing information necessary to render the content view corresponding to each uid in the Render app state |
+| renderposition | array<[Uidtype](/first-party-extension/api-reference/globals#uidtype)\>                 | Array of all uids in the Render app state                                                                            |
+
+<br/>
+
+Each [renderobject](/first-party-extension/api-reference/globals#renderobjectinterface) in the `renderlist` is passed as a prop to corresponding type of [content component](/first-party-extension/api-reference/components-api#renderingcomponentinterface). All the resulting components are then passed to the layouts as an array to be rendered as desired.
+
+**For eg.** The Render app state contains a [renderobject](/first-party-extension/api-reference/globals#rtcrenderinterface) of `type:'rtc'` for each user in the meeting by default stored in `renderList`. It is used to display user video feeds coming from AgoraRTC hence they contain all the necessary information like: `uid` to identify and subscribe to the video and audio, `audio` and `video` mute states to correctly display fallbacks and icons, etc. each Renderobject is passed as a prop to [MaxVideoView](/first-party-extension/api-reference/sub-components-library#maxvideoview) unless overriden by [CustomContent API](/first-party-extension/api-reference/components-api#videocallcustomcontent). After which the resulting array of components is passed to layout to be rendered.
+
+:::tip
+You can add custom render objects to the render app state using the 'AddCustomContent' action in [dispatch](/first-party-extension/api-reference/globals#dispatchtype)
+:::
+
+Usage example of the app state:
+
+```jsx
+import { useRender } from "customization-api";
+
+...
+
+const { renderList, renderPosition } = useRender();
+```
+
+</method>
+
+---
+
+<method>
+
+## useLocalUserInfo(): [LocalUserInfo](/first-party-extension/api-reference/globals#rtcrenderinterface)
+
+The LocalUserInfo app state contains the local user information like `uid`, `audio` and `video` mute states etc.
+
+Usage example of the app state:
+
+```jsx
+import { useLocalUserInfo } from "customization-api";
+
+...
+
+const { uid, audio, video, streamType, contentType, name, screenUid, offline} = useLocalUserInfo();
+```
+
+</method>
+
+---
+
+<method>
+
+## useLayout(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [LayoutContextInterface](#layoutcontextinterface)
+
+The Layout app state governs the video call screen content display layout.
 
 <br/>
 
 #### LayoutContextInterface
 
-| Key                 | Type                                                       | Description                                   |
-| ------------------- | ---------------------------------------------------------- | --------------------------------------------- |
-| activeLayoutName    | string                                                     | State variable containing active layout name  |
-| setActiveLayoutName | [React.Dispatch](a)< [React.SetStateAction](a) <string\>\> | Set state method to modify active layout name |
+| Key           | Type                           | Description                                                                                                                                                                        |
+| ------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| currentLayout | string                         | Name of the current layout. Can be `grid`, `pinned` or any other key defined in the [custom layout API](#first-party-extension/api-reference/components-api#videocallcustomlayout) |
+| setLayout     | ( layoutName: string ) => void | Sets the current layout with given layout name                                                                                                                                     |
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the app state:
 
 ```jsx
-import { useLayoutContext } from "fpe-api";
+import { useLayout } from "customization-api";
 
-const MyReactComponent = () => {
-  const {
-    activeLayoutName,
-    setActiveLayoutName,
-  } = useLocalContext((LayoutContext) => {
-    const {
-      activeLayoutName,
-      setActiveLayoutName,
-    } = LayoutContext;
+...
 
-    return {
-      activeLayoutName,
-      setActiveLayoutName,
-    };
-  });
-
-  ...
-};
+const { currentLayout, setLayout } = useLayout();
 ```
 
 </method>
@@ -182,84 +233,48 @@ const MyReactComponent = () => {
 
 <method>
 
-## useMeetingInfoContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[MeetingInfoContextInterface](#meetinginfocontextinterface)\>
+## useMeetingInfo(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [MeetingInfo](#meetinginfo)
 
-The MeetingInfoContext contains the all the information about the active meeting.
-
-<br/>
-
-#### MeetingInfoContextInterface
-
-| Key                | Type                                                                                                                                                      | Description                                                                                       |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| isHost             | boolean                                                                                                                                                   | Indicates if the user joined using the Host URL or using the Attendee URL                         |
-| meetingTitle       | string                                                                                                                                                    | Meeting title                                                                                     |
-| meetingPassphrase  | {<br/>&emsp;attendee: string,<br/>&emsp;host?: string,<br/>&emsp;pstn?: {<br/>&emsp;&emsp;number: string,<br/> &emsp;&emsp;pin: string<br/>&emsp;}<br/> } | Object containing host and attendee meeting passphrases along with PSTN info                      |
-| isSeparateHostLink | boolean                                                                                                                                                   | A flag that determines if the host uses a separate link or if everybody uses the same(host) link. |
-| channel            | string                                                                                                                                                    | Channel name of current meeting                                                                   |
-| uid                | number                                                                                                                                                    | uid of the local user                                                                             |
-| token              | string                                                                                                                                                    | rtc authentication token required to join the channel                                             |
-| rtm                | string                                                                                                                                                    | rtm uid of the local user                                                                         |
-| secret             | string                                                                                                                                                    | authentication secret                                                                             |
-| screenShareUid     | string                                                                                                                                                    | uid of local user screenshare                                                                     |
-| screenShareToken   | string                                                                                                                                                    | authentication token for local user screenshare                                                   |
-| isJoinDataFetched  | boolean                                                                                                                                                   | Videocall screen only - The boolean value indicates if the backend query has been completed.      |
+The MeetingInfo app state contains information about the active meeting.
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+<!-- PENDING -->
+
+#### MeetingInfo
+
+| Key               | Type                                | Description                                              |
+| ----------------- | ----------------------------------- | -------------------------------------------------------- |
+| isJoinDataFetched | boolean                             | Indicates meeting info has been fetched from the backend |
+| data?             | [MeetingInfoData](#meetinginfodata) | Meeting info data                                        |
+
+#### MeetingInfoData
+
+| Key                | Type                                                            | Description                                                               |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| isHost             | boolean                                                         | Indicates if the user joined using the Host URL or using the Attendee URL |
+| meetingTitle       | string                                                          | Meeting title                                                             |
+| roomId             | {<br/>&emsp;attendee: string,<br/>&emsp;host?: string,<br/>}    | Host and attendee roomIds                                                 |
+| pstn?              | {<br/>&emsp;number: string,<br/>&emsp;pin: string<br/>}         | PSTN info                                                                 |
+| isSeparateHostLink | boolean                                                         | Indicates if seperate host and attendee links generated                   |
+| channel            | string                                                          | Channel name of current meeting                                           |
+| uid                | [UidType](/first-party-extension/api-reference/globals#uidtype) | Uid of the local user                                                     |
+| token              | string                                                          | RTC authentication token required to join the channel                     |
+| rtmToken           | string                                                          | RTM authentication token required to join the channel                     |
+| encryptionSecret?  | string                                                          | Packet encryption secret secret                                           |
+| screenShareUid     | string                                                          | Uid of local user's screenshare                                           |
+| screenShareToken   | string                                                          | Authentication token for local user's screenshare                         |
+
+<br/>
+
+Usage example of the app state:
 
 ```jsx
-import { useMeetingInfoContext } from "fpe-api";
+import { useMeetingInfo } from "customization-api";
 
-const MyReactComponent = () => {
-  const {
-    isHost,
-    meetingTitle,
-    meetingPassphrase,
-    isSeparateHostLink,
-    channel,
-    uid,
-    token,
-    rtm,
-    secret,
-    screenShareUid,
-    screenShareToken,
-    isJoinDataFetched,
-  } = useMeetingInfoContext((MeetingInfoContext) => {
-    const {
-      isHost,
-      meetingTitle,
-      meetingPassphrase,
-      isSeparateHostLink,
-      channel,
-      uid,
-      token,
-      rtm,
-      secret,
-      screenShareUid,
-      screenShareToken,
-      isJoinDataFetched,
-    } = MeetingInfoContext;
+...
 
-    return {
-      isHost,
-      meetingTitle,
-      meetingPassphrase,
-      isSeparateHostLink,
-      channel,
-      uid,
-      token,
-      rtm,
-      secret,
-      screenShareUid,
-      screenShareToken,
-      isJoinDataFetched,
-    };
-  });
-
-  ...
-};
+const { isJoinDataFetched, data } = useMeetingInfo();
 ```
 
 </method>
@@ -268,49 +283,41 @@ const MyReactComponent = () => {
 
 <method>
 
-## useRtcContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RtcContextInterface](#rtccontextinterface)>
+## useUserName(): \[[userName](#username), [setUserName](#setusername)\]
 
-The RenderContext contains the information necessary to render user content views.
+The UserName app state governs the local user's display name.
 
-<br/>
+Usage example of the app state:
 
-#### RtcContextInterface
+```js
+import { useUserName } from "customization-api";
 
-| Key               | Type                                                                                                                                                                | Description                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                                                                     | The RtcEngine object from the Agora SDK     |
-| dispatch          | [DispatchType](https://agoraio-community.github.io/ReactNative-UIKit/modules/Built_in_Components._internal_.html#DispatchType)                                      | Method to dispatch various callbacks        |
-| setDualStreamMode | [React.Dispatch](a)< [React.SetStateAction](a) <[DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) \> \> | Set state method to modify dual stream mode |
+...
 
-<br/>
-
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
-
-```jsx
-import { useRtcContext } from "fpe-api";
-
-const MyReactComponent = () => {
-  const {
-    RtcEngine,
-    dispatch,
-    setDualStreamMode,
-  } = useRtcContext((RtcContext) => {
-    const {
-      RtcEngine,
-      dispatch,
-      setDualStreamMode,
-    } = RtcContext;
-
-    return {
-      RtcEngine,
-      dispatch,
-      setDualStreamMode,
-    };
-  });
-
-  ...
-};
+const [userName, setUserName] = useUserName();
 ```
+
+<br/>
+
+### _Returns_:
+
+<method>
+
+<collapsible>
+
+### userName: string
+
+</collapsible>
+
+<br/>
+
+<collapsible>
+
+### setUserName: (name: string) => void;
+
+</collapsible>
+
+</method>
 
 </method>
 
@@ -318,72 +325,34 @@ const MyReactComponent = () => {
 
 <method>
 
-## usePropsContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[PropsInterface](#propsinterface)\>
+## useRtc(selector?: [Selector](/first-party-extension/api-reference/globals#selector)): [RtcInterface](#rtcinterface)
 
-The PropsContext contains the various configuration options and callbacks that are passed to setup [Agora React Native UI Kit](a) internally.
-
-<br/>
-
-#### PropsInterface
-
-| Key         | Type                                                                                                                                                     | Description                                                          |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| rtcProps    | [RtcPropsInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface)                                                                            | Contains all the configuration options passed to setup the ui kit    |
-| styleProps? | Partial< [StylePropInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html) \> | Contains various styles used by the ui kit                           |
-| callbacks?  | Partial< [CallbacksInterface](#rtcpropsinterface-extends-agorarnuikitrtcpropsinterface) >                                                                | Contains various callbacks setup on rtc actions passed to the ui kit |
-| mode?       | ChannelProfile                                                                                                                                           | Indicates the rtc channel profile to be used                         |
+The RTC app state exposes the internal RtcEngine object as well as dispatch interface to perform various actions.
 
 <br/>
 
-#### RtcPropsInterface _extends_ [AgoraRnUiKitRtcPropsInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Built_in_Components._internal_.RtcPropsInterface.html)
+#### RtcInterface
 
-| Key         | Type    | Description                              |
-| ----------- | ------- | ---------------------------------------- |
-| geoFencing? | boolean | Determines whether geofencing is enabled |
+| Key               | Type                                                                                                                          | Description                                                                                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                               | The RtcEngine object from the AgoraRTC SDK                                                                                                                    |
+| dispatch          | [DispatchType](/first-party-extension/api-reference/globals#dispatchtype)                                                     | Method to perform various app builder actions. You can see list of available actions [here](/first-party-extension/api-reference/globals#callbacksinterface). |
+| setDualStreamMode | ( mode: [DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) ): void | Method to modify dual stream mode                                                                                                                             |
 
-<br/>
-
-#### CallbacksInterface _extends_ [AgoraRnUiKitCallbackInterface](https://agoraio-community.github.io/ReactNative-UIKit/interfaces/Agora_UIKit._internal_.CallbacksInterface.html)
-
-<!-- TODO(adictya): Add descriptions -->
-
-| Key              | Type                                                                                                                                                                           | Description                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
-| DequeVideo       | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype)) => void                                                                                                 | Called when a render object dequeud  |
-| UpdateRenderList | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype), user: Partial<[RenderInterface](/first-party-extension/api-reference/globals#renderinterface)>) => void | Called when render list is updated   |
-| AddCustomContent | (uid: [UidType](/first-party-extension/api-reference/globals#uidtype), data: any) => void                                                                                      | Called when custom content was added |
+:::danger
+Avoid using `RtcEngine` directly to perform actions such as muting audio, joining a channel etc. Instead rely on [Actions Library](/first-party-extension/api-reference/actions-library) or [Dispatch](/first-party-extension/api-reference/globals#dispatchtype) provided by the `customization-api` as they handle modifying the internal app states along with performing the required action.
+:::
 
 <br/>
 
-Use the example code given below showcasing the use of selector to grab all the contents of the context.
+Usage example of the app state:
 
 ```jsx
-import { usePropsContext } from "fpe-api";
+import { useRtc } from "customization-api";
 
-const MyReactComponent = () => {
-  const {
-    rtcProps,
-    styleProps,
-    callbacks,
-    mode,
-  } = usePropsContext((PropsContext) => {
-    const {
-      rtcProps,
-      styleProps,
-      callbacks,
-      mode,
-    } = PropsContext;
+...
 
-    return {
-      rtcProps,
-      styleProps,
-      callbacks,
-      mode,
-    };
-  });
-
-  ...
-};
+const { RtcEngine, dispatch, setDualStreamMode } = useRtc();
 ```
 
 </method>

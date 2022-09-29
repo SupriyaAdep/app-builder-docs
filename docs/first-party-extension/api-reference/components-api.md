@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: "settings" }
 
 <!-- <image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" /> -->
 
-The Components API allows for granular overriding of various aspects of the App Builder user interface ranging from entire screens such as the “VideoCall” screen to specific components within these screens such as the “BottomBar” component.
+Provides API for granular overriding of various aspects of the App Builder user interface ranging from entire screens such as the “VideoCall” screen to specific components within these screens such as the “BottomBar” component.
 
 The overrides are applied by supplying values as an object under the top-level `components` key to the Customization API config object.
 
@@ -32,10 +32,18 @@ Hence it is displayed after:
 
 - The user clicks on `JoinButton` inside the `Precall` screen.
 
-However if `$config.precall` is set to disabled, the videoCall screen is directly displayed after:
+However if Precall Screen is disabled in the Builder,
+
+<image alt="Precall Screen Builder Option" darkImageSrc="customization-api/api/components-api/precall.png" />
+
+the videoCall screen is directly displayed after:
 
 - The user clicks on the “Start Meeting” button inside the `Share` screen
 - The user clicks on a meeting invite link.
+
+:::tip
+To make the customizations powerful, you can use the libraries to access the internal app state, send custom events, or re-use prebuilt subcomponents
+:::
 
 <br/>
 
@@ -49,14 +57,12 @@ However if `$config.precall` is set to disabled, the videoCall screen is directl
 
 You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
 
-To reuse parts of default video call ui you can import them from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `fpe-api` module.
-
 Use the example code given below showcasing reconstruction of the default video call ui as a guide.
 
 ```tsx {13-17}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyVideoCallComponent: React.FC = () => {
   return (
@@ -66,7 +72,7 @@ const MyVideoCallComponent: React.FC = () => {
   );
 };
 
-const data = installFPE({
+const data = customize({
   components: {
     videoCall: MyVideoCallComponent,
   },
@@ -74,6 +80,10 @@ const data = installFPE({
 
 export default data;
 ```
+
+Result:
+
+<imageSlider alt="videocall component override" darkImageSrc1="replace-me.png" darkImageSrc2="replace-me.png" />
 
 </collapsible>
 
@@ -124,14 +134,14 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 You can override the BottomBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `bottomBar` key to the `VideoCallInterface Object`
 
-To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `fpe-api` module.
+To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `customization-api` module.
 
 Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
 
 ```tsx {13-19}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyBottomBarComponent: React.FC = () => {
   return (
@@ -141,7 +151,7 @@ const MyBottomBarComponent: React.FC = () => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       bottomBar: MyBottomBarComponent,
@@ -224,7 +234,7 @@ Use the code example given below showcasing overriding of the default chat bubbl
 ```tsx {13-21}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyChatBubbleComponent = () => {
   return (
@@ -234,7 +244,7 @@ const MyChatBubbleComponent = () => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       chat: {
@@ -287,7 +297,7 @@ Use the example code given below showcasing overriding of the default render com
 ```tsx {13-21}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyRTCRenderer = () => {
   return (
@@ -297,7 +307,7 @@ const MyRTCRenderer = () => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       customContent: {
@@ -375,7 +385,7 @@ Use the example code given below showcasing appending a custom layout as a guide
 ```tsx {13-27}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyLayoutComponent = ({ renderData }) => {
   return (
@@ -385,7 +395,7 @@ const MyLayoutComponent = ({ renderData }) => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       customLayout: (DefaultLayouts) => [
@@ -431,14 +441,14 @@ The participantsPanel component lists all the users in the video call / livestre
 
 You can override the entire participantsPanel component by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `participanPanel` key to the `VideocallInterface Object`
 
-You can import parts of default participantsPanel ui from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `fpe-api` module to reuse them in your component.
+You can import parts of default participantsPanel ui from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `customization-api` module to reuse them in your component.
 
 Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
 
 ```tsx {13-19}
 import React from "react";
 import { View, Text } from "react-native";
-import { installFPE } from "fpe-api/install";
+import { customize } from "customization-api";
 
 const MyParticipantPanel = () => {
   return (
@@ -448,7 +458,7 @@ const MyParticipantPanel = () => {
   );
 };
 
-const userCustomization = installFPE({
+const userCustomization = customize({
   components: {
     videoCall: {
       participantsPanel: MyParticipantPanel,

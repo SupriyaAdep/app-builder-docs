@@ -1,5 +1,5 @@
 ---
-sidebar_label: How to embed the App Builder Web SDK in a React web app ?
+sidebar_label: ReactJS usage
 sidebar_position: 1
 description: Embed App Builder SDK in your app
 title: How to embed the App Builder Web SDK in a React web app ?
@@ -167,7 +167,7 @@ const App = () = {
 
 <!-- LHS -->
 
-Pass the returned FPE Object to the `installFPE` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
+Pass the returned FPE Object to the `customize` method available under the same `AgoraAppBuilder` object to apply the config to your embedded App Builder project.
 
 <!-- RHS -->
 
@@ -181,7 +181,7 @@ const App = () = {
       My FPE Config. See https://example.com for config reference.
     */
     });
-    AgoraAppBuilder.installFPE(FPE);
+    AgoraAppBuilder.customize(FPE);
   },[])
 ...
 ```
