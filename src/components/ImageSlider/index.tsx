@@ -48,9 +48,9 @@ function ImageSlider({
         <path
           stroke="##808080"
           d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2"
-          stroke-width="1"
+          strokeWidth="1"
           fill="##808080"
-          vector-effect="non-scaling-stroke"
+          vectorEffect="non-scaling-stroke"
         ></path>
       </svg>
     </ImgComparisonSlider>

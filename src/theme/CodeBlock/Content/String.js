@@ -33,6 +33,8 @@ export default function CodeBlockString({
     languageProp ?? parseLanguage(blockClassName) ?? defaultLanguage;
   const prismTheme = usePrismTheme();
   const wordWrap = useCodeWordWrap();
+  console.log('metatring', metastring)
+  const githubLink = metastring?.match(/gh=(?<quote>["'])(?<gh>.*?)\1/)?.groups?.gh || ''
   // We still parse the metastring in case we want to support more syntax in the
   // future. Note that MDX doesn't strip quotes when parsing metastring:
   // "title=\"xyz\"" => title: "\"xyz\""
@@ -124,7 +126,7 @@ export default function CodeBlockString({
               isEnabled={wordWrap.isEnabled}
             />
           )} */}
-          <GithubButton />
+          {githubLink && <GithubButton link={githubLink} />}
           <CopyButton className={styles.codeButton} code={code} />
           <FullScreenButton className="expand-btn" forwardRef={containerRef} />
         </div>

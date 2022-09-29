@@ -1,6 +1,6 @@
 ---
 sidebar_label: Test Page
-draft: true
+draft: false
 ---
 
 # Subtitle Test Page - To be removed
@@ -51,9 +51,9 @@ new format with typedoc convention (** Selector can be documented in Types **)
 
 ---
 
-### Codeblock 1
+### Codeblock 1 with github
 
-```tsx {13-17}
+```tsx {13-17} gh="https://www.github.com/myLink"
 import React from "react";
 import { View, Text } from "react-native";
 import { installApi } from "api/install";
