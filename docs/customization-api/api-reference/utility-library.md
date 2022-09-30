@@ -43,7 +43,7 @@ if (isVideoEnabled( 123457 )) {
 
 <collapsible>
 
-### isVideoEnabled(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): boolean
+### isVideoEnabled(uid: [UidType](/customization-api/api-reference/types#uidtype)): boolean
 
 </collapsible>
 
@@ -83,11 +83,30 @@ if (isAudioEnabled( 123457 )) {
 
 <collapsible>
 
-### isAudioEnabled(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): boolean
+### isAudioEnabled(uid: [UidType](/customization-api/api-reference/types#uidtype)): boolean
 
 </collapsible>
 
 </method>
+
+</method>
+
+---
+
+<method>
+
+## useLocalUid(): [UidType](/customization-api/api-reference/types#uidtype)
+
+Returns the loacal user's uid.
+
+```js
+import { useLocalUid } from "customization-api";
+
+...
+
+const localUid = useLocalUid();
+
+```
 
 </method>
 
@@ -123,7 +142,7 @@ if (isHost( 123457 )) {
 
 <collapsible>
 
-### isHost(uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ): boolean
+### isHost(uid: [UidType](/customization-api/api-reference/types#uidtype) ): boolean
 
 </collapsible>
 
@@ -163,7 +182,7 @@ if (isAttendee( 123457 )) {
 
 <collapsible>
 
-### isAttendee(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): boolean
+### isAttendee(uid: [UidType](/customization-api/api-reference/types#uidtype)): boolean
 
 </collapsible>
 
@@ -203,7 +222,7 @@ if (isPSTN( 123457 )) {
 
 <collapsible>
 
-### isPSTN(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): boolean
+### isPSTN(uid: [UidType](/customization-api/api-reference/types#uidtype)): boolean
 
 </collapsible>
 
@@ -398,3 +417,41 @@ if (isDesktop()) {
 </method>
 
 </method>
+
+---
+
+<method>
+
+## isMobileOrTablet(): [isAndroid](#isandroid)
+
+Checks whether the application is running as a web application on a mobile or tablet device and returns true/false.
+
+```js
+import { isMobileOrTablet } from "customization-api";
+
+...
+
+if (isMobileOrTablet()) {
+  // if running as a web application on a mobile or tablet device and returns true/false.
+} else {
+  // if not running as a web application on a mobile or tablet device and returns true/false.
+}
+```
+
+<br/>
+
+### _Returns_:
+
+<method>
+
+<collapsible>
+
+### isAndroid(): boolean
+
+</collapsible>
+
+</method>
+
+</method>
+
+---

@@ -148,7 +148,7 @@ muteToggleRemote( MUTE_REMOTE_TYPE.audio, 123457 ); // toggle uid:123457 user's 
 
 <collapsible>
 
-### muteToggleLocal(type: [MUTE_REMOTE_TYPE](#mute_remote_type), uid: [UidType](/first-party-extension/api-reference/globals#uidtype) ): Promise<void\>
+### muteToggleLocal(type: [MUTE_REMOTE_TYPE](#mute_remote_type), uid: [UidType](/customization-api/api-reference/types#uidtype) ): Promise<void\>
 
 </collapsible>
 
@@ -184,7 +184,7 @@ remoteEndCall( 123457 ); // end uid:123457 user's call
 
 <collapsible>
 
-### remoteEndCall(uid: [UidType](/first-party-extension/api-reference/globals#uidtype)): void
+### remoteEndCall(uid: [UidType](/customization-api/api-reference/types#uidtype)): void
 
 </collapsible>
 

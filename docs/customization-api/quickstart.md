@@ -82,7 +82,7 @@ export default ChatBubbleComponent;
 
 #### STEP 3
 
-When passed as an override the component will recieve props to display necessary information or perform necessary actions. We can refer to the [api reference](/first-party-extension/api-reference/components-api#chatbubblecomponent) to see the props available to our component and destructure them for use.
+When passed as an override the component will recieve props to display necessary information or perform necessary actions. We can refer to the [api reference](/customization-api/api-reference/components-api#chatbubblecomponent) to see the props available to our component and destructure them for use.
 
 <!-- RHS -->
 
@@ -102,7 +102,7 @@ export default ChatBubbleComponent;
 
 #### STEP 4
 
-Once we have the props, we can fetch any other information like in our case we recieve the message senders `uid` as prop however in UI it would be more helpful to show the `displayName` of the user. We can fetch any such information using the [App state library](/first-party-extension/api-reference/context-library) the `displayName` in specific can be fetched from the [Render app state](/first-party-extension/api-reference/context-library#userender)
+Once we have the props, we can fetch any other information like in our case we recieve the message senders `uid` as prop however in UI it would be more helpful to show the `displayName` of the user. We can fetch any such information using the [App state library](/customization-api/api-reference/app-state-library) the `displayName` in specific can be fetched from the [Render app state](/customization-api/api-reference/app-state-library#userender)
 
 <!-- RHS -->
 
@@ -250,7 +250,7 @@ export default ChatBubbleComponent;
 
 #### STEP 6
 
-Call the `customize` method and pass an object with the necessary keys. Since we want to override the Chat Bubble component our object should look like so based on the [Api Reference](/first-party-extension/api-reference/components-api).
+Call the `customize` method and pass an object with the necessary keys. Since we want to override the Chat Bubble component our object should look like so based on the [Api Reference](/customization-api/api-reference/components-api).
 
 <!-- RHS -->
 

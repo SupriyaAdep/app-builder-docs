@@ -134,7 +134,66 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 You can override the BottomBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `bottomBar` key to the `VideoCallInterface Object`
 
-To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `customization-api` module.
+To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module.
+
+Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
+
+```tsx {13-19}
+import React from "react";
+import { View, Text } from "react-native";
+import { customize } from "customization-api";
+
+const MyBottomBarComponent: React.FC = () => {
+  return (
+    <View>
+      <Text>My bottom bar component</Text>
+    </View>
+  );
+};
+
+const userCustomization = customize({
+  components: {
+    videoCall: {
+      bottomBar: MyBottomBarComponent,
+    },
+  },
+});
+
+export default userCustomization;
+```
+
+</collapsible>
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+<subtitle>
+
+## videoCall.topBar : TopBarComponent
+
+</subtitle>
+
+<image alt="Bottom bar"  caption="bottom bar" lightImageSrc="api/Bottombar.png" darkImageSrc="api/Bottombar.png" />
+
+The TopBarComponent occupies the bottom part of the VideoCall screen and displays all the meeting controls.
+
+:::note
+The controls displayed change depending on the operating sytem/platform and the user config
+:::
+
+### _Overrides_:
+
+<collapsible>
+
+### TopBarComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+CONTENT PENDING
+
+You can override the BottomBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `topBar` key to the `VideoCallInterface Object`
+
+To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module.
 
 Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
 
@@ -187,15 +246,33 @@ The Chat component displays the ui to send and view the chat messages.
 
 You can override the specific parts chat ui by pasing in this object with key and values corresponding to the part you want to overrid under the `chat` key to the `VideoCallInterface`
 
-| Method                                         | Description                          |
-| ---------------------------------------------- | ------------------------------------ |
-| [chat.chatBubble](#videocallchatchatbubble) ?: | Customize the chat Bubble component. |
+| Method                                             | Description                               |
+| -------------------------------------------------- | ----------------------------------------- |
+| [chat.chatBubble](#videocallchatchatbubble) ?:     | Customize the chat Bubble component.      |
+| [chat.chatTextInput](#videocallchatchatbubble) ?:  | Customize the chat input component.       |
+| [chat.chatSendButton](#videocallchatchatbubble) ?: | Customize the chat send button component. |
 
 </collapsible>
 
 </method>
 
 <!-- ***************************************************************************************************************** -->
+
+<method>
+<subtitle>
+
+## videoCall.chat.chatTextInput
+
+</subtitle>
+</method>
+
+<method>
+<subtitle>
+
+## videoCall.chat.chatSendButton
+
+</subtitle>
+</method>
 
 <method>
 <subtitle>
@@ -223,7 +300,7 @@ You can override the ChatBubble component by passing in a [React Component](http
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | message   | string                                                                                                                                                                                                        | Content of the chat message                                                  |
 | isLocal   | boolean                                                                                                                                                                                                       | Specifies if the message is from a local user or if it is from a remote user |
-| uid       | [UidType](/first-party-extension/api-reference/globals#uidtype)                                                                                                                                               | Name of the user who sent the message                                        |
+| uid       | [UidType](/customization-api/api-reference/types#uidtype)                                                                                                                                                     | Name of the user who sent the message                                        |
 | timestamp | number                                                                                                                                                                                                        | Timestamp of the message                                                     |
 | render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Render method for chat bubble to provide a custom jsx                        |
 
@@ -274,7 +351,7 @@ export default userCustomization;
 
 <!-- <image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" /> -->
 
-The constomContent object specifies the react component to be used for rendering each custom content type including user inserted and default types present in the [Render Context](/first-party-extension/api-reference/context-library#userendercontext).
+The constomContent object specifies the react component to be used for rendering each custom content type including user inserted and default types present in the [Render Context](/customization-api/api-reference/app-state-library#userendercontext).
 
 ### _Overrides_:
 
@@ -283,7 +360,7 @@ The constomContent object specifies the react component to be used for rendering
 
 ### RenderingComponentInterface
 
-You can override the render component for each content type present in the [Render Context](/first-party-extension/api-reference/context-library#userendercontext) by passing in this object with key corresponding to the custom content type you want to override under the `customContent` key to the `VideoCallInterface`.
+You can override the render component for each content type present in the [Render Context](/customization-api/api-reference/app-state-library#userendercontext) by passing in this object with key corresponding to the custom content type you want to override under the `customContent` key to the `VideoCallInterface`.
 
 | Key                   | Type                | Description                                                                                                 |
 | --------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -347,10 +424,10 @@ This function recieves an array of default layouts and expects you to return an 
 
 #### DefaultLayouts: Array <[LayoutInterface](#layoutinterface)\>
 
-| Index | Type            | Value                                                                                                                                                                                                                                                                     |
-| ----- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | LayoutInterface | {<br/>&emsp;name: 'PinnedLayout',<br/>&emsp;icon: [PinnedIcon](/first-party-extension/api-reference/sub-component-library#iconsinterface),<br/>&emsp;component: [PinnedLayoutComponent](/first-party-extension/api-reference/sub-component-library#iconsinterface)<br/> } |
-| 1     | LayoutInterface | {<br/>&emsp;name: 'GridLayout',<br/>&emsp;icon: [GridIcon](/first-party-extension/api-reference/sub-component-library#iconsinterface),<br/>&emsp;component: [GridLayoutComponent](/first-party-extension/api-reference/sub-component-library#iconsinterface)<br/> }       |
+| Index | Type            | Value                                                                                                                                                                                                                                                       |
+| ----- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | LayoutInterface | {<br/>&emsp;name: 'pinned',<br/>&emsp;icon: [PinnedIcon](/customization-api/api-reference/sub-component-library#iconsinterface),<br/>&emsp;component: [PinnedLayoutComponent](/customization-api/api-reference/sub-component-library#iconsinterface)<br/> } |
+| 1     | LayoutInterface | {<br/>&emsp;name: 'grid',<br/>&emsp;icon: [GridIcon](/customization-api/api-reference/sub-component-library#iconsinterface),<br/>&emsp;component: [GridLayoutComponent](/customization-api/api-reference/sub-component-library#iconsinterface)<br/> }       |
 
 <br/>
 
@@ -358,27 +435,27 @@ This function recieves an array of default layouts and expects you to return an 
 
 #### LayoutObjectWithIcon
 
-| Key         | Type                                                                                                                                      | Description                                                                           |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| name :      | string                                                                                                                                    | Name of the layout                                                                    |
-| label :     | string                                                                                                                                    | Label of the layout to be displayed in UI                                             |
-| icon :      | string                                                                                                                                    | Can be a <br/> 1. Base 64 Image string <br/>2. CDN URL <br/>3. Bunder imported string |
-| component : | [LayoutComponent](/first-party-extension/api-reference/components-api#layoutcomponent-reactcomponent-renderstateinterfacerenderposition-) | Layout component to be used to render the video feeds                                 |
+| Key         | Type                                                                                                                                  | Description                                                                           |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| name :      | string                                                                                                                                | Name of the layout                                                                    |
+| label :     | string                                                                                                                                | Label of the layout to be displayed in UI                                             |
+| icon :      | string                                                                                                                                | Can be a <br/> 1. Base 64 Image string <br/>2. CDN URL <br/>3. Bunder imported string |
+| component : | [LayoutComponent](/customization-api/api-reference/components-api#layoutcomponent-reactcomponent-renderstateinterfacerenderposition-) | Layout component to be used to render the video feeds                                 |
 
 <br/>
 
 #### LayoutObjectWithIconName
 
-| Key         | Type                                                                                                                                      | Description                                           |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| name :      | string                                                                                                                                    | Name of the layout                                    |
-| label :     | string                                                                                                                                    | Label of the layout to be displayed in UI             |
-| iconName :  | keyof [IconsInterface](/first-party-extension/api-reference/sub-component-library#iconsinterface)                                         | Name of the icon to be displayed in UI for the layout |
-| component : | [LayoutComponent](/first-party-extension/api-reference/components-api#layoutcomponent-reactcomponent-renderstateinterfacerenderposition-) | Layout component to be used to render the video feeds |
+| Key         | Type                                                                                                                                  | Description                                           |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| name :      | string                                                                                                                                | Name of the layout                                    |
+| label :     | string                                                                                                                                | Label of the layout to be displayed in UI             |
+| iconName :  | keyof [IconsInterface](/customization-api/api-reference/sub-component-library#iconsinterface)                                         | Name of the icon to be displayed in UI for the layout |
+| component : | [LayoutComponent](/customization-api/api-reference/components-api#layoutcomponent-reactcomponent-renderstateinterfacerenderposition-) | Layout component to be used to render the video feeds |
 
 <br/>
 
-#### LayoutComponent: [React.Component](a)<{ [renderStateInterface](/first-party-extension/api-reference/globals#renderinterface)\["renderPosition"\] }>
+#### LayoutComponent: [React.Component](a)<{ [renderStateInterface](/customization-api/api-reference/types#renderinterface)\["renderPosition"\] }>
 
 Use the example code given below showcasing appending a custom layout as a guide.
 
@@ -441,7 +518,7 @@ The participantsPanel component lists all the users in the video call / livestre
 
 You can override the entire participantsPanel component by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `participanPanel` key to the `VideocallInterface Object`
 
-You can import parts of default participantsPanel ui from the [SubComponents Library](/first-party-extension/api-reference/sub-component-library) accessible under the `customization-api` module to reuse them in your component.
+You can import parts of default participantsPanel ui from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module to reuse them in your component.
 
 Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
 
@@ -473,6 +550,14 @@ export default userCustomization;
 
 <br/>
 
+</method>
+
+<method>
+<subtitle>
+
+## videoCall.useUserContext
+
+</subtitle>
 </method>
 
 </api>

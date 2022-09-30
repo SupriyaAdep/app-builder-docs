@@ -1,24 +1,24 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-const path = require('path');
+const path = require("path");
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'App Builder Docs',
-  tagline: 'Agora App Builder for Live Video Chat & Streaming Apps',
-  url: 'https://app-builder-docs.vercel.app/',
-  baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  title: "App Builder Docs",
+  tagline: "Agora App Builder for Live Video Chat & Streaming Apps",
+  url: "https://app-builder-docs.vercel.app/",
+  baseUrl: "/",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'AgoraIO-Community', // Usually your GitHub org/user name.
-  projectName: 'app-builder-docs', // Usually your repo name.
+  organizationName: "AgoraIO-Community", // Usually your GitHub org/user name.
+  projectName: "app-builder-docs", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -33,7 +33,7 @@ const config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-ideal-image',
+      "@docusaurus/plugin-ideal-image",
       {
         quality: 70,
         max: 1030, // max resized image's size.
@@ -41,155 +41,148 @@ const config = {
         steps: 2, // the max number of images generated between min and max (inclusive)
         disableInDev: false,
       },
-
     ],
-    path.resolve(__dirname, './plugins/route-plugin'),
-    require.resolve('docusaurus-plugin-image-zoom')
+    path.resolve(__dirname, "./plugins/route-plugin"),
+    require.resolve("docusaurus-plugin-image-zoom"),
   ],
-
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
           breadcrumbs: false,
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/AgoraIO-Community/app-builder-docs/tree/preprod',
+            "https://github.com/AgoraIO-Community/app-builder-docs/tree/preprod",
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
         googleAnalytics: {
-          trackingID: 'G-KNSXGMLE89',
+          trackingID: "G-KNSXGMLE89",
           anonymizeIP: true,
         },
         gtag: {
-          trackingID: 'G-KNSXGMLE89',
+          trackingID: "G-KNSXGMLE89",
           anonymizeIP: true,
         },
-      })
+      }),
     ],
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 
-
     ({
       docs: {
         sidebar: {
-          autoCollapseCategories: true
-        }
+          autoCollapseCategories: true,
+        },
       },
       zoom: {
-        selector: '.markdown  .mdImage',
+        selector: ".markdown  .mdImage",
         background: {
-          light: 'rgb(255, 255, 255)',
-          dark: 'rgb(24, 24, 24)'
+          light: "rgb(255, 255, 255)",
+          dark: "rgb(24, 24, 24)",
         },
         // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
         config: {
-          margin: 0
-        }
+          margin: 0,
+        },
       },
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: "dark",
         disableSwitch: true,
-
       },
       tableOfContents: {
-        maxHeadingLevel: 2
+        maxHeadingLevel: 2,
       },
       algolia: {
-        apiKey: '0c7bfdbfe8f9ab67ce04621ab1c1abd8',
-        indexName: 'dev_APPBUILDER',
+        apiKey: "0c7bfdbfe8f9ab67ce04621ab1c1abd8",
+        indexName: "dev_APPBUILDER",
         contextualSearch: true,
-        placeholder: 'Search',
-        appId: 'RDJ5H7PYFS',
+        placeholder: "Search",
+        appId: "RDJ5H7PYFS",
       },
       navbar: {
-        title: '',
+        title: "",
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-          srcDark: 'img/logo-dark.svg',
-          target: '_self',
+          alt: "My Site Logo",
+          src: "img/logo.svg",
+          srcDark: "img/logo-dark.svg",
+          target: "_self",
         },
-
       },
       footer: {
-
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Setup',
-                to: '/',
+                label: "Setup",
+                to: "/",
               },
               {
-                label: 'Quickstart',
-                to: '/',
+                label: "Quickstart",
+                to: "/",
               },
               {
-                label: 'Guides',
-                to: '/turn-key/quickstart',
+                label: "Guides",
+                to: "/turn-key/quickstart",
               },
               {
-                label: 'API Refernces',
-                to: '/first-party-extension/api-reference/components-api',
+                label: "API Refernces",
+                to: "/customization-api/api-reference/components-api",
               },
             ],
           },
 
           {
-            title: 'Company',
+            title: "Company",
             items: [
               {
-                label: 'About Us',
-                to: 'https://www.agora.io/en/about-us/',
+                label: "About Us",
+                to: "https://www.agora.io/en/about-us/",
               },
               {
-                label: 'Contact Us',
-                to: 'https://www.agora.io/en/talk-to-us/',
+                label: "Contact Us",
+                to: "https://www.agora.io/en/talk-to-us/",
               },
               {
-                label: 'Careers',
-                to: 'https://www.agora.io/en/careers/',
+                label: "Careers",
+                to: "https://www.agora.io/en/careers/",
               },
             ],
           },
           {
-            title: 'Community',
+            title: "Community",
             items: [
               {
-                label: 'Code of Conduct',
-                to: 'https://www.agora.io/en/',
+                label: "Code of Conduct",
+                to: "https://www.agora.io/en/",
               },
               {
-                label: 'Blog',
-                to: 'https://www.agora.io/en/',
+                label: "Blog",
+                to: "https://www.agora.io/en/",
               },
               {
-                label: 'Support Plans',
-                to: 'https://www.agora.io/en/pricing/support-plans/',
+                label: "Support Plans",
+                to: "https://www.agora.io/en/pricing/support-plans/",
               },
 
               {
-                label: 'Developer Resources',
-                to: 'https://www.agora.io/en/developer-resources/',
+                label: "Developer Resources",
+                to: "https://www.agora.io/en/developer-resources/",
               },
             ],
           },
-
         ],
         copyright: `© ${new Date().getFullYear()} Agora.io,Inc`,
       },
@@ -199,23 +192,20 @@ const config = {
       },
     }),
   customFields: {
-
     contactDetails: {
       textLogo: {
         src: "/img/agora-logo-text.svg",
-        alt: 'Agora',
-        width: '100px',
-        height: 'auto',
-        href: 'https://www.agora.io/en/',
-
+        alt: "Agora",
+        width: "100px",
+        height: "auto",
+        href: "https://www.agora.io/en/",
       },
       logo: {
         src: "/img/logo-dark.svg",
-        alt: 'App Builder',
-        width: '120px',
-        height: 'auto',
-        href: 'https://appbuilder.agora.io/'
-
+        alt: "App Builder",
+        width: "120px",
+        height: "auto",
+        href: "https://appbuilder.agora.io/",
       },
       contactNumber: "+1 408 879 5885",
       email: "contact@agora.io",
@@ -225,28 +215,24 @@ const config = {
 
     socialLinks: [
       {
-        title: 'facebook',
-        to: 'https://www.facebook.com/AgoraIO/'
+        title: "facebook",
+        to: "https://www.facebook.com/AgoraIO/",
       },
       {
-        title: 'instagram',
-        to: 'https://www.instagram.com/agora.io/'
+        title: "instagram",
+        to: "https://www.instagram.com/agora.io/",
       },
       {
-        title: 'linkedin',
-        to: 'https://www.linkedin.com/company/agora-lab-inc/'
+        title: "linkedin",
+        to: "https://www.linkedin.com/company/agora-lab-inc/",
       },
 
       {
-        title: 'twitter',
-        to: 'https://twitter.com/AgoraIO'
+        title: "twitter",
+        to: "https://twitter.com/AgoraIO",
       },
-
-
     ],
-
-  }
-
+  },
 };
 
 module.exports = config;

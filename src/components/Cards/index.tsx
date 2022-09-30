@@ -30,10 +30,10 @@ const cardList: ICardItem[] = [
     icon: "settings",
     description: <>Designed for efficiency and ease of use by our developers</>,
     ctas: [
-      { text: "Guide", href: "/first-party-extension/quickstart" },
+      { text: "Guide", href: "/customization-api/quickstart" },
       {
         text: "API Reference",
-        href: "/first-party-extension/api-reference/components-api",
+        href: "/customization-api/api-reference/components-api",
       },
     ],
     released: true,
