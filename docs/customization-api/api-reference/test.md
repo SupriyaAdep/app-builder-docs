@@ -37,11 +37,11 @@ draft: false
 
 old format
 
-## useRecordingContext : [createHook](/first-party-extension/api-reference/globals#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
+## useRecordingContext : [createHook](/customization-api/api-reference/types#createhook-tcontext-reactcontextt)<[RecordingContextInterface](#recordingcontextinterface)\>
 
 new format with typedoc convention (** Selector can be documented in Types **)
 
-## useRecordingLatest (selector?: [Selector](/first-party-extension/api-reference/globals#renderinterface)) : [RecordingContextInterface](/first-party-extension/api-reference/context-library#recordingcontextinterface)
+## useRecordingLatest (selector?: [Selector](/customization-api/api-reference/types#renderinterface)) : [RecordingContextInterface](/customization-api/api-reference/app-state-library#recordingcontextinterface)
 
 ---
 

@@ -92,7 +92,7 @@ npm install <path-to-app-builder-project-folder>/Builds/web-sdk
 ## CUSTOMIZATION
 
 You can use FPEs (First Party Extension) to customize your embedded App Builder project.<br/>
-Read this [guide](/first-party-extension/quickstart) for more information
+Read this [guide](/customization-api/quickstart) for more information
 
 #### STEP 1
 

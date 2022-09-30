@@ -36,7 +36,7 @@ This page is an index of types, interfaces, enums used across the Customization 
 
 ## UserRenderInterface
 
-Defined by the user, can contain any information necessary for the corresponding [custom content](/first-party-extension/api-reference/components-api#videocallcustomcontent) added.
+Defined by the user, can contain any information necessary for the corresponding [custom content](/customization-api/api-reference/components-api#videocallcustomcontent) added.
 
 <collapsible>
 
@@ -152,7 +152,7 @@ stopRecording    : () => void
 **V**: Parameters<[CallbacksInterface](#callbacksinterface)[**T**]>
 
 Used to dispatch various app builder actions.
-Part of [RtcContext](/first-party-extension/api-reference/context-library#rtccontextinterface).
+Part of [RtcContext](/customization-api/api-reference/app-state-library#rtccontextinterface).
 
 </method>
 
@@ -162,14 +162,14 @@ Part of [RtcContext](/first-party-extension/api-reference/context-library#rtccon
 
 ## CallbacksInterface
 
-| Key              | Type                                                                                      | Description                                                                                                                                                                                                                                                                                       |
-| ---------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EndCall          | () => void                                                                                | Ends the call                                                                                                                                                                                                                                                                                     |
-| SwitchCamera     | () => void                                                                                | Switches the video device being used [ mobile only ]                                                                                                                                                                                                                                              |
-| SwapVideo        | ( uid: [UidType](#uidtype) ) => void                                                      | Swaps given `uid` with the uid at the top in [renderPosition](/first-party-extension/api-reference/context-library#renderstateinterface)                                                                                                                                                          |
-| DequeVideo       | ( uid: [UidType](#uidtype) ) => void                                                      | Shifts given `uid` to top of [renderPosition](/first-party-extension/api-reference/context-library#renderstateinterface)                                                                                                                                                                          |
-| UpdateRenderList | ( uid: [UidType](#uidtype), user: Partial<[RenderInterface](#renderinterface)\> ) => void | Updates [renderObject](#renderinterface) of the given `uid` in [renderList](/first-party-extension/api-reference/context-library#renderstateinterface)                                                                                                                                            |
-| AddCustomContent | ( uid: [UidType](#uidtype), data: [RenderInterface](#renderinterface) ) => void           | Adds the given `data` to [renderlist](/first-party-extension/api-reference/context-library#renderstateinterface) with given `uid` as key. Used alongside [CustomContent API](/first-party-extension/api-reference/components-api#videocallcustomcontent) for adding and displaying custom content |
+| Key              | Type                                                                                      | Description                                                                                                                                                                                                                                                                                 |
+| ---------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EndCall          | () => void                                                                                | Ends the call                                                                                                                                                                                                                                                                               |
+| SwitchCamera     | () => void                                                                                | Switches the video device being used [ mobile only ]                                                                                                                                                                                                                                        |
+| SwapVideo        | ( uid: [UidType](#uidtype) ) => void                                                      | Swaps given `uid` with the uid at the top in [renderPosition](/customization-api/api-reference/app-state-library#renderstateinterface)                                                                                                                                                      |
+| DequeVideo       | ( uid: [UidType](#uidtype) ) => void                                                      | Shifts given `uid` to top of [renderPosition](/customization-api/api-reference/app-state-library#renderstateinterface)                                                                                                                                                                      |
+| UpdateRenderList | ( uid: [UidType](#uidtype), user: Partial<[RenderInterface](#renderinterface)\> ) => void | Updates [renderObject](#renderinterface) of the given `uid` in [renderList](/customization-api/api-reference/app-state-library#renderstateinterface)                                                                                                                                        |
+| AddCustomContent | ( uid: [UidType](#uidtype), data: [RenderInterface](#renderinterface) ) => void           | Adds the given `data` to [renderlist](/customization-api/api-reference/app-state-library#renderstateinterface) with given `uid` as key. Used alongside [CustomContent API](/customization-api/api-reference/components-api#videocallcustomcontent) for adding and displaying custom content |
 
 </method>
 

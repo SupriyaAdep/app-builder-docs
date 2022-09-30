@@ -173,7 +173,7 @@ You should now see your App Builder project being displayed in your desired Angu
 
 You can use FPEs (First Party Extension) to customize your embedded App Builder project.
 
-Read [this guide](/first-party-extension/quickstart) for more information.
+Read [this guide](/customization-api/quickstart) for more information.
 
 <!-- LHS -->
 
