@@ -34,7 +34,7 @@ Hence it is displayed after:
 
 However if Precall Screen is disabled in the Builder,
 
-<image alt="Precall Screen Builder Option" darkImageSrc="customization-api/api/components-api/precall.png" />
+<image alt="Precall Screen Builder Option" className="center-img" darkImageSrc="customization-api/api/components-api/precall.png" />
 
 the videoCall screen is directly displayed after:
 
@@ -455,7 +455,7 @@ This function recieves an array of default layouts and expects you to return an 
 
 <br/>
 
-#### LayoutComponent: [React.Component](a)<{ [renderStateInterface](/customization-api/api-reference/types#renderinterface)\["renderPosition"\] }>
+#### LayoutComponent: [React.Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<{ [renderStateInterface](/customization-api/api-reference/types#renderinterface)\["renderPosition"\] }>
 
 Use the example code given below showcasing appending a custom layout as a guide.
 

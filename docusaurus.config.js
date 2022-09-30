@@ -11,8 +11,8 @@ const config = {
   tagline: "Agora App Builder for Live Video Chat & Streaming Apps",
   url: "https://app-builder-docs.vercel.app/",
   baseUrl: "/",
-  onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenLinks: "error",
+  onBrokenMarkdownLinks: "error",
   favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.

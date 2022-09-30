@@ -33,7 +33,6 @@ export default function CodeBlockString({
     languageProp ?? parseLanguage(blockClassName) ?? defaultLanguage;
   const prismTheme = usePrismTheme();
   const wordWrap = useCodeWordWrap();
-  console.log('metatring', metastring)
   const githubLink = metastring?.match(/gh=(?<quote>["'])(?<gh>.*?)\1/)?.groups?.gh || ''
   // We still parse the metastring in case we want to support more syntax in the
   // future. Note that MDX doesn't strip quotes when parsing metastring:
@@ -61,6 +60,9 @@ export default function CodeBlockString({
       const expandbtn = containerRef?.current?.querySelector('.expand-btn')
       expandbtn?.classList?.add('hidden')
     }
+    scrollBy && section.classList.add('code-scroll')
+    section?.setAttribute('pos', scrollBy)
+    // on Chrome page scroll is incorrect if we scroll code snippet to highlighted section on mount
     section?.scrollTo({ top: scrollBy, behavior: 'smooth' })
 
   }, [])

@@ -45,7 +45,12 @@ export function H2({ children }) {
 export function H3({ children }) {
   if (!children) return null;
   if (typeof children === "string") {
-    const id = children.match(regex)[0].toLowerCase().trim();
+    const id = children
+      .match(regex)[0]
+      .toLowerCase()
+      .trim()
+      .split(" ")
+      .join("-");
     return (
       <h3 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
@@ -80,7 +85,12 @@ export function H3({ children }) {
 export function H4({ children }) {
   if (!children) return null;
   if (typeof children === "string") {
-    const id = children.match(regex)[0].toLowerCase().trim();
+    const id = children
+      .match(regex)[0]
+      .toLowerCase()
+      .trim()
+      .split(" ")
+      .join("-");
     return (
       <h4 className={clsx(styles.heading, "anchor")} id={id}>
         {children}
