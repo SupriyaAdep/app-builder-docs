@@ -300,7 +300,7 @@ You can override the ChatBubble component by passing in a [React Component](http
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | message   | string                                                                                                                                                                                                        | Content of the chat message                                                  |
 | isLocal   | boolean                                                                                                                                                                                                       | Specifies if the message is from a local user or if it is from a remote user |
-| uid       | [UidType](/customization-api/api-reference/globals#uidtype)                                                                                                                                                   | Name of the user who sent the message                                        |
+| uid       | [UidType](/customization-api/api-reference/types#uidtype)                                                                                                                                                     | Name of the user who sent the message                                        |
 | timestamp | number                                                                                                                                                                                                        | Timestamp of the message                                                     |
 | render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Render method for chat bubble to provide a custom jsx                        |
 
@@ -351,7 +351,7 @@ export default userCustomization;
 
 <!-- <image alt="Video Call" lightImageSrc="api/bottomBar_light.png" darkImageSrc="api/bottomBar_dark.png" /> -->
 
-The constomContent object specifies the react component to be used for rendering each custom content type including user inserted and default types present in the [Render Context](/customization-api/api-reference/context-library#userendercontext).
+The constomContent object specifies the react component to be used for rendering each custom content type including user inserted and default types present in the [Render Context](/customization-api/api-reference/app-state-library#userendercontext).
 
 ### _Overrides_:
 
@@ -360,7 +360,7 @@ The constomContent object specifies the react component to be used for rendering
 
 ### RenderingComponentInterface
 
-You can override the render component for each content type present in the [Render Context](/customization-api/api-reference/context-library#userendercontext) by passing in this object with key corresponding to the custom content type you want to override under the `customContent` key to the `VideoCallInterface`.
+You can override the render component for each content type present in the [Render Context](/customization-api/api-reference/app-state-library#userendercontext) by passing in this object with key corresponding to the custom content type you want to override under the `customContent` key to the `VideoCallInterface`.
 
 | Key                   | Type                | Description                                                                                                 |
 | --------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -455,7 +455,7 @@ This function recieves an array of default layouts and expects you to return an 
 
 <br/>
 
-#### LayoutComponent: [React.Component](a)<{ [renderStateInterface](/customization-api/api-reference/globals#renderinterface)\["renderPosition"\] }>
+#### LayoutComponent: [React.Component](a)<{ [renderStateInterface](/customization-api/api-reference/types#renderinterface)\["renderPosition"\] }>
 
 Use the example code given below showcasing appending a custom layout as a guide.
 

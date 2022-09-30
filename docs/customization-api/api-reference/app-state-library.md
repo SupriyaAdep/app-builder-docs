@@ -7,7 +7,7 @@ keywords: [MeetingInfoContextInterface, LayoutContextInterface]
 sidebar_custom_props: { icon: "code" }
 ---
 
-Provides accessors for various app states used in App Builder. Some accessors accept a [selector](/customization-api/api-reference/globals#selector) method that allows for selective subscribing of data.
+Provides accessors for various app states used in App Builder. Some accessors accept a [selector](/customization-api/api-reference/types#selector) method that allows for selective subscribing of data.
 
 You can access them under the `customization-api` module as a named export.
 
@@ -15,7 +15,7 @@ You can access them under the `customization-api` module as a named export.
 
 <method>
 
-## useRecording(selector?: [Selector](/customization-api/api-reference/globals#selector)): [RecordingContextInterface](/customization-api/api-reference/context-library#recordingcontextinterface)
+## useRecording(selector?: [Selector](/customization-api/api-reference/types#selector)): [RecordingContextInterface](/customization-api/api-reference/app-state-library#recordingcontextinterface)
 
 The Recording app state governs the App Builder cloud recording functionality.
 
@@ -47,7 +47,7 @@ const { isRecordingActive, startRecording, stopRecording } = useRecording();
 
 <method>
 
-## useSidePanel(selector?: [Selector](/customization-api/api-reference/globals#selector)): [SidePanelContextInterface](/customization-api/api-reference/context-library#sidepanelcontextinterface)
+## useSidePanel(selector?: [Selector](/customization-api/api-reference/types#selector)): [SidePanelContextInterface](/customization-api/api-reference/app-state-library#sidepanelcontextinterface)
 
 The Recording app state governs the App Builder cloud recording functionality.
 
@@ -87,7 +87,7 @@ const { sidePanel, setSidePanel } = useSidePanel();
 
 <method>
 
-## useChatUiControl(selector?: [Selector](/customization-api/api-reference/globals#selector)): [ChatUiControlInterface](/customization-api/api-reference/context-library#chatuicontrolinterface)
+## useChatUiControl(selector?: [Selector](/customization-api/api-reference/types#selector)): [ChatUiControlInterface](/customization-api/api-reference/app-state-library#chatuicontrolinterface)
 
 The ChatUiControl app state governs the chat ui.
 
@@ -95,16 +95,16 @@ The ChatUiControl app state governs the chat ui.
 
 #### ChatUiControlInterface
 
-| Key                   | Type                                                                        | Description                                           |
-| --------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------- |
-| groupActive           | boolean                                                                     | Determines if group tab is active in chat sidepanel   |
-| setGroupActive        | (status: boolean) => void                                                   | Method to set group tab active status                 |
-| privateActive         | boolean                                                                     | Determines if private tab is active in chat sidepanel |
-| setPrivateActive      | (status: boolean) => void                                                   | Method to set private tab active status               |
-| selectedChatUserId    | [uidtype](/customization-api/api-reference/globals#uidtype)                 | Uid of the user selected in private chat tab          |
-| setSelectedChatUserId | (uid: [uidtype](/customization-api/api-reference/globals#uidtype) ) => void | Method to set selected user                           |
-| message               | string                                                                      | Content of message to be sent                         |
-| setMessage            | (message: string) => void                                                   | Method to set content of message to be sent           |
+| Key                   | Type                                                                      | Description                                           |
+| --------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------- |
+| groupActive           | boolean                                                                   | Determines if group tab is active in chat sidepanel   |
+| setGroupActive        | (status: boolean) => void                                                 | Method to set group tab active status                 |
+| privateActive         | boolean                                                                   | Determines if private tab is active in chat sidepanel |
+| setPrivateActive      | (status: boolean) => void                                                 | Method to set private tab active status               |
+| selectedChatUserId    | [uidtype](/customization-api/api-reference/types#uidtype)                 | Uid of the user selected in private chat tab          |
+| setSelectedChatUserId | (uid: [uidtype](/customization-api/api-reference/types#uidtype) ) => void | Method to set selected user                           |
+| message               | string                                                                    | Content of message to be sent                         |
+| setMessage            | (message: string) => void                                                 | Method to set content of message to be sent           |
 
 <br/>
 
@@ -124,7 +124,7 @@ const { isRecordingActive, startRecording, stopRecording } = useRecording();
 
 <method>
 
-## useMessages(): [MessageInterface](/customization-api/api-reference/context-library#messageinterface)
+## useMessages(): [MessageInterface](/customization-api/api-reference/app-state-library#messageinterface)
 
 The Messages app state governs the chat messages.
 
@@ -146,14 +146,14 @@ The Messages app state governs the chat messages.
 
 #### messagestoreinterface
 
-| key               | type                                                        | description                     |
-| ----------------- | ----------------------------------------------------------- | ------------------------------- |
-| createdtimestamp  | number                                                      | message creation timestamp      |
-| updatedtimestamp? | number                                                      | last message update timestamp   |
-| msg               | string                                                      | message content                 |
-| msgid             | string                                                      | message id                      |
-| isdeleted         | boolean                                                     | indicates if message is deleted |
-| uid               | [uidtype](/customization-api/api-reference/globals#uidtype) | uid of the message sender       |
+| key               | type                                                      | description                     |
+| ----------------- | --------------------------------------------------------- | ------------------------------- |
+| createdtimestamp  | number                                                    | message creation timestamp      |
+| updatedtimestamp? | number                                                    | last message update timestamp   |
+| msg               | string                                                    | message content                 |
+| msgid             | string                                                    | message id                      |
+| isdeleted         | boolean                                                   | indicates if message is deleted |
+| uid               | [uidtype](/customization-api/api-reference/types#uidtype) | uid of the message sender       |
 
 <br/>
 
@@ -181,7 +181,7 @@ const {
 
 <method>
 
-## useRender(selector?: [Selector](/customization-api/api-reference/globals#selector)): [Renderstateinterface](#renderstateinterface)
+## useRender(selector?: [Selector](/customization-api/api-reference/types#selector)): [Renderstateinterface](#renderstateinterface)
 
 <!-- the render app state contains the information necessary to render user content views displayed in the videocall screen. this app state is passed to the layouts as an array of components to display the content views. the renderlist object contains renderobjects for every uid in the the rendercontext as key value pairs. -->
 
@@ -191,19 +191,19 @@ it is composed of:
 
 #### Renderstateinterface
 
-| key            | type                                                                                | description                                                                                                          |
-| -------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| renderlist     | [renderlistinterface](/customization-api/api-reference/globals#renderlistinterface) | Object containing information necessary to render the content view corresponding to each uid in the Render app state |
-| renderposition | array<[Uidtype](/customization-api/api-reference/globals#uidtype)\>                 | Array of all uids in the Render app state                                                                            |
+| key            | type                                                                              | description                                                                                                          |
+| -------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| renderlist     | [renderlistinterface](/customization-api/api-reference/types#renderlistinterface) | Object containing information necessary to render the content view corresponding to each uid in the Render app state |
+| renderposition | array<[Uidtype](/customization-api/api-reference/types#uidtype)\>                 | Array of all uids in the Render app state                                                                            |
 
 <br/>
 
-Each [renderobject](/customization-api/api-reference/globals#renderobjectinterface) in the `renderlist` is passed as a prop to corresponding type of [content component](/customization-api/api-reference/components-api#renderingcomponentinterface). All the resulting components are then passed to the layouts as an array to be rendered as desired.
+Each [renderobject](/customization-api/api-reference/types#renderobjectinterface) in the `renderlist` is passed as a prop to corresponding type of [content component](/customization-api/api-reference/components-api#renderingcomponentinterface). All the resulting components are then passed to the layouts as an array to be rendered as desired.
 
-**For eg.** The Render app state contains a [renderobject](/customization-api/api-reference/globals#rtcrenderinterface) of `type:'rtc'` for each user in the meeting by default stored in `renderList`. It is used to display user video feeds coming from AgoraRTC hence they contain all the necessary information like: `uid` to identify and subscribe to the video and audio, `audio` and `video` mute states to correctly display fallbacks and icons, etc. each Renderobject is passed as a prop to [MaxVideoView](/customization-api/api-reference/sub-components-library#maxvideoview) unless overriden by [CustomContent API](/customization-api/api-reference/components-api#videocallcustomcontent). After which the resulting array of components is passed to layout to be rendered.
+**For eg.** The Render app state contains a [renderobject](/customization-api/api-reference/types#rtcrenderinterface) of `type:'rtc'` for each user in the meeting by default stored in `renderList`. It is used to display user video feeds coming from AgoraRTC hence they contain all the necessary information like: `uid` to identify and subscribe to the video and audio, `audio` and `video` mute states to correctly display fallbacks and icons, etc. each Renderobject is passed as a prop to [MaxVideoView](/customization-api/api-reference/sub-components-library#maxvideoview) unless overriden by [CustomContent API](/customization-api/api-reference/components-api#videocallcustomcontent). After which the resulting array of components is passed to layout to be rendered.
 
 :::tip
-You can add custom render objects to the render app state using the 'AddCustomContent' action in [dispatch](/customization-api/api-reference/globals#dispatchtype)
+You can add custom render objects to the render app state using the 'AddCustomContent' action in [dispatch](/customization-api/api-reference/types#dispatchtype)
 :::
 
 Usage example of the app state:
@@ -222,7 +222,7 @@ const { renderList, renderPosition } = useRender();
 
 <method>
 
-## useLocalUserInfo(): [LocalUserInfo](/customization-api/api-reference/globals#rtcrenderinterface)
+## useLocalUserInfo(): [LocalUserInfo](/customization-api/api-reference/types#rtcrenderinterface)
 
 The LocalUserInfo app state contains the local user information like `uid`, `audio` and `video` mute states etc.
 
@@ -242,7 +242,7 @@ const { uid, audio, video, streamType, contentType, name, screenUid, offline} = 
 
 <method>
 
-## useLayout(selector?: [Selector](/customization-api/api-reference/globals#selector)): [LayoutContextInterface](#layoutcontextinterface)
+## useLayout(selector?: [Selector](/customization-api/api-reference/types#selector)): [LayoutContextInterface](#layoutcontextinterface)
 
 The Layout app state governs the video call screen content display layout.
 
@@ -273,7 +273,7 @@ const { currentLayout, setLayout } = useLayout();
 
 <method>
 
-## useMeetingInfo(selector?: [Selector](/customization-api/api-reference/globals#selector)): [MeetingInfo](#meetinginfo)
+## useMeetingInfo(selector?: [Selector](/customization-api/api-reference/types#selector)): [MeetingInfo](#meetinginfo)
 
 The MeetingInfo app state contains information about the active meeting.
 
@@ -298,7 +298,7 @@ The MeetingInfo app state contains information about the active meeting.
 | pstn?              | {<br/>&emsp;number: string,<br/>&emsp;pin: string<br/>}      | PSTN info                                                                 |
 | isSeparateHostLink | boolean                                                      | Indicates if seperate host and attendee links generated                   |
 | channel            | string                                                       | Channel name of current meeting                                           |
-| uid                | [UidType](/customization-api/api-reference/globals#uidtype)  | Uid of the local user                                                     |
+| uid                | [UidType](/customization-api/api-reference/types#uidtype)    | Uid of the local user                                                     |
 | token              | string                                                       | RTC authentication token required to join the channel                     |
 | rtmToken           | string                                                       | RTM authentication token required to join the channel                     |
 | encryptionSecret?  | string                                                       | Packet encryption secret secret                                           |
@@ -365,7 +365,7 @@ const [userName, setUserName] = useUserName();
 
 <method>
 
-## useRtc(selector?: [Selector](/customization-api/api-reference/globals#selector)): [RtcInterface](#rtcinterface)
+## useRtc(selector?: [Selector](/customization-api/api-reference/types#selector)): [RtcInterface](#rtcinterface)
 
 The RTC app state exposes the internal RtcEngine object as well as dispatch interface to perform various actions.
 
@@ -373,14 +373,14 @@ The RTC app state exposes the internal RtcEngine object as well as dispatch inte
 
 #### RtcInterface
 
-| Key               | Type                                                                                                                          | Description                                                                                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                               | The RtcEngine object from the AgoraRTC SDK                                                                                                                |
-| dispatch          | [DispatchType](/customization-api/api-reference/globals#dispatchtype)                                                         | Method to perform various app builder actions. You can see list of available actions [here](/customization-api/api-reference/globals#callbacksinterface). |
-| setDualStreamMode | ( mode: [DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) ): void | Method to modify dual stream mode                                                                                                                         |
+| Key               | Type                                                                                                                          | Description                                                                                                                                             |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RtcEngine         | [RtcEngine](https://docs.agora.io/en/Voice/API%20Reference/react_native/classes/rtcengine.html)                               | The RtcEngine object from the AgoraRTC SDK                                                                                                              |
+| dispatch          | [DispatchType](/customization-api/api-reference/types#dispatchtype)                                                           | Method to perform various app builder actions. You can see list of available actions [here](/customization-api/api-reference/types#callbacksinterface). |
+| setDualStreamMode | ( mode: [DualStreamMode](https://agoraio-community.github.io/ReactNative-UIKit/enums/Agora_UIKit.DualStreamMode.html) ): void | Method to modify dual stream mode                                                                                                                       |
 
 :::danger
-Avoid using `RtcEngine` directly to perform actions such as muting audio, joining a channel etc. Instead rely on [Actions Library](/customization-api/api-reference/actions-library) or [Dispatch](/customization-api/api-reference/globals#dispatchtype) provided by the `customization-api` as they handle modifying the internal app states along with performing the required action.
+Avoid using `RtcEngine` directly to perform actions such as muting audio, joining a channel etc. Instead rely on [Actions Library](/customization-api/api-reference/actions-library) or [Dispatch](/customization-api/api-reference/types#dispatchtype) provided by the `customization-api` as they handle modifying the internal app states along with performing the required action.
 :::
 
 <br/>
