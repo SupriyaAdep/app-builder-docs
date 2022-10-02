@@ -18,13 +18,13 @@ const cardList: ICardItem[] = [
     ctas: [{ text: "Guide", href: "/sdks/guides/embed_web_sdk_react" }],
     released: true,
   },
-  {
-    title: "Product manual",
-    icon: "manual",
-    description: <>Designed for efficiency and ease of use by our developers</>,
-    ctas: [{ text: "Guide", href: "" }],
-    released: false,
-  },
+  // {
+  //   title: "Product manual",
+  //   icon: "manual",
+  //   description: <>Designed for efficiency and ease of use by our developers</>,
+  //   ctas: [{ text: "Guide", href: "" }],
+  //   released: false,
+  // },
   {
     title: "Customization API",
     icon: "settings",
@@ -46,7 +46,7 @@ export default function CardContainer(): JSX.Element {
       <div className="container">
         <div className="row">
           {cardList.map((props, idx) => (
-            <div className="col col--6 margin-bottom--lg" key={idx}>
+            <div className="col col--4 margin-bottom--lg" key={idx}>
               <Card {...props} />
             </div>
           ))}

@@ -75,6 +75,7 @@ p {
 .landingPage .container {
   padding-left: 0;
   padding-right: 0;
+  padding-top: 24px !important;
 }
 .theme-doc-sidebar-container {
   border-right: 0 !important;
@@ -169,6 +170,11 @@ table tbody {
 }
 table tr:nth-child(2n) {
   background-color: var(--ifm-table-background)
+}
+
+table .icon {
+  padding: 0 !important;
+  margin:0 ;
 }
 
 
@@ -266,7 +272,9 @@ table tr:nth-child(2n) {
     max-width: 99%!important;
     margin-bottom: 14px;
     text-align: center;
-   
+}
+.col {
+  --ifm-col-width:100% !important;
 }
 
 }
@@ -290,7 +298,7 @@ table tr:nth-child(2n) {
    margin-bottom: 0 !important;
  }
  .col--3 {
-  --ifm-col-width: calc(3 / 12 * 100%) 
+  --ifm-col-width: calc(3 / 12 * 100%) !important;
  }
  .col--4 {
   --ifm-col-width: calc(4 / 12 * 100%) 
@@ -299,15 +307,14 @@ table tr:nth-child(2n) {
   --ifm-col-width: calc(6 / 12 * 100%) 
  }
 
-
  
  }
- @media (max-width: 996px)  {
+  @media (max-width: 996px)  {
   .col--4 {
     --ifm-col-width: calc(4 / 12 * 100%) 
    }
    
- }
+ } 
 
  @media (min-width: 481px) {
    .footer {
