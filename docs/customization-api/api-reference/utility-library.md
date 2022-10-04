@@ -253,7 +253,7 @@ import { useHistory } from "customization-api";
 Returns the navigataion parameters passed via the url/path.
 
 ```js
-import { useNavParams } from "customization-api";
+import { useParams } from "customization-api";
 ```
 
 </method>
@@ -262,16 +262,12 @@ import { useNavParams } from "customization-api";
 
 <method>
 
-## useIsWeb(): [isWeb](#isweb)
+## isWeb(): boolean
 
-Returns a function that checks whether the application is running as a web app and returns true/false.
+Checks whether the application is running as a web app and returns true/false.
 
 ```js
-import { useIsWeb } from "customization-api";
-
-...
-
-const isWeb = useIsWeb();
+import { isWeb } from "customization-api";
 
 ...
 
@@ -282,36 +278,18 @@ if (isWeb()) {
 }
 ```
 
-<br/>
-
-### _Returns_:
-
-<method>
-
-<collapsible>
-
-### isWeb(): boolean
-
-</collapsible>
-
-</method>
-
 </method>
 
 ---
 
 <method>
 
-## useIsIOS(): [isIOS](#isios)
+## isIOS(): boolean
 
-Returns a function that checks whether the application is running as an iOS app and returns true/false.
+Checks whether the application is running as an iOS app and returns true/false.
 
 ```js
-import { useIsIOS } from "customization-api";
-
-...
-
-const isIOS = useIsIOS();
+import { isIOS } from "customization-api";
 
 ...
 
@@ -322,36 +300,18 @@ if (isIOS()) {
 }
 ```
 
-<br/>
-
-### _Returns_:
-
-<method>
-
-<collapsible>
-
-### isIOS(): boolean
-
-</collapsible>
-
-</method>
-
 </method>
 
 ---
 
 <method>
 
-## useIsAndroid(): [isAndroid](#isandroid)
+## isAndroid(): boolean
 
-Returns a function that checks whether the application is running as an android app and returns true/false.
+Checks whether the application is running as an android app and returns true/false.
 
 ```js
-import { useIsAndroid } from "customization-api";
-
-...
-
-const isAndroid = useIsAndroid();
+import { isAndroid } from "customization-api";
 
 ...
 
@@ -362,36 +322,18 @@ if (isAndroid()) {
 }
 ```
 
-<br/>
-
-### _Returns_:
-
-<method>
-
-<collapsible>
-
-### isAndroid(): boolean
-
-</collapsible>
-
-</method>
-
 </method>
 
 ---
 
 <method>
 
-## useIsDesktop(): [isDesktop](#isdesktop)
+## isDesktop(): boolean
 
-Returns a function that checks whether the application is running as an electron desktop app and returns true/false.
+Checks whether the application is running as an electron desktop app and returns true/false.
 
 ```js
-import { useIsDesktop } from "customization-api";
-
-...
-
-const isDesktop = useIsDesktop();
+import { isDesktop } from "customization-api";
 
 ...
 
@@ -402,27 +344,13 @@ if (isDesktop()) {
 }
 ```
 
-<br/>
-
-### _Returns_:
-
-<method>
-
-<collapsible>
-
-### isDesktop(): boolean
-
-</collapsible>
-
-</method>
-
 </method>
 
 ---
 
 <method>
 
-## isMobileOrTablet(): [isAndroid](#isandroid)
+## isMobileOrTablet(): boolean
 
 Checks whether the application is running as a web application on a mobile or tablet device and returns true/false.
 
@@ -437,20 +365,6 @@ if (isMobileOrTablet()) {
   // if not running as a web application on a mobile or tablet device and returns true/false.
 }
 ```
-
-<br/>
-
-### _Returns_:
-
-<method>
-
-<collapsible>
-
-### isAndroid(): boolean
-
-</collapsible>
-
-</method>
 
 </method>
 

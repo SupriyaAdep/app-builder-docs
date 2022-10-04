@@ -97,15 +97,6 @@ Flag to enable/disable screen sharing functionality.
 
 <method>
 
-## CLIENT_ID: string
-
-<!-- PENDING -->
-To be removed
-
-</method>
-
-<method>
-
 ## LANDING_SUB_HEADING: string
 
 Text displayed under the [APP_NAME](#app_name) on the create page.
@@ -157,70 +148,6 @@ Primary font color used in the App Builder project. Used for various UI Text Ele
 ## SECONDARY_FONT_COLOR: string
 
 Secondary font color used in the App Builder project. Used for various UI Text Elements (ex: Button labels)
-
-</method>
-
-<method>
-
-## ENABLE_GOOGLE_OAUTH: boolean
-
-Flag to enable/disable Google OAuth integration. Requires [GOOGLE_CLIENT_ID](#google_client_id) to be set
-
-</method>
-
-<method>
-
-## ENABLE_SLACK_OAUTH: boolean
-
-Flag to enable/disable Slack OAuth integration. Requires [SLACK_CLIENT_ID](#slack_client_id) to be set
-
-</method>
-
-<method>
-
-## ENABLE_MICROSOFT_OAUTH: boolean
-
-Flag to enable/disable Microsoft OAuth integration. Requires [MICROSOFT_CLIENT_ID](#microsoft_client_id) to be set
-
-</method>
-
-<method>
-
-## ENABLE_APPLE_OAUTH: boolean
-
-Flag to enable/disable Apple OAuth integration. Requires [APPLE_CLIENT_ID](#apple_client_id) to be set
-
-</method>
-
-<method>
-
-## GOOGLE_CLIENT_ID: string
-
-Google client ID required for OAuth integration
-
-</method>
-
-<method>
-
-## MICROSOFT_CLIENT_ID: string
-
-Microsoft client ID required for OAuth integration
-
-</method>
-
-<method>
-
-## SLACK_CLIENT_ID: string
-
-Slack client ID required for OAuth integration
-
-</method>
-
-<method>
-
-## APPLE_CLIENT_ID: string
-
-Apple client ID required for OAuth integration
 
 </method>
 

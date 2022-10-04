@@ -94,7 +94,7 @@ Defined by the user, can contain any information necessary for the corresponding
 
 <method>
 
-## RenderListInterface
+## RenderObjects
 
 <collapsible>
 

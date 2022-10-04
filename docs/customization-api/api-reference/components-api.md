@@ -189,13 +189,11 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 ### TopBarComponent : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
-CONTENT PENDING
+You can override the TopBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `topBar` key to the `VideoCallInterface Object`
 
-You can override the BottomBar component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `topBar` key to the `VideoCallInterface Object`
+To reuse parts of default top bar ui you can import them from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module.
 
-To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module.
-
-Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
+Use the example code given below showcasing reconstruction of the default top bar ui as a guide.
 
 ```tsx {13-19}
 import React from "react";
@@ -261,9 +259,65 @@ You can override the specific parts chat ui by pasing in this object with key an
 <method>
 <subtitle>
 
-## videoCall.chat.chatTextInput
+## videoCall.chat.chatTextInput: ChatTextInputComponent
 
 </subtitle>
+<image alt="Chat Bubble" className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
+
+The ChatTextInput component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
+
+### _Overrides_ :
+
+<method>
+<collapsible>
+
+### ChatTextInputComponent: [React.ComponentType<ChatTextInputProps\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+You can override the ChatBubble component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chatBubble` key to the `ChatInterface Object`
+
+#### ChatTextInputProps
+
+| Prop      | Type                                                                                                                                                                                                          | Description                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| message   | string                                                                                                                                                                                                        | Content of the chat message                                                  |
+| isLocal   | boolean                                                                                                                                                                                                       | Specifies if the message is from a local user or if it is from a remote user |
+| uid       | [UidType](/customization-api/api-reference/types#uidtype)                                                                                                                                                     | Name of the user who sent the message                                        |
+| timestamp | number                                                                                                                                                                                                        | Timestamp of the message                                                     |
+| render?   | ( msg: string, isLocal: boolean, uid: string, ts: number ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Render method for chat bubble to provide a custom jsx                        |
+
+<br/>
+
+Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
+
+```tsx {13-21}
+import React from "react";
+import { View, Text } from "react-native";
+import { customize } from "customization-api";
+
+const MyChatBubbleComponent = () => {
+  return (
+    <View>
+      <Text>My chat bubble component</Text>
+    </View>
+  );
+};
+
+const userCustomization = customize({
+  components: {
+    videoCall: {
+      chat: {
+        chatBubble: MyChatBubbleComponent,
+      },
+    },
+  },
+});
+
+export default userCustomization;
+```
+
+</collapsible>
+</method>
+
 </method>
 
 <method>
@@ -272,6 +326,63 @@ You can override the specific parts chat ui by pasing in this object with key an
 ## videoCall.chat.chatSendButton
 
 </subtitle>
+
+<image alt="Chat Bubble" className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
+
+The ChatSendButton component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
+
+### _Overrides_ :
+
+<method>
+<collapsible>
+
+### ChatBubbleComponent: [React.ComponentType<ChatBubbleProps\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+You can override the ChatBubble component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chatBubble` key to the `ChatInterface Object`
+
+#### ChatBubbleProps
+
+| Prop      | Type                                                                                                                                                                                                          | Description                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| message   | string                                                                                                                                                                                                        | Content of the chat message                                                  |
+| isLocal   | boolean                                                                                                                                                                                                       | Specifies if the message is from a local user or if it is from a remote user |
+| uid       | [UidType](/customization-api/api-reference/types#uidtype)                                                                                                                                                     | Name of the user who sent the message                                        |
+| timestamp | number                                                                                                                                                                                                        | Timestamp of the message                                                     |
+| render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Render method for chat bubble to provide a custom jsx                        |
+
+<br/>
+
+Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
+
+```tsx {13-21}
+import React from "react";
+import { View, Text } from "react-native";
+import { customize } from "customization-api";
+
+const MyChatBubbleComponent = () => {
+  return (
+    <View>
+      <Text>My chat bubble component</Text>
+    </View>
+  );
+};
+
+const userCustomization = customize({
+  components: {
+    videoCall: {
+      chat: {
+        chatBubble: MyChatBubbleComponent,
+      },
+    },
+  },
+});
+
+export default userCustomization;
+```
+
+</collapsible>
+</method>
+
 </method>
 
 <method>
