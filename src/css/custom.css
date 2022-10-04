@@ -335,6 +335,10 @@ table .icon {
  
    
  }
+
+ .col-offset-4 {
+   margin-left:33.33%;
+ }
  /* @media (min-width: 1440px) {
 .footer__bottom-content {
     max-width: var(--ifm-container-width-xl);

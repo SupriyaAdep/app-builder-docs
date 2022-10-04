@@ -4,7 +4,7 @@ description: Deploy to Vercel using the CLI
 title: Deploy to Vercel using the CLI
 keywords: [vercel, deploy]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden
+sidebar_class_name: hidden1
 ---
 
 # Deploy to Vercel using the CLI

@@ -30,6 +30,7 @@ function EditMetaRow({
 }) {
   return (
     <div className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, 'row')}>
+
       <div className={clsx('col col--12', styles.lastUpdated)}>
         {(lastUpdatedAt || lastUpdatedBy) && (
           <LastUpdated
@@ -40,24 +41,22 @@ function EditMetaRow({
         )}
       </div>
 
-      <div className='col col--4'>
-        <p className={styles.footerText}>Something wrong or unclear ?</p>
-      </div>
-      <div className={clsx('col col--4', styles.alignCenter)}>
-        <p className={styles.footerText}>Was this Page helpful ?</p>
-      </div>
-      <div className={clsx('col col--4', styles.alignRight)}>
-        <p className={styles.footerText}>Still need help ?</p>
-      </div>
+      <div className={styles.editContainer}>
+        <div >
+          <p className={styles.footerText}>Was this Page helpful ?</p>
+          <div className={styles}>
+            <RateThisPage pageID={pageID} />
+          </div>
+        </div>
+        <div className={styles.alignRight}>
+          <p className={styles.footerText}>Something wrong or unclear ?</p>
+          <EditThisPage editUrl={editUrl} />
+        </div>
 
 
-      <div className="col col--4">{editUrl && <EditThisPage editUrl={editUrl} />}</div>
-      <div className={clsx('col col--4', styles.alignCenter)}> <RateThisPage pageID={pageID} /></div>
-      <div className={clsx('col col--4', styles.alignRight)}>
-        <div><a href="#" target="_blank">Ask the community</a></div>
-        <div><a href="#" target="_blank">Contact Support</a></div>
       </div>
-    </div>
+
+    </div >
   );
 }
 export default function DocItemFooter(props) {

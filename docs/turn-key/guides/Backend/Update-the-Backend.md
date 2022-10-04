@@ -5,7 +5,7 @@ description: Update the backend
 title: Update the backend
 keywords: [backend update]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden
+sidebar_class_name: hidden1
 ---
 
 # Update the backend

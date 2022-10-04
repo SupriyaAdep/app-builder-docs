@@ -123,24 +123,24 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: " ",
             items: [
-              {
-                label: "Setup",
-                to: "/",
-              },
-              {
-                label: "Quickstart",
-                to: "/",
-              },
-              {
-                label: "Guides",
-                to: "/turn-key/quickstart",
-              },
-              {
-                label: "API Refernces",
-                to: "/customization-api/api-reference/components-api",
-              },
+              // {
+              //   label: "Setup",
+              //   to: "/",
+              // },
+              // {
+              //   label: "Quickstart",
+              //   to: "/",
+              // },
+              // {
+              //   label: "Guides",
+              //   to: "/turn-key/quickstart",
+              // },
+              // {
+              //   label: "API Refernces",
+              //   to: "/customization-api/api-reference/components-api",
+              // },
             ],
           },
 
@@ -164,13 +164,10 @@ const config = {
           {
             title: "Community",
             items: [
-              {
-                label: "Code of Conduct",
-                to: "https://www.agora.io/en/",
-              },
+
               {
                 label: "Blog",
-                to: "https://www.agora.io/en/",
+                to: "https://www.agora.io/en/blog/",
               },
               {
                 label: "Support Plans",
@@ -178,8 +175,8 @@ const config = {
               },
 
               {
-                label: "Developer Resources",
-                to: "https://www.agora.io/en/developer-resources/",
+                label: "Slack",
+                to: "https://agoraiodev.slack.com/signup#/domain-signup",
               },
             ],
           },
