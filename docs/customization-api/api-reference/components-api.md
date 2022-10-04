@@ -264,7 +264,7 @@ You can override the specific parts chat ui by pasing in this object with key an
 </subtitle>
 <image alt="Chat Bubble" className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
 
-The ChatTextInput component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
+The ChatTextInput component displays the input box used to enter message text inside the chat ui.
 
 ### _Overrides_ :
 
@@ -334,7 +334,7 @@ export default userCustomization;
 
 <image alt="Chat Bubble" className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
 
-The ChatSendButton component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
+The ChatSendButton component displays the send button used to send messages inside the chat ui.
 
 ### _Overrides_ :
 
