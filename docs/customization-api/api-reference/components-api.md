@@ -273,17 +273,22 @@ The ChatTextInput component displays the message inside the chat ui. It is condi
 
 ### ChatTextInputComponent: [React.ComponentType<ChatTextInputProps\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
 
-You can override the ChatBubble component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chatBubble` key to the `ChatInterface Object`
+You can override the ChatTextInput component component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chatTextInput` key to the `ChatInterface Object`
 
 #### ChatTextInputProps
 
-| Prop      | Type                                                                                                                                                                                                          | Description                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| message   | string                                                                                                                                                                                                        | Content of the chat message                                                  |
-| isLocal   | boolean                                                                                                                                                                                                       | Specifies if the message is from a local user or if it is from a remote user |
-| uid       | [UidType](/customization-api/api-reference/types#uidtype)                                                                                                                                                     | Name of the user who sent the message                                        |
-| timestamp | number                                                                                                                                                                                                        | Timestamp of the message                                                     |
-| render?   | ( msg: string, isLocal: boolean, uid: string, ts: number ) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Render method for chat bubble to provide a custom jsx                        |
+| Prop    | Type                                                                   | Description                     |
+| ------- | ---------------------------------------------------------------------- | ------------------------------- |
+| render? | ([ChatTextInputRenderProps](#chattextinputrenderprops)) => JSX.Element | Render method for ChatTextInput |
+
+#### ChatTextInputRenderProps
+
+| Prop                        | Type                      |
+| --------------------------- | ------------------------- |
+| message                     | string                    |
+| onChangeText                | ( text: string ) => void, |
+| onSubmitEditing             | () => void,               |
+| chatMessageInputPlaceholder | string                    |
 
 <br/>
 
@@ -294,10 +299,10 @@ import React from "react";
 import { View, Text } from "react-native";
 import { customize } from "customization-api";
 
-const MyChatBubbleComponent = () => {
+const MyChatTextInputRender = () => {
   return (
     <View>
-      <Text>My chat bubble component</Text>
+      <Text>My chat text input component</Text>
     </View>
   );
 };
@@ -306,7 +311,7 @@ const userCustomization = customize({
   components: {
     videoCall: {
       chat: {
-        chatBubble: MyChatBubbleComponent,
+        chatTextInput: MyChatTextInputRender,
       },
     },
   },
@@ -323,7 +328,7 @@ export default userCustomization;
 <method>
 <subtitle>
 
-## videoCall.chat.chatSendButton
+## videoCall.chat.chatSendButton: ChatSendButtonComponent
 
 </subtitle>
 
@@ -336,19 +341,15 @@ The ChatSendButton component displays the message inside the chat ui. It is cond
 <method>
 <collapsible>
 
-### ChatBubbleComponent: [React.ComponentType<ChatBubbleProps\>](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+### ChatSendButtonComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatSendButtonProps](#chatsendbuttonprops)\>
 
-You can override the ChatBubble component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chatBubble` key to the `ChatInterface Object`
+You can override the ChatSendButton component by passing in a [React Component](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `chatSendButton` key to the `ChatInterface Object`
 
-#### ChatBubbleProps
+#### ChatSendButtonProps
 
-| Prop      | Type                                                                                                                                                                                                          | Description                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| message   | string                                                                                                                                                                                                        | Content of the chat message                                                  |
-| isLocal   | boolean                                                                                                                                                                                                       | Specifies if the message is from a local user or if it is from a remote user |
-| uid       | [UidType](/customization-api/api-reference/types#uidtype)                                                                                                                                                     | Name of the user who sent the message                                        |
-| timestamp | number                                                                                                                                                                                                        | Timestamp of the message                                                     |
-| render?   | ( msg: string, isLocal: boolean, uid: string, ts: number) => [JSX.Element](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L3073) | Render method for chat bubble to provide a custom jsx                        |
+| Prop    | Type                                   | Description                     |
+| ------- | -------------------------------------- | ------------------------------- |
+| render? | ( onPress: () => void ) => JSX.Element | Render method for ChatTextInput |
 
 <br/>
 
@@ -359,10 +360,10 @@ import React from "react";
 import { View, Text } from "react-native";
 import { customize } from "customization-api";
 
-const MyChatBubbleComponent = () => {
+const MyChatSendButtonComponent = () => {
   return (
     <View>
-      <Text>My chat bubble component</Text>
+      <Text>My chat send button component</Text>
     </View>
   );
 };
@@ -371,7 +372,7 @@ const userCustomization = customize({
   components: {
     videoCall: {
       chat: {
-        chatBubble: MyChatBubbleComponent,
+        chatSendButton: MyChatSendButtonComponent,
       },
     },
   },
