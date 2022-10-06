@@ -1,6 +1,6 @@
 ---
 sidebar_label: Authentication
-sidebar_position: 2
+sidebar_position: 1
 description: Setup Authentication on App Builder
 title: Setup Authentication on App Builder
 keywords: [authentication, guide]

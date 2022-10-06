@@ -1,6 +1,6 @@
 ---
 sidebar_label: Web
-sidebar_position: 7
+sidebar_position: 4
 description: Develop with Web
 title: Web Guide
 keywords: [web, guide]

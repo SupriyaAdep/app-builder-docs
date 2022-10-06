@@ -1,16 +1,15 @@
 ---
-sidebar_label: Update the backend
-sidebar_position: 3
-description: Update the backend
-title: Update the backend
+sidebar_label: Update the Backend
+sidebar_position: 9
+description: Update the Backend
+title: Update the Backend
 keywords: [backend update]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden1
 ---
 
-# Update the backend
+# Update the Backend
 
-Here are the steps you need to take to update your deployed backend to the latest version if you want to take advantage of new features and bug fixes.
+Here are the steps you will need to take to update your deployed backend to the latest version. Updating the backend will allow you to take advantage of new features and bug fixes.
 
 ## Heroku
 
@@ -31,7 +30,7 @@ You should now have the updated changes on your heroku backend.
 
 Using other methods should be fairly simple.
 
-If you've done a deployment from source, you can run `git pull origin master` and redo the steps in the [manual deployment guide](https://github.com/AgoraIO-Community/app-builder-docs/wiki/Deploy-from-Source).
+If you've done a deployment from source, you can run `git pull origin master` and redo the steps in the [manual deployment guide](/turn-key/guides/backend/Deploy-from-Source).
 
 If you are deploying using docker and using the `latest` tag, then you will just need to pull in newer image and restart -
 

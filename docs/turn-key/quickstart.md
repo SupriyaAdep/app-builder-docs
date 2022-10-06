@@ -1,7 +1,7 @@
 ---
 title: QuickStart Guide
 sidebar_position: 1
-sidebar_label: QuickStart
+sidebar_label: Quickstart
 description: This guide helps you get started with your web app as well as build your app for other Mobile and Desktop platforms.
 keywords: [Customize web app, Test and launch apps, Distribute your app]
 ---

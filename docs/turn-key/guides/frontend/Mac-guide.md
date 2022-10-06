@@ -1,5 +1,5 @@
 ---
-sidebar_label: Mac
+sidebar_label: Mac Guide (Desktop App)
 sidebar_position: 7
 description: Develop with Mac
 title: Mac Guide

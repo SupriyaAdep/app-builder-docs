@@ -7,14 +7,14 @@ const cardList: ICardItem[] = [
   {
     title: "Turn Key",
     icon: "turnkey",
-    description: <>Designed for efficiency and ease of use by our developers</>,
+    description: <>Personalize your app with no code</>,
     ctas: [{ text: "Guide", href: "/turn-key/quickstart" }],
     released: true,
   },
   {
     title: "Embed SDKs",
     icon: "sdk",
-    description: <>Designed for efficiency and ease of use by our developers</>,
+    description: <>Fully customize any part of your application with code.</>,
     ctas: [{ text: "Guide", href: "/sdks/guides/embed_web_sdk_react" }],
     released: true,
   },
@@ -28,7 +28,13 @@ const cardList: ICardItem[] = [
   {
     title: "Customization API",
     icon: "settings",
-    description: <>Designed for efficiency and ease of use by our developers</>,
+    description: (
+      <>
+        {" "}
+        Embed your customized experience in your existing web app with a couple
+        lines of code
+      </>
+    ),
     ctas: [
       { text: "Guide", href: "/customization-api/quickstart" },
       {

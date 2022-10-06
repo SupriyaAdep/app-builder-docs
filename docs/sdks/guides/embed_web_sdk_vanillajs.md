@@ -1,8 +1,8 @@
 ---
-sidebar_label: VanillaJS usage
+sidebar_label: Embed using VanillaJS
 sidebar_position: 2
-description: Embed App Builder SDK in your app
-title: How to embed the App Builder Web SDK in a VanillaJS web app ?
+description: How to embed the App Builder Web SDK in a VanillaJS web app ?
+title: Embed App Builder Web SDK in a (VanillaJS) Web App
 keywords: [appBuilder, websdk]
 sidebar_custom_props: { icon: "settings" }
 ---

@@ -1,8 +1,8 @@
 ---
-sidebar_label: NextJS usage
+sidebar_label: Embed using NextJS
 sidebar_position: 5
-description: Embed App Builder SDK in your app
-title: How to embed the App Builder Web SDK in a NextJS web app ?
+description: How to embed the App Builder Web SDK in a NextJS web app ?
+title: Embed App Builder Web SDK in a NextJS Web App
 keywords: [appBuilder, websdk]
 sidebar_custom_props: { icon: "settings" }
 ---

@@ -1,5 +1,5 @@
 ---
-sidebar_label: Windows
+sidebar_label: Windows Guide (Desktop App)
 sidebar_position: 7
 description: Develop with Windows
 title: Windows Guide

@@ -4,14 +4,13 @@ description: Develop with Android
 title: Build Guide
 keywords: [android, guide]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden1
 ---
 
 # Build Guide
 
 We would have to first build for web and deploy it before we can deploy other platforms. This is because other platforms would require the meeting URL to be shared which can’t be retrieved without deploying the front-end in most cases.
 
-## Step 1 Initializing
+## Step 1 - Initializing
 
 1.  Use the [Agora App Builder](https://appbuilder.agora.io) to configure your application and click the download source code button.
 
@@ -37,7 +36,7 @@ We would have to first build for web and deploy it before we can deploy other pl
 
 12. Run: `npm run web` (For dev version)
 
-## Step 2 Deploy web
+## Step 2 - Deploy web
 
 1.  Run: npm run web:build
 
@@ -72,7 +71,7 @@ _Copy paste the appropriate redirect file into dist (which contains index.html
 
 8.  **Now any other target can be built - (IOS, Android, Mac, Windows, Linux) - This is because the Apps require the frontend URL (universal links)**
 
-## Step 3 Deploying other platforms
+## Step 3 - Deploying other platforms
 
 **Windows/Mac/Linux:**
 

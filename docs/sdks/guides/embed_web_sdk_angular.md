@@ -1,8 +1,8 @@
 ---
-sidebar_label: Angular usage
+sidebar_label: Embed using Angular
 sidebar_position: 3
-description: Angular usage
-title: How to embed the App Builder Web SDK in a Angular web app ?
+description: How to embed the App Builder Web SDK in a Angular web app ?
+title: Embed App Builder Web SDK in an Angular Web App
 keywords: [appBuilder, websdk]
 sidebar_custom_props: { icon: "settings" }
 ---

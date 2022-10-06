@@ -4,14 +4,13 @@ description: Setting up a Custom Domain
 title: Custom Domain
 keywords: [custom domain]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden1
 ---
 
 # Setting up a Custom Domain
 
 To add your own custom domain to the app builder website you've deployed, we'll go over adding the domain to Vercel and setting up the DNS records.
 
-## Step 1 Adding the domain to Vercel
+## Step 1 - Adding the domain to Vercel
 
 1.  Open your [Vercel Dashboard](https://vercel.com/dashboard) and click on the project corresponding to the app builder deployment. (It's a string which looks like this - `ckpllk6ad245734pjy09c057dx`)
 
@@ -23,7 +22,7 @@ To add your own custom domain to the app builder website you've deployed, we'll 
 
 5.  You'll see two new domains entries - `<www.yourdomain.com>` and `<yourdomain.com>` with an error reading `Invalid configuration`. We'll update the DNS records to fix it.
 
-## Step 2 Setting up DNS records for your domain
+## Step 2 - Setting up DNS records for your domain
 
 This step varies for each domain provider, but you should be able to follow the same general instructions.
 

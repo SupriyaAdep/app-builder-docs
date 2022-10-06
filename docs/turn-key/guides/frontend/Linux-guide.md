@@ -1,5 +1,5 @@
 ---
-sidebar_label: Linux
+sidebar_label: Linux Guide (Desktop App)
 sidebar_position: 7
 description: Develop with Linux
 title: Linux Guide
