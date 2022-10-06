@@ -2,7 +2,7 @@
 sidebar_label: Quickstart
 sidebar_position: 1
 description: Get started with using customization api to modify your App Builder application
-title: Customization API quickstart guide
+title: Customization API Quickstart Guide
 keywords: [appBuilder, websdk]
 sidebar_custom_props: { icon: "settings" }
 ---

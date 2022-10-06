@@ -1,11 +1,10 @@
 ---
 sidebar_label: Log Management
-sidebar_position: 3
+sidebar_position: 8
 description: Enable backend logging
 title: Log Management
 keywords: [backend logs]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden1
 ---
 
 # Log Management

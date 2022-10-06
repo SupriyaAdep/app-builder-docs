@@ -1,6 +1,6 @@
 ---
 sidebar_label: Deploy from source
-sidebar_position: 3
+sidebar_position: 5
 description: Setup Credentials for App Builder
 title: Setup Credentials
 keywords: [credentials, guide]
@@ -9,15 +9,15 @@ sidebar_custom_props: { icon: "settings" }
 
 # Deploy from source
 
-## Step 1 Clone the source code
+## Step 1 - Clone the source code
 
 Clone the source code from https://github.com/samyak-jain/AgoraBackend
 
-## Step 2 Setup Credentials
+## Step 2 - Setup Credentials
 
 You can choose to setup credentials either by filling up the [configuration file](https://github.com/samyak-jain/AgoraBackend/blob/master/config.json) or by adding them as environment variables. You can see a list of credentials to setup [here](https://github.com/AgoraIO-Community/app-builder-docs/wiki/Credentials)
 
-## Step 3 Setup Database
+## Step 3 - Setup Database
 
 Agora App Builder uses a Postgresql Database.
 
@@ -27,16 +27,16 @@ Make sure the create a database where your data will be stored. You can follow t
 
 Get the connection string like shown here: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING and set it as the following environment variable: DATABASE_URL
 
-## Step 4 Run the Database Migrations
+## Step 4 - Run the Database Migrations
 
 If you want the database migrations to be run, you will need to setup the following environment variable
 `RUN_MIGRATION=true`
 
-## Step 5 Build the server
+## Step 5 - Build the server
 
 Run `go build -o ./server ./cmd/video_conferencing`
 
-## Step 6 Run the binary
+## Step 6 - Run the binary
 
 You can run the binary by just doing `./server`
 

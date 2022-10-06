@@ -1,6 +1,6 @@
 ---
 sidebar_label: Deploy Using Docker
-sidebar_position: 4
+sidebar_position: 5
 description: Deploy using docker
 title: Deploy using docker
 keywords: [credentials, guide]

@@ -1,8 +1,8 @@
 ---
-sidebar_label: VueJS usage
+sidebar_label: Embed using VueJS
 sidebar_position: 4
-description: Embed App Builder SDK in your app
-title: How to embed the App Builder Web SDK in a VueJS web app ?
+description: How to embed the App Builder Web SDK in a VueJS web app ?
+title: Embed App Builder Web SDK in a VueJS Web App
 keywords: [appBuilder, websdk]
 sidebar_custom_props: { icon: "settings" }
 ---
