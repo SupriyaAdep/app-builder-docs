@@ -93,7 +93,7 @@ _Copy paste the appropriate redirect file into dist (which contains index.html
 7.  For Code Signing, refer to [this](/turn-key/guides/frontend/Code-Signing-guide) guide
 8.  To deploy,  go to the `<PRODUCT_ID>/android` folder and run `./gradlew build assembleRelease`
 
-**IOS**
+**iOS:**
 
 1.  Connect IOS device to system, create apple developer account and connect a registered iPhone/iPad
 2.  Run `npx pod-install`
