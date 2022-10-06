@@ -16,6 +16,12 @@
 .alignRight {
   text-align: right;
 }
+.editContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 var(--ifm-spacing-horizontal);
+}
 
 @media (min-width: 997px) {
   .lastUpdated {

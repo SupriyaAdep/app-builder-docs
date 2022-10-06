@@ -4,7 +4,7 @@ description: Setting up a Custom Domain
 title: Custom Domain
 keywords: [custom domain]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden
+sidebar_class_name: hidden1
 ---
 
 # Setting up a Custom Domain

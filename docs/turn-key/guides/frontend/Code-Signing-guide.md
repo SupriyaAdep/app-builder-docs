@@ -4,7 +4,7 @@ description: Develop with Android
 title: Code signing
 keywords: [distribute, ios, android]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden
+sidebar_class_name: hidden1
 ---
 
 # Code signing

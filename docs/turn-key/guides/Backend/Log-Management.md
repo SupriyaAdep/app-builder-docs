@@ -5,7 +5,7 @@ description: Enable backend logging
 title: Log Management
 keywords: [backend logs]
 sidebar_custom_props: { icon: "settings" }
-sidebar_class_name: hidden
+sidebar_class_name: hidden1
 ---
 
 # Log Management

@@ -1,7 +1,4 @@
 {
   "label": "Guides",
-  "position": 2,
-  "link": {
-    "slug": "/turn-key/guides"
-  }
+  "position": 2
 }
