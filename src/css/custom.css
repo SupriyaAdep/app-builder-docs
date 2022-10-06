@@ -355,8 +355,8 @@ table .icon {
   align-items: center;
 }
 .imageSlider {
-  --divider-color: rgba(0, 0, 0, 0.5);
-  --default-handle-color: rgba(0, 0, 0, 0.5);
+  --divider-color: var(--ifm-color-primary-dark);
+  --default-handle-color: var(--ifm-color-primary);
   --divider-width: 2px;
 }
 .imageSlider:hover .custom-animated-handle {
@@ -376,10 +376,10 @@ table .icon {
 }
 
 .imageSlider .before figcaption, .imageSlider .after figcaption {
-  background: #002753;
-  border: 1px solid #c0c0c0;
+  background: var(--ifm-color-primary);
+  border: 2px solid white;
   border-radius: 12px;
-  color: #099DFD;
+  color: var(--ifm-menu-color-active);
   opacity: 0.8;
   padding: 8px;
   position: absolute;

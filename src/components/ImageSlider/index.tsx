@@ -46,10 +46,10 @@ function ImageSlider({
         viewBox="-8 -3 16 6"
       >
         <path
-          stroke="##808080"
+          stroke="#099DFD"
           d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2"
-          strokeWidth="1"
-          fill="##808080"
+          strokeWidth="2"
+          fill="#099DFD"
           vectorEffect="non-scaling-stroke"
         ></path>
       </svg>

@@ -59,31 +59,58 @@ You can override the entire VideoCall screen by pasing in a [React.ComponentType
 
 Use the example code given below showcasing reconstruction of the default video call ui as a guide.
 
-```tsx {13-17}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {18-24} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/video-call.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-const MyVideoCallComponent: React.FC = () => {
+const VideoCallPage = () => {
   return (
-    <View>
-      <Text>My VideoCall screen</Text>
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>
+          Here is your new video call page. Use app-state and sub-components to
+          customize your video call page
+        </Text>
+      </View>
     </View>
   );
 };
 
-const data = customize({
+const customization = customize({
   components: {
-    videoCall: MyVideoCallComponent,
+    videoCall: VideoCallPage,
   },
 });
 
-export default data;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    maxHeight: 200,
+    borderRadius: 30,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    lineHeight: 30,
+  },
+});
 ```
 
 Result:
 
-<imageSlider alt="videocall component override" darkImageSrc1="api/GridLayout.png" darkImageSrc2="api/PinnedLayout.png" />
+<imageSlider alt="videocall component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/videocall-after.png" />
 
 </collapsible>
 
@@ -138,29 +165,61 @@ To reuse parts of default bottom bar ui you can import them from the [SubCompone
 
 Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
 
-```tsx {13-19}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/bottom-bar.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-const MyBottomBarComponent: React.FC = () => {
+const BottomBar = () => {
   return (
-    <View>
-      <Text>My bottom bar component</Text>
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>
+          Here is your new bottom bar component. Use app-state and
+          sub-components to customize your bottom bar
+        </Text>
+      </View>
     </View>
   );
 };
 
-const userCustomization = customize({
+const customization = customize({
   components: {
     videoCall: {
-      bottomBar: MyBottomBarComponent,
+      bottomBar: BottomBar,
     },
   },
 });
 
-export default userCustomization;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    maxHeight: 200,
+    borderRadius: 30,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    lineHeight: 30,
+  },
+});
+
 ```
+
+Result: 
+
+<imageSlider alt="bottombar component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/bottombar-after.png" />
 
 </collapsible>
 
@@ -195,29 +254,60 @@ To reuse parts of default top bar ui you can import them from the [SubComponents
 
 Use the example code given below showcasing reconstruction of the default top bar ui as a guide.
 
-```tsx {13-19}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/top-bar.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-const MyBottomBarComponent: React.FC = () => {
+const TopBar = () => {
   return (
-    <View>
-      <Text>My bottom bar component</Text>
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>
+          Here is your new top bar component. Use app-state and sub-components
+          to customize your top bar
+        </Text>
+      </View>
     </View>
   );
 };
 
-const userCustomization = customize({
+const customization = customize({
   components: {
     videoCall: {
-      bottomBar: MyBottomBarComponent,
+      topBar: TopBar,
     },
   },
 });
 
-export default userCustomization;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    maxHeight: 200,
+    borderRadius: 30,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    lineHeight: 30,
+  },
+});
 ```
+
+Result: 
+
+<imageSlider alt="topbar component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/topbar-after.png" />
 
 </collapsible>
 
@@ -296,31 +386,41 @@ You can override the ChatTextInput component component by passing in a [React Co
 
 Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
 
-```tsx {13-21}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {9-19} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/chat-input.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
 
-const MyChatTextInputRender = () => {
-  return (
-    <View>
-      <Text>My chat text input component</Text>
-    </View>
-  );
+const ChatInput = () => {
+  return <View style={styles.container}></View>;
 };
 
-const userCustomization = customize({
+const customization = customize({
   components: {
     videoCall: {
       chat: {
-        chatTextInput: MyChatTextInputRender,
+        chatInput: ChatInput,
       },
     },
   },
 });
 
-export default userCustomization;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+    height: 40,
+    alignSelf: 'center',
+  },
+});
 ```
+
+Result: 
+
+<imageSlider alt="chat input component override" darkImageSrc1="customization-api/api/components-api/chatinputbutton-before.png" darkImageSrc2="customization-api/api/components-api/chatinput-after.png" />
 
 </collapsible>
 </method>
@@ -357,31 +457,42 @@ You can override the ChatSendButton component by passing in a [React Component](
 
 Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
 
-```tsx {13-21}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {9-19} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/chat-send-button.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
 
-const MyChatSendButtonComponent = () => {
-  return (
-    <View>
-      <Text>My chat send button component</Text>
-    </View>
-  );
+const ChatSendButton = () => {
+  return <View style={styles.container}></View>;
 };
 
-const userCustomization = customize({
+const customization = customize({
   components: {
     videoCall: {
       chat: {
-        chatSendButton: MyChatSendButtonComponent,
+        chatSentButton: ChatSendButton,
       },
     },
   },
 });
 
-export default userCustomization;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#90EE90',
+    marginLeft: 10,
+    width: 30,
+    height: 30,
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
+});
 ```
+
+Result: 
+
+<imageSlider alt="chat send button component override" darkImageSrc1="customization-api/api/components-api/chatinputbutton-before.png" darkImageSrc2="customization-api/api/components-api/chatbutton-after.png" />
 
 </collapsible>
 </method>
@@ -422,31 +533,63 @@ You can override the ChatBubble component by passing in a [React Component](http
 
 Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
 
-```tsx {13-21}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/chat-bubble.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-const MyChatBubbleComponent = () => {
+const ChatBubble = () => {
   return (
-    <View>
-      <Text>My chat bubble component</Text>
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>
+          Here is your new chat bubble component. Use app-state and
+          sub-components to customize your chat
+        </Text>
+      </View>
     </View>
   );
 };
 
-const userCustomization = customize({
+const customization = customize({
   components: {
     videoCall: {
       chat: {
-        chatBubble: MyChatBubbleComponent,
+        chatBubble: ChatBubble,
       },
     },
   },
 });
 
-export default userCustomization;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    maxHeight: 200,
+    borderRadius: 30,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    lineHeight: 30,
+  },
+});
 ```
+
+Result: 
+
+<imageSlider alt="chat bubble component override" darkImageSrc1="customization-api/api/components-api/chatbubble-before.png" darkImageSrc2="customization-api/api/components-api/chatbubble-after.png" />
+
 
 </collapsible>
 </method>
@@ -480,29 +623,63 @@ You can import parts of default participantsPanel ui from the [SubComponents Lib
 
 Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
 
-```tsx {13-19}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/participants-panel.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-const MyParticipantPanel = () => {
+const ParticipantsPanel = () => {
   return (
-    <View style={{ flex: 1 }}>
-      <Text>My participant panel</Text>
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>
+          Here is your new participants panel component. Use app-state and
+          sub-components to customize your participants panel
+        </Text>
+      </View>
     </View>
   );
 };
 
-const userCustomization = customize({
+const customization = customize({
   components: {
     videoCall: {
-      participantsPanel: MyParticipantPanel,
+      participantsPanel: ParticipantsPanel,
     },
   },
 });
 
-export default userCustomization;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+    width: '20%',
+    minWidth: 200,
+    maxWidth: 300,
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    maxHeight: 200,
+    borderRadius: 30,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    lineHeight: 30,
+  },
+});
 ```
+
+Result: 
+
+<imageSlider alt="participanPanel component override" darkImageSrc1="customization-api/api/components-api/participant-before.png" darkImageSrc2="customization-api/api/components-api/participantpanel-after.png" />
 
 </collapsible>
 
@@ -542,31 +719,139 @@ You can override the render component for each content type present in the [Rend
 
 Use the example code given below showcasing overriding of the default render component for `rtc` content type as a guide.
 
-```tsx {13-21}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/custom-content-basic.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-const MyRTCRenderer = () => {
+const CustomVideoView = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: "deepskyblue" }}>
-      <Text>My RTC component</Text>
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>
+          Here is your new video view component. Use app-state and
+          sub-components to customize your video view
+        </Text>
+      </View>
     </View>
   );
 };
 
-const userCustomization = customize({
+const customization = customize({
   components: {
     videoCall: {
       customContent: {
-        rtc: MyRTCRenderer,
+        rtc: CustomVideoView,
       },
     },
   },
 });
 
-export default userCustomization;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    maxHeight: 200,
+    borderRadius: 30,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    lineHeight: 30,
+  },
+});
+
 ```
+
+Result: 
+
+<imageSlider alt="custom content component override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/videocomponent-after.png" />
+
+<br/>
+<br/>
+
+Use the example code given below showcasing overriding of the default render component for `rtc` content type as a guide.
+
+```tsx {18-39} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/custom-content-advanced.tsx"
+import {customize, useRtc} from 'customization-api';
+import React, {useEffect} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+
+const CustomView = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>
+          Here is your new video view component. Use app-state and
+          sub-components to customize your video view
+        </Text>
+      </View>
+    </View>
+  );
+};
+
+const customization = customize({
+  components: {
+    videoCall: {
+      customContent: {
+        //customview is key
+        customview: CustomView,
+      },
+      useUserContext: function useUserContext() {
+        const {dispatch} = useRtc();
+        useEffect(() => {
+          dispatch({
+            type: 'AddCustomContent',
+            //value 0 = uid
+            //value 1 = user data
+            //type should match the customContent key otherwise it will fallback to default view
+            value: [new Date().getTime(), {name: 'user', type: 'customview'}],
+          });
+        }, []);
+      },
+    },
+  },
+});
+
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    maxHeight: 200,
+    borderRadius: 30,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    lineHeight: 30,
+  },
+});
+
+```
+
+Result: 
+
+<imageSlider alt="custom content component override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/custom-content-after.png" />
 
 </collapsible>
 </method>
@@ -630,37 +915,69 @@ This function recieves an array of default layouts and expects you to return an 
 
 Use the example code given below showcasing appending a custom layout as a guide.
 
-```tsx {13-27}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
+```tsx {18-32} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/custom-layout.tsx"
+import {customize} from 'customization-api';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-const MyLayoutComponent = ({ renderData }) => {
+const CustomLayout = () => {
   return (
-    <View style={{ flex: 1 }}>
-      <Text>My layout component</Text>
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>
+          Here is your new custom layout view. Use app-state and sub-components
+          to customize your layout
+        </Text>
+      </View>
     </View>
   );
 };
 
-const userCustomization = customize({
+const customization = customize({
   components: {
     videoCall: {
-      customLayout: (DefaultLayouts) => [
-        ...DefaultLayouts,
+      customLayout: (defaultLayouts) => [
+        ...defaultLayouts,
         {
-          label: "My Layout",
-          name: "myLayout",
-          iconName: "videocam",
-          component: MyLayoutComponent,
+          component: CustomLayout,
+          label: 'Custom Layout',
+          name: 'CustomLayout',
+          iconName: 'clipboard',
         },
       ],
     },
   },
 });
 
-export default userCustomization;
+export default customization;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#90EE90',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    maxHeight: 200,
+    borderRadius: 30,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    textAlign: 'center',
+    lineHeight: 30,
+  },
+});
+
 ```
+
+Result: 
+
+<imageSlider alt="participanPanel component override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/layout-after.png" />
 
 </collapsible>
 </method>
