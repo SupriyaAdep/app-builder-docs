@@ -24,7 +24,7 @@ The overrides are applied by supplying values as an object under the top-level `
 
 </subtitle>
 
-<image alt="Video Call" caption="video screen"lightImageSrc="api/Videocall.png" darkImageSrc="api/Videocall.png" />
+<image alt="Video Call" caption="video screen" darkImageSrc="customization-api/api/components-api/videocall.svg" />
 
 The VideoCall screen displays the active video call / livestream UI. This UI is shown when a user has joined a meeting.
 
@@ -34,7 +34,7 @@ Hence it is displayed after:
 
 However if Precall Screen is disabled in the Builder,
 
-<image alt="Precall Screen Builder Option" className="center-img" darkImageSrc="customization-api/api/components-api/precall.png" />
+<image alt="Precall Screen Builder Option" caption="Precall toggle"  darkImageSrc="customization-api/api/components-api/precall.svg" />
 
 the videoCall screen is directly displayed after:
 
@@ -118,7 +118,7 @@ You can override specific parts of the VideoCall screen by pasing in this object
 
 </subtitle>
 
-<image alt="Bottom bar"  caption="bottom bar" lightImageSrc="api/Bottombar.png" darkImageSrc="api/Bottombar.png" />
+<image alt="Bottom bar"  caption="bottom bar" darkImageSrc="customization-api/api/components-api/bottombar2.svg" />
 
 The BottomBarComponent occupies the bottom part of the VideoCall screen and displays all the meeting controls.
 
@@ -175,7 +175,7 @@ export default userCustomization;
 
 </subtitle>
 
-<image alt="Bottom bar"  caption="bottom bar" lightImageSrc="api/Bottombar.png" darkImageSrc="api/Bottombar.png" />
+<image caption="Top Bar" darkImageSrc="customization-api/api/components-api/topbar.svg" />
 
 The TopBarComponent occupies the bottom part of the VideoCall screen and displays all the meeting controls.
 
@@ -232,7 +232,7 @@ export default userCustomization;
 
 </subtitle>
 
-<image alt="Chat"  className="center-img" lightImageSrc="api/Chat.png" darkImageSrc="api/Chat.png" caption="chat"/>
+<image alt="Chat"  darkImageSrc="customization-api/api/components-api/chat.svg" caption="chat"/>
 
 The Chat component displays the ui to send and view the chat messages.
 
@@ -262,7 +262,7 @@ You can override the specific parts chat ui by pasing in this object with key an
 ## videoCall.chat.chatTextInput: ChatTextInputComponent
 
 </subtitle>
-<image alt="Chat Bubble" className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
+<image alt="Chat Text Input" className="center-img" caption="Chat Text Input" darkImageSrc="customization-api/api/components-api/chatTextInput.svg" />
 
 The ChatTextInput component displays the input box used to enter message text inside the chat ui.
 
@@ -280,6 +280,8 @@ You can override the ChatTextInput component component by passing in a [React Co
 | Prop    | Type                                                                   | Description                     |
 | ------- | ---------------------------------------------------------------------- | ------------------------------- |
 | render? | ([ChatTextInputRenderProps](#chattextinputrenderprops)) => JSX.Element | Render method for ChatTextInput |
+
+<br/>
 
 #### ChatTextInputRenderProps
 
@@ -332,7 +334,7 @@ export default userCustomization;
 
 </subtitle>
 
-<image alt="Chat Bubble" className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
+<image alt="Chat Send Button" className="center-img" caption="Chat Send Button" darkImageSrc="customization-api/api/components-api/chatSendButton.svg" />
 
 The ChatSendButton component displays the send button used to send messages inside the chat ui.
 
@@ -393,7 +395,7 @@ export default userCustomization;
 
 </subtitle>
 
-<image alt="Chat Bubble" className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
+<image alt="Chat Bubble" className="center-img" caption="Chat Bubble" darkImageSrc="customization-api/api/components-api/chatbubble2.svg" />
 
 The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
 
@@ -448,6 +450,63 @@ export default userCustomization;
 
 </collapsible>
 </method>
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+<subtitle>
+
+## videoCall.participantsPanel : ParticipantsPanelComponent
+
+</subtitle>
+
+<image alt="Participant Panel" caption="Participant Panel" darkImageSrc="customization-api/api/components-api/participantpanel.svg" />
+
+The participantsPanel component lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
+
+<br/>
+
+### _Overrides_:
+
+<collapsible>
+
+### ParticipantsPanelComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+You can override the entire participantsPanel component by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `participanPanel` key to the `VideocallInterface Object`
+
+You can import parts of default participantsPanel ui from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module to reuse them in your component.
+
+Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
+
+```tsx {13-19}
+import React from "react";
+import { View, Text } from "react-native";
+import { customize } from "customization-api";
+
+const MyParticipantPanel = () => {
+  return (
+    <View style={{ flex: 1 }}>
+      <Text>My participant panel</Text>
+    </View>
+  );
+};
+
+const userCustomization = customize({
+  components: {
+    videoCall: {
+      participantsPanel: MyParticipantPanel,
+    },
+  },
+});
+
+export default userCustomization;
+```
+
+</collapsible>
+
+<br/>
 
 </method>
 
@@ -608,61 +667,6 @@ export default userCustomization;
 </method>
 
 <!-- ***************************************************************************************************************** -->
-
-<method>
-<subtitle>
-
-## videoCall.participantsPanel : ParticipantsPanelComponent
-
-</subtitle>
-
-<image alt="Participant Panel" className="center-img" caption="particpants panel" lightImageSrc="api/Participant Panel.png" darkImageSrc="api/Participant Panel.png" />
-
-The participantsPanel component lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
-
-<br/>
-
-### _Overrides_:
-
-<collapsible>
-
-### ParticipantsPanelComponent: [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
-
-You can override the entire participantsPanel component by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `participanPanel` key to the `VideocallInterface Object`
-
-You can import parts of default participantsPanel ui from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module to reuse them in your component.
-
-Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
-
-```tsx {13-19}
-import React from "react";
-import { View, Text } from "react-native";
-import { customize } from "customization-api";
-
-const MyParticipantPanel = () => {
-  return (
-    <View style={{ flex: 1 }}>
-      <Text>My participant panel</Text>
-    </View>
-  );
-};
-
-const userCustomization = customize({
-  components: {
-    videoCall: {
-      participantsPanel: MyParticipantPanel,
-    },
-  },
-});
-
-export default userCustomization;
-```
-
-</collapsible>
-
-<br/>
-
-</method>
 
 <method>
 <subtitle>

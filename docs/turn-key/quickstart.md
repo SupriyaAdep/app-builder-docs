@@ -1,5 +1,5 @@
 ---
-title: QuickStart Guide
+title: Quickstart Guide
 sidebar_position: 1
 sidebar_label: QuickStart
 description: This guide helps you get started with your web app as well as build your app for other Mobile and Desktop platforms.

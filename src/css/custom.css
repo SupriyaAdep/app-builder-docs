@@ -109,12 +109,14 @@ p {
 .mdImage {
   margin-top: 16px;
   margin-bottom: 32px;
+  background-color: #181818;
+  border-radius: var(--ifm-code-border-radius);
 }
 .mdImage img {
-  border-radius: var(--ifm-code-border-radius);
   display: block;
   width:100%;
   margin-right: auto;
+  border-radius: var(--ifm-code-border-radius);
 }
 
 .center-img img {
@@ -175,6 +177,8 @@ table tr:nth-child(2n) {
 table .icon {
   padding: 0 !important;
   margin:0 ;
+  border-radius: 0 !important; 
+  background-color: transparent !important;
 }
 
 

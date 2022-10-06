@@ -67,6 +67,71 @@ import { icons } from "customization-api";
 </method>
 
 <!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## ChatSendButton : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatSendButtonProps](#chatsendbuttonprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Chat Send Button" className="center-img" caption="Chat Send Button" darkImageSrc="customization-api/api/components-api/chatSendButton.svg" />
+
+The ChatSendButton component displays the chat send button. Relies on [ChatUiControl app state](/customization-api/api-reference/app-state-library#chatuicontrolinterface) to determine required information.
+
+```jsx
+import { ChatSendButton } from "customization-api";
+```
+
+<br/>
+
+#### ChatSendButtonProps
+
+| Prop    | Type                                   | Description                      |
+| ------- | -------------------------------------- | -------------------------------- |
+| render? | ( onPress: () => void ) => JSX.Element | Render method for ChatSendButton |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
+## ChatTextInput : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatTextInputProps](#chatinputprops)\>
+
+</subtitle>
+
+<br/>
+
+<image alt="Chat Text Input" className="center-img" caption="Chat Text Input" darkImageSrc="customization-api/api/components-api/chatTextInput.svg" />
+
+The ChatTextInput component displays the chat input box. Relies on [ChatUiControl app state](/customization-api/api-reference/app-state-library#chatuicontrolinterface) to determine required information.
+
+```jsx
+import { ChatTextInput } from "customization-api";
+```
+
+<br/>
+
+#### ChatTextInputProps
+
+| Prop    | Type                                                                   | Description                     |
+| ------- | ---------------------------------------------------------------------- | ------------------------------- |
+| render? | ([ChatTextInputRenderProps](#chattextinputrenderprops)) => JSX.Element | Render method for ChatTextInput |
+
+#### ChatTextInputRenderProps
+
+| Prop                        | Type                      |
+| --------------------------- | ------------------------- |
+| message                     | string                    |
+| onChangeText                | ( text: string ) => void, |
+| onSubmitEditing             | () => void,               |
+| chatMessageInputPlaceholder | string                    |
+
+</method>
 
 <method>
 
@@ -78,7 +143,7 @@ import { icons } from "customization-api";
 
 <br/>
 
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/ChatBubble.png" darkImageSrc="api/ChatBubble.png" />
+<image alt="Chat Bubble" className="center-img" caption="Chat Bubble" darkImageSrc="customization-api/api/components-api/chatbubble2.svg" />
 
 The Chat Bubble component displays the message inside the chat ui. It is conditionally styled based on message origin (ie local or remote).
 
@@ -106,15 +171,46 @@ import { ChatBubble } from "customization-api";
 
 <subtitle>
 
+## Chat : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatProps](#chatprops)\>
+
+</subtitle>
+
+<br/>
+
+<image caption="Chat" darkImageSrc="customization-api/api/sub-components-library/chat.png" />
+
+The Chat component displays the chat sidepanel. Relies on [ChatUiControl app state](/customization-api/api-reference/app-state-library#chatuicontrolinterface) to determine required information.
+
+```jsx
+import { Chat } from "customization-api";
+```
+
+<br/>
+
+#### ChatProps
+
+| Prop            | Type                                                                                                                                                                                                 | Description                         |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| chatBubble?     | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatBubbleProps](#chatbubbleprops)\>         | ChatBubble component to be used     |
+| chatTextInput?  | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatTextInputProps](#chatinputprops)\>       | ChatTextInput component to be used  |
+| chatSendButton? | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatSendButtonProps](#chatsendbuttonprops)\> | ChatSendButton component to be used |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+<method>
+
+<subtitle>
+
 ## MaxVideoView : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[MaxVideoRendererProps](#maxvideorendererprops)\>
 
 </subtitle>
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/MaxVideoView.png" darkImageSrc="api/MaxVideoView.png" />
+<image caption="MaxVideoView" darkImageSrc="customization-api/api/sub-components-library/maxvideoview.png" />
 
-The MaxVideoView component is used to render the user video feed along with overlay components like [NameWithMicStatus](#namewithmicstatus), [NetworkQualityPill](#networkqualitypill) etc.
+The MaxVideoView component is used to render the user video feed using [UiKitMaxVideoView](#uikitmaxvideoview) along with overlay components like [NameWithMicStatus](#namewithmicstatus), [NetworkQualityPill](#networkqualitypill) etc.
 
 ```jsx
 import { MaxVideoView } from "customization-api";
@@ -142,7 +238,7 @@ import { MaxVideoView } from "customization-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/GridLayout.png" darkImageSrc="api/GridLayout.png" />
+<image caption="Grid Layout" darkImageSrc="customization-api/api/sub-components-library/grid.png" />
 
 The GridLayout component is used to render the user video feeds in a responsive grid parttern.
 
@@ -164,7 +260,7 @@ import { GridLayout } from "customization-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/PinnedLayout.png" darkImageSrc="api/PinnedLayout.png" />
+<image caption="Pinned Layout" darkImageSrc="customization-api/api/sub-components-library/pinned.png" />
 
 The PinnedLayout component is used to render the user video feeds in a pinned view with a collapsible sidebar displaying unpinned user feeds.
 
@@ -186,7 +282,7 @@ import { PinnedLayout } from "customization-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/VideoComponent.png" darkImageSrc="api/VideoComponent.png" />
+<image caption="Video Component" darkImageSrc="customization-api/api/sub-components-library/videocomponent.png" />
 
 The VideoComponent is used to automatically render the user video feeds in the selected layout.
 
@@ -208,7 +304,7 @@ import { VideoComponent } from "customization-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/NameLabel.png" darkImageSrc="api/NameLabel.png" />
+<image caption="Name with nic icon" darkImageSrc="customization-api/api/sub-components-library/namemic.png" />
 
 The NameWithMicIcon component is used to render the user name along with their mic muted state.
 
@@ -238,7 +334,7 @@ import { NameWithMicIcon } from "customization-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/NetworkQuality.png" darkImageSrc="api/NetworkQuality.png" />
+<image caption="Network quality pill" darkImageSrc="customization-api/api/sub-components-library/networkquality2.png" />
 
 The NetworkQualityPill component is used to render the user network quality in a pill container that expands when hovered over.
 
@@ -266,12 +362,34 @@ import { NetworkQualityPill } from "customization-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/videocall-light.png" darkImageSrc="api/videocall-dark.png" />
+<image caption="Video call screen" darkImageSrc="customization-api/api/sub-components-library/videocallscreen.png" />
 
 The VideoCallScreen component is used to render the entire video call screen.
 
 ```jsx
 import { VideoCallScreen } from "customization-api";
+```
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## SettingsView : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
+
+</subtitle>
+
+<br/>
+
+<image caption="Settings View" darkImageSrc="customization-api/api/sub-components-library/settingsview.png" />
+
+The SettingsView component is used to render the settings side panel.
+
+```jsx
+import { SettingsView } from "customization-api";
 ```
 
 </method>
@@ -288,7 +406,7 @@ import { VideoCallScreen } from "customization-api";
 
 <br/>
 
-<image alt="Video Call" className="center-img" caption="participant panel" lightImageSrc="api/Participants Panel.png" darkImageSrc="api/Participant Panel.png" />
+<image caption="Participants View" darkImageSrc="customization-api/api/sub-components-library/participantsview.png" />
 
 The ParticipantsView component is used to render the participant panel that lists all the users in the video call / livestream along with their audio and video status. Hosts additionally are able to see user controls such as `mute participant` , `remove participant from call`.
 
@@ -308,7 +426,7 @@ import { ParticipantsView } from "customization-api";
 
 <br/>
 
-<image alt="Video Call" lightImageSrc="api/Bottombar.png" darkImageSrc="api/Bottombar.png" />
+<image caption="bottom bar" darkImageSrc="customization-api/api/components-api/bottombar2.svg" />
 
 The Controls component is used to render all the meeting controls.
 
@@ -328,13 +446,43 @@ The controls displayed change depending on the operating sytem/platform and the 
 
 <subtitle>
 
+## NavBar : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NavBarProps](#navbarprops)\>
+
+</subtitle>
+
+<br/>
+
+<image caption="Top Bar" darkImageSrc="customization-api/api/components-api/topbar.svg" />
+
+The NavBar component displays the nav bar.
+
+```jsx
+import { NavBar } from "customization-api";
+```
+
+<br/>
+
+#### NavBarProps
+
+| Prop    | Type   | Description                 |
+| ------- | ------ | --------------------------- |
+| message | string | Content of the chat message |
+
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
 ## HorizontalRule : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[HorizontalRuleProps](#horizontalruleprops)\>
 
 </subtitle>
 
 <br/>
 
-<image alt="Video Call" caption="chat bubble" darkImageSrc="api/HorizontalRule.png" />
+<image  caption="HorizontalRule" darkImageSrc="customization-api/api/sub-components-library/horizontalrule.png" />
 
 <br/>
 
@@ -366,10 +514,6 @@ import { HorizontalRule } from "customization-api";
 
 <br/>
 
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/RenderComponent.png" darkImageSrc="api/RenderComponent.png" />
-
-<br/>
-
 The Render component handles rendering the correct content view component as defined in [custom content api](/customization-api/api-reference/components-api#videocallcustomcontent) based on the content type corresponding to the `uid` as defined in the [Render app state](/customization-api/api-reference/app-state-library#userender).
 
 ```jsx
@@ -387,155 +531,7 @@ import { RenderComponent } from "customization-api";
 </method>
 
 <!-- ***************************************************************************************************************** -->
-<method>
 
-<subtitle>
-
-## SettingsView : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)
-
-</subtitle>
-
-<br/>
-
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/SettingsView.png" darkImageSrc="api/SettingsView.png" />
-
-The SettingsView component is used to render the settings side panel.
-
-```jsx
-import { SettingsView } from "customization-api";
-```
-
-</method>
-
-<!-- ***************************************************************************************************************** -->
-<method>
-
-<subtitle>
-
-## ChatSendButton : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatSendButtonProps](#chatsendbuttonprops)\>
-
-</subtitle>
-
-<br/>
-
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/ChatSendButton.png" darkImageSrc="api/ChatSendButton.png" />
-
-The ChatSendButton component displays the chat send button. Relies on [ChatUiControl app state](/customization-api/api-reference/app-state-library#chatuicontrolinterface) to determine required information.
-
-```jsx
-import { ChatSendButton } from "customization-api";
-```
-
-<br/>
-
-#### ChatSendButtonProps
-
-| Prop    | Type                                   | Description                      |
-| ------- | -------------------------------------- | -------------------------------- |
-| render? | ( onPress: () => void ) => JSX.Element | Render method for ChatSendButton |
-
-</method>
-
-<!-- ***************************************************************************************************************** -->
-<method>
-
-<subtitle>
-
-## ChatTextInput : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatTextInputProps](#chatinputprops)\>
-
-</subtitle>
-
-<br/>
-
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/ChatTextInput.png" darkImageSrc="api/ChatTextInput.png" />
-
-The ChatTextInput component displays the chat input box. Relies on [ChatUiControl app state](/customization-api/api-reference/app-state-library#chatuicontrolinterface) to determine required information.
-
-```jsx
-import { ChatTextInput } from "customization-api";
-```
-
-<br/>
-
-#### ChatTextInputProps
-
-| Prop    | Type                                                                   | Description                     |
-| ------- | ---------------------------------------------------------------------- | ------------------------------- |
-| render? | ([ChatTextInputRenderProps](#chattextinputrenderprops)) => JSX.Element | Render method for ChatTextInput |
-
-#### ChatTextInputRenderProps
-
-| Prop                        | Type                      |
-| --------------------------- | ------------------------- |
-| message                     | string                    |
-| onChangeText                | ( text: string ) => void, |
-| onSubmitEditing             | () => void,               |
-| chatMessageInputPlaceholder | string                    |
-
-</method>
-
-<!-- ***************************************************************************************************************** -->
-<method>
-
-<subtitle>
-
-## Chat : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatProps](#chatprops)\>
-
-</subtitle>
-
-<br/>
-
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/Chat.png" darkImageSrc="api/Chat.png" />
-
-The Chat component displays the chat sidepanel. Relies on [ChatUiControl app state](/customization-api/api-reference/app-state-library#chatuicontrolinterface) to determine required information.
-
-```jsx
-import { Chat } from "customization-api";
-```
-
-<br/>
-
-#### ChatProps
-
-| Prop            | Type                                                                                                                                                                                                 | Description                         |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| chatBubble?     | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatBubbleProps](#chatbubbleprops)\>         | ChatBubble component to be used     |
-| chatTextInput?  | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatTextInputProps](#chatinputprops)\>       | ChatTextInput component to be used  |
-| chatSendButton? | [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[ChatSendButtonProps](#chatsendbuttonprops)\> | ChatSendButton component to be used |
-
-</method>
-
-<!-- ***************************************************************************************************************** -->
-
-<method>
-
-<subtitle>
-
-## NavBar : [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78)<[NavBarProps](#navbarprops)\>
-
-</subtitle>
-
-<br/>
-
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/NavBar.png" darkImageSrc="api/NavBar.png" />
-
-The NavBar component displays the nav bar.
-
-```jsx
-import { NavBar } from "customization-api";
-```
-
-<br/>
-
-#### NavBarProps
-
-| Prop    | Type   | Description                 |
-| ------- | ------ | --------------------------- |
-| message | string | Content of the chat message |
-
-</method>
-
-<!-- ***************************************************************************************************************** -->
 <method>
 
 <subtitle>
@@ -546,7 +542,7 @@ import { NavBar } from "customization-api";
 
 <br/>
 
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/TextInput.png" darkImageSrc="api/TextInput.png" />
+<image caption="TextInput" darkImageSrc="customization-api/api/sub-components-library/textinput.png" />
 
 The TextInput component is used to render a text input box.
 
@@ -569,7 +565,7 @@ import { TextInput } from "customization-api";
 
 <br/>
 
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/PrimaryButton.png" darkImageSrc="api/PrimaryButton.png" />
+<image caption="PrimaryButton" darkImageSrc="customization-api/api/sub-components-library/PrimaryButton.png" />
 
 The PrimaryButton component is used to render a button with app builder primary button styling.
 
@@ -599,7 +595,7 @@ import { PrimaryButton } from "customization-api";
 
 <br/>
 
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/SecondaryButton.png" darkImageSrc="api/SecondaryButton.png" />
+<image caption="SecondaryButton" darkImageSrc="customization-api/api/sub-components-library/secondarybutton.png" />
 
 The SecondaryButton component is used to render a button with app builder primary button styling.
 
@@ -629,7 +625,7 @@ import { SecondaryButton } from "customization-api";
 
 <br/>
 
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/UiKitBtnTemplateInterface.png" darkImageSrc="api/UiKitBtnTemplateInterface.png" />
+<image className="center-img" caption="UiKitBtnTemplate" darkImageSrc="customization-api/api/sub-components-library/uikitbtntemplate.svg" />
 
 The UiKitBtnTemplate component renders a button in UiKit button structure.
 
@@ -649,11 +645,11 @@ import { UiKitBtnTemplate } from "customization-api";
 
 </subtitle>
 
+<image caption="UiKitMaxVideoView" darkImageSrc="customization-api/api/sub-components-library/uikitmaxvideoview.png" />
+
 <br/>
 
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/UiKitMaxVideoView.png" darkImageSrc="api/UiKitMaxVideoView.png" />
-
-The MaxVideoView component is used to render the user video feed along with overlay components like [NameWithMicIcon](#namewithmicicon), [NetworkQualityPill](#networkqualitypill) etc.
+The UiKitMaxVideoView component is used to render the user video feed along with a fallback component in case user video feed is disabled.
 
 ```jsx
 import { UiKitMaxVideoView } from "customization-api";
@@ -672,7 +668,7 @@ import { UiKitMaxVideoView } from "customization-api";
 
 <br/>
 
-<image alt="Video Call"  className="center-img" caption="chat bubble" lightImageSrc="api/UiKitImageIcon.png" darkImageSrc="api/UiKitImageIcon.png" />
+<image caption="UiKitImageIcon" darkImageSrc="customization-api/api/sub-components-library/uikitimageicon.png" />
 
 The UiKitImageIcon component is used to render a given icon within a wrapper component.
 
@@ -692,6 +688,8 @@ import { UiKitImageIcon } from "customization-api";
 
 <br/>
 
+<image caption="NavBarComponentsArray" darkImageSrc="customization-api/api/sub-components-library/navbararray.png" />
+
 The NavBarComponentsArray is an array of all buttons present on the default nav bar component.
 
 | Index | Name                   | Type                                                                | Description                             |
@@ -708,7 +706,7 @@ import { NavBarComponentsArray } from "customization-api";
 
 <br/>
 
-### _Control Components_:
+### _Navbar Components_:
 
 <collapsible>
 
@@ -800,6 +798,8 @@ import { NavBarComponentsArray } from "customization-api";
 </subtitle>
 
 <br/>
+
+<image caption="ControlsComponentArray" darkImageSrc="customization-api/api/sub-components-library/controlarray.png" />
 
 The ControlsComponentArray is an array of all meeting control button subcomponents listed below.
 
