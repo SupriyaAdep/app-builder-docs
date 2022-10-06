@@ -78,7 +78,7 @@ _Copy paste the appropriate redirect file into dist (which contains index.html
 1.  Navigate to the frontend directory `agora-app-builder/<PRODUCT_ID>/` in a terminal
 2.  Create an empty folder called `.electron` here
 3.  Run `npm windows` or `npm run mac` for development build
-4.  For Code Signing, refer to this guide: https://github.com/AgoraIO-Community/app-builder-docs/wiki/Code-Signing-guide
+4.  For Code Signing, refer to [this](/turn-key/guides/frontend/Code-Signing-guide) guide
 5.  Run `npm run windows:build` or `npm run mac:build` for production release (exe/dmg)
 6.  The binary will be located at `agora-app-builder/<PRODUCT_ID>/out`
 
@@ -90,7 +90,7 @@ _Copy paste the appropriate redirect file into dist (which contains index.html
 4.  Run `npm start` **–** This will start the development server
 5.  Open another terminal in the same folder
 6.  Run `npm run android` \- This will deploy the app on the Android device. (The app will connect to development server)
-7.  For Code Signing, refer to this guide: https://github.com/AgoraIO-Community/app-builder-docs/wiki/Code-Signing-guide
+7.  For Code Signing, refer to [this](/turn-key/guides/frontend/Code-Signing-guide) guide
 8.  To deploy,  go to the `<PRODUCT_ID>/android` folder and run `./gradlew build assembleRelease`
 
 **IOS**
@@ -110,7 +110,7 @@ _Copy paste the appropriate redirect file into dist (which contains index.html
     :::note
     Simulators won’t work since IOS simulator can’t access camera
     :::
-6.  For Code Signing, refer to this guide: https://github.com/AgoraIO-Community/app-builder-docs/wiki/Code-Signing-guide
+6.  For Code Signing, refer to [this](/turn-key/guides/frontend/Code-Signing-guide) guide
 
 **Troubleshooting:**
 

@@ -9,13 +9,6 @@ sidebar_custom_props: { icon: "settings" }
 
 # Setup Authentication on App Builder
 
-Table of Contents:
-
-1. [Google](#setup-authentication-with-google)
-2. [Microsoft](#setup-authentication-with-microsoft)
-3. [Slack](#setup-authentication-with-slack)
-4. [Apple](#setup-authentication-with-apple)
-
 ## Setup authentication with Google
 
 If you're using Google OAuth, here's what you'll need to do to get the credentials.

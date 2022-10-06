@@ -7,7 +7,7 @@ keywords: [windows, guide]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-# Windows guide (for desktop app)
+# Windows Guide (Desktop App)
 
 ## Development build
 

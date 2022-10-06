@@ -7,7 +7,7 @@ keywords: [mac, guide]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-# Mac guide (for desktop app)
+# Mac Guide (Desktop App)
 
 ## Development build
 

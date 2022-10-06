@@ -7,7 +7,7 @@ keywords: [linux, guide]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-# Linux guide (for desktop app)
+# Linux Guide (Desktop App)
 
 ## Development build
 

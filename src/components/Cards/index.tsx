@@ -5,16 +5,34 @@ import styles from "./styles.module.css";
 
 const cardList: ICardItem[] = [
   {
-    title: "Turn Key",
+    title: "Turnkey",
     icon: "turnkey",
-    description: <>Personalize your app with no code</>,
+    description: <>Personalize your app with no code.</>,
     ctas: [{ text: "Guide", href: "/turn-key/quickstart" }],
+    released: true,
+  },
+  {
+    title: "Customization APIs",
+    icon: "settings",
+    description: <>Fully customize any part of your application with code.</>,
+    ctas: [
+      { text: "Guide", href: "/customization-api/quickstart" },
+      {
+        text: "API Reference",
+        href: "/customization-api/api-reference/components-api",
+      },
+    ],
     released: true,
   },
   {
     title: "Embed SDKs",
     icon: "sdk",
-    description: <>Fully customize any part of your application with code.</>,
+    description: (
+      <>
+        Embed your customized experience in your existing web app with a couple
+        lines of code.
+      </>
+    ),
     ctas: [{ text: "Guide", href: "/sdks/guides/embed_web_sdk_react" }],
     released: true,
   },
@@ -25,25 +43,6 @@ const cardList: ICardItem[] = [
   //   ctas: [{ text: "Guide", href: "" }],
   //   released: false,
   // },
-  {
-    title: "Customization API",
-    icon: "settings",
-    description: (
-      <>
-        {" "}
-        Embed your customized experience in your existing web app with a couple
-        lines of code
-      </>
-    ),
-    ctas: [
-      { text: "Guide", href: "/customization-api/quickstart" },
-      {
-        text: "API Reference",
-        href: "/customization-api/api-reference/components-api",
-      },
-    ],
-    released: true,
-  },
 ];
 
 export default function CardContainer(): JSX.Element {
