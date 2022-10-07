@@ -565,7 +565,7 @@ import { TextInput } from "customization-api";
 
 <br/>
 
-<image caption="PrimaryButton" darkImageSrc="customization-api/api/sub-components-library/PrimaryButton.png" />
+<image caption="PrimaryButton" darkImageSrc="customization-api/api/sub-components-library/primarybutton.png" />
 
 The PrimaryButton component is used to render a button with app builder primary button styling.
 
