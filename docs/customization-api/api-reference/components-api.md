@@ -57,12 +57,12 @@ To make the customizations powerful, you can use the libraries to access the int
 
 You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
 
-Use the example code given below showcasing reconstruction of the default video call ui as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-24} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/video-call.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const VideoCallPage = () => {
   return (
@@ -88,13 +88,13 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderWidth: 1,
     maxHeight: 200,
     borderRadius: 30,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: 30,
   },
 });
@@ -111,6 +111,10 @@ const styles = StyleSheet.create({
 Result:
 
 <imageSlider alt="videocall component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/videocall-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/video-call.tsx)
+:::
 
 </collapsible>
 
@@ -123,13 +127,13 @@ Result:
 
 You can override specific parts of the VideoCall screen by pasing in this object with key and values corresponding to the part you want to override under the `videoCall` key to the `Components Api Object`
 
-| Key                                                 | Type                                                            | Description                                                                     |
-| --------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [bottomBar](#videocallbottombar) ?:                 | [BottomBarComponent](#bottombarcomponent)                       | Customize the Bottom Bar by passing in your own component                       |
-| [chat](#videocallchat) ?:                           | [ChatInterface](#chatinterface)                                 | Customize the entire chat panel or pass in an object to override a subcomponent |
-| [customContent](#videocallcustomcontent) ?:         | [RenderingComponentInterface](#renderingcomponentinterface)     | Add custom content to the layouts by passing in your own Render object          |
-| [customLayouts](#videocallcustomlayouts) ?:         | [CustomLayoutsOverrideFunction](#customlayoutsoverridefunction) | Customize the available layouts or pass in your own layout.                     |
-| [participantsPanel](#videocallparticipantspanel) ?: | [ParticipantPanelComponent](#participantspanelcomponent)        | Customize the Participants Panel by passing in your own component.              |
+| Key                                               | Type                                                            | Description                                                                     |
+| ------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [bottomBar](#videocallbottombar)?                 | [BottomBarComponent](#bottombarcomponent)                       | Customize the Bottom Bar by passing in your own component                       |
+| [chat](#videocallchat)?                           | [ChatInterface](#chatinterface)                                 | Customize the entire chat panel or pass in an object to override a subcomponent |
+| [customContent](#videocallcustomcontent)?         | [RenderingComponentInterface](#renderingcomponentinterface)     | Add custom content to the layouts by passing in your own Render object          |
+| [customLayouts](#videocallcustomlayouts)?         | [CustomLayoutsOverrideFunction](#customlayoutsoverridefunction) | Customize the available layouts or pass in your own layout.                     |
+| [participantsPanel](#videocallparticipantspanel)? | [ParticipantPanelComponent](#participantspanelcomponent)        | Customize the Participants Panel by passing in your own component.              |
 
 <br/>
 
@@ -163,12 +167,12 @@ You can override the BottomBar component by passing in a [React Component](https
 
 To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module.
 
-Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/bottom-bar.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const BottomBar = () => {
   return (
@@ -196,13 +200,13 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderWidth: 1,
     maxHeight: 200,
     borderRadius: 30,
@@ -210,16 +214,19 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: 30,
   },
 });
-
 ```
 
-Result: 
+Result:
 
 <imageSlider alt="bottombar component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/bottombar-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/bottom-bar.tsx)
+:::
 
 </collapsible>
 
@@ -252,12 +259,12 @@ You can override the TopBar component by passing in a [React Component](https://
 
 To reuse parts of default top bar ui you can import them from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module.
 
-Use the example code given below showcasing reconstruction of the default top bar ui as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/top-bar.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const TopBar = () => {
   return (
@@ -285,13 +292,13 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderWidth: 1,
     maxHeight: 200,
     borderRadius: 30,
@@ -299,15 +306,19 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: 30,
   },
 });
 ```
 
-Result: 
+Result:
 
 <imageSlider alt="topbar component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/topbar-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/top-bar.tsx)
+:::
 
 </collapsible>
 
@@ -334,11 +345,11 @@ The Chat component displays the ui to send and view the chat messages.
 
 You can override the specific parts chat ui by pasing in this object with key and values corresponding to the part you want to overrid under the `chat` key to the `VideoCallInterface`
 
-| Method                                             | Description                               |
-| -------------------------------------------------- | ----------------------------------------- |
-| [chat.chatBubble](#videocallchatchatbubble) ?:     | Customize the chat Bubble component.      |
-| [chat.chatTextInput](#videocallchatchatbubble) ?:  | Customize the chat input component.       |
-| [chat.chatSendButton](#videocallchatchatbubble) ?: | Customize the chat send button component. |
+| Method                                           | Description                               |
+| ------------------------------------------------ | ----------------------------------------- |
+| [chat.chatBubble](#videocallchatchatbubble)?     | Customize the chat Bubble component.      |
+| [chat.chatTextInput](#videocallchatchatbubble)?  | Customize the chat input component.       |
+| [chat.chatSendButton](#videocallchatchatbubble)? | Customize the chat send button component. |
 
 </collapsible>
 
@@ -387,9 +398,9 @@ You can override the ChatTextInput component component by passing in a [React Co
 Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
 
 ```tsx {9-19} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/chat-input.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
 const ChatInput = () => {
   return <View style={styles.container}></View>;
@@ -410,17 +421,21 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
     height: 40,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
 });
 ```
 
-Result: 
+Result:
 
 <imageSlider alt="chat input component override" darkImageSrc1="customization-api/api/components-api/chatinputbutton-before.png" darkImageSrc2="customization-api/api/components-api/chatinput-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/chat-input.tsx)
+:::
 
 </collapsible>
 </method>
@@ -458,9 +473,9 @@ You can override the ChatSendButton component by passing in a [React Component](
 Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
 
 ```tsx {9-19} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/chat-send-button.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
 const ChatSendButton = () => {
   return <View style={styles.container}></View>;
@@ -480,19 +495,23 @@ export default customization;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#90EE90',
+    backgroundColor: "#90EE90",
     marginLeft: 10,
     width: 30,
     height: 30,
-    alignSelf: 'center',
-    justifyContent: 'center',
+    alignSelf: "center",
+    justifyContent: "center",
   },
 });
 ```
 
-Result: 
+Result:
 
 <imageSlider alt="chat send button component override" darkImageSrc1="customization-api/api/components-api/chatinputbutton-before.png" darkImageSrc2="customization-api/api/components-api/chatbutton-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/chat-send-button.tsx)
+:::
 
 </collapsible>
 </method>
@@ -534,9 +553,9 @@ You can override the ChatBubble component by passing in a [React Component](http
 Use the code example given below showcasing overriding of the default chat bubble ui as a guide.
 
 ```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/chat-bubble.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const ChatBubble = () => {
   return (
@@ -566,13 +585,13 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderWidth: 1,
     maxHeight: 200,
     borderRadius: 30,
@@ -580,16 +599,19 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: 30,
   },
 });
 ```
 
-Result: 
+Result:
 
 <imageSlider alt="chat bubble component override" darkImageSrc1="customization-api/api/components-api/chatbubble-before.png" darkImageSrc2="customization-api/api/components-api/chatbubble-after.png" />
 
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/chat-bubble.tsx)
+:::
 
 </collapsible>
 </method>
@@ -621,12 +643,12 @@ You can override the entire participantsPanel component by pasing in a [React.Co
 
 You can import parts of default participantsPanel ui from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module to reuse them in your component.
 
-Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/participants-panel.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const ParticipantsPanel = () => {
   return (
@@ -654,16 +676,16 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
-    width: '20%',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
+    width: "20%",
     minWidth: 200,
     maxWidth: 300,
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderWidth: 1,
     maxHeight: 200,
     borderRadius: 30,
@@ -671,13 +693,13 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: 30,
   },
 });
 ```
 
-Result: 
+Result:
 
 <imageSlider alt="participanPanel component override" darkImageSrc1="customization-api/api/components-api/participant-before.png" darkImageSrc2="customization-api/api/components-api/participantpanel-after.png" />
 
@@ -710,19 +732,23 @@ The constomContent object specifies the react component to be used for rendering
 
 You can override the render component for each content type present in the [Render Context](/customization-api/api-reference/app-state-library#userendercontext) by passing in this object with key corresponding to the custom content type you want to override under the `customContent` key to the `VideoCallInterface`.
 
-| Key                   | Type                | Description                                                                                                 |
-| --------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------- |
-| rtc ?:                | React.ComponentType | Specifies the component to be used for rendering the default RTC video feed.                                |
-| [customKey:string] ?: | React.ComponentType | Component to be rendered corresponding to `type` property of custom content object added to render context. |
+| Key                 | Type                | Description                                                                                                 |
+| ------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------- |
+| rtc?                | React.ComponentType | Specifies the component to be used for rendering the default RTC video feed.                                |
+| [customKey:string]? | React.ComponentType | Component to be rendered corresponding to `type` property of custom content object added to render context. |
+
+:::tip
+You can add custom content by adding custom render objects to the render app state using the 'AddCustomContent' action in [dispatch](/customization-api/api-reference/types#dispatchtype)
+:::
 
 <br/>
 
 Use the example code given below showcasing overriding of the default render component for `rtc` content type as a guide.
 
 ```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/custom-content-basic.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const CustomVideoView = () => {
   return (
@@ -752,13 +778,13 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderWidth: 1,
     maxHeight: 200,
     borderRadius: 30,
@@ -766,26 +792,29 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: 30,
   },
 });
-
 ```
 
-Result: 
+Result:
 
 <imageSlider alt="custom content component override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/videocomponent-after.png" />
 
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/custom-content-basic.tsx)
+:::
+
 <br/>
 <br/>
 
-Use the example code given below showcasing overriding of the default render component for `rtc` content type as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-39} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/custom-content-advanced.tsx"
-import {customize, useRtc} from 'customization-api';
-import React, {useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { customize, useRtc } from "customization-api";
+import React, { useEffect } from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const CustomView = () => {
   return (
@@ -808,14 +837,14 @@ const customization = customize({
         customview: CustomView,
       },
       useUserContext: function useUserContext() {
-        const {dispatch} = useRtc();
+        const { dispatch } = useRtc();
         useEffect(() => {
           dispatch({
-            type: 'AddCustomContent',
+            type: "AddCustomContent",
             //value 0 = uid
             //value 1 = user data
             //type should match the customContent key otherwise it will fallback to default view
-            value: [new Date().getTime(), {name: 'user', type: 'customview'}],
+            value: [new Date().getTime(), { name: "user", type: "customview" }],
           });
         }, []);
       },
@@ -828,13 +857,13 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderWidth: 1,
     maxHeight: 200,
     borderRadius: 30,
@@ -842,14 +871,13 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: 30,
   },
 });
-
 ```
 
-Result: 
+Result:
 
 <imageSlider alt="custom content component override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/custom-content-after.png" />
 
@@ -891,23 +919,23 @@ This function recieves an array of default layouts and expects you to return an 
 
 #### LayoutObjectWithIcon
 
-| Key         | Type                                                                                                                                  | Description                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| name :      | string                                                                                                                                | Name of the layout                                                                    |
-| label :     | string                                                                                                                                | Label of the layout to be displayed in UI                                             |
-| icon :      | string                                                                                                                                | Can be a <br/> 1. Base 64 Image string <br/>2. CDN URL <br/>3. Bunder imported string |
-| component : | [LayoutComponent](/customization-api/api-reference/components-api#layoutcomponent-reactcomponent-renderstateinterfacerenderposition-) | Layout component to be used to render the video feeds                                 |
+| Key       | Type                                                                                                                                  | Description                                                                           |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| name      | string                                                                                                                                | Name of the layout                                                                    |
+| label     | string                                                                                                                                | Label of the layout to be displayed in UI                                             |
+| icon      | string                                                                                                                                | Can be a <br/> 1. Base 64 Image string <br/>2. CDN URL <br/>3. Bunder imported string |
+| component | [LayoutComponent](/customization-api/api-reference/components-api#layoutcomponent-reactcomponent-renderstateinterfacerenderposition-) | Layout component to be used to render the video feeds                                 |
 
 <br/>
 
 #### LayoutObjectWithIconName
 
-| Key         | Type                                                                                                                                  | Description                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| name :      | string                                                                                                                                | Name of the layout                                    |
-| label :     | string                                                                                                                                | Label of the layout to be displayed in UI             |
-| iconName :  | keyof [IconsInterface](/customization-api/api-reference/sub-component-library#iconsinterface)                                         | Name of the icon to be displayed in UI for the layout |
-| component : | [LayoutComponent](/customization-api/api-reference/components-api#layoutcomponent-reactcomponent-renderstateinterfacerenderposition-) | Layout component to be used to render the video feeds |
+| Key       | Type                                                                                                                                  | Description                                           |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| name      | string                                                                                                                                | Name of the layout                                    |
+| label     | string                                                                                                                                | Label of the layout to be displayed in UI             |
+| iconName  | keyof [IconsInterface](/customization-api/api-reference/sub-component-library#iconsinterface)                                         | Name of the icon to be displayed in UI for the layout |
+| component | [LayoutComponent](/customization-api/api-reference/components-api#layoutcomponent-reactcomponent-renderstateinterfacerenderposition-) | Layout component to be used to render the video feeds |
 
 <br/>
 
@@ -916,9 +944,9 @@ This function recieves an array of default layouts and expects you to return an 
 Use the example code given below showcasing appending a custom layout as a guide.
 
 ```tsx {18-32} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/custom-layout.tsx"
-import {customize} from 'customization-api';
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { customize } from "customization-api";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const CustomLayout = () => {
   return (
@@ -940,9 +968,9 @@ const customization = customize({
         ...defaultLayouts,
         {
           component: CustomLayout,
-          label: 'Custom Layout',
-          name: 'CustomLayout',
-          iconName: 'clipboard',
+          label: "Custom Layout",
+          name: "CustomLayout",
+          iconName: "clipboard",
         },
       ],
     },
@@ -954,13 +982,13 @@ export default customization;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
+    backgroundColor: "#90EE90",
+    justifyContent: "center",
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    justifyContent: "center",
+    alignSelf: "center",
     borderWidth: 1,
     maxHeight: 200,
     borderRadius: 30,
@@ -968,19 +996,50 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: 30,
   },
 });
-
 ```
 
-Result: 
+Result:
 
-<imageSlider alt="participanPanel component override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/layout-after.png" />
+<imageSlider alt="custom layout override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/layout-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/custom-layout.tsx)
+:::
 
 </collapsible>
 </method>
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## useUserContext: userContextHook
+
+</subtitle>
+
+The useUserContext is called as a hook right before rendering the VideoCall ui. It has access to all the app-states and can be used to perform any necessary action.
+
+:::tip
+Ideal place to call the 'AddCustomContent' action in [dispatch](/customization-api/api-reference/types#dispatchtype) to add [custom content](#videocallcustomcontent). Since the hook is executed before rendering any VideoCall ui.
+:::
+
+### _Overrides_:
+
+<method>
+<collapsible>
+
+### userContextHook: () => void
+
+</collapsible>
+</method>
+
 </method>
 
 </api>

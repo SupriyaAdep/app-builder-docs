@@ -282,7 +282,7 @@ import { PinnedLayout } from "customization-api";
 
 <br/>
 
-<image caption="Video Component" darkImageSrc="customization-api/api/sub-components-library/videocomponent.png" />
+<image caption="Video Component" darkImageSrc="customization-api/api/sub-components-library/videoComponent.png" />
 
 The VideoComponent is used to automatically render the user video feeds in the selected layout.
 
@@ -384,7 +384,7 @@ import { VideoCallScreen } from "customization-api";
 
 <br/>
 
-<image caption="Settings View" darkImageSrc="customization-api/api/sub-components-library/settingsview.png" />
+<image caption="Settings View" darkImageSrc="customization-api/api/sub-components-library/settingsView.png" />
 
 The SettingsView component is used to render the settings side panel.
 
@@ -565,7 +565,7 @@ import { TextInput } from "customization-api";
 
 <br/>
 
-<image caption="PrimaryButton" darkImageSrc="customization-api/api/sub-components-library/PrimaryButton.png" />
+<image caption="PrimaryButton" darkImageSrc="customization-api/api/sub-components-library/primarybutton.png" />
 
 The PrimaryButton component is used to render a button with app builder primary button styling.
 
