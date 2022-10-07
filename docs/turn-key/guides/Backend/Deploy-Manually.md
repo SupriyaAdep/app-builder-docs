@@ -7,7 +7,7 @@ keywords: [backend deploy]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-# Deploying manually
+# Deploy Manually
 
 Deploying your backend manually allows you to deploy the backend wherever you please, whether it is an EC2 instance on AWS or a DigitalOcean Droplet or even on your own hardware. There are 2 ways to deploy the backend manually:
 

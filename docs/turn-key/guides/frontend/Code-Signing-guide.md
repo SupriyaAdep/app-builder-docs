@@ -1,12 +1,12 @@
 ---
-sidebar_label: Code signing
+sidebar_label: Code Signing
 description: Develop with Android
 title: Code signing
 keywords: [distribute, ios, android]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-# Code signing
+# Code Signing
 
 Code signing is necessary to distribute your Android, IOS, MacOS and Windows apps. This could be a tedious process so we have tried to simplify the process by bringing all the resources in one place for ease of access.
 

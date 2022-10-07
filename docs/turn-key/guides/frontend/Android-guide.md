@@ -1,5 +1,5 @@
 ---
-sidebar_label: Android
+sidebar_label: Android Guide
 sidebar_position: 4
 description: Develop with Android
 title: Android Guide
@@ -7,7 +7,7 @@ keywords: [android, guide]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-# Android guide
+# Android Guide
 
 ## Development build
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: Web
+sidebar_label: Web Guide
 sidebar_position: 4
 description: Develop with Web
 title: Web Guide
@@ -7,7 +7,7 @@ keywords: [web, guide]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-# Web guide
+# Web Guide
 
 ## Development build
 

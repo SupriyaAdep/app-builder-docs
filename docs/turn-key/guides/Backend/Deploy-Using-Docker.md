@@ -1,5 +1,5 @@
 ---
-sidebar_label: Deploy Using Docker
+sidebar_label: Deploy using Docker
 sidebar_position: 5
 description: Deploy using docker
 title: Deploy using docker
@@ -7,15 +7,15 @@ keywords: [credentials, guide]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-# Deploy using docker
+# Deploy using Docker
 
-## Step 1 Make sure you have docker and docker compose installed
+## Step 1 - Make sure you have docker and docker compose installed
 
 https://docs.docker.com/get-docker/
 
 https://docs.docker.com/compose/install/
 
-## Step 2 Use the following docker-compose
+## Step 2 - Use the following docker-compose
 
 ```yaml
 version: "3.7"
@@ -57,7 +57,7 @@ services:
       - POSTGRES_DB
 ```
 
-## Step 3 Add the environment variables
+## Step 3 - Add the environment variables
 
 You will need a .env file to fill in the variables like so:
 
@@ -79,7 +79,7 @@ PSTN_PASSWORD=
 SCHEME=
 ```
 
-## Step 4 Spin up the containers
+## Step 4 - Spin up the containers
 
 After setting this up, you will need to run the following command:
 

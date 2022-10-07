@@ -1,5 +1,5 @@
 ---
-sidebar_label: iOS
+sidebar_label: iOS Guide
 sidebar_position: 3
 description: Develop with iOS
 title: iOS Guide
