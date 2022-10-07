@@ -57,7 +57,7 @@ To make the customizations powerful, you can use the libraries to access the int
 
 You can override the entire VideoCall screen by pasing in a [React.ComponentType](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/207516039691b23e567fa585c9d1aa3970ec3404/types/react/v16/index.d.ts#L78) under the `videoCall` key to the `Components Api Object`
 
-Use the example code given below showcasing reconstruction of the default video call ui as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-24} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/video-call.tsx"
 import { customize } from "customization-api";
@@ -112,6 +112,10 @@ Result:
 
 <imageSlider alt="videocall component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/videocall-after.png" />
 
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/video-call.tsx)
+:::
+
 </collapsible>
 
 <br/>
@@ -163,7 +167,7 @@ You can override the BottomBar component by passing in a [React Component](https
 
 To reuse parts of default bottom bar ui you can import them from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module.
 
-Use the example code given below showcasing reconstruction of the default bottom bar ui as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/bottom-bar.tsx"
 import { customize } from "customization-api";
@@ -220,6 +224,10 @@ Result:
 
 <imageSlider alt="bottombar component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/bottombar-after.png" />
 
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/bottom-bar.tsx)
+:::
+
 </collapsible>
 
 </method>
@@ -251,7 +259,7 @@ You can override the TopBar component by passing in a [React Component](https://
 
 To reuse parts of default top bar ui you can import them from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module.
 
-Use the example code given below showcasing reconstruction of the default top bar ui as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/top-bar.tsx"
 import { customize } from "customization-api";
@@ -307,6 +315,10 @@ const styles = StyleSheet.create({
 Result:
 
 <imageSlider alt="topbar component override" darkImageSrc1="customization-api/api/components-api/videocall-bar-before.png" darkImageSrc2="customization-api/api/components-api/topbar-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/top-bar.tsx)
+:::
 
 </collapsible>
 
@@ -421,6 +433,10 @@ Result:
 
 <imageSlider alt="chat input component override" darkImageSrc1="customization-api/api/components-api/chatinputbutton-before.png" darkImageSrc2="customization-api/api/components-api/chatinput-after.png" />
 
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/chat-input.tsx)
+:::
+
 </collapsible>
 </method>
 
@@ -492,6 +508,10 @@ const styles = StyleSheet.create({
 Result:
 
 <imageSlider alt="chat send button component override" darkImageSrc1="customization-api/api/components-api/chatinputbutton-before.png" darkImageSrc2="customization-api/api/components-api/chatbutton-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/chat-send-button.tsx)
+:::
 
 </collapsible>
 </method>
@@ -589,6 +609,10 @@ Result:
 
 <imageSlider alt="chat bubble component override" darkImageSrc1="customization-api/api/components-api/chatbubble-before.png" darkImageSrc2="customization-api/api/components-api/chatbubble-after.png" />
 
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/chat-bubble.tsx)
+:::
+
 </collapsible>
 </method>
 
@@ -619,7 +643,7 @@ You can override the entire participantsPanel component by pasing in a [React.Co
 
 You can import parts of default participantsPanel ui from the [SubComponents Library](/customization-api/api-reference/sub-component-library) accessible under the `customization-api` module to reuse them in your component.
 
-Use the example code given below showcasing reconstruction of the default participantsPanel ui as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-26} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/participants-panel.tsx"
 import { customize } from "customization-api";
@@ -713,6 +737,10 @@ You can override the render component for each content type present in the [Rend
 | rtc?                | React.ComponentType | Specifies the component to be used for rendering the default RTC video feed.                                |
 | [customKey:string]? | React.ComponentType | Component to be rendered corresponding to `type` property of custom content object added to render context. |
 
+:::tip
+You can add custom content by adding custom render objects to the render app state using the 'AddCustomContent' action in [dispatch](/customization-api/api-reference/types#dispatchtype)
+:::
+
 <br/>
 
 Use the example code given below showcasing overriding of the default render component for `rtc` content type as a guide.
@@ -774,10 +802,14 @@ Result:
 
 <imageSlider alt="custom content component override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/videocomponent-after.png" />
 
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/custom-content-basic.tsx)
+:::
+
 <br/>
 <br/>
 
-Use the example code given below showcasing overriding of the default render component for `rtc` content type as a guide.
+Use the example code given below showcasing a simple usecase of the api as a guide.
 
 ```tsx {18-39} gh="https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-api-example/apiexamples/customization/api/custom-content-advanced.tsx"
 import { customize, useRtc } from "customization-api";
@@ -972,10 +1004,42 @@ const styles = StyleSheet.create({
 
 Result:
 
-<imageSlider alt="participanPanel component override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/layout-after.png" />
+<imageSlider alt="custom layout override" darkImageSrc1="customization-api/api/components-api/videocomponent-before.png" darkImageSrc2="customization-api/api/components-api/layout-after.png" />
+
+:::info
+A more **advanced usage example** can be found [here](https://github.com/AgoraIO-Community/Appbuilder-FPE-Getting-Started/blob/main/customization-advanced-api-example/advancedapiexamples/customization/api/custom-layout.tsx)
+:::
 
 </collapsible>
 </method>
+</method>
+
+<!-- ***************************************************************************************************************** -->
+
+<method>
+
+<subtitle>
+
+## useUserContext: userContextHook
+
+</subtitle>
+
+The useUserContext is called as a hook right before rendering the VideoCall ui. It has access to all the app-states and can be used to perform any necessary action.
+
+:::tip
+Ideal place to call the 'AddCustomContent' action in [dispatch](/customization-api/api-reference/types#dispatchtype) to add [custom content](#videocallcustomcontent). Since the hook is executed before rendering any VideoCall ui.
+:::
+
+### _Overrides_:
+
+<method>
+<collapsible>
+
+### userContextHook: () => void
+
+</collapsible>
+</method>
+
 </method>
 
 </api>
