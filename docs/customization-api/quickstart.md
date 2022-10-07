@@ -7,7 +7,9 @@ keywords: [appBuilder, websdk]
 sidebar_custom_props: { icon: "settings" }
 ---
 
-The following guide describes how to quickly get started with Customization API to modify your App Builder application. As a showcase we will be exploring how to override the default ChatBubble component with our own component while retaining all of its functionality.
+The following guide describes how to quickly get started with Customization API to modify your App Builder application.
+
+As a showcase we will be exploring how to override the default ChatBubble component with our own component and adding a userbubble that displays the first character of the username alongside the chatbubble.
 
 ## INITIALIZING
 
@@ -31,7 +33,7 @@ npm i && npm run start
 
 Navigate using the arrow keys and select the `Initialize User customization` option using the enter key. After which the CLI will start the initialization.
 
-Once complete a boilerplate user-customization will be created inside `<path-to-app-builder-project-folder>/<project-name>/test-fpe/index.tsx`.
+Once complete a boilerplate user-customization will be created inside `<path-to-app-builder-project-folder>/<project-name>/customization/index.tsx`.
 
 <!-- RHS -->
 
@@ -54,7 +56,7 @@ Customization API is a set of APIs and Libraries that allow you to customize you
 
 #### STEP 1
 
-Open the `index.tsx` file present inside the newly created `test-fpe` folder.
+Open the `index.tsx` file present inside the newly created `customization` folder.
 
 <!-- RHS -->
 
@@ -68,14 +70,14 @@ Create a component you want to override the default Chat Bubble component with.
 
 <!-- RHS -->
 
-```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
+```tsx title='<path-to-app-builder-project-folder>/<project-name>/customization/components/MyChatBubbleComponent.tsx'
 import React from "react";
 
-const ChatBubbleComponent = (props) => {
+const ChatBubbleComp = (props) => {
   return <></>;
 };
 
-export default ChatBubbleComponent;
+export default ChatBubbleComp;
 ```
 
 <!-- LHS -->
@@ -86,11 +88,11 @@ When passed as an override the component will recieve props to display necessary
 
 <!-- RHS -->
 
-```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
+```tsx title='<path-to-app-builder-project-folder>/<project-name>/customization/components/MyChatBubbleComponent.tsx'
 import React from "react";
 
 const ChatBubbleComponent = (props) => {
-  let { isLocal, createdTimestamp, message, uid } = props;
+  const { uid, isLocal } = props;
 
   return <></>;
 };
@@ -106,15 +108,17 @@ Once we have the props, we can fetch any other information like in our case we r
 
 <!-- RHS -->
 
-```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
+```tsx title='<path-to-app-builder-project-folder>/<project-name>/customization/components/MyChatBubbleComponent.tsx'
 import React from "react";
-import { useUserList } from "customization-api";
+import { useRender } from "customization-api";
 
 const ChatBubbleComponent = (props) => {
-  const { renderList } = useUserList();
+  const { uid, isLocal } = props;
 
-  let { isLocal, createdTimestamp, message, uid } = props;
+  // Get data from render app-state
+  const { renderList } = useRender();
 
+  // Fetch username using uid
   const displayName = renderList[uid].name;
 
   return <></>;
@@ -127,119 +131,96 @@ export default ChatBubbleComponent;
 
 #### STEP 5
 
-Having all the needed information at hand we can define our UI.
+Since we only want to make a small modification to the UI we can reuse the default [ChatBubbleComponent](/customization-api/api-reference/sub-component-library#chatbubble) available to us along with various default components a part of the [SubComponentsLibrary](/customization-api/api-reference/sub-component-library). We pass all the recieved props as is to the imported component.
 
 <!-- RHS -->
 
-```tsx title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/MyChatBubbleComponent.tsx'
+```tsx title='<path-to-app-builder-project-folder>/<project-name>/customization/components/MyChatBubbleComponent.tsx'
+import { ChatBubble, useRender } from "customization-api";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { useUserList } from "customization-api";
 
 const ChatBubbleComponent = (props) => {
-  const { renderList } = useUserList();
+  const { uid, isLocal } = props;
 
-  let { isLocal, createdTimestamp, message, uid } = props;
+  // Get data from render app-state
+  const { renderList } = useRender();
 
-  let time =
-    new Date(parseInt(createdTimestamp)).getHours() +
-    ":" +
-    new Date(parseInt(createdTimestamp)).getMinutes();
+  // Fetch username using uid
+  const displayName = renderList[uid].name;
+
+  return <ChatBubble {...props} />;
+};
+
+export default ChatBubbleComponent;
+```
+
+<!-- LHS -->
+
+#### STEP 6
+
+Having all the needed information at hand we can start defining our UI. To fetch the colors defined by the AppBuilder theme in use we can import the [Config Library](/customization-api/api-reference/config-library). We can also conditionally style our component using the `isLocal` flag recieved as prop.
+
+<!-- RHS -->
+
+```tsx title='<path-to-app-builder-project-folder>/<project-name>/customization/components/MyChatBubbleComponent.tsx'
+import { ChatBubble, useRender, config } from "customization-api";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+
+const ChatBubbleComponent = (props) => {
+  const { uid, isLocal } = props;
+
+  // Get data from render app-state
+  const { renderList } = useRender();
+
+  // Fetch username using uid
+  const displayName = renderList[uid].name;
+
+  const { container, containerLocal, containerRemote, username, usernameLocal, usernameRemote } = styles;
 
   return (
-    <View>
-      <View
-        style={[
-          style.chatSenderViewCommon,
-          isLocal ? style.chatSenderViewLocal : style.chatSenderViewRemote,
-        ]}
-      >
+    <View style={[container, isLocal ? containerLocal : containerRemote]}>
+      <View style={[username, isLocal ? usernameLocal : usernameRemote]}>
         <Text
-          style={[
-            style.timestampTextCommon,
-            isLocal ? style.timestampTextLocal : style.timestampTextRemote,
-          ]}
+          style={{ fontWeight: "bold", color: isLocal ? "black" : "white" }}
         >
-          {renderList[uid] ? renderList[uid].name : "user"} | {time + " "}
+          {displayName.slice(0, 1)}
         </Text>
       </View>
-      <View
-        style={[
-          style.chatBubbleCommon,
-          isLocal ? style.chatBubbleLocal : style.chatBubbleRemote,
-        ]}
-      >
-        <Text
-          style={[
-            style.textCommon,
-            isLocal ? style.whiteText : style.blackText,
-          ]}
-          selectable={true}
-        >
-          {message}
-        </Text>
-      </View>
+      <ChatBubble {...props} />
     </View>
   );
 };
 
-const style = StyleSheet.create({
-  full: {
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
     flex: 1,
+    alignItems: "flex-end",
   },
-  chatSenderViewCommon: {
-    marginVertical: 2,
+  containerLocal: {
     flexDirection: "row-reverse",
   },
-  chatSenderViewRemote: {
-    marginRight: 30,
-    marginLeft: 15,
+  containerRemote: {
+    flexDirection: "row",
   },
-  chatSenderViewLocal: {
-    marginRight: 15,
-    justifyContent: "flex-end",
-  },
-  timestampTextCommon: {
-    color: $config.PRIMARY_FONT_COLOR + "60",
-    fontWeight: "500",
-    fontSize: 12,
-  },
-  timestampTextRemote: {
-    textAlign: "left",
-  },
-  timestampTextLocal: {
-    textAlign: "right",
-  },
-  chatBubbleCommon: {
-    borderRadius: 25,
-    maxWidth: "80%",
+  username: {
+    height: 32,
+    width: 32,
+    borderRadius: 16,
     display: "flex",
-    marginVertical: 5,
-    padding: 8,
-    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: "5px",
+    backgroundColor: config.PRIMARY_FONT_COLOR + "20",
   },
-  chatBubbleRemote: {
-    border: "5px solid gray",
-    backgroundColor: $config.PRIMARY_FONT_COLOR + "20",
-    alignSelf: "flex-start",
-    marginRight: 30,
-    marginLeft: 15,
+  usernameLocal: {
+    marginLeft: -10,
+    marginRight: 0,
   },
-  chatBubbleLocal: {
-    border: "5px solid aquamarine",
-    backgroundColor: $config.PRIMARY_COLOR,
-    alignSelf: "flex-end",
-    marginRight: 15,
-    marginLeft: 30,
-  },
-  textCommon: {
-    fontWeight: "500",
-  },
-  whiteText: {
-    color: $config.SECONDARY_FONT_COLOR,
-  },
-  blackText: {
-    color: $config.PRIMARY_FONT_COLOR,
+  usernameRemote: {
+    marginLeft: 5,
+    marginRight: -10,
   },
 });
 
@@ -250,11 +231,11 @@ export default ChatBubbleComponent;
 
 #### STEP 6
 
-Call the `customize` method and pass an object with the necessary keys. Since we want to override the Chat Bubble component our object should look like so based on the [Api Reference](/customization-api/api-reference/components-api).
+We call the `customize` method and pass an object with the necessary keys. Since we want to override the Chat Bubble component our object should look like so based on the [Api Reference](/customization-api/api-reference/components-api).
 
 <!-- RHS -->
 
-```tsx {5-13} title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/index.tsx'
+```tsx {5-13} title='<path-to-app-builder-project-folder>/<project-name>/customization/components/index.tsx'
 import { customize } from "customization-api";
 
 import MyChatBubbleComponent from "./components/MyChatBubbleComponent";
@@ -280,7 +261,7 @@ Finally we export our customization generated by the `customize` method to allow
 
 <!-- RHS -->
 
-```js {15} title='<path-to-app-builder-project-folder>/<project-name>/test-fpe/components/index.tsx'
+```js {15} title='<path-to-app-builder-project-folder>/<project-name>/customization/components/index.tsx'
 import { customize } from "customization-api";
 
 import MyChatBubbleComponent from "./components/MyChatBubbleComponent";
@@ -307,4 +288,4 @@ You should now see your customization applied to App Builder when you build your
 <!-- RHS -->
 
 <!-- ![Website with App Builder embedded](sdk/angular/5.png) -->
-<image alt="Build option" lightImageSrc="customization-api/guides/quickstart-3.png" darkImageSrc="customization-api/guides/quickstart-3.png" />
+<imageSlider alt="AppBuilder customization-api quickstart" darkImageSrc1="customization-api/guides/guide-before.png" darkImageSrc2="customization-api/guides/guide-after.png" />
