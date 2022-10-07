@@ -1,7 +1,7 @@
 {
   "index_name": "dev_APPBUILDER",
-  "start_urls": ["https://app-builder-docs-content.vercel.app/"],
-  "sitemap_urls": ["https://app-builder-docs-content.vercel.app/sitemap.xml"],
+  "start_urls": ["https://app-builder-docs-preprod.vercel.app/"],
+  "sitemap_urls": ["https://app-builder-docs-preprod.vercel.app/sitemap.xml"],
   "sitemap_alternate_links": true,
   "stop_urls": ["/tests"],
   "selectors": {
