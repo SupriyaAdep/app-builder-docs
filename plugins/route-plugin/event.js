@@ -10,7 +10,7 @@ export default (function () {
       // 100ms is to detect if  highlight code section is present
 
       window.setTimeout(() => {
-        const timer = document.querySelector('pre.code-scroll') ? 200 : 0;
+        const timer = document.querySelector('pre.code-scroll') ? 400 : 0;
         window.setTimeout(() => {
           // logic for page scroll
           if (location.pathname !== previousLocation?.pathname) {
