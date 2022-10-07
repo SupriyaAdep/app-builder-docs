@@ -158,12 +158,12 @@ export default ChatBubbleComponent;
 
 #### STEP 6
 
-Having all the needed information at hand we can start defining our UI. To fetch the colors defined by the AppBuilder theme in use we can import the [Config Library](/customization-api/api-reference/config-library). We can also conditionally style our component using the `isLocal` flag recieved as prop.
+Having all the needed information at hand we can start defining our UI. To fetch the colors defined by the AppBuilder theme in use we can import the [config Library](/customization-api/api-reference/config-library). We can also conditionally style our component using the `isLocal` flag recieved as prop.
 
 <!-- RHS -->
 
 ```tsx title='<path-to-app-builder-project-folder>/<project-name>/customization/components/MyChatBubbleComponent.tsx'
-import { ChatBubble, useRender, config } from "customization-api";
+import { ChatBubble, useRender, $config } from "customization-api";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "5px",
-    backgroundColor: config.PRIMARY_FONT_COLOR + "20",
+    backgroundColor: $config.PRIMARY_FONT_COLOR + "20",
   },
   usernameLocal: {
     marginLeft: -10,
