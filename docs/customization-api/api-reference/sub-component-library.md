@@ -935,6 +935,8 @@ import { ControlsComponentArray } from "customization-api";
 
 </subtitle>
 
+<image caption="SidePanelButtonArray" darkImageSrc="customization-api/api/sub-components-library/sidepanelarray.png" />
+
 <br/>
 
 The SidePanelButtonsArray is an array of all the side panel button subcomponents listed below.
@@ -957,7 +959,7 @@ import { SidePanelButtonsArray } from "customization-api";
 
 <br/>
 
-### _SidePanel Control Components_:
+### _SidePanel Button Components_:
 
 <collapsible>
 
